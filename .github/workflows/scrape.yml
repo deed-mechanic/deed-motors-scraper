@@ -66,11 +66,14 @@ jobs:
       - name: output確認
         run: ls -la output/
 
-      - name: コミット＆プッシュ
+     - name: コミット＆プッシュ
         run: |
           git config user.name "DEED MOTORS Bot"
           git config user.email "bot@deed-motors.mn"
+          git add -A
+          git stash
           git pull --rebase origin main
+          git stash pop
           git add -A
           git diff --staged --quiet || git commit -m "価格データ更新 $(date -u +'%Y-%m-%d %H:%M UTC')"
           git push
