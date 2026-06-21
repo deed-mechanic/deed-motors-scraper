@@ -1,10 +1,8 @@
 name: DEED MOTORS 価格自動更新
-
 on:
   schedule:
     - cron: '0 23 * * *'
   workflow_dispatch:
-
 jobs:
   scrape-and-build:
     runs-on: ubuntu-latest
@@ -13,67 +11,25 @@ jobs:
     steps:
       - name: チェックアウト
         uses: actions/checkout@v4
-
       - name: Python セットアップ
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-
       - name: ライブラリインストール
         run: pip install cloudscraper beautifulsoup4 lxml requests
-
       - name: スクレイピング実行
         run: python3 scripts/scraper.py
         continue-on-error: true
-
-      - name: outputフォルダ作成
-        run: mkdir -p output
-
-      - name: PRICE_DB確認
-        run: |
-          python3 - <<'EOF'
-          import re
-          with open('templates/deed_motors_PC_v3_template.html', encoding='utf-8') as f:
-              html = f.read()
-          pattern = re.compile(r"const PRICE_DB\s*=\s*\{.*?\};", re.DOTALL)
-          match = pattern.search(html)
-          print(f"PRICE_DB発見: {bool(match)}")
-          if match:
-              print(f"位置: {match.start()}-{match.end()}")
-          else:
-              idx = html.find("const PRICE_DB")
-              print(f"文字列位置: {idx}")
-          EOF
-
       - name: HTML生成（日本語版）
-        run: |
-          python3 scripts/build_html.py \
-            --template templates/deed_motors_PC_v3_template.html \
-            --db       scripts/price_db.json \
-            --fallback scripts/price_db_fallback.json \
-            --out      output/deed_motors_PC_latest.html
+        run: mkdir -p output && python3 scripts/build_html.py --template templates/deed_motors_PC_v3_template.html --db scripts/price_db.json --out output/deed_motors_PC_latest.html
         continue-on-error: true
-
       - name: HTML生成（バイリンガル版）
-        run: |
-          python3 scripts/build_html.py \
-            --template templates/deed_motors_PC_v3_BILINGUAL_template.html \
-            --db       scripts/price_db.json \
-            --fallback scripts/price_db_fallback.json \
-            --out      output/deed_motors_PC_BILINGUAL_latest.html
+        run: python3 scripts/build_html.py --template templates/deed_motors_PC_v3_BILINGUAL_template.html --db scripts/price_db.json --out output/deed_motors_PC_BILINGUAL_latest.html
         continue-on-error: true
-
-      - name: output確認
-        run: ls -la output/
-
-     - name: コミット＆プッシュ
+      - name: コミット＆プッシュ
         run: |
           git config user.name "DEED MOTORS Bot"
           git config user.email "bot@deed-motors.mn"
           git add -A
-          git stash
-          git pull --rebase origin main
-          git stash pop
-          git add -A
           git diff --staged --quiet || git commit -m "価格データ更新 $(date -u +'%Y-%m-%d %H:%M UTC')"
-          git push
+          git push --force-with-lease
