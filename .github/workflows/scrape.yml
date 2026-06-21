@@ -38,13 +38,15 @@ jobs:
 
       - name: HTML生成（日本語版）
         run: |
+          echo "=== build_html.py 実行開始 ==="
           python3 scripts/build_html.py \
             --template templates/deed_motors_PC_v3_template.html \
             --db       scripts/price_db.json \
             --fallback scripts/price_db_fallback.json \
             --out      output/deed_motors_PC_latest.html
-        continue-on-error: true
-
+          echo "=== 終了コード: $? ==="
+          ls -la output/
+    
       - name: HTML生成（バイリンガル版）
         run: |
           python3 scripts/build_html.py \
