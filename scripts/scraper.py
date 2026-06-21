@@ -18,74 +18,64 @@ BASE_URL = "https://www.unegui.mn"
 REQUEST_DELAY = 3.0
 MAX_PAGES = 3
 
-# cloudscraper でCloudflare回避
 scraper = cloudscraper.create_scraper(
     browser={"browser": "chrome", "platform": "windows", "mobile": False}
 )
 
+# 正しいURL構造: /avto-mashin/-avtomashin-zarna/メーカー/車種/
 TARGETS = [
-    {"key": "toyota|harrier", "search": "Harrier", "brand": "Toyota"},
-    {"key": "toyota|harrier-60", "search": "Harrier ACU MCU", "brand": "Toyota"},
-    {"key": "toyota|land-cruiser-200", "search": "Land Cruiser 200", "brand": "Toyota"},
-    {"key": "toyota|land-cruiser-100", "search": "Land Cruiser 100", "brand": "Toyota"},
-    {"key": "toyota|land-cruiser-prado-150", "search": "Prado 150", "brand": "Toyota"},
-    {"key": "toyota|alphard-30", "search": "Alphard", "brand": "Toyota"},
-    {"key": "toyota|vellfire-30", "search": "Vellfire", "brand": "Toyota"},
-    {"key": "toyota|prius-50", "search": "Prius 50", "brand": "Toyota"},
-    {"key": "toyota|prius-41", "search": "Prius 41", "brand": "Toyota"},
-    {"key": "toyota|aqua", "search": "Aqua", "brand": "Toyota"},
-    {"key": "toyota|rav4-50", "search": "RAV4", "brand": "Toyota"},
-    {"key": "toyota|camry-70", "search": "Camry", "brand": "Toyota"},
-    {"key": "toyota|corolla-axio", "search": "Corolla Axio", "brand": "Toyota"},
-    {"key": "toyota|hiace-200", "search": "Hiace", "brand": "Toyota"},
-    {"key": "toyota|highlander", "search": "Highlander", "brand": "Toyota"},
-    {"key": "toyota|fortuner", "search": "Fortuner", "brand": "Toyota"},
-    {"key": "toyota|hilux", "search": "Hilux", "brand": "Toyota"},
-    {"key": "nissan|x-trail-t32", "search": "X-Trail T32", "brand": "Nissan"},
-    {"key": "nissan|x-trail-t31", "search": "X-Trail T31", "brand": "Nissan"},
-    {"key": "nissan|patrol-y62", "search": "Patrol Y62", "brand": "Nissan"},
-    {"key": "nissan|patrol-y61", "search": "Patrol Y61", "brand": "Nissan"},
-    {"key": "nissan|elgrand-e52", "search": "Elgrand", "brand": "Nissan"},
-    {"key": "nissan|serena-c27", "search": "Serena", "brand": "Nissan"},
-    {"key": "mitsubishi|pajero-v80", "search": "Pajero V80", "brand": "Mitsubishi"},
-    {"key": "mitsubishi|pajero-v60", "search": "Pajero V60", "brand": "Mitsubishi"},
-    {"key": "mitsubishi|outlander-gf", "search": "Outlander", "brand": "Mitsubishi"},
-    {"key": "mitsubishi|delica-d5", "search": "Delica", "brand": "Mitsubishi"},
-    {"key": "honda|cr-v-5", "search": "CR-V", "brand": "Honda"},
-    {"key": "honda|odyssey", "search": "Odyssey", "brand": "Honda"},
-    {"key": "subaru|forester-sj", "search": "Forester", "brand": "Subaru"},
-    {"key": "subaru|outback-bs", "search": "Outback", "brand": "Subaru"},
-    {"key": "suzuki|jimny-jb64", "search": "Jimny JB64", "brand": "Suzuki"},
-    {"key": "suzuki|jimny-jb23", "search": "Jimny JB23", "brand": "Suzuki"},
-    {"key": "lexus|lx-570", "search": "LX570", "brand": "Lexus"},
-    {"key": "lexus|lx-470", "search": "LX470", "brand": "Lexus"},
-    {"key": "lexus|gx-460", "search": "GX460", "brand": "Lexus"},
-    {"key": "lexus|gx-470", "search": "GX470", "brand": "Lexus"},
-    {"key": "lexus|rx-al20", "search": "RX 200 300", "brand": "Lexus"},
-    {"key": "lexus|rx450h", "search": "RX450h", "brand": "Lexus"},
-    {"key": "lexus|nx-az10", "search": "NX", "brand": "Lexus"},
-    {"key": "lexus|es-axzh10", "search": "ES", "brand": "Lexus"},
-    {"key": "hyundai|santa-fe-tm", "search": "Santa Fe", "brand": "Hyundai"},
-    {"key": "hyundai|palisade", "search": "Palisade", "brand": "Hyundai"},
-    {"key": "kia|sorento-mq4", "search": "Sorento", "brand": "Kia"},
-    {"key": "kia|sportage-ql", "search": "Sportage", "brand": "Kia"},
-    {"key": "bmw|x5-f15", "search": "X5", "brand": "BMW"},
-    {"key": "bmw|x5-g05", "search": "X5 G05", "brand": "BMW"},
-    {"key": "mercedes-benz|g-class-w463", "search": "G-Class", "brand": "Mercedes"},
-    {"key": "mercedes-benz|gle-w166", "search": "GLE", "brand": "Mercedes"},
-    {"key": "mercedes-benz|gls-x166", "search": "GLS", "brand": "Mercedes"},
-    {"key": "land-rover|discovery-4", "search": "Discovery 4", "brand": "Land Rover"},
-    {"key": "land-rover|range-rover-l405", "search": "Range Rover", "brand": "Land Rover"},
-    {"key": "volkswagen|tiguan-ad1", "search": "Tiguan", "brand": "Volkswagen"},
-    {"key": "audi|q7-4m", "search": "Q7", "brand": "Audi"},
-    {"key": "audi|q5-fy", "search": "Q5", "brand": "Audi"},
-    {"key": "mazda|cx-5-kf", "search": "CX-5", "brand": "Mazda"},
+    {"key": "toyota|harrier",                "url": "toyota/harrier"},
+    {"key": "toyota|land-cruiser-200",       "url": "toyota/land-cruiser-200"},
+    {"key": "toyota|land-cruiser-100",       "url": "toyota/land-cruiser-100"},
+    {"key": "toyota|land-cruiser-prado-150", "url": "toyota/land-cruiser-prado"},
+    {"key": "toyota|alphard-30",             "url": "toyota/alphard"},
+    {"key": "toyota|vellfire-30",            "url": "toyota/vellfire"},
+    {"key": "toyota|prius-50",               "url": "toyota/prius-50"},
+    {"key": "toyota|prius-41",               "url": "toyota/prius-40"},
+    {"key": "toyota|aqua",                   "url": "toyota/aqua"},
+    {"key": "toyota|rav4-50",                "url": "toyota/rav4"},
+    {"key": "toyota|camry-70",               "url": "toyota/camry"},
+    {"key": "toyota|corolla-axio",           "url": "toyota/corolla-axio"},
+    {"key": "toyota|hiace-200",              "url": "toyota/hiace"},
+    {"key": "toyota|highlander",             "url": "toyota/highlander"},
+    {"key": "toyota|fortuner",               "url": "toyota/fortuner"},
+    {"key": "toyota|hilux",                  "url": "toyota/hilux"},
+    {"key": "nissan|x-trail-t32",            "url": "nissan/x-trail"},
+    {"key": "nissan|patrol-y62",             "url": "nissan/patrol"},
+    {"key": "nissan|elgrand-e52",            "url": "nissan/elgrand"},
+    {"key": "nissan|serena-c27",             "url": "nissan/serena"},
+    {"key": "mitsubishi|pajero-v80",         "url": "mitsubishi/pajero"},
+    {"key": "mitsubishi|outlander-gf",       "url": "mitsubishi/outlander"},
+    {"key": "mitsubishi|delica-d5",          "url": "mitsubishi/delica-d5"},
+    {"key": "honda|cr-v-5",                  "url": "honda/cr-v"},
+    {"key": "honda|odyssey",                 "url": "honda/odyssey"},
+    {"key": "subaru|forester-sj",            "url": "subaru/forester"},
+    {"key": "subaru|outback-bs",             "url": "subaru/outback"},
+    {"key": "suzuki|jimny-jb64",             "url": "suzuki/jimny"},
+    {"key": "lexus|lx-570",                  "url": "lexus/lx"},
+    {"key": "lexus|gx-460",                  "url": "lexus/gx"},
+    {"key": "lexus|rx-al20",                 "url": "lexus/rx"},
+    {"key": "lexus|rx450h",                  "url": "lexus/rx-450h"},
+    {"key": "lexus|nx-az10",                 "url": "lexus/nx"},
+    {"key": "lexus|es-axzh10",               "url": "lexus/es"},
+    {"key": "hyundai|santa-fe-tm",           "url": "hyundai/santa-fe"},
+    {"key": "hyundai|palisade",              "url": "hyundai/palisade"},
+    {"key": "kia|sorento-mq4",               "url": "kia/sorento"},
+    {"key": "kia|sportage-ql",               "url": "kia/sportage"},
+    {"key": "bmw|x5-f15",                    "url": "bmw/x5"},
+    {"key": "mercedes-benz|g-class-w463",    "url": "mercedes-benz/g-class"},
+    {"key": "mercedes-benz|gle-w166",        "url": "mercedes-benz/gle"},
+    {"key": "land-rover|discovery-4",        "url": "land-rover/discovery"},
+    {"key": "land-rover|range-rover-l405",   "url": "land-rover/range-rover"},
+    {"key": "volkswagen|tiguan-ad1",         "url": "volkswagen/tiguan"},
+    {"key": "audi|q7-4m",                    "url": "audi/q7"},
+    {"key": "audi|q5-fy",                    "url": "audi/q5"},
+    {"key": "mazda|cx-5-kf",                 "url": "mazda/cx-5"},
 ]
 
-def build_url(search, page=1):
-    import urllib.parse
-    kw = urllib.parse.quote(search)
-    return f"{BASE_URL}/avto-mashin/avto-zarna/?keyword={kw}&page={page}"
+def build_url(path_suffix, page=1):
+    base = f"{BASE_URL}/avto-mashin/-avtomashin-zarna/{path_suffix}/"
+    return base if page == 1 else f"{base}?page={page}"
 
 def parse_price(text):
     if not text: return None
@@ -99,19 +89,20 @@ def parse_price(text):
     return None
 
 def parse_year(text):
-    m = re.search(r"\b(19[89]\d|20[012]\d)\b", text)
+    # 「2018/2022」形式（生産年/輸入年）→ 最初の年が生産年
+    m = re.search(r"\b(19[89]\d|20[012]\d)(?:/20\d\d)?\b", text)
     return int(m.group(1)) if m else None
 
 def parse_drive(text):
     t = text.upper()
-    if any(w in t for w in ["4WD","AWD","4×4","4X4"]): return "4WD"
-    if any(w in t for w in ["2WD","FWD","FF","FR"]): return "2WD"
+    if any(w in t for w in ["4WD","AWD","ПОЛНЫЙ","4×4"]): return "4WD"
+    if any(w in t for w in ["2WD","FWD","FF","FR","ПЕРЕДНИЙ"]): return "2WD"
     return "4WD"
 
 def parse_color(text):
     cm = {"цагаан":"白","white":"白","хар":"黒","black":"黒","мөнгө":"銀",
-          "silver":"銀","серебр":"銀","улаан":"赤","red":"赤","саарал":"グレー",
-          "gray":"グレー","grey":"グレー","хөх":"青","blue":"青","ногоон":"緑","шар":"黄"}
+          "silver":"銀","улаан":"赤","red":"赤","саарал":"グレー",
+          "gray":"グレー","хөх":"青","blue":"青","ногоон":"緑","шар":"黄"}
     t = text.lower()
     for k,v in cm.items():
         if k in t: return v
@@ -121,9 +112,12 @@ def fetch(url, retries=3):
     for i in range(retries):
         try:
             resp = scraper.get(url, timeout=30)
-            log.info(f"  HTTP {resp.status_code} ({len(resp.text)} chars)")
+            log.info(f"  HTTP {resp.status_code} ({len(resp.text)} chars): {url}")
             if resp.status_code == 200:
                 return resp.text
+            elif resp.status_code == 404:
+                log.warning(f"  404 — URLが存在しません")
+                return None
             log.warning(f"  ステータス {resp.status_code}")
         except Exception as e:
             log.warning(f"  取得失敗({i+1}/{retries}): {e}")
@@ -131,42 +125,58 @@ def fetch(url, retries=3):
     return None
 
 def parse_card(card):
+    # 価格
     price_text = ""
-    for sel in [".price-announcement",".announcement-pricing","[class*='price']",".cost"]:
+    for sel in [".price-announcement",".announcement-pricing",
+                "[class*='price']",".cost","[class*='cost']"]:
         el = card.select_one(sel)
         if el: price_text = el.get_text(" ", strip=True); break
+    if not price_text:
+        # テキスト全体から「сая ₮」を探す
+        price_text = card.get_text(" ")
     price = parse_price(price_text)
     if not price or price < 1.0 or price > 500.0: return None
-    title = ""
-    for sel in ["h2","h3",".announcement-block__title","[class*='title']","a[href*='avto']"]:
-        el = card.select_one(sel)
-        if el: title = el.get_text(" ", strip=True); break
+
     full = card.get_text(" ")
-    year = parse_year(title) or parse_year(full)
+
+    # 年（「2018/2022」形式）
+    m = re.search(r"\b(19[89]\d|20[012]\d)(?:/20\d\d)?\b", full)
+    year = int(m.group(1)) if m else None
     if not year: return None
+
     drive = parse_drive(full)
+
     mileage = "不明"
-    m = re.search(r"([\d,]+)\s*(?:км|km)", full, re.IGNORECASE)
-    if m: mileage = f"{int(m.group(1).replace(',','')):,} km"
-    return {"year":year,"drive":drive,"mileage":mileage,"color":parse_color(full),
-            "import_year":datetime.now().year,"price":round(price,1)}
+    m2 = re.search(r"([\d,]+)\s*(?:км|km)", full, re.IGNORECASE)
+    if m2: mileage = f"{int(m2.group(1).replace(',','')):,} km"
+
+    return {"year":year,"drive":drive,"mileage":mileage,
+            "color":parse_color(full),
+            "import_year":datetime.now().year,
+            "price":round(price,1)}
 
 def parse_page(html):
     soup = BeautifulSoup(html, "lxml")
     results = []
-    # 複数セレクタを試す
     cards = []
-    for sel in ["li.announcement-container","div.announcement-block",
-                "div[class*='list-announcement']","article.announcement",
-                "div[class*='announcement']","li[class*='announcement']"]:
+    for sel in ["li.announcement-container",
+                "div.announcement-block",
+                "div[class*='announcement']",
+                "li[class*='announcement']",
+                "article[class*='announcement']"]:
         cards = soup.select(sel)
         if cards:
             log.info(f"  セレクタ '{sel}' → {len(cards)}件")
             break
     if not cards:
-        # ページ内容をログに記録
-        log.warning(f"  カード未検出。タイトル: {soup.title.string if soup.title else 'なし'}")
-        log.warning(f"  HTML先頭300文字: {html[:300]}")
+        log.warning(f"  カード未検出 — タイトル: {soup.title.string if soup.title else 'なし'}")
+        # デバッグ用：主要クラス名を出力
+        from collections import Counter
+        cls_counter = Counter()
+        for el in soup.find_all(True):
+            for c in el.get("class",[]):
+                cls_counter[c] += 1
+        log.info(f"  主要クラス: {cls_counter.most_common(10)}")
         return results
     for card in cards:
         try:
@@ -190,24 +200,22 @@ def has_next(html, page):
     return False
 
 def scrape_one(target):
-    key, search = target["key"], target["search"]
-    log.info(f"\n▶ [{key}] '{search}'")
+    key = target["key"]
+    path = target["url"]
+    log.info(f"\n▶ [{key}]")
     results, seen = [], set()
     for page in range(1, MAX_PAGES+1):
-        url = build_url(search, page)
-        log.info(f"  p{page}: {url}")
+        url = build_url(path, page)
         html = fetch(url)
-        if not html:
-            log.warning("  取得失敗")
-            break
+        if not html: break
         items = parse_page(html)
-        log.info(f"  パース: {len(items)}件")
+        log.info(f"  p{page}: {len(items)}件パース")
         for item in items:
             sig = (item["year"],item["drive"],item["price"])
             if sig not in seen: seen.add(sig); results.append(item)
         if not has_next(html, page): break
         time.sleep(REQUEST_DELAY)
-    log.info(f"  ✓ {len(results)}件")
+    log.info(f"  [{key}] 計{len(results)}件")
     return results
 
 def save(db, path="scripts/price_db.json"):
@@ -221,13 +229,12 @@ def save(db, path="scripts/price_db.json"):
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--test", action="store_true", help="Harrier 1車種のみ")
+    parser.add_argument("--test", action="store_true")
     parser.add_argument("--output", default="scripts/price_db.json")
     args = parser.parse_args()
-
     targets = [t for t in TARGETS if t["key"]=="toyota|harrier"] if args.test else TARGETS
     db = {}
-    for i, t in enumerate(targets, 1):
+    for i,t in enumerate(targets,1):
         log.info(f"[{i}/{len(targets)}]")
         try:
             r = scrape_one(t)
@@ -236,7 +243,6 @@ def main():
             log.error(f"エラー: {e}")
         if i < len(targets): time.sleep(REQUEST_DELAY*2)
     save(db, args.output)
-    log.info(f"\n完了: {sum(len(v) for v in db.values())}件")
 
 if __name__ == "__main__":
     main()
