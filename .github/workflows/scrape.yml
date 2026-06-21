@@ -26,6 +26,16 @@ jobs:
         run: python3 scripts/scraper.py
         continue-on-error: true
 
+      - name: outputフォルダ作成
+        run: mkdir -p output
+
+      - name: テンプレート確認
+        run: |
+          echo "=== テンプレート一覧 ==="
+          ls -la templates/
+          echo "=== DB確認 ==="
+          python3 -c "import json; d=json.load(open('scripts/price_db.json')); print(f'車種数: {d[\"total_models\"]} / 件数: {d[\"total_records\"]}')"
+
       - name: HTML生成（日本語版）
         run: |
           python3 scripts/build_html.py \
@@ -43,6 +53,11 @@ jobs:
             --fallback scripts/price_db_fallback.json \
             --out      output/deed_motors_PC_BILINGUAL_latest.html
         continue-on-error: true
+
+      - name: output確認
+        run: |
+          echo "=== output フォルダ ==="
+          ls -la output/ || echo "output フォルダが空です"
 
       - name: コミット＆プッシュ
         run: |
