@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-21 20:36",
+  "updated_at": "2026-06-21 22:06",
   "source": "unegui.mn",
   "total_records": 38,
   "total_models": 38,
@@ -19,7 +19,7 @@
         "year": 2017,
         "drive": "4WD",
         "mileage": "150,000 km",
-        "color": "黄",
+        "color": "不明",
         "import_year": 2026,
         "price": 145.0
       }
@@ -29,7 +29,7 @@
         "year": 2003,
         "drive": "4WD",
         "mileage": "230,000 km",
-        "color": "不明",
+        "color": "黄",
         "import_year": 2026,
         "price": 58.0
       }
@@ -39,7 +39,7 @@
         "year": 2004,
         "drive": "4WD",
         "mileage": "180,000 km",
-        "color": "黄",
+        "color": "不明",
         "import_year": 2026,
         "price": 22.0
       }
@@ -99,7 +99,7 @@
         "year": 2020,
         "drive": "4WD",
         "mileage": "121,000 km",
-        "color": "不明",
+        "color": "黄",
         "import_year": 2026,
         "price": 49.0
       }
@@ -249,7 +249,7 @@
         "year": 2024,
         "drive": "4WD",
         "mileage": "19,000 km",
-        "color": "黄",
+        "color": "不明",
         "import_year": 2026,
         "price": 288.0
       }
@@ -279,7 +279,7 @@
         "year": 2014,
         "drive": "4WD",
         "mileage": "128,000 km",
-        "color": "黄",
+        "color": "不明",
         "import_year": 2026,
         "price": 35.0
       }
@@ -329,7 +329,7 @@
         "year": 2022,
         "drive": "4WD",
         "mileage": "34,000 km",
-        "color": "黄",
+        "color": "不明",
         "import_year": 2026,
         "price": 450.0
       }
@@ -339,7 +339,7 @@
         "year": 2015,
         "drive": "4WD",
         "mileage": "85,000 km",
-        "color": "黄",
+        "color": "不明",
         "import_year": 2026,
         "price": 47.0
       }
@@ -349,7 +349,7 @@
         "year": 2018,
         "drive": "4WD",
         "mileage": "46,000 km",
-        "color": "黄",
+        "color": "不明",
         "import_year": 2026,
         "price": 110.0
       }
@@ -359,7 +359,7 @@
         "year": 2015,
         "drive": "4WD",
         "mileage": "160,000 km",
-        "color": "不明",
+        "color": "黄",
         "import_year": 2026,
         "price": 36.0
       }
