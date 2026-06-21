@@ -21,10 +21,10 @@ jobs:
         run: python3 scripts/scraper.py
         continue-on-error: true
       - name: HTML生成（日本語版）
-        run: mkdir -p output && python3 scripts/build_html.py --template templates/deed_motors_PC_v3_template.html --db scripts/price_db.json --out output/deed_motors_PC_latest.html
+        run: python3 scripts/build_html.py --template templates/deed_motors_PC_v3_template.html --db scripts/price_db.json --out index.html
         continue-on-error: true
       - name: HTML生成（バイリンガル版）
-        run: python3 scripts/build_html.py --template templates/deed_motors_PC_v3_BILINGUAL_template.html --db scripts/price_db.json --out output/deed_motors_PC_BILINGUAL_latest.html
+        run: python3 scripts/build_html.py --template templates/deed_motors_PC_v3_BILINGUAL_template.html --db scripts/price_db.json --out bilingual.html
         continue-on-error: true
       - name: コミット＆プッシュ
         run: |
