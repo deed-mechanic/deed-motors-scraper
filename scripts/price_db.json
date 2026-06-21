@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-21 15:50",
+  "updated_at": "2026-06-21 20:36",
   "source": "unegui.mn",
   "total_records": 38,
   "total_models": 38,
@@ -19,7 +19,7 @@
         "year": 2017,
         "drive": "4WD",
         "mileage": "150,000 km",
-        "color": "不明",
+        "color": "黄",
         "import_year": 2026,
         "price": 145.0
       }
@@ -29,7 +29,7 @@
         "year": 2003,
         "drive": "4WD",
         "mileage": "230,000 km",
-        "color": "黄",
+        "color": "不明",
         "import_year": 2026,
         "price": 58.0
       }
@@ -39,19 +39,19 @@
         "year": 2004,
         "drive": "4WD",
         "mileage": "180,000 km",
-        "color": "不明",
+        "color": "黄",
         "import_year": 2026,
         "price": 22.0
       }
     ],
     "toyota|vellfire-30": [
       {
-        "year": 2012,
+        "year": 2016,
         "drive": "4WD",
-        "mileage": "170,000 km",
+        "mileage": "176,000 km",
         "color": "黄",
         "import_year": 2026,
-        "price": 35.0
+        "price": 66.0
       }
     ],
     "toyota|prius-41": [
@@ -239,7 +239,7 @@
         "year": 2022,
         "drive": "4WD",
         "mileage": "80,000 km",
-        "color": "不明",
+        "color": "黄",
         "import_year": 2026,
         "price": 55.0
       }
@@ -249,7 +249,7 @@
         "year": 2024,
         "drive": "4WD",
         "mileage": "19,000 km",
-        "color": "不明",
+        "color": "黄",
         "import_year": 2026,
         "price": 288.0
       }
@@ -279,7 +279,7 @@
         "year": 2014,
         "drive": "4WD",
         "mileage": "128,000 km",
-        "color": "不明",
+        "color": "黄",
         "import_year": 2026,
         "price": 35.0
       }
@@ -319,7 +319,7 @@
         "year": 2005,
         "drive": "4WD",
         "mileage": "191,584 km",
-        "color": "黄",
+        "color": "不明",
         "import_year": 2026,
         "price": 14.0
       }
@@ -329,7 +329,7 @@
         "year": 2022,
         "drive": "4WD",
         "mileage": "34,000 km",
-        "color": "不明",
+        "color": "黄",
         "import_year": 2026,
         "price": 450.0
       }
@@ -349,7 +349,7 @@
         "year": 2018,
         "drive": "4WD",
         "mileage": "46,000 km",
-        "color": "不明",
+        "color": "黄",
         "import_year": 2026,
         "price": 110.0
       }
