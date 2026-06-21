@@ -20,7 +20,7 @@ jobs:
           python-version: '3.11'
 
       - name: ライブラリインストール
-        run: pip install requests beautifulsoup4 lxml
+        run: pip install cloudscraper beautifulsoup4 lxml requests
 
       - name: スクレイピング実行
         run: python3 scripts/scraper.py
