@@ -36,15 +36,31 @@ jobs:
           echo "=== DB確認 ==="
           python3 -c "import json; d=json.load(open('scripts/price_db.json')); print(f'車種数: {d[\"total_models\"]} / 件数: {d[\"total_records\"]}')"
 
-      - name: HTML生成（日本語版）
+- name: HTML生成（日本語版）
         run: |
-          echo "=== build_html.py 実行開始 ==="
+          echo "=== PRICE_DB検索 ==="
+          grep -n "const PRICE_DB" templates/deed_motors_PC_v3_template.html | head -3
+          echo "=== Pythonデバッグ ==="
+          python3 - << 'EOF'
+          import re
+          with open('templates/deed_motors_PC_v3_template.html', encoding='utf-8') as f:
+              html = f.read()
+          pattern = re.compile(r"const PRICE_DB\s*=\s*\{.*?\};", re.DOTALL)
+          match = pattern.search(html)
+          print(f"PRICE_DB発見: {bool(match)}")
+          if match:
+              print(f"位置: {match.start()}〜{match.end()}")
+          else:
+              idx = html.find("const PRICE_DB")
+              print(f"文字列検索: {idx}")
+              if idx >= 0:
+                  print(f"前後: {repr(html[idx:idx+50])}")
+          EOF
+          echo "=== build_html.py実行 ==="
           python3 scripts/build_html.py \
             --template templates/deed_motors_PC_v3_template.html \
             --db       scripts/price_db.json \
-            --fallback scripts/price_db_fallback.json \
             --out      output/deed_motors_PC_latest.html
-          echo "=== 終了コード: $? ==="
           ls -la output/
     
       - name: HTML生成（バイリンガル版）
