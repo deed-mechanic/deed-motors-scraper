@@ -1,15 +1,7 @@
 {
-  "updated_at": "2025-06-21 07:00",
-  "source": "static_fallback",
-  "total_records": 5,
-  "total_models": 1,
-  "data": {
-    "toyota|harrier": [
-      {"year":2018,"drive":"4WD","mileage":"86,000 km","color":"赤","import_year":2021,"price":38.0},
-      {"year":2019,"drive":"4WD","mileage":"72,000 km","color":"白","import_year":2022,"price":43.0},
-      {"year":2020,"drive":"4WD","mileage":"58,000 km","color":"白","import_year":2022,"price":48.0},
-      {"year":2021,"drive":"4WD","mileage":"43,000 km","color":"白","import_year":2023,"price":54.0},
-      {"year":2022,"drive":"4WD","mileage":"28,000 km","color":"白","import_year":2024,"price":60.0}
-    ]
-  }
+  "updated_at": "2026-06-21 10:17",
+  "source": "unegui.mn",
+  "total_records": 0,
+  "total_models": 0,
+  "data": {}
 }
