@@ -1,18 +1,27 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-import requests
-from bs4 import BeautifulSoup
 import json, time, re, sys, argparse, logging
 from datetime import datetime
+
+try:
+    import cloudscraper
+    from bs4 import BeautifulSoup
+except ImportError:
+    print("pip install cloudscraper beautifulsoup4 lxml")
+    sys.exit(1)
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s",
     handlers=[logging.StreamHandler(sys.stdout)])
 log = logging.getLogger(__name__)
 
 BASE_URL = "https://www.unegui.mn"
-HEADERS = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/120.0.0.0 Safari/537.36", "Accept-Language": "mn,en;q=0.9"}
-REQUEST_DELAY = 2.5
-MAX_PAGES = 5
+REQUEST_DELAY = 3.0
+MAX_PAGES = 3
+
+# cloudscraper でCloudflare回避
+scraper = cloudscraper.create_scraper(
+    browser={"browser": "chrome", "platform": "windows", "mobile": False}
+)
 
 TARGETS = [
     {"key": "toyota|harrier", "search": "Harrier", "brand": "Toyota"},
@@ -73,19 +82,20 @@ TARGETS = [
     {"key": "mazda|cx-5-kf", "search": "CX-5", "brand": "Mazda"},
 ]
 
-def build_search_url(search_word, page=1):
-    keyword = requests.utils.quote(search_word)
-    return f"{BASE_URL}/avto-mashin/avto-zarna/?keyword={keyword}&page={page}"
+def build_url(search, page=1):
+    import urllib.parse
+    kw = urllib.parse.quote(search)
+    return f"{BASE_URL}/avto-mashin/avto-zarna/?keyword={kw}&page={page}"
 
-def parse_price_text(text):
+def parse_price(text):
     if not text: return None
-    text = text.strip().replace("\xa0", " ").replace(",", "")
+    text = text.strip().replace("\xa0"," ").replace(",","")
     m = re.search(r"([\d\.]+)\s*сая", text, re.IGNORECASE)
     if m: return round(float(m.group(1)), 1)
     m = re.search(r"([\d\.]+)\s*тэрбум", text, re.IGNORECASE)
-    if m: return round(float(m.group(1)) * 1000, 1)
+    if m: return round(float(m.group(1))*1000, 1)
     m = re.search(r"(\d{6,})", text)
-    if m: return round(int(m.group(1)) / 1_000_000, 1)
+    if m: return round(int(m.group(1))/1_000_000, 1)
     return None
 
 def parse_year(text):
@@ -96,27 +106,28 @@ def parse_drive(text):
     t = text.upper()
     if any(w in t for w in ["4WD","AWD","4×4","4X4"]): return "4WD"
     if any(w in t for w in ["2WD","FWD","FF","FR"]): return "2WD"
-    return None
+    return "4WD"
 
 def parse_color(text):
-    cmap = {"цагаан":"白","white":"白","хар":"黒","black":"黒","мөнгө":"銀",
-            "silver":"銀","серебр":"銀","улаан":"赤","red":"赤","саарал":"グレー",
-            "gray":"グレー","grey":"グレー","хөх":"青","blue":"青","ногоон":"緑","шар":"黄"}
+    cm = {"цагаан":"白","white":"白","хар":"黒","black":"黒","мөнгө":"銀",
+          "silver":"銀","серебр":"銀","улаан":"赤","red":"赤","саарал":"グレー",
+          "gray":"グレー","grey":"グレー","хөх":"青","blue":"青","ногоон":"緑","шар":"黄"}
     t = text.lower()
-    for k, v in cmap.items():
+    for k,v in cm.items():
         if k in t: return v
     return "不明"
 
-def fetch_page(url, retries=3):
-    for attempt in range(retries):
+def fetch(url, retries=3):
+    for i in range(retries):
         try:
-            resp = requests.get(url, headers=HEADERS, timeout=20)
-            resp.raise_for_status()
-            resp.encoding = "utf-8"
-            return resp.text
-        except requests.RequestException as e:
-            log.warning(f"取得失敗({attempt+1}/{retries}): {e}")
-            if attempt < retries - 1: time.sleep(REQUEST_DELAY * (attempt+1))
+            resp = scraper.get(url, timeout=30)
+            log.info(f"  HTTP {resp.status_code} ({len(resp.text)} chars)")
+            if resp.status_code == 200:
+                return resp.text
+            log.warning(f"  ステータス {resp.status_code}")
+        except Exception as e:
+            log.warning(f"  取得失敗({i+1}/{retries}): {e}")
+        if i < retries-1: time.sleep(REQUEST_DELAY*(i+1))
     return None
 
 def parse_card(card):
@@ -124,33 +135,108 @@ def parse_card(card):
     for sel in [".price-announcement",".announcement-pricing","[class*='price']",".cost"]:
         el = card.select_one(sel)
         if el: price_text = el.get_text(" ", strip=True); break
-    price = parse_price_text(price_text)
+    price = parse_price(price_text)
     if not price or price < 1.0 or price > 500.0: return None
     title = ""
-    for sel in ["h2","h3",".announcement-block__title","[class*='title']"]:
+    for sel in ["h2","h3",".announcement-block__title","[class*='title']","a[href*='avto']"]:
         el = card.select_one(sel)
         if el: title = el.get_text(" ", strip=True); break
-    full_text = card.get_text(" ")
-    year = parse_year(title) or parse_year(full_text)
+    full = card.get_text(" ")
+    year = parse_year(title) or parse_year(full)
     if not year: return None
-    drive = parse_drive(full_text) or "4WD"
+    drive = parse_drive(full)
     mileage = "不明"
-    m = re.search(r"([\d,]+)\s*(?:км|km)", full_text, re.IGNORECASE)
+    m = re.search(r"([\d,]+)\s*(?:км|km)", full, re.IGNORECASE)
     if m: mileage = f"{int(m.group(1).replace(',','')):,} km"
-    return {"year":year,"drive":drive,"mileage":mileage,"color":parse_color(full_text),
+    return {"year":year,"drive":drive,"mileage":mileage,"color":parse_color(full),
             "import_year":datetime.now().year,"price":round(price,1)}
 
-def parse_listing_page(html):
+def parse_page(html):
     soup = BeautifulSoup(html, "lxml")
     results = []
+    # 複数セレクタを試す
     cards = []
     for sel in ["li.announcement-container","div.announcement-block",
-                "div[class*='list-announcement']","article.announcement"]:
+                "div[class*='list-announcement']","article.announcement",
+                "div[class*='announcement']","li[class*='announcement']"]:
         cards = soup.select(sel)
-        if cards: log.info(f"  セレクタ: '{sel}' → {len(cards)}件"); break
-    if not cards: log.warning("  カード見つからず"); return results
+        if cards:
+            log.info(f"  セレクタ '{sel}' → {len(cards)}件")
+            break
+    if not cards:
+        # ページ内容をログに記録
+        log.warning(f"  カード未検出。タイトル: {soup.title.string if soup.title else 'なし'}")
+        log.warning(f"  HTML先頭300文字: {html[:300]}")
+        return results
     for card in cards:
         try:
             item = parse_card(card)
             if item: results.append(item)
-        except Exception as e: log.debug(f"
+        except Exception as e:
+            log.debug(f"  カードエラー: {e}")
+    return results
+
+def has_next(html, page):
+    soup = BeautifulSoup(html, "lxml")
+    for sel in [".pagination","[class*='pagination']","nav.pager","[class*='pager']"]:
+        pager = soup.select_one(sel)
+        if pager:
+            for a in pager.find_all("a"):
+                t = a.get_text(strip=True)
+                try:
+                    if int(t) > page: return True
+                except ValueError:
+                    if any(w in t.lower() for w in ["дараа","next",">"]): return True
+    return False
+
+def scrape_one(target):
+    key, search = target["key"], target["search"]
+    log.info(f"\n▶ [{key}] '{search}'")
+    results, seen = [], set()
+    for page in range(1, MAX_PAGES+1):
+        url = build_url(search, page)
+        log.info(f"  p{page}: {url}")
+        html = fetch(url)
+        if not html:
+            log.warning("  取得失敗")
+            break
+        items = parse_page(html)
+        log.info(f"  パース: {len(items)}件")
+        for item in items:
+            sig = (item["year"],item["drive"],item["price"])
+            if sig not in seen: seen.add(sig); results.append(item)
+        if not has_next(html, page): break
+        time.sleep(REQUEST_DELAY)
+    log.info(f"  ✓ {len(results)}件")
+    return results
+
+def save(db, path="scripts/price_db.json"):
+    out = {"updated_at": datetime.now().strftime("%Y-%m-%d %H:%M"),
+           "source": "unegui.mn",
+           "total_records": sum(len(v) for v in db.values()),
+           "total_models": len(db), "data": db}
+    with open(path, "w", encoding="utf-8") as f:
+        json.dump(out, f, ensure_ascii=False, indent=2)
+    log.info(f"保存: {path} ({out['total_records']}件)")
+
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--test", action="store_true", help="Harrier 1車種のみ")
+    parser.add_argument("--output", default="scripts/price_db.json")
+    args = parser.parse_args()
+
+    targets = [t for t in TARGETS if t["key"]=="toyota|harrier"] if args.test else TARGETS
+    db = {}
+    for i, t in enumerate(targets, 1):
+        log.info(f"[{i}/{len(targets)}]")
+        try:
+            r = scrape_one(t)
+            if r: db[t["key"]] = r
+        except Exception as e:
+            log.error(f"エラー: {e}")
+        if i < len(targets): time.sleep(REQUEST_DELAY*2)
+    save(db, args.output)
+    log.info(f"\n完了: {sum(len(v) for v in db.values())}件")
+
+if __name__ == "__main__":
+    main()
