@@ -1,17 +1,17 @@
 {
-  "updated_at": "2026-06-21 11:29",
+  "updated_at": "2026-06-21 14:14",
   "source": "unegui.mn",
   "total_records": 38,
   "total_models": 38,
   "data": {
     "toyota|harrier": [
       {
-        "year": 2017,
+        "year": 2020,
         "drive": "4WD",
         "mileage": "95,000 km",
         "color": "赤",
         "import_year": 2026,
-        "price": 36.0
+        "price": 89.0
       }
     ],
     "toyota|land-cruiser-200": [
@@ -28,20 +28,20 @@
       {
         "year": 2003,
         "drive": "4WD",
-        "mileage": "198,000 km",
+        "mileage": "230,000 km",
         "color": "黄",
         "import_year": 2026,
-        "price": 65.0
+        "price": 58.0
       }
     ],
     "toyota|alphard-30": [
       {
-        "year": 2017,
+        "year": 2004,
         "drive": "4WD",
-        "mileage": "144,644 km",
+        "mileage": "180,000 km",
         "color": "不明",
         "import_year": 2026,
-        "price": 58.5
+        "price": 22.0
       }
     ],
     "toyota|vellfire-30": [
@@ -56,12 +56,12 @@
     ],
     "toyota|prius-41": [
       {
-        "year": 2012,
+        "year": 2013,
         "drive": "4WD",
-        "mileage": "222,222 km",
+        "mileage": "190,000 km",
         "color": "赤",
         "import_year": 2026,
-        "price": 22.5
+        "price": 24.8
       }
     ],
     "toyota|aqua": [
@@ -76,12 +76,12 @@
     ],
     "toyota|rav4-50": [
       {
-        "year": 2020,
+        "year": 2021,
         "drive": "4WD",
-        "mileage": "77,000 km",
+        "mileage": "72,000 km",
         "color": "赤",
         "import_year": 2026,
-        "price": 79.0
+        "price": 92.0
       }
     ],
     "toyota|camry-70": [
@@ -186,12 +186,12 @@
     ],
     "mitsubishi|outlander-gf": [
       {
-        "year": 2013,
+        "year": 2023,
         "drive": "4WD",
-        "mileage": "152,000 km",
+        "mileage": "14,000 km",
         "color": "不明",
         "import_year": 2026,
-        "price": 25.0
+        "price": 68.0
       }
     ],
     "honda|cr-v-5": [
@@ -346,12 +346,12 @@
     ],
     "land-rover|range-rover-l405": [
       {
-        "year": 2013,
+        "year": 2018,
         "drive": "4WD",
-        "mileage": "90,000 km",
+        "mileage": "46,000 km",
         "color": "不明",
         "import_year": 2026,
-        "price": 90.0
+        "price": 110.0
       }
     ],
     "volkswagen|tiguan-ad1": [
