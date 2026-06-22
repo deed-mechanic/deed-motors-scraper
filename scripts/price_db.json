@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-22 02:00",
+  "updated_at": "2026-06-22 02:53",
   "source": "unegui.mn",
   "total_records": 38,
   "total_models": 38,
@@ -11,17 +11,17 @@
         "mileage": "170,000 km",
         "color": "赤",
         "import_year": 2026,
-        "price": 50.0
+        "price": 53.0
       }
     ],
     "toyota|land-cruiser-200": [
       {
-        "year": 2020,
+        "year": 2018,
         "drive": "4WD",
-        "mileage": "120,000 km",
+        "mileage": "151,000 km",
         "color": "不明",
         "import_year": 2026,
-        "price": 158.0
+        "price": 145.0
       }
     ],
     "toyota|land-cruiser-100": [
@@ -36,22 +36,22 @@
     ],
     "toyota|alphard-30": [
       {
-        "year": 2013,
+        "year": 2019,
         "drive": "4WD",
-        "mileage": "183,000 km",
+        "mileage": "100,000 km",
         "color": "不明",
         "import_year": 2026,
-        "price": 41.0
+        "price": 79.5
       }
     ],
     "toyota|vellfire-30": [
       {
-        "year": 2014,
+        "year": 2008,
         "drive": "4WD",
-        "mileage": "190,000 km",
+        "mileage": "220 km",
         "color": "黄",
         "import_year": 2026,
-        "price": 39.0
+        "price": 17.7
       }
     ],
     "toyota|prius-41": [
@@ -89,7 +89,7 @@
         "year": 2016,
         "drive": "4WD",
         "mileage": "232,000 km",
-        "color": "黄",
+        "color": "不明",
         "import_year": 2026,
         "price": 36.0
       }
@@ -99,19 +99,19 @@
         "year": 2020,
         "drive": "4WD",
         "mileage": "121,000 km",
-        "color": "黄",
+        "color": "不明",
         "import_year": 2026,
         "price": 49.0
       }
     ],
     "toyota|highlander": [
       {
-        "year": 2016,
+        "year": 2008,
         "drive": "4WD",
-        "mileage": "130,000 km",
+        "mileage": "161,000 km",
         "color": "不明",
         "import_year": 2026,
-        "price": 75.0
+        "price": 49.0
       }
     ],
     "toyota|fortuner": [
@@ -249,7 +249,7 @@
         "year": 2024,
         "drive": "4WD",
         "mileage": "19,000 km",
-        "color": "不明",
+        "color": "黄",
         "import_year": 2026,
         "price": 288.0
       }
@@ -259,7 +259,7 @@
         "year": 2017,
         "drive": "4WD",
         "mileage": "200 km",
-        "color": "黄",
+        "color": "不明",
         "import_year": 2026,
         "price": 81.0
       }
@@ -319,7 +319,7 @@
         "year": 2005,
         "drive": "4WD",
         "mileage": "191,584 km",
-        "color": "不明",
+        "color": "黄",
         "import_year": 2026,
         "price": 14.0
       }
@@ -339,19 +339,19 @@
         "year": 2017,
         "drive": "4WD",
         "mileage": "90,230 km",
-        "color": "不明",
+        "color": "黄",
         "import_year": 2026,
         "price": 50.0
       }
     ],
     "land-rover|range-rover-l405": [
       {
-        "year": 2018,
+        "year": 2014,
         "drive": "4WD",
-        "mileage": "46,000 km",
-        "color": "黄",
+        "mileage": "92,000 km",
+        "color": "不明",
         "import_year": 2026,
-        "price": 110.0
+        "price": 80.0
       }
     ],
     "volkswagen|tiguan-ad1": [
