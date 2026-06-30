@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-29 14:42",
+  "updated_at": "2026-06-30 10:50",
   "source": "unegui.mn",
   "total_records": 38,
   "total_models": 38,
@@ -8,57 +8,57 @@
       {
         "year": 2020,
         "drive": "4WD",
-        "mileage": "100,000 km",
+        "mileage": "95,000 km",
         "color": "赤",
         "import_year": 2026,
-        "price": 78.5
+        "price": 95.0
       }
     ],
     "toyota|land-cruiser-200": [
       {
-        "year": 2019,
+        "year": 2018,
         "drive": "4WD",
-        "mileage": "12,600 km",
-        "color": "黄",
+        "mileage": "160 km",
+        "color": "不明",
         "import_year": 2026,
-        "price": 175.0
+        "price": 155.0
       }
     ],
     "toyota|land-cruiser-100": [
       {
-        "year": 2001,
+        "year": 2005,
         "drive": "4WD",
-        "mileage": "243,000 km",
+        "mileage": "240,000 km",
         "color": "不明",
         "import_year": 2026,
-        "price": 26.5
+        "price": 43.0
       }
     ],
     "toyota|alphard-30": [
       {
-        "year": 2019,
+        "year": 2013,
         "drive": "4WD",
-        "mileage": "129,000 km",
-        "color": "不明",
+        "mileage": "160,000 km",
+        "color": "黄",
         "import_year": 2026,
-        "price": 88.0
+        "price": 41.5
       }
     ],
     "toyota|vellfire-30": [
       {
-        "year": 2008,
+        "year": 2009,
         "drive": "4WD",
-        "mileage": "220 km",
+        "mileage": "1,555,500 km",
         "color": "不明",
         "import_year": 2026,
-        "price": 17.7
+        "price": 27.0
       }
     ],
     "toyota|prius-41": [
       {
-        "year": 2013,
+        "year": 2012,
         "drive": "4WD",
-        "mileage": "200,000 km",
+        "mileage": "200 km",
         "color": "赤",
         "import_year": 2026,
         "price": 25.8
@@ -68,37 +68,37 @@
       {
         "year": 2013,
         "drive": "4WD",
-        "mileage": "221,357 km",
-        "color": "不明",
+        "mileage": "173,140 km",
+        "color": "黄",
         "import_year": 2026,
-        "price": 9.5
+        "price": 10.0
       }
     ],
     "toyota|rav4-50": [
       {
-        "year": 2007,
+        "year": 2020,
         "drive": "4WD",
-        "mileage": "215,000 km",
-        "color": "黄",
+        "mileage": "128,000 km",
+        "color": "不明",
         "import_year": 2026,
-        "price": 14.5
+        "price": 73.0
       }
     ],
     "toyota|camry-70": [
       {
-        "year": 2019,
+        "year": 2012,
         "drive": "4WD",
-        "mileage": "131,000 km",
+        "mileage": "134,000 km",
         "color": "黄",
         "import_year": 2026,
-        "price": 48.0
+        "price": 29.0
       }
     ],
     "toyota|hiace-200": [
       {
-        "year": 2014,
+        "year": 2019,
         "drive": "4WD",
-        "mileage": "208,000 km",
+        "mileage": "226,000 km",
         "color": "黄",
         "import_year": 2026,
         "price": 65.0
@@ -116,12 +116,12 @@
     ],
     "toyota|fortuner": [
       {
-        "year": 2022,
+        "year": 2012,
         "drive": "4WD",
-        "mileage": "10,000 km",
+        "mileage": "64,000 km",
         "color": "不明",
         "import_year": 2026,
-        "price": 110.0
+        "price": 56.0
       }
     ],
     "toyota|hilux": [
@@ -138,7 +138,7 @@
       {
         "year": 2011,
         "drive": "4WD",
-        "mileage": "155,300 km",
+        "mileage": "127,700 km",
         "color": "黄",
         "import_year": 2026,
         "price": 18.0
@@ -166,12 +166,12 @@
     ],
     "nissan|serena-c27": [
       {
-        "year": 2013,
+        "year": 2015,
         "drive": "4WD",
-        "mileage": "28,000 km",
+        "mileage": "160,000 km",
         "color": "不明",
         "import_year": 2026,
-        "price": 12.0
+        "price": 22.0
       }
     ],
     "mitsubishi|pajero-v80": [
@@ -179,7 +179,7 @@
         "year": 2004,
         "drive": "4WD",
         "mileage": "190,000 km",
-        "color": "黄",
+        "color": "不明",
         "import_year": 2026,
         "price": 2.5
       }
@@ -188,20 +188,20 @@
       {
         "year": 2017,
         "drive": "4WD",
-        "mileage": "200,000 km",
+        "mileage": "107,200 km",
         "color": "不明",
         "import_year": 2026,
-        "price": 37.9
+        "price": 38.9
       }
     ],
     "honda|cr-v-5": [
       {
-        "year": 2011,
+        "year": 2002,
         "drive": "4WD",
-        "mileage": "108,000 km",
+        "mileage": "1,800 km",
         "color": "不明",
         "import_year": 2026,
-        "price": 9.0
+        "price": 3.0
       }
     ],
     "honda|odyssey": [
@@ -216,12 +216,12 @@
     ],
     "subaru|forester-sj": [
       {
-        "year": 2013,
+        "year": 2016,
         "drive": "4WD",
-        "mileage": "176,000,000 km",
-        "color": "黄",
+        "mileage": "77,000 km",
+        "color": "不明",
         "import_year": 2026,
-        "price": 24.0
+        "price": 28.0
       }
     ],
     "subaru|outback-bs": [
@@ -229,7 +229,7 @@
         "year": 2007,
         "drive": "4WD",
         "mileage": "188,000 km",
-        "color": "黄",
+        "color": "不明",
         "import_year": 2026,
         "price": 10.0
       }
@@ -239,7 +239,7 @@
         "year": 2022,
         "drive": "4WD",
         "mileage": "22,000 km",
-        "color": "不明",
+        "color": "黄",
         "import_year": 2026,
         "price": 60.0
       }
@@ -249,29 +249,29 @@
         "year": 2013,
         "drive": "4WD",
         "mileage": "182,000 km",
-        "color": "黄",
+        "color": "不明",
         "import_year": 2026,
         "price": 75.0
       }
     ],
     "lexus|rx-al20": [
       {
-        "year": 2009,
+        "year": 2005,
         "drive": "4WD",
-        "mileage": "171,452 km",
+        "mileage": "190,000 km",
         "color": "不明",
         "import_year": 2026,
-        "price": 37.5
+        "price": 33.0
       }
     ],
     "lexus|nx-az10": [
       {
-        "year": 2024,
+        "year": 2017,
         "drive": "4WD",
-        "mileage": "6,400 km",
+        "mileage": "260,000 km",
         "color": "黄",
         "import_year": 2026,
-        "price": 120.0
+        "price": 54.0
       }
     ],
     "lexus|es-axzh10": [
@@ -288,10 +288,10 @@
       {
         "year": 2010,
         "drive": "4WD",
-        "mileage": "150,000 km",
+        "mileage": "184,000 km",
         "color": "不明",
         "import_year": 2026,
-        "price": 16.9
+        "price": 13.0
       }
     ],
     "kia|sorento-mq4": [
@@ -316,22 +316,22 @@
     ],
     "bmw|x5-f15": [
       {
-        "year": 2021,
+        "year": 2009,
         "drive": "4WD",
-        "mileage": "167,000 km",
-        "color": "黄",
+        "mileage": "100 km",
+        "color": "不明",
         "import_year": 2026,
-        "price": 185.0
+        "price": 30.0
       }
     ],
     "mercedes-benz|g-class-w463": [
       {
-        "year": 2022,
+        "year": 2019,
         "drive": "4WD",
-        "mileage": "40,000 km",
-        "color": "不明",
+        "mileage": "60,000 km",
+        "color": "黄",
         "import_year": 2026,
-        "price": 395.0
+        "price": 370.0
       }
     ],
     "land-rover|discovery-4": [
@@ -346,12 +346,12 @@
     ],
     "land-rover|range-rover-l405": [
       {
-        "year": 2020,
+        "year": 2012,
         "drive": "4WD",
-        "mileage": "1 km",
-        "color": "黄",
+        "mileage": "130,000 km",
+        "color": "不明",
         "import_year": 2026,
-        "price": 168.0
+        "price": 59.0
       }
     ],
     "volkswagen|tiguan-ad1": [
@@ -359,7 +359,7 @@
         "year": 2015,
         "drive": "4WD",
         "mileage": "90,670 km",
-        "color": "黄",
+        "color": "不明",
         "import_year": 2026,
         "price": 30.0
       }
@@ -378,10 +378,10 @@
       {
         "year": 2016,
         "drive": "4WD",
-        "mileage": "120,000 km",
+        "mileage": "350,000 km",
         "color": "黄",
         "import_year": 2026,
-        "price": 51.0
+        "price": 27.0
       }
     ]
   }
