@@ -1,27 +1,27 @@
 {
-  "updated_at": "2026-07-02 10:22",
+  "updated_at": "2026-07-03 02:38",
   "source": "unegui.mn",
   "total_records": 38,
   "total_models": 38,
   "data": {
     "toyota|harrier": [
       {
-        "year": 2006,
+        "year": 2017,
         "drive": "4WD",
-        "mileage": "140,000 km",
+        "mileage": "82,000 km",
         "color": "赤",
         "import_year": 2026,
-        "price": 23.0
+        "price": 71.0
       }
     ],
     "toyota|land-cruiser-200": [
       {
-        "year": 2012,
+        "year": 2017,
         "drive": "4WD",
-        "mileage": "150,000 km",
-        "color": "黄",
+        "mileage": "116,000 km",
+        "color": "不明",
         "import_year": 2026,
-        "price": 95.0
+        "price": 155.0
       }
     ],
     "toyota|land-cruiser-100": [
@@ -48,20 +48,20 @@
       {
         "year": 2017,
         "drive": "4WD",
-        "mileage": "114,000 km",
+        "mileage": "210,000 km",
         "color": "黄",
         "import_year": 2026,
-        "price": 64.0
+        "price": 53.8
       }
     ],
     "toyota|prius-41": [
       {
         "year": 2013,
         "drive": "4WD",
-        "mileage": "75,000 km",
-        "color": "黄",
+        "mileage": "200,000 km",
+        "color": "不明",
         "import_year": 2026,
-        "price": 29.5
+        "price": 25.8
       }
     ],
     "toyota|aqua": [
@@ -76,22 +76,22 @@
     ],
     "toyota|rav4-50": [
       {
-        "year": 2025,
+        "year": 2020,
         "drive": "4WD",
-        "mileage": "12,000 km",
-        "color": "黄",
+        "mileage": "153,000 km",
+        "color": "不明",
         "import_year": 2026,
-        "price": 80.0
+        "price": 68.0
       }
     ],
     "toyota|camry-70": [
       {
-        "year": 2018,
+        "year": 2013,
         "drive": "4WD",
-        "mileage": "121,000 km",
-        "color": "不明",
+        "mileage": "137 km",
+        "color": "黄",
         "import_year": 2026,
-        "price": 54.9
+        "price": 30.8
       }
     ],
     "toyota|hiace-200": [
@@ -136,22 +136,22 @@
     ],
     "nissan|x-trail-t32": [
       {
-        "year": 2016,
+        "year": 2019,
         "drive": "4WD",
-        "mileage": "200,000 km",
+        "mileage": "170 km",
         "color": "黄",
         "import_year": 2026,
-        "price": 30.0
+        "price": 39.8
       }
     ],
     "nissan|patrol-y62": [
       {
-        "year": 2023,
+        "year": 2012,
         "drive": "4WD",
-        "mileage": "36,000 km",
+        "mileage": "170 km",
         "color": "赤",
         "import_year": 2026,
-        "price": 160.0
+        "price": 65.0
       }
     ],
     "nissan|elgrand-e52": [
@@ -179,7 +179,7 @@
         "year": 2004,
         "drive": "4WD",
         "mileage": "45 km",
-        "color": "不明",
+        "color": "黄",
         "import_year": 2026,
         "price": 12.5
       }
@@ -189,7 +189,7 @@
         "year": 2014,
         "drive": "4WD",
         "mileage": "158,000 km",
-        "color": "黄",
+        "color": "不明",
         "import_year": 2026,
         "price": 26.9
       }
@@ -216,12 +216,12 @@
     ],
     "subaru|forester-sj": [
       {
-        "year": 2015,
+        "year": 2014,
         "drive": "4WD",
-        "mileage": "1,200 km",
-        "color": "不明",
+        "mileage": "180,000 km",
+        "color": "黄",
         "import_year": 2026,
-        "price": 32.0
+        "price": 24.0
       }
     ],
     "subaru|outback-bs": [
@@ -229,7 +229,7 @@
         "year": 2014,
         "drive": "4WD",
         "mileage": "1,600,000 km",
-        "color": "黄",
+        "color": "不明",
         "import_year": 2026,
         "price": 16.5
       }
@@ -266,12 +266,12 @@
     ],
     "lexus|nx-az10": [
       {
-        "year": 2018,
+        "year": 2017,
         "drive": "4WD",
-        "mileage": "110,000 km",
-        "color": "黄",
+        "mileage": "95,844 km",
+        "color": "赤",
         "import_year": 2026,
-        "price": 79.5
+        "price": 67.0
       }
     ],
     "lexus|es-axzh10": [
@@ -328,10 +328,10 @@
       {
         "year": 2019,
         "drive": "4WD",
-        "mileage": "60,000 km",
+        "mileage": "65,000 km",
         "color": "黄",
         "import_year": 2026,
-        "price": 390.0
+        "price": 365.0
       }
     ],
     "land-rover|discovery-4": [
@@ -366,12 +366,12 @@
     ],
     "audi|q7-4m": [
       {
-        "year": 2017,
+        "year": 2007,
         "drive": "4WD",
-        "mileage": "200,000 km",
+        "mileage": "140,000 km",
         "color": "不明",
         "import_year": 2026,
-        "price": 75.0
+        "price": 25.0
       }
     ],
     "audi|q5-fy": [
