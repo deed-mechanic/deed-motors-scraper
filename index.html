@@ -420,16 +420,16 @@ input[type=number]::placeholder {
         </div>
       </div>
 
-      <!-- LEDヘッドランプ：TZ-Gは標準 / TXはグレード次第 -->
+      <!-- LEDヘッドランプ -->
       <div class="radio-row">
         <div class="radio-row-label">ヘッドランプ / Толгойн гэрэл
-          <span class="sel-sub">TZ-G＝標準装備 / TXグレード以下はMOP（公式カタログ確認済み）</span>
+          <span class="sel-sub">上位グレード＝標準装備 / 下位グレードへのMOP追加＝加点</span>
         </div>
         <div class="radio-inner">
           <div class="radio-group" id="rg_eqLed">
-            <div class="rbtn active-normal" onclick="setR(&#39;eqLed&#39;,this,0)">ハロゲン（標準・一部グレード）(0)</div>
-            <div class="rbtn" onclick="setR(&#39;eqLed&#39;,this,0)">✅ LED（TZ-G標準）(0)</div>
-            <div class="rbtn" onclick="setR(&#39;eqLed&#39;,this,3)">LED（TXへのMOP追加）(+3)</div>
+            <div class="rbtn active-normal" onclick="setR(&#39;eqLed&#39;,this,0)">ハロゲン（標準）(0)</div>
+            <div class="rbtn" onclick="setR(&#39;eqLed&#39;,this,0)">✅ LED（上位グレード標準）(0)</div>
+            <div class="rbtn" onclick="setR(&#39;eqLed&#39;,this,3)">LED（下位グレードへのMOP追加）(+3)</div>
           </div>
           <span class="pts plus" id="pts_eqLed">+0</span>
         </div>
@@ -438,14 +438,14 @@ input[type=number]::placeholder {
       <!-- シート素材 -->
       <div class="radio-row">
         <div class="radio-row-label">シート素材 / Суудлын материал
-          <span class="sel-sub">TZ-Gは本革標準 / TXはファブリック標準・本革はMOP</span>
+          <span class="sel-sub">上位グレード本革＝標準（加点なし）/ 下位グレードへのMOP本革追加＝加点</span>
         </div>
         <div class="radio-inner">
           <div class="radio-group" id="rg_eqSeat">
-            <div class="rbtn active-normal" onclick="setR(&#39;eqSeat&#39;,this,0)">✅ ファブリック（TX標準）</div>
+            <div class="rbtn active-normal" onclick="setR(&#39;eqSeat&#39;,this,0)">✅ ファブリック（標準）</div>
             <div class="rbtn" onclick="setR(&#39;eqSeat&#39;,this,2)">合成皮革 / Нийлэг арьс (+2)</div>
-            <div class="rbtn" onclick="setR(&#39;eqSeat&#39;,this,0)">✅ 本革（TZ-G標準）(0)</div>
-            <div class="rbtn" onclick="setR(&#39;eqSeat&#39;,this,4)">本革（TXへのMOP追加）(+4)</div>
+            <div class="rbtn" onclick="setR(&#39;eqSeat&#39;,this,0)">✅ 本革（上位グレード標準）(0)</div>
+            <div class="rbtn" onclick="setR(&#39;eqSeat&#39;,this,4)">本革（下位グレードへのMOP追加）(+4)</div>
           </div>
           <span class="pts plus" id="pts_eqSeat">+0</span>
         </div>
@@ -1518,7 +1518,7 @@ const MODELS_MAP = {
     {l:"Land Cruiser 200（UZJ200 2007-2021）",s:"land-cruiser-200"},
     {l:"Land Cruiser 100（UZJ100 1998-2007）",s:"land-cruiser-100"},
     {l:"Prado 250（2024-）",s:"land-cruiser-prado-250"},
-    {l:"Prado 150（GRJ/KDJ150 2009-2024）",s:"land-cruiser-prado-150"},
+    {l:"Prado 150（GRJ/TRJ/KDJ/GDJ150 2009-2024）",s:"land-cruiser-prado-150"},
     {l:"Prado 120（GRJ/KDJ120 2002-2009）",s:"land-cruiser-prado-120"},
     {l:"Alphard 40系（2023-）",s:"alphard-40"},
     {l:"Alphard 30系（2015-2023）",s:"alphard-30"},
@@ -1933,11 +1933,11 @@ function calc() {
   const modelSlug=document.getElementById("modelSlug").value;
   const carYear=document.getElementById("carYear").value;
   const driveType=document.getElementById("driveType").value;
-  updatePart2And3(maker, modelSlug, carYear, driveType, grade, gi);
+  updatePart2And3(maker, modelSlug, carYear, driveType, grade, gi, score);
 }
 
 // ── 第二部：市場価格調査 ＋ 第三部：下取り価格算出 ──
-function updatePart2And3(maker, modelSlug, carYear, driveType, grade, gi) {
+function updatePart2And3(maker, modelSlug, carYear, driveType, grade, gi, score) {
   // その他（手書き）モードの場合はcalcCustomに委譲
   if (maker === "__other__" || modelSlug === "__custom__") {
     calcCustom();
