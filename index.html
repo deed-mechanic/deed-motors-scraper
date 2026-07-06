@@ -143,6 +143,10 @@ input[type=number]::placeholder {
   .btn-navy,.btn-red{display:none !important;}
   #scorebar{position:relative !important;}
 }
+.anomaly-row td{background:#fff3cd !important;opacity:0.7;}
+.anomaly-row .price-td{color:#b45309 !important;}
+.exclude-cb{width:16px;height:16px;cursor:pointer;}
+.yr-match-cell{color:#C8102E;font-weight:700;}
 </style>
 </head>
 <body>
@@ -650,7 +654,7 @@ input[type=number]::placeholder {
       </div>
       <div style="overflow-x:auto;">
         <table class="mkt-table">
-          <thead><tr><th>生産年 / Он</th><th>駆動 / Хөдөлгүүр</th><th>走行距離 / Явсан зам</th><th>色 / Өнгө</th><th>入荷年 / Оруулсан он</th><th>価格 / Үнэ</th></tr></thead>
+          <thead><tr><th style="text-align:center;width:48px;">除外<br><span style="font-size:9px;font-weight:400;color:rgba(255,255,255,.7);">Хасах</span></th><th>生産年 / Он</th><th>駆動 / Хөдөлгүүр</th><th>走行距離 / Явсан зам</th><th>色 / Өнгө</th><th>入荷年 / Оруулсан он</th><th>価格 / Үнэ</th></tr></thead>
           <tbody id="mktTableBody"><tr><td class="">2011年</td><td>4WD</td><td>165,000 km</td><td>白</td><td>2025年</td><td class="price-td">98.0 сая ₮</td></tr><tr><td class="">2012年</td><td>4WD</td><td>155,000 km</td><td>銀</td><td>2025年</td><td class="price-td">75.0 сая ₮</td></tr><tr><td class="yr-match">2013年</td><td>4WD</td><td>142,000 km</td><td>黒</td><td>2025年</td><td class="price-td">52.0 сая ₮</td></tr><tr><td class="">2014年</td><td>4WD</td><td>130,000 km</td><td>白</td><td>2024年</td><td class="price-td">47.9 сая ₮</td></tr><tr><td class="">2015年</td><td>4WD</td><td>120,000 km</td><td>白</td><td>2024年</td><td class="price-td">51.0 сая ₮</td></tr></tbody>
         </table>
       </div>
@@ -2009,22 +2013,88 @@ function updatePart2And3(maker, modelSlug, carYear, driveType, grade, gi, score)
   document.getElementById("mktCount").textContent=cars.length+"件";
   const tb=document.getElementById("mktTableBody");
   tb.innerHTML="";
-  cars.forEach(c=>{
+
+  // 異常値自動判定関数
+  function isAnomalous(c, allPrices){
+    if(allPrices.length < 2) return false;
+    const med = allPrices.slice().sort((a,b)=>a-b)[Math.floor(allPrices.length/2)];
+    // 中央値の50%未満 または 200%超は異常値フラグ
+    return c.price < med * 0.5 || c.price > med * 2.0;
+  }
+  const allPrices = cars.map(c=>c.price);
+
+  cars.forEach((c,i)=>{
     const tr=document.createElement("tr");
     const ym=yr>0&&c.year===yr;
+    const anomaly = isAnomalous(c, allPrices);
+    const km = parseInt(c.mileage.replace(/[^0-9]/g,""))||0;
+    // 走行距離と年式の整合性チェック（新しい車なのに距離が異常に少ない→要確認）
+    const suspectLowKm = c.year >= 2022 && km < 5000 && c.price < 80;
+    const flagHtml = anomaly || suspectLowKm
+      ? "<span style='color:#C8102E;font-size:10px;font-weight:700;margin-left:4px;'>⚠️要確認</span>"
+      : "";
+    tr.className = (ym ? "yr-match " : "") + (anomaly || suspectLowKm ? "anomaly-row" : "");
     tr.innerHTML=
-      "<td class='"+(ym?"yr-match":"")+"'>"+c.year+"年</td>"+
+      "<td style='text-align:center;padding:6px;'>"+
+        "<input type='checkbox' class='exclude-cb' data-idx='"+i+"' onchange='recalcPart3()' "+
+        (anomaly||suspectLowKm ? "checked" : "")+
+        " title='チェックで除外 / Шалгавал хасна'>"+
+      "</td>"+
+      "<td class='"+(ym?"yr-match-cell":"")+"'>"+c.year+"年"+flagHtml+"</td>"+
       "<td>"+c.drive+"</td><td>"+c.mileage+"</td><td>"+c.color+"</td>"+
       "<td>"+c.import_year+"年</td>"+
       "<td class='price-td'>"+c.price.toFixed(1)+" сая ₮</td>";
     tb.appendChild(tr);
   });
   document.getElementById("mktTableNote").textContent=
-    yr?"※ "+yr+"年式±2年で絞り込み。赤字は査定車と同年式":"";
+    yr?"※ "+yr+"年式±2年で絞り込み。黄色ハイライト行が査定車と同年式":"";
+
+  // チェックボックスで除外された行を除いて再計算
+  window._currentCars = cars;
+  window._currentScore = score;
+  window._currentAvg = avg;
+  window._currentMin = min;
+  window._currentMax = max;
+  window._currentF = f;
+
+  function recalcPart3(){
+    const cbs = document.querySelectorAll(".exclude-cb");
+    const activePrices = [];
+    cbs.forEach((cb,i)=>{
+      if(!cb.checked) activePrices.push(window._currentCars[i].price);
+    });
+    const useAvg = activePrices.length > 0
+      ? activePrices.reduce((a,b)=>a+b,0)/activePrices.length
+      : window._currentAvg;
+    const useMin = activePrices.length > 0 ? Math.min(...activePrices) : window._currentMin;
+    const useMax = activePrices.length > 0 ? Math.max(...activePrices) : window._currentMax;
+    const sc = window._currentScore||80;
+    const deviation = sc - 80;
+    const ar = deviation * 0.005;
+    const ti = useAvg * (1 + ar);
+    const tiMin = useMin * (1 + ar - 0.05);
+    const tiMax = useMax * (1 + ar + 0.05);
+    const adjPct = (ar*100).toFixed(1);
+    const adjSign = ar >= 0 ? "+" : "";
+    const fv = v => v.toFixed(1) + " сая ₮";
+    const tiBox = document.getElementById("trade-in-box");
+    const rcWrap = document.getElementById("resultCardWrap");
+    const noResMsg = document.getElementById("no-result-msg");
+    tiBox.style.display="block";
+    document.getElementById("tiPrice").textContent=ti.toFixed(1)+" сая ₮";
+    document.getElementById("tiRange").textContent=tiMin.toFixed(1)+"〜"+tiMax.toFixed(1)+" сая ₮";
+    rcWrap.style.display="block"; noResMsg.style.display="none";
+    document.getElementById("rcPrice").textContent=ti.toFixed(1)+" сая ₮";
+    document.getElementById("rcRange").textContent="レンジ / Хүрээ: "+tiMin.toFixed(1)+" 〜 "+tiMax.toFixed(1)+" сая ₮";
+    document.getElementById("rcMktAvg").textContent=fv(useAvg)+(activePrices.length<window._currentCars.length?" ("+activePrices.length+"件で算出)":"");
+    document.getElementById("rcGrade").textContent=(window._grade||"—")+" ("+sc+"点)";
+    document.getElementById("rcCoeff").textContent=adjSign+adjPct+"% 調整（基準80点）";
+    document.getElementById("rcFormula").textContent=useAvg.toFixed(1)+" × (1"+adjSign+adjPct+"%) = "+ti.toFixed(1)+" сая ₮";
+  }
+  window.recalcPart3 = recalcPart3;
+  window._grade = grade;
 
   // ── 第三部：下取り価格算出（スコア連動方式）──
-  // 市場平均価格をベースに、査定スコアの80点からの偏差で加減算
-  // 1点 = ±0.5%（±1/200）として換算
   // giの有無に関わらずscoreとavgで計算
   if(avg > 0){
     const baseScore   = 80;                        // 基準点（標準的な中古車）
