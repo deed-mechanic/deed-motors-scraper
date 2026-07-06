@@ -405,10 +405,10 @@ input[type=number]::placeholder {
         <span style="font-size:10px;color:#888;font-weight:400;margin-left:8px;">✅ = 標準装備（加点なし）/ Стандарт тоноглол（оноо нэмэхгүй）</span>
       </div>
 
-      <!-- サンルーフ：有無のみ -->
+      <!-- サンルーフ MOP約11万円相当 -->
       <div class="radio-row">
         <div class="radio-row-label">サンルーフ / Нарны дээвэр
-          <span class="sel-sub">オプション装備 — 有無で判定 / Нэмэлт тоноглол</span>
+          <span class="sel-sub">メーカーOP（約11万円）— 有無で判定 / MOP ~110,000円</span>
         </div>
         <div class="radio-inner">
           <div class="radio-group" id="rg_eqSunroof">
@@ -420,17 +420,31 @@ input[type=number]::placeholder {
         </div>
       </div>
 
-      <!-- シート素材：標準革(0) / OP革(+4) -->
+      <!-- LEDヘッドランプ MOP約8〜11万円相当 -->
+      <div class="radio-row">
+        <div class="radio-row-label">ヘッドランプ / Толгойн гэрэл
+          <span class="sel-sub">LED＝メーカーOP（約8〜11万円）/ LED = MOP ~80,000〜110,000円</span>
+        </div>
+        <div class="radio-inner">
+          <div class="radio-group" id="rg_eqLed">
+            <div class="rbtn active-normal" onclick="setR(&#39;eqLed&#39;,this,0)">✅ ハロゲン（標準）/ Стандарт (0)</div>
+            <div class="rbtn" onclick="setR(&#39;eqLed&#39;,this,3)">LED（メーカーOP）/ LED MOP (+3)</div>
+          </div>
+          <span class="pts plus" id="pts_eqLed">+0</span>
+        </div>
+      </div>
+
+      <!-- シート素材 -->
       <div class="radio-row">
         <div class="radio-row-label">シート素材 / Суудлын материал
-          <span class="sel-sub">標準革＝加点なし・メーカーOP革＝加点 / Стандарт арьс＝0, Үйлдвэрийн OP арьс＝+оноо</span>
+          <span class="sel-sub">標準革＝加点なし / メーカーOP革＝加点（約15〜25万円）</span>
         </div>
         <div class="radio-inner">
           <div class="radio-group" id="rg_eqSeat">
             <div class="rbtn active-normal" onclick="setR(&#39;eqSeat&#39;,this,0)">✅ ファブリック（標準）</div>
             <div class="rbtn" onclick="setR(&#39;eqSeat&#39;,this,2)">合成皮革 / Нийлэг арьс (+2)</div>
-            <div class="rbtn" onclick="setR(&#39;eqSeat&#39;,this,0)">✅ 本革（標準装備）/ Арьс стандарт (0)</div>
-            <div class="rbtn" onclick="setR(&#39;eqSeat&#39;,this,4)">本革（メーカーOP）/ Арьс OP (+4)</div>
+            <div class="rbtn" onclick="setR(&#39;eqSeat&#39;,this,0)">✅ 本革（グレード標準）/ Арьс стандарт (0)</div>
+            <div class="rbtn" onclick="setR(&#39;eqSeat&#39;,this,4)">本革（メーカーOP）/ Арьс MOP (+4)</div>
           </div>
           <span class="pts plus" id="pts_eqSeat">+0</span>
         </div>
@@ -439,30 +453,58 @@ input[type=number]::placeholder {
       <!-- カメラ -->
       <div class="radio-row">
         <div class="radio-row-label">カメラ / Камер
-          <span class="sel-sub">バックカメラ＝標準 / 360°＝オプション加点</span>
+          <span class="sel-sub">バックカメラ＝標準 / 360°カメラ＝MOP加点（約5〜8万円）</span>
         </div>
         <div class="radio-inner">
           <div class="radio-group" id="rg_eqCamera">
             <div class="rbtn active-normal" onclick="setR(&#39;eqCamera&#39;,this,0)">なし / Байхгүй (0)</div>
             <div class="rbtn" onclick="setR(&#39;eqCamera&#39;,this,0)">✅ バックカメラ（標準）</div>
-            <div class="rbtn" onclick="setR(&#39;eqCamera&#39;,this,4)">360°カメラ / 360° (+4)</div>
+            <div class="rbtn" onclick="setR(&#39;eqCamera&#39;,this,4)">360°カメラ MOP / 360° (+4)</div>
           </div>
           <span class="pts plus" id="pts_eqCamera">+0</span>
         </div>
       </div>
 
-      <!-- ナビ：正常・メーカーOP＝加点 / 不具合＝減点 -->
+      <!-- ナビ・マルチディスプレイ MOP約6〜8万円 -->
       <div class="radio-row">
         <div class="radio-row-label">ナビ・マルチディスプレイ / Навигаци
-          <span class="sel-sub">正常作動・メーカーOP＝加点 / 不具合あり＝減点</span>
+          <span class="sel-sub">メーカーOP正常作動＝加点（約6〜8万円）/ 不具合あり＝減点</span>
         </div>
         <div class="radio-inner">
           <div class="radio-group" id="rg_eqNavi">
             <div class="rbtn active-normal" onclick="setR(&#39;eqNavi&#39;,this,0)">なし / Байхгүй (0)</div>
-            <div class="rbtn" onclick="setR(&#39;eqNavi&#39;,this,2)">正常作動・メーカーOP / Хэвийн (+2)</div>
-            <div class="rbtn" onclick="setR(&#39;eqNavi&#39;,this,-3)">不具合あり / Доголдолтой (-3)</div>
+            <div class="rbtn" onclick="setR(&#39;eqNavi&#39;,this,2)">✅ 正常・メーカーOP / Хэвийн (+2)</div>
+            <div class="rbtn" onclick="setR(&#39;eqNavi&#39;,this,-3)">不具合あり / Доголдол (-3)</div>
           </div>
           <span class="pts" id="pts_eqNavi">0</span>
+        </div>
+      </div>
+
+      <!-- ルーフレール MOP約2.7〜3.8万円 -->
+      <div class="radio-row">
+        <div class="radio-row-label">ルーフレール / Дээврийн рейл
+          <span class="sel-sub">メーカーOP（約2.7〜3.8万円）SUVに人気の装備 / MOP ~27,500〜38,500円</span>
+        </div>
+        <div class="radio-inner">
+          <div class="radio-group" id="rg_eqRoof">
+            <div class="rbtn active-normal" onclick="setR(&#39;eqRoof&#39;,this,0)">無 / Үгүй (0)</div>
+            <div class="rbtn" onclick="setR(&#39;eqRoof&#39;,this,2)">有（メーカーOP）/ MOP (+2)</div>
+          </div>
+          <span class="pts plus" id="pts_eqRoof">+0</span>
+        </div>
+      </div>
+
+      <!-- コーナーセンサー ディーラーOP約3〜5万円 -->
+      <div class="radio-row">
+        <div class="radio-row-label">コーナーセンサー / Булангийн мэдрэгч
+          <span class="sel-sub">ディーラーOP（約3〜5万円）— 装着車が人気 / ДОП ~30,000〜50,000円</span>
+        </div>
+        <div class="radio-inner">
+          <div class="radio-group" id="rg_eqCorner">
+            <div class="rbtn active-normal" onclick="setR(&#39;eqCorner&#39;,this,0)">無 / Үгүй (0)</div>
+            <div class="rbtn" onclick="setR(&#39;eqCorner&#39;,this,2)">有（ディーラーOP）/ ДОП (+2)</div>
+          </div>
+          <span class="pts plus" id="pts_eqCorner">+0</span>
         </div>
       </div>
 
@@ -624,7 +666,7 @@ input[type=number]::placeholder {
       <div class="stats">
         <div class="stat-item"><div class="slbl">市場平均価格 / Зах зээлийн дундаж үнэ</div><div class="sval" id="rcMktAvg">64.8 сая ₮</div></div>
         <div class="stat-item"><div class="slbl">グレード / Зэрэглэл</div><div class="sval" id="rcGrade">4.5</div></div>
-        <div class="stat-item"><div class="slbl">グレード係数 / Коэффициент</div><div class="sval" id="rcCoeff">×0.75</div></div>
+        <div class="stat-item"><div class="slbl">スコア調整率 / Тохируулга</div><div class="sval" id="rcCoeff">×0.75</div></div>
         <div class="stat-item"><div class="slbl">算出式 / Томъёо</div><div class="sval" id="rcFormula">64.8 × 0.75 = 48.6 сая ₮</div></div>
       </div>
     </div>
@@ -1640,7 +1682,7 @@ const RV = {
   mecExhaust:0,mecBrake:0,mecBattery:0,mecHandle:0,mecBoot:0,mecPw:0,
   mecSmell:0,mecAc:0,mecAirbag:0,
   intSeatTear:0,
-  eqSunroof:0,eqSeat:0,eqCamera:0,eqNavi:0,
+  eqSunroof:0,eqLed:0,eqSeat:0,eqCamera:0,eqNavi:0,eqRoof:0,eqCorner:0,
 };
 
 function setR(key, el, val) {
@@ -1817,7 +1859,7 @@ function calc() {
 
   // 加点集計（eqNaviは加点・減点両方あり）
   let a=0;
-  ["eqSunroof","eqSeat","eqCamera","eqNavi"].forEach(k=>{
+  ["eqSunroof","eqLed","eqSeat","eqCamera","eqNavi","eqRoof","eqCorner"].forEach(k=>{
     const v=RV[k]||0;
     const el=document.getElementById("pts_"+k);
     if(el){
@@ -1965,9 +2007,18 @@ function updatePart2And3(maker, modelSlug, carYear, driveType, grade, gi) {
   document.getElementById("mktTableNote").textContent=
     yr?"※ "+yr+"年式±2年で絞り込み。赤字は査定車と同年式":"";
 
-  // ── 第三部：下取り価格算出 ──
+  // ── 第三部：下取り価格算出（スコア連動方式）──
+  // 市場平均価格をベースに、査定スコアの80点からの偏差で加減算
+  // 1点 = ±0.5%（±1/200）として換算
   if(gi){
-    const ti=avg*gi.c, tiMin=min*gi.c, tiMax=max*gi.c;
+    const baseScore   = 80;                        // 基準点（標準的な中古車）
+    const deviation   = score - baseScore;         // スコア偏差（例: 81点 → +1）
+    const adjustRate  = deviation * 0.005;         // 調整率（例: +1 → +0.5%）
+    const ti          = avg * (1 + adjustRate);    // 下取り参考価格
+    const tiMin       = min * (1 + adjustRate - 0.05); // 下限（-5%バッファ）
+    const tiMax       = max * (1 + adjustRate + 0.05); // 上限（+5%バッファ）
+    const adjPct      = (adjustRate * 100).toFixed(1);
+    const adjSign     = adjustRate >= 0 ? "+" : "";
 
     // スコアバー右端
     tiBox.style.display="block";
@@ -1977,11 +2028,11 @@ function updatePart2And3(maker, modelSlug, carYear, driveType, grade, gi) {
     // 第三部カード
     rcWrap.style.display="block"; noResMsg.style.display="none";
     document.getElementById("rcPrice").textContent=ti.toFixed(1)+" сая ₮";
-    document.getElementById("rcRange").textContent="レンジ: "+tiMin.toFixed(1)+" 〜 "+tiMax.toFixed(1)+" сая ₮";
+    document.getElementById("rcRange").textContent="レンジ / Хүрээ: "+tiMin.toFixed(1)+" 〜 "+tiMax.toFixed(1)+" сая ₮";
     document.getElementById("rcMktAvg").textContent=f(avg);
-    document.getElementById("rcGrade").textContent=grade;
-    document.getElementById("rcCoeff").textContent="×"+gi.c;
-    document.getElementById("rcFormula").textContent=avg.toFixed(1)+" × "+gi.c+" = "+ti.toFixed(1)+" сая ₮";
+    document.getElementById("rcGrade").textContent=grade+" ("+score+"点)";
+    document.getElementById("rcCoeff").textContent=adjSign+adjPct+"% 調整（基準80点）";
+    document.getElementById("rcFormula").textContent=avg.toFixed(1)+" × (1"+adjSign+adjPct+"%) = "+ti.toFixed(1)+" сая ₮";
   }
 }
 
@@ -2391,7 +2442,7 @@ function printExplainSheet() {
   <!-- 価格説明 -->
   <div style="background:#fff8e1;border:1px solid #ffe082;border-radius:7px;padding:10px 14px;margin-bottom:16px;font-size:12px;color:#6d4c00;line-height:1.7;">
     <strong>下取り価格の算出方法 / Үнэ тооцоолох арга:</strong><br>
-    UNEGUI.MN市場データから同一車種の平均価格を取得し、今回の査定グレード「<strong>${grade}</strong>」に対応する係数（<strong>${rcCoeff}</strong>）を乗算して算出しています。<br>
+    UNEGUI.MN市場データの同一車種平均価格をベースに、査定スコア（基準80点）からの偏差をもとに加減算して算出しています。スコア1点の差が市場平均の0.5%に相当します。<br>
     <span style="font-size:10px;color:#888;">市場価格 × グレード係数 = 下取り参考価格。実際の成約価格は状況により変動します。</span>
   </div>
 
