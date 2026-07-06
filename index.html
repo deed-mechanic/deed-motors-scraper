@@ -396,19 +396,76 @@ input[type=number]::placeholder {
       <div class="radio-row"><div class="radio-row-label">パワーウインドウ作動 / Цахилгаан цонх<span class="sub">全窓作動確認</span></div><div class="radio-inner"><div class="radio-group" id="rg_mecPw"><div class="rbtn active-normal" onclick="setR(&#39;mecPw&#39;,this,0)">全窓正常 / Бүх цонх хэвийн (0)</div><div class="rbtn" onclick="setR(&#39;mecPw&#39;,this,5)">1〜2窓不作動 / 1-2 цонх (-5)</div><div class="rbtn" onclick="setR(&#39;mecPw&#39;,this,10)">3窓以上 / 3+ цонх (-10)</div></div><span class="pts minus" id="pts_mecPw">0</span></div></div>
       <div class="radio-row"><div class="radio-row-label">異臭 / Хачин үнэр</div><div class="radio-inner"><div class="radio-group" id="rg_mecSmell"><div class="rbtn active-normal" onclick="setR(&#39;mecSmell&#39;,this,0)">無 / Үгүй (0)</div><div class="rbtn" onclick="setR(&#39;mecSmell&#39;,this,5)">有 / Байна (-5)</div></div><span class="pts minus" id="pts_mecSmell">0</span></div></div>
       <div class="radio-row"><div class="radio-row-label">A/C作動 / Агааржуулагч<span class="sub">DUAL A/C含む</span></div><div class="radio-inner"><div class="radio-group" id="rg_mecAc"><div class="rbtn active-normal" onclick="setR(&#39;mecAc&#39;,this,0)">正常 / Хэвийн (0)</div><div class="rbtn" onclick="setR(&#39;mecAc&#39;,this,5)">不作動 / Ажиллахгүй (-5)</div></div><span class="pts minus" id="pts_mecAc">0</span></div></div>
-      <div class="radio-row"><div class="radio-row-label">エアバッグ作動確認 / Аюулгүйн дэр</div><div class="radio-inner"><div class="radio-group" id="rg_mecAirbag"><div class="rbtn active-normal" onclick="setR(&#39;mecAirbag&#39;,this,0)">正常 / Хэвийн (0)</div><div class="rbtn" onclick="setR(&#39;mecAirbag&#39;,this,10)">異常 / Гэмтэлтэй (-10)</div></div><span class="pts minus" id="pts_mecAirbag">0</span></div></div>
+      <div class="radio-row"><div class="radio-row-label">エアバッグ / Аюулгүйн дэр<span class="sub">全車標準装備 — 正常(0) / 警告灯・不具合 (-10) / Бүх машинд стандарт</span></div><div class="radio-inner"><div class="radio-group" id="rg_mecAirbag"><div class="rbtn active-normal" onclick="setR(&#39;mecAirbag&#39;,this,0)">✅ 正常（標準） / Хэвийн (0)</div><div class="rbtn" onclick="setR(&#39;mecAirbag&#39;,this,10)">⚠️ 不具合・警告灯 / Доголдол (-10)</div></div><span class="pts minus" id="pts_mecAirbag">0</span></div></div>
     </div>
 
     <!-- 装備・加点 -->
     <div class="card">
-      <div class="sec-title">⭐ 装備品・加点 / Тоноглол, нэмэгдэл оноо</div>
-      <div class="radio-row"><div class="radio-row-label">サンルーフ / Нарны дээвэр</div><div class="radio-inner"><div class="radio-group" id="rg_eqSunroof"><div class="rbtn active-normal" onclick="setR(&#39;eqSunroof&#39;,this,0)">無 / Үгүй</div><div class="rbtn" onclick="setR(&#39;eqSunroof&#39;,this,3)">1枚 (+3)</div><div class="rbtn" onclick="setR(&#39;eqSunroof&#39;,this,5)">2枚 (+5)</div></div><span class="pts plus" id="pts_eqSunroof">+0</span></div></div>
-      <div class="radio-row"><div class="radio-row-label">シート素材 / Суудлын материал</div><div class="radio-inner"><div class="radio-group" id="rg_eqSeat"><div class="rbtn active-normal" onclick="setR(&#39;eqSeat&#39;,this,0)">ファブリック</div><div class="rbtn" onclick="setR(&#39;eqSeat&#39;,this,2)">合成皮革 (+2)</div><div class="rbtn" onclick="setR(&#39;eqSeat&#39;,this,4)">レザー (+4)</div></div><span class="pts plus" id="pts_eqSeat">+0</span></div></div>
-      <div class="radio-row"><div class="radio-row-label">カメラ / Камер</div><div class="radio-inner"><div class="radio-group" id="rg_eqCamera"><div class="rbtn active-normal" onclick="setR(&#39;eqCamera&#39;,this,0)">なし</div><div class="rbtn" onclick="setR(&#39;eqCamera&#39;,this,2)">バックカメラ (+2)</div><div class="rbtn" onclick="setR(&#39;eqCamera&#39;,this,4)">360° (+4)</div></div><span class="pts plus" id="pts_eqCamera">+0</span></div></div>
-      <div class="radio-row"><div class="radio-row-label">シートヒーター / Суудлын дулаан</div><div class="radio-inner"><div class="radio-group" id="rg_eqSheat"><div class="rbtn active-normal" onclick="setR(&#39;eqSheat&#39;,this,0)">無 / Үгүй</div><div class="rbtn" onclick="setR(&#39;eqSheat&#39;,this,2)">有 / Байна (+2)</div></div><span class="pts plus" id="pts_eqSheat">+0</span></div></div>
-      <div class="radio-row"><div class="radio-row-label">マルチディスプレイ/ナビ / Навигаци</div><div class="radio-inner"><div class="radio-group" id="rg_eqNavi"><div class="rbtn active-normal" onclick="setR(&#39;eqNavi&#39;,this,0)">無 / Үгүй</div><div class="rbtn" onclick="setR(&#39;eqNavi&#39;,this,2)">有 / Байна (+2)</div></div><span class="pts plus" id="pts_eqNavi">+0</span></div></div>
-      <div class="radio-row"><div class="radio-row-label">エアバッグ / Аюулгүйн дэр</div><div class="radio-inner"><div class="radio-group" id="rg_eqAirbag"><div class="rbtn active-normal" onclick="setR(&#39;eqAirbag&#39;,this,0)">シングル</div><div class="rbtn" onclick="setR(&#39;eqAirbag&#39;,this,2)">Wエアバッグ (+2)</div></div><span class="pts plus" id="pts_eqAirbag">+0</span></div></div>
-      <div class="radio-row"><div class="radio-row-label">電動パーキングブレーキ / Цахилгаан тормоз</div><div class="radio-inner"><div class="radio-group" id="rg_eqEpb"><div class="rbtn active-normal" onclick="setR(&#39;eqEpb&#39;,this,0)">無 / Үгүй</div><div class="rbtn" onclick="setR(&#39;eqEpb&#39;,this,2)">有 / Байна (+2)</div></div><span class="pts plus" id="pts_eqEpb">+0</span></div></div>
+      <div class="sec-title">⭐ 装備品・加点 / Тоноглол, нэмэгдэл оноо
+        <span style="font-size:10px;color:#888;font-weight:400;margin-left:8px;">✅ = 標準装備（加点なし）/ Стандарт тоноглол（оноо нэмэхгүй）</span>
+      </div>
+
+      <!-- サンルーフ：有無のみ -->
+      <div class="radio-row">
+        <div class="radio-row-label">サンルーフ / Нарны дээвэр
+          <span class="sel-sub">オプション装備 — 有無で判定 / Нэмэлт тоноглол</span>
+        </div>
+        <div class="radio-inner">
+          <div class="radio-group" id="rg_eqSunroof">
+            <div class="rbtn active-normal" onclick="setR(&#39;eqSunroof&#39;,this,0)">無 / Үгүй (0)</div>
+            <div class="rbtn" onclick="setR(&#39;eqSunroof&#39;,this,3)">有・通常 / Байна (+3)</div>
+            <div class="rbtn" onclick="setR(&#39;eqSunroof&#39;,this,5)">有・パノラマ / Панорама (+5)</div>
+          </div>
+          <span class="pts plus" id="pts_eqSunroof">+0</span>
+        </div>
+      </div>
+
+      <!-- シート素材：標準革(0) / OP革(+4) -->
+      <div class="radio-row">
+        <div class="radio-row-label">シート素材 / Суудлын материал
+          <span class="sel-sub">標準革＝加点なし・メーカーOP革＝加点 / Стандарт арьс＝0, Үйлдвэрийн OP арьс＝+оноо</span>
+        </div>
+        <div class="radio-inner">
+          <div class="radio-group" id="rg_eqSeat">
+            <div class="rbtn active-normal" onclick="setR(&#39;eqSeat&#39;,this,0)">✅ ファブリック（標準）</div>
+            <div class="rbtn" onclick="setR(&#39;eqSeat&#39;,this,2)">合成皮革 / Нийлэг арьс (+2)</div>
+            <div class="rbtn" onclick="setR(&#39;eqSeat&#39;,this,0)">✅ 本革（標準装備）/ Арьс стандарт (0)</div>
+            <div class="rbtn" onclick="setR(&#39;eqSeat&#39;,this,4)">本革（メーカーOP）/ Арьс OP (+4)</div>
+          </div>
+          <span class="pts plus" id="pts_eqSeat">+0</span>
+        </div>
+      </div>
+
+      <!-- カメラ -->
+      <div class="radio-row">
+        <div class="radio-row-label">カメラ / Камер
+          <span class="sel-sub">バックカメラ＝標準 / 360°＝オプション加点</span>
+        </div>
+        <div class="radio-inner">
+          <div class="radio-group" id="rg_eqCamera">
+            <div class="rbtn active-normal" onclick="setR(&#39;eqCamera&#39;,this,0)">なし / Байхгүй (0)</div>
+            <div class="rbtn" onclick="setR(&#39;eqCamera&#39;,this,0)">✅ バックカメラ（標準）</div>
+            <div class="rbtn" onclick="setR(&#39;eqCamera&#39;,this,4)">360°カメラ / 360° (+4)</div>
+          </div>
+          <span class="pts plus" id="pts_eqCamera">+0</span>
+        </div>
+      </div>
+
+      <!-- ナビ：正常・メーカーOP＝加点 / 不具合＝減点 -->
+      <div class="radio-row">
+        <div class="radio-row-label">ナビ・マルチディスプレイ / Навигаци
+          <span class="sel-sub">正常作動・メーカーOP＝加点 / 不具合あり＝減点</span>
+        </div>
+        <div class="radio-inner">
+          <div class="radio-group" id="rg_eqNavi">
+            <div class="rbtn active-normal" onclick="setR(&#39;eqNavi&#39;,this,0)">なし / Байхгүй (0)</div>
+            <div class="rbtn" onclick="setR(&#39;eqNavi&#39;,this,2)">正常作動・メーカーOP / Хэвийн (+2)</div>
+            <div class="rbtn" onclick="setR(&#39;eqNavi&#39;,this,-3)">不具合あり / Доголдолтой (-3)</div>
+          </div>
+          <span class="pts" id="pts_eqNavi">0</span>
+        </div>
+      </div>
+
     </div>
 
     <!-- 評価基準表 -->
@@ -1583,7 +1640,7 @@ const RV = {
   mecExhaust:0,mecBrake:0,mecBattery:0,mecHandle:0,mecBoot:0,mecPw:0,
   mecSmell:0,mecAc:0,mecAirbag:0,
   intSeatTear:0,
-  eqSunroof:0,eqSeat:0,eqCamera:0,eqSheat:0,eqNavi:0,eqAirbag:0,eqEpb:0,
+  eqSunroof:0,eqSeat:0,eqCamera:0,eqNavi:0,
 };
 
 function setR(key, el, val) {
@@ -1758,12 +1815,19 @@ function calc() {
   });
   d += Math.abs(mp) + mnP;
 
-  // 加点集計
+  // 加点集計（eqNaviは加点・減点両方あり）
   let a=0;
-  ["eqSunroof","eqSeat","eqCamera","eqSheat","eqNavi","eqAirbag","eqEpb"].forEach(k=>{
+  ["eqSunroof","eqSeat","eqCamera","eqNavi"].forEach(k=>{
     const v=RV[k]||0;
     const el=document.getElementById("pts_"+k);
-    if(el) el.textContent="+"+v;
+    if(el){
+      if(k==="eqNavi"&&v<0){
+        el.textContent=v; el.className="pts minus";
+        d+=Math.abs(v); // 減点として処理
+        return;
+      }
+      el.textContent="+"+v; el.className="pts plus";
+    }
     a+=v;
   });
 
