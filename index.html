@@ -2025,7 +2025,8 @@ function updatePart2And3(maker, modelSlug, carYear, driveType, grade, gi, score)
   // ── 第三部：下取り価格算出（スコア連動方式）──
   // 市場平均価格をベースに、査定スコアの80点からの偏差で加減算
   // 1点 = ±0.5%（±1/200）として換算
-  if(gi){
+  // giの有無に関わらずscoreとavgで計算
+  if(avg > 0){
     const baseScore   = 80;                        // 基準点（標準的な中古車）
     const deviation   = score - baseScore;         // スコア偏差（例: 81点 → +1）
     const adjustRate  = deviation * 0.005;         // 調整率（例: +1 → +0.5%）
