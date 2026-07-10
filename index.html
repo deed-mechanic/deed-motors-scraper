@@ -342,6 +342,20 @@ input[type=number]::placeholder {
           <span class="pts minus" id="pts_extTire">0</span>
         </div>
       </div>
+
+      <!-- フロントガラス -->
+      <div class="sel-row">
+        <div class="sel-label">フロントガラス / Урдны шил<span class="sel-sub">飛び石傷・ひび割れ / Чулуун цохилт, хагарал</span></div>
+        <div class="sel-inner">
+          <select id="extGlass" onchange="calc()">
+            <option value="0">異常なし / Байхгүй (0点)</option>
+            <option value="3">飛び石傷（軽微）/ Чулуун цохилт жижиг (-3点)</option>
+            <option value="7">ひび割れあり（視界内）/ Хагарал харагдах хэсэгт (-7点)</option>
+            <option value="12">広範囲ひび割れ（要交換）/ Том хагарал, солих шаардлагатай (-12点)</option>
+          </select>
+          <span class="pts minus" id="pts_extGlass">0</span>
+        </div>
+      </div>
     </div>
 
     <!-- 内装 -->
@@ -427,6 +441,19 @@ input[type=number]::placeholder {
       <div class="radio-row"><div class="radio-row-label">異臭 / Хачин үнэр</div><div class="radio-inner"><div class="radio-group" id="rg_mecSmell"><div class="rbtn active-normal" onclick="setR(&#39;mecSmell&#39;,this,0)">無 / Үгүй (0)</div><div class="rbtn" onclick="setR(&#39;mecSmell&#39;,this,5)">有 / Байна (-5)</div></div><span class="pts minus" id="pts_mecSmell">0</span></div></div>
       <div class="radio-row"><div class="radio-row-label">A/C作動 / Агааржуулагч<span class="sub">DUAL A/C含む</span></div><div class="radio-inner"><div class="radio-group" id="rg_mecAc"><div class="rbtn active-normal" onclick="setR(&#39;mecAc&#39;,this,0)">正常 / Хэвийн (0)</div><div class="rbtn" onclick="setR(&#39;mecAc&#39;,this,5)">不作動 / Ажиллахгүй (-5)</div></div><span class="pts minus" id="pts_mecAc">0</span></div></div>
       <div class="radio-row"><div class="radio-row-label">エアバッグ / Аюулгүйн дэр<span class="sub">全車標準装備 — 正常(0) / 警告灯・不具合 (-10) / Бүх машинд стандарт</span></div><div class="radio-inner"><div class="radio-group" id="rg_mecAirbag"><div class="rbtn active-normal" onclick="setR(&#39;mecAirbag&#39;,this,0)">✅ 正常（標準） / Хэвийн (0)</div><div class="rbtn" onclick="setR(&#39;mecAirbag&#39;,this,10)">⚠️ 不具合・警告灯 / Доголдол (-10)</div></div><span class="pts minus" id="pts_mecAirbag">0</span></div></div>
+      <!-- ショックアブソーバ -->
+      <div class="radio-row">
+        <div class="radio-row-label">ショックアブソーバ / Шок абсорбер<span class="sub">オイル漏れ本数で評価 / Тосны алдагдал</span></div>
+        <div class="radio-inner">
+          <div class="radio-group" id="rg_mecShock">
+            <div class="rbtn active-normal" onclick="setR(&#39;mecShock&#39;,this,0)">漏れなし / Байхгүй (0)</div>
+            <div class="rbtn" onclick="setR(&#39;mecShock&#39;,this,5)">1本 / 1ш (-5)</div>
+            <div class="rbtn" onclick="setR(&#39;mecShock&#39;,this,10)">2本 / 2ш (-10)</div>
+            <div class="rbtn" onclick="setR(&#39;mecShock&#39;,this,15)">3〜4本 / 3-4ш (-15)</div>
+          </div>
+          <span class="pts minus" id="pts_mecShock">0</span>
+        </div>
+      </div>
     </div>
 
     <!-- 装備・加点 -->
@@ -1934,7 +1961,7 @@ const RV = {
   mecExhaust:0,mecBrake:0,mecBattery:0,mecHandle:0,mecBoot:0,mecPw:0,
   mecSmell:0,mecAc:0,mecAirbag:0,
   intSeatTear:0,
-  eqSunroof:0,eqLed:0,eqSeat:0,eqCamera:0,eqNavi:0,eqRoof:0,eqBsm:0,eqCorner:0,
+  eqSunroof:0,eqLed:0,eqSeat:0,eqCamera:0,eqNavi:0,eqRoof:0,eqBsm:0,eqCorner:0,extGlass:0,mecShock:0,
 };
 
 function setR(key, el, val) {
@@ -2095,13 +2122,13 @@ function calc() {
 
   // 減点集計
   let d=0;
-  ["extScratch","extDent","extWheel","extPaint","extRust","extPanel","extBumper","extTire","intSalon","mecEngine","mecUnder"].forEach(id=>{
+  ["extScratch","extDent","extWheel","extPaint","extRust","extPanel","extBumper","extTire","extGlass","intSalon","mecEngine","mecUnder"].forEach(id=>{
     const v=getS(id);
     const el=document.getElementById("pts_"+id);
     if(el) el.textContent=v>0?"-"+v:"0";
     d+=v;
   });
-  ["mecExhaust","mecBrake","mecBattery","mecHandle","mecBoot","mecPw","mecSmell","mecAc","mecAirbag","intSeatTear"].forEach(k=>{
+  ["mecExhaust","mecBrake","mecBattery","mecHandle","mecBoot","mecPw","mecSmell","mecAc","mecAirbag","mecShock","intSeatTear"].forEach(k=>{
     const v=RV[k]||0;
     const el=document.getElementById("pts_"+k);
     if(el) el.textContent=v>0?"-"+v:"0";
@@ -2430,7 +2457,7 @@ function doReset(){
   document.getElementById("custom_maker").value="";
   document.getElementById("custom_model").value="";
   document.getElementById("custom_price").value="";
-  ["extScratch","extDent","extWheel","extPaint","extRust","extPanel","extBumper","extTire","intSalon","mecEngine","mecUnder"].forEach(id=>{
+  ["extScratch","extDent","extWheel","extPaint","extRust","extPanel","extBumper","extTire","extGlass","intSalon","mecEngine","mecUnder"].forEach(id=>{
     document.getElementById(id).selectedIndex=0;
   });
   Object.keys(RV).forEach(k=>{ RV[k]=k==="rHist"?"none":0; });
@@ -2522,6 +2549,8 @@ function printExplainSheet() {
     extBumperPts: getPts("pts_extBumper"),
     extTire:    getSelectLabel("extTire"),
     extTirePts: getPts("pts_extTire"),
+    extGlass:   getSelectLabel("extGlass"),
+    extGlassPts: getPts("pts_extGlass"),
     extWheel:   getSelectLabel("extWheel"),
     extWheelPts:getPts("pts_extWheel"),
     extPaint:   getSelectLabel("extPaint"),
@@ -2558,6 +2587,8 @@ function printExplainSheet() {
     mecAcPts:     getPts("pts_mecAc"),
     mecAirbag:    getRadioLabel("rg_mecAirbag"),
     mecAirbagPts: getPts("pts_mecAirbag"),
+    mecShock:     getRadioLabel("rg_mecShock"),
+    mecShockPts:  getPts("pts_mecShock"),
     // 装備加点
     eqSunroof:    getRadioLabel("rg_eqSunroof"),
     eqSunroofPts: getPts("pts_eqSunroof"),
