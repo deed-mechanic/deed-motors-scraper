@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-16 07:37",
+  "updated_at": "2026-07-17 07:34",
   "source": "unegui.mn",
   "total_records": 38,
   "total_models": 38,
@@ -16,12 +16,12 @@
     ],
     "toyota|land-cruiser-200": [
       {
-        "year": 2010,
+        "year": 2011,
         "drive": "4WD",
-        "mileage": "2,010,000 km",
+        "mileage": "2,875,432 km",
         "color": "不明",
         "import_year": 2026,
-        "price": 69.0
+        "price": 85.0
       }
     ],
     "toyota|land-cruiser-100": [
@@ -36,29 +36,29 @@
     ],
     "toyota|alphard-30": [
       {
-        "year": 2020,
+        "year": 2023,
         "drive": "4WD",
-        "mileage": "188,434 km",
+        "mileage": "123,000 km",
         "color": "黄",
         "import_year": 2026,
-        "price": 83.9
+        "price": 83.0
       }
     ],
     "toyota|vellfire-30": [
       {
-        "year": 2013,
+        "year": 2012,
         "drive": "4WD",
-        "mileage": "11,111,111,111 km",
+        "mileage": "109,500 km",
         "color": "黄",
         "import_year": 2026,
-        "price": 25.0
+        "price": 49.0
       }
     ],
     "toyota|prius-41": [
       {
-        "year": 2013,
+        "year": 2011,
         "drive": "4WD",
-        "mileage": "102,000 km",
+        "mileage": "200,000 km",
         "color": "黄",
         "import_year": 2026,
         "price": 23.8
@@ -86,22 +86,22 @@
     ],
     "toyota|camry-70": [
       {
-        "year": 2016,
+        "year": 2011,
         "drive": "4WD",
-        "mileage": "160,000 km",
+        "mileage": "1,234 km",
         "color": "不明",
         "import_year": 2026,
-        "price": 34.0
+        "price": 28.0
       }
     ],
     "toyota|hiace-200": [
       {
-        "year": 2008,
+        "year": 2014,
         "drive": "4WD",
-        "mileage": "320,000 km",
+        "mileage": "230,000 km",
         "color": "黄",
         "import_year": 2026,
-        "price": 40.0
+        "price": 65.0
       }
     ],
     "toyota|highlander": [
@@ -126,12 +126,12 @@
     ],
     "toyota|hilux": [
       {
-        "year": 2008,
+        "year": 2012,
         "drive": "4WD",
-        "mileage": "190,000 km",
+        "mileage": "150,000 km",
         "color": "赤",
         "import_year": 2026,
-        "price": 47.0
+        "price": 30.0
       }
     ],
     "nissan|x-trail-t32": [
@@ -156,12 +156,12 @@
     ],
     "nissan|elgrand-e52": [
       {
-        "year": 2016,
+        "year": 2011,
         "drive": "4WD",
-        "mileage": "190,000 km",
+        "mileage": "170,000 km",
         "color": "不明",
         "import_year": 2026,
-        "price": 30.0
+        "price": 23.0
       }
     ],
     "nissan|serena-c27": [
@@ -179,7 +179,7 @@
         "year": 2003,
         "drive": "4WD",
         "mileage": "200,000 km",
-        "color": "不明",
+        "color": "黄",
         "import_year": 2026,
         "price": 5.0
       }
@@ -199,7 +199,7 @@
         "year": 2000,
         "drive": "4WD",
         "mileage": "191,000 km",
-        "color": "黄",
+        "color": "不明",
         "import_year": 2026,
         "price": 9.5
       }
@@ -226,12 +226,12 @@
     ],
     "subaru|outback-bs": [
       {
-        "year": 2018,
+        "year": 2008,
         "drive": "4WD",
-        "mileage": "123,000 km",
-        "color": "不明",
+        "mileage": "172,000 km",
+        "color": "白",
         "import_year": 2026,
-        "price": 38.0
+        "price": 7.0
       }
     ],
     "suzuki|jimny-jb64": [
@@ -266,22 +266,22 @@
     ],
     "lexus|rx-al10-hybrid": [
       {
-        "year": 2015,
+        "year": 2013,
         "drive": "4WD",
         "mileage": "不明",
         "color": "不明",
         "import_year": 2026,
-        "price": 82.0
+        "price": 52.0
       }
     ],
     "lexus|nx-az10": [
       {
-        "year": 2016,
+        "year": 2018,
         "drive": "4WD",
-        "mileage": "130,000 km",
+        "mileage": "110,000 km",
         "color": "黄",
         "import_year": 2026,
-        "price": 67.0
+        "price": 79.5
       }
     ],
     "lexus|es-axzh10": [
@@ -306,12 +306,12 @@
     ],
     "kia|sorento-mq4": [
       {
-        "year": 2020,
+        "year": 2019,
         "drive": "4WD",
-        "mileage": "103,000 km",
+        "mileage": "120,000 km",
         "color": "不明",
         "import_year": 2026,
-        "price": 99.0
+        "price": 75.0
       }
     ],
     "kia|sportage-ql": [
@@ -349,7 +349,7 @@
         "year": 2011,
         "drive": "4WD",
         "mileage": "69,000 km",
-        "color": "不明",
+        "color": "黄",
         "import_year": 2026,
         "price": 60.0
       }
