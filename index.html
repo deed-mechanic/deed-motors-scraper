@@ -238,6 +238,72 @@ input[type=number]::placeholder {
           </div>
         </div>
       </div>
+
+      <!-- 修復歴部位詳細（記録用・査定士確認箇所） -->
+      <div class="sel-row">
+        <div class="sel-label">修復歴部位（該当箇所） / Засварын байршил<span class="sel-sub">複数選択可・記録用 / Олон сонголт хийж болно（оноонд шууд нөлөөгүй）</span></div>
+        <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:6px;" id="histParts">
+          <label class="rbtn" style="cursor:pointer;"><input type="checkbox" class="hist-part-cb" value="フロントサイドメンバー / Урд гол дам нуруу" onchange="calc()" style="margin-right:5px;">フロントサイドメンバー</label>
+          <label class="rbtn" style="cursor:pointer;"><input type="checkbox" class="hist-part-cb" value="リアサイドメンバー / Хойд гол дам нуруу" onchange="calc()" style="margin-right:5px;">リアサイドメンバー</label>
+          <label class="rbtn" style="cursor:pointer;"><input type="checkbox" class="hist-part-cb" value="クロスメンバー / Хөндлөн дам нуруу" onchange="calc()" style="margin-right:5px;">クロスメンバー</label>
+          <label class="rbtn" style="cursor:pointer;"><input type="checkbox" class="hist-part-cb" value="インサイドパネル / Дотор хавтан" onchange="calc()" style="margin-right:5px;">インサイドパネル</label>
+          <label class="rbtn" style="cursor:pointer;"><input type="checkbox" class="hist-part-cb" value="Aピラー" onchange="calc()" style="margin-right:5px;">Aピラー</label>
+          <label class="rbtn" style="cursor:pointer;"><input type="checkbox" class="hist-part-cb" value="Bピラー" onchange="calc()" style="margin-right:5px;">Bピラー</label>
+          <label class="rbtn" style="cursor:pointer;"><input type="checkbox" class="hist-part-cb" value="Cピラー" onchange="calc()" style="margin-right:5px;">Cピラー</label>
+          <label class="rbtn" style="cursor:pointer;"><input type="checkbox" class="hist-part-cb" value="ルーフ / Дээвэр" onchange="calc()" style="margin-right:5px;">ルーフ</label>
+          <label class="rbtn" style="cursor:pointer;"><input type="checkbox" class="hist-part-cb" value="トランクフロア／コアサポート" onchange="calc()" style="margin-right:5px;">トランクフロア／コアサポート</label>
+        </div>
+      </div>
+    </div>
+
+    <!-- 追加チェック項目 -->
+    <div class="card">
+      <div class="sec-title">📝 追加チェック項目 / Нэмэлт шалгах зүйлс</div>
+
+      <!-- 前所有者使用歴 -->
+      <div class="sel-row">
+        <div class="sel-label">前所有者使用歴 / Өмнөх эзэмшигчийн ашиглалт<span class="sel-sub">タクシー・レンタカー等は減点対象</span></div>
+        <div class="sel-inner">
+          <select id="usageHist" onchange="calc()">
+            <option value="0">自家用 / Хувийн хэрэглээ (0点)</option>
+            <option value="8">タクシー・営業用 / Такси (-8点)</option>
+            <option value="6">レンタカー / Түрээсийн машин (-6点)</option>
+            <option value="6">教習車 / Сургалтын машин (-6点)</option>
+            <option value="3">法人・社用車 / Байгууллагын машин (-3点)</option>
+          </select>
+          <span class="pts minus" id="pts_usageHist">0</span>
+        </div>
+      </div>
+
+      <!-- 喫煙・臭い -->
+      <div class="radio-row">
+        <div class="radio-row-label">喫煙・臭い / Тамхи, үнэр<span class="sub">タバコ臭・ペット臭等（内装状態・異臭とは別評価）</span></div>
+        <div class="radio-inner">
+          <div class="radio-group" id="rg_intSmoke">
+            <div class="rbtn active-normal" onclick="setR(&#39;intSmoke&#39;,this,0)">無 / Үгүй (0)</div>
+            <div class="rbtn" onclick="setR(&#39;intSmoke&#39;,this,8)">有 / Байна (-8)</div>
+          </div>
+          <span class="pts minus" id="pts_intSmoke">0</span>
+        </div>
+      </div>
+
+      <!-- オドメーター整合性 -->
+      <div class="radio-row">
+        <div class="radio-row-label">オドメーター整合性 / Гүйлтийн заалтын нийцэл<span class="sub">走行距離と年式・状態の整合性、メーター交換歴</span></div>
+        <div class="radio-inner">
+          <div class="radio-group" id="rg_odoCheck">
+            <div class="rbtn active-normal" onclick="setR(&#39;odoCheck&#39;,this,0)">正常 / Хэвийн (0)</div>
+            <div class="rbtn" onclick="setR(&#39;odoCheck&#39;,this,15)">疑いあり・交換歴 / Эргэлзээтэй (-15)</div>
+          </div>
+          <span class="pts minus" id="pts_odoCheck">0</span>
+        </div>
+      </div>
+
+      <!-- 特記事項 -->
+      <div class="sel-row">
+        <div class="sel-label">特記事項（自由記述） / Нэмэлт тэмдэглэл<span class="sel-sub">社外パーツ・改造・リコール未対応・ハンドル位置変更車 等</span></div>
+        <textarea id="freeNotes" rows="3" style="width:100%;padding:8px 10px;border:1.5px solid #e0e0e0;border-radius:6px;font-size:13px;font-family:inherit;resize:vertical;" placeholder="例）右ハンドル→左ハンドル改造車。社外マフラー装着。"></textarea>
+      </div>
     </div>
 
     <!-- 外装 -->
@@ -2250,6 +2316,7 @@ const RV = {
   mecSmell:0,mecAc:0,mecAirbag:0,
   intSeatTear:0,
   eqSunroof:0,eqLed:0,eqSeat:0,eqCamera:0,eqNavi:0,eqRoof:0,eqBsm:0,eqCorner:0,extGlass:0,mecShock:0,
+  intSmoke:0,odoCheck:0,
 };
 
 function setR(key, el, val) {
@@ -2410,13 +2477,13 @@ function calc() {
 
   // 減点集計
   let d=0;
-  ["extScratch","extDent","extWheel","extPaint","extRust","extPanel","extBumper","extTire","extGlass","intSalon","mecEngine","mecUnder"].forEach(id=>{
+  ["extScratch","extDent","extWheel","extPaint","extRust","extPanel","extBumper","extTire","extGlass","intSalon","mecEngine","mecUnder","usageHist"].forEach(id=>{
     const v=getS(id);
     const el=document.getElementById("pts_"+id);
     if(el) el.textContent=v>0?"-"+v:"0";
     d+=v;
   });
-  ["mecExhaust","mecBrake","mecBattery","mecHandle","mecBoot","mecPw","mecSmell","mecAc","mecAirbag","mecShock","intSeatTear"].forEach(k=>{
+  ["mecExhaust","mecBrake","mecBattery","mecHandle","mecBoot","mecPw","mecSmell","mecAc","mecAirbag","mecShock","intSeatTear","intSmoke","odoCheck"].forEach(k=>{
     const v=RV[k]||0;
     const el=document.getElementById("pts_"+k);
     if(el) el.textContent=v>0?"-"+v:"0";
@@ -2745,9 +2812,11 @@ function doReset(){
   document.getElementById("custom_maker").value="";
   document.getElementById("custom_model").value="";
   document.getElementById("custom_price").value="";
-  ["extScratch","extDent","extWheel","extPaint","extRust","extPanel","extBumper","extTire","extGlass","intSalon","mecEngine","mecUnder"].forEach(id=>{
+  ["extScratch","extDent","extWheel","extPaint","extRust","extPanel","extBumper","extTire","extGlass","intSalon","mecEngine","mecUnder","usageHist"].forEach(id=>{
     document.getElementById(id).selectedIndex=0;
   });
+  document.querySelectorAll(".hist-part-cb").forEach(cb=>cb.checked=false);
+  const fn=document.getElementById("freeNotes"); if(fn) fn.value="";
   Object.keys(RV).forEach(k=>{ RV[k]=k==="rHist"?"none":0; });
   document.querySelectorAll(".rbtn").forEach(b=>b.classList.remove("active-normal","active-danger","active-success"));
   document.querySelectorAll(".radio-group").forEach(g=>{
@@ -2828,6 +2897,15 @@ function printExplainSheet() {
   const items = {
     // 修復歴
     rHist:    getRadioLabel("rg_rHist"),
+    rHistParts: Array.from(document.querySelectorAll(".hist-part-cb:checked")).map(cb=>cb.value).join("、") || "—",
+    // 追加チェック項目
+    usageHist:    getSelectLabel("usageHist"),
+    usageHistPts: getPts("pts_usageHist"),
+    intSmoke:     getRadioLabel("rg_intSmoke"),
+    intSmokePts:  getPts("pts_intSmoke"),
+    odoCheck:     getRadioLabel("rg_odoCheck"),
+    odoCheckPts:  getPts("pts_odoCheck"),
+    freeNotes:    v("freeNotes"),
     // 外装
     extScratch: getSelectLabel("extScratch"),
     extScratchPts: getPts("pts_extScratch"),
@@ -3058,6 +3136,21 @@ function printExplainSheet() {
     </div>
     <div class="hist-box" style="border-color:${items.rHist.includes("重大") ? "#c62828" : items.rHist.includes("軽微") ? "#e65100" : "#43a047"};color:${items.rHist.includes("重大") ? "#c62828" : items.rHist.includes("軽微") ? "#e65100" : "#2e7d32"};background:${items.rHist.includes("重大") ? "#ffebee" : items.rHist.includes("軽微") ? "#fff8e1" : "#e8f5e9"};">
       ${items.rHist}
+    </div>
+    <div style="font-size:11px;color:#666;padding:6px 2px 0;">該当箇所 / Байршил: ${items.rHistParts}</div>
+  </div>
+
+  <!-- 追加チェック項目 -->
+  <div class="section">
+    <div class="section-title blue">📝 追加チェック項目 / Нэмэлт шалгах зүйлс</div>
+    <table>
+      <tr><th>評価項目 / Үнэлгээний зүйл</th><th>状態 / Байдал</th><th style="text-align:right;width:80px;">減点 / Хасалт</th></tr>
+      ${deductRow("前所有者使用歴","Өмнөх ашиглалт", items.usageHist, items.usageHistPts)}
+      ${deductRow("喫煙・臭い","Тамхи, үнэр", items.intSmoke, items.intSmokePts)}
+      ${deductRow("オドメーター整合性","Гүйлтийн заалтын нийцэл", items.odoCheck, items.odoCheckPts)}
+    </table>
+    <div style="border:1px solid #e0e0e0;border-top:none;border-radius:0 0 5px 5px;padding:8px 12px;font-size:12px;color:#333;">
+      <strong>特記事項 / Нэмэлт тэмдэглэл:</strong> ${items.freeNotes === "—" || !items.freeNotes ? "（なし）" : items.freeNotes}
     </div>
   </div>
 
