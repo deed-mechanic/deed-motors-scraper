@@ -184,7 +184,7 @@ input[type=number]::placeholder {
   </div>
   <div>
     <div class="grade-badge" id="gradeBadge" style="background: rgb(232, 245, 233); color: rgb(46, 125, 50);">S</div>
-    <div class="grade-sub" id="gradeCoeff">×0.88</div>
+    <div class="grade-sub" id="gradeCoeff"></div>
   </div>
   <div class="score-detail">
     減点 / Хасах оноо <strong style="color:#d32f2f;" id="deductNum">-0</strong>　
@@ -741,18 +741,18 @@ input[type=number]::placeholder {
       <div class="sec-title">📋 評価基準 / Үнэлгээний шалгуур</div>
       <div style="overflow-x:auto;">
         <table class="grade-table">
-          <thead><tr><th>評価 / Үнэлгээ</th><th>Оноо / スコア</th><th>状態 / Байдал</th><th>係数 / Коэф.</th><th>査定率 / Хувь</th></tr></thead>
+          <thead><tr><th>評価 / Үнэлгээ</th><th>Оноо / スコア</th><th>状態 / Байдал</th></tr></thead>
           <tbody>
-            <tr id="gr_S" class="current-grade"><td style="color:#2e7d32;font-weight:700;">S</td><td>95〜100</td><td>未使用同等 / Хэрэглэгдээгүйтэй адил</td><td>×0.88</td><td style="color:#C8102E;font-weight:700;">88%</td></tr>
-            <tr id="gr_5" class=""><td style="color:#2e7d32;font-weight:700;">5</td><td>85〜94</td><td>非常に良好 / Маш сайн</td><td>×0.82</td><td style="color:#C8102E;font-weight:700;">82%</td></tr>
-            <tr id="gr_45" class=""><td style="color:#1565c0;font-weight:700;">4.5</td><td>70〜84</td><td>良好 / Сайн</td><td>×0.75</td><td style="color:#C8102E;font-weight:700;">75%</td></tr>
-            <tr id="gr_4" class=""><td style="color:#1565c0;font-weight:700;">4</td><td>55〜69</td><td>年式相応 / Онд тохирсон</td><td>×0.67</td><td style="color:#C8102E;font-weight:700;">67%</td></tr>
-            <tr id="gr_35" class=""><td style="color:#e65100;font-weight:700;">3.5</td><td>40〜54</td><td>傷・凹み多い / Зураас, хонхор их</td><td>×0.57</td><td style="color:#C8102E;font-weight:700;">57%</td></tr>
-            <tr id="gr_3" class=""><td style="color:#e65100;font-weight:700;">3</td><td>25〜39</td><td>状態不良 / Муу байдал</td><td>×0.47</td><td style="color:#C8102E;font-weight:700;">47%</td></tr>
-            <tr id="gr_2" class=""><td style="color:#c62828;font-weight:700;">2</td><td>10〜24</td><td>重大不具合 / Ноцтой доголдол</td><td>×0.33</td><td style="color:#C8102E;font-weight:700;">33%</td></tr>
-            <tr id="gr_1" class=""><td style="color:#c62828;font-weight:700;">1</td><td>0〜9</td><td>改造・水害 / Өөрчлөгдсөн, усны гэмтэл</td><td>×0.18</td><td style="color:#C8102E;font-weight:700;">18%</td></tr>
-            <tr id="gr_RA" class=""><td style="color:#b45309;font-weight:700;">RA</td><td>—</td><td>軽微修復歴 / Бага засварын түүх</td><td>×0.55</td><td style="color:#C8102E;font-weight:700;">55%</td></tr>
-            <tr id="gr_R" class=""><td style="color:#c62828;font-weight:700;">R</td><td>—</td><td>修復歴車 / Засварын түүхтэй</td><td>×0.35</td><td style="color:#C8102E;font-weight:700;">35%</td></tr>
+            <tr id="gr_S" class="current-grade"><td style="color:#2e7d32;font-weight:700;">S</td><td>95〜100</td><td>未使用同等 / Хэрэглэгдээгүйтэй адил</td></tr>
+            <tr id="gr_5" class=""><td style="color:#2e7d32;font-weight:700;">5</td><td>85〜94</td><td>非常に良好 / Маш сайн</td></tr>
+            <tr id="gr_45" class=""><td style="color:#1565c0;font-weight:700;">4.5</td><td>70〜84</td><td>良好 / Сайн</td></tr>
+            <tr id="gr_4" class=""><td style="color:#1565c0;font-weight:700;">4</td><td>55〜69</td><td>年式相応 / Онд тохирсон</td></tr>
+            <tr id="gr_35" class=""><td style="color:#e65100;font-weight:700;">3.5</td><td>40〜54</td><td>傷・凹み多い / Зураас, хонхор их</td></tr>
+            <tr id="gr_3" class=""><td style="color:#e65100;font-weight:700;">3</td><td>25〜39</td><td>状態不良 / Муу байдал</td></tr>
+            <tr id="gr_2" class=""><td style="color:#c62828;font-weight:700;">2</td><td>10〜24</td><td>重大不具合 / Ноцтой доголдол</td></tr>
+            <tr id="gr_1" class=""><td style="color:#c62828;font-weight:700;">1</td><td>0〜9</td><td>改造・水害 / Өөрчлөгдсөн, усны гэмтэл</td></tr>
+            <tr id="gr_RA" class=""><td style="color:#b45309;font-weight:700;">RA</td><td>—</td><td>軽微修復歴 / Бага засварын түүх</td></tr>
+            <tr id="gr_R" class=""><td style="color:#c62828;font-weight:700;">R</td><td>—</td><td>修復歴車 / Засварын түүхтэй</td></tr>
           </tbody>
         </table>
       </div>
@@ -908,7 +908,7 @@ input[type=number]::placeholder {
       <div class="stats">
         <div class="stat-item"><div class="slbl">市場平均価格 / Зах зээлийн дундаж үнэ</div><div class="sval" id="rcMktAvg">64.8 сая ₮</div></div>
         <div class="stat-item"><div class="slbl">グレード / Зэрэглэл</div><div class="sval" id="rcGrade">4.5</div></div>
-        <div class="stat-item"><div class="slbl">スコア調整率 / Тохируулга</div><div class="sval" id="rcCoeff">×0.75</div></div>
+        <div class="stat-item"><div class="slbl">スコア調整率 / Тохируулга</div><div class="sval" id="rcCoeff">—</div></div>
         <div class="stat-item"><div class="slbl">算出式 / Томъёо</div><div class="sval" id="rcFormula">64.8 × 0.75 = 48.6 сая ₮</div></div>
       </div>
     </div>
@@ -2565,12 +2565,17 @@ function calcCustom() {
     return;
   }
 
-  // 現在のグレード係数を取得
+  // 現在のグレード・スコアを取得（DB連動・手入力と同じ基準点80点・偏差方式で統一）
   const grade = document.getElementById("gradeBadge").textContent;
-  const gi = GRADE_COEFF[grade];
-  if (!gi) return;
-
-  const ti = price * gi.c;
+  const score = parseInt(document.getElementById("scoreNum").textContent)||80;
+  const baseScore = 80;
+  const deviation = score - baseScore;
+  const adjustRate = deviation * 0.005;
+  const ti = price * (1 + adjustRate);
+  const tiMin = price * (1 + adjustRate - 0.05);
+  const tiMax = price * (1 + adjustRate + 0.05);
+  const adjPct = (adjustRate * 100).toFixed(1);
+  const adjSign = adjustRate >= 0 ? "+" : "";
   const f = v => v.toFixed(1) + " сая ₮";
 
   noDataBox.style.display = "none";
@@ -2578,7 +2583,7 @@ function calcCustom() {
   // スコアバー右端
   tiBox.style.display = "block";
   document.getElementById("tiPrice").textContent = f(ti);
-  document.getElementById("tiRange").textContent = "手書き入力: " + f(price) + " × " + gi.c;
+  document.getElementById("tiRange").textContent = tiMin.toFixed(1) + "〜" + tiMax.toFixed(1) + " сая ₮";
 
   // Part2プレビュー
   if (prev) {
@@ -2598,11 +2603,11 @@ function calcCustom() {
   rcWrap.style.display = "block";
   noResMsg.style.display = "none";
   document.getElementById("rcPrice").textContent = f(ti);
-  document.getElementById("rcRange").textContent = "手書き入力価格: " + f(price) + " ×係数 " + gi.c;
+  document.getElementById("rcRange").textContent = "レンジ / Хүрээ: " + tiMin.toFixed(1) + " 〜 " + tiMax.toFixed(1) + " сая ₮";
   document.getElementById("rcMktAvg").textContent = f(price) + "（手書き）";
-  document.getElementById("rcGrade").textContent = grade;
-  document.getElementById("rcCoeff").textContent = "×" + gi.c;
-  document.getElementById("rcFormula").textContent = price.toFixed(1) + " × " + gi.c + " = " + f(ti);
+  document.getElementById("rcGrade").textContent = grade + " (" + score + "点)";
+  document.getElementById("rcCoeff").textContent = adjSign + adjPct + "% 調整（基準80点）";
+  document.getElementById("rcFormula").textContent = price.toFixed(1) + " × (1" + adjSign + adjPct + "%) = " + f(ti);
 }
 
 // 生産年初期化
@@ -2702,7 +2707,6 @@ function calc() {
   document.getElementById("scoreBar").style.background=barCol;
   const gb=document.getElementById("gradeBadge");
   gb.textContent=grade; gb.style.background=gi?.bg||"#eee"; gb.style.color=gi?.col||"#333";
-  document.getElementById("gradeCoeff").textContent=gi?"×"+gi.c:"";
 
   // 修復歴アラート
   const ha=document.getElementById("histAlert");
