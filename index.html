@@ -121,7 +121,7 @@ header img{height:48px;object-fit:contain;}
 .part2-wrap{max-width:1400px;margin:0 auto;padding:4px 28px 12px;}
 .part2-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start;}
 
-/* 第三部専用 — 下取り価格（全幅） */
+/* 第三部専用 — 査定価格（全幅） */
 .part3-wrap{max-width:1400px;margin:0 auto;padding:4px 28px 40px;}
 
 input[type=month]{font-size:13px;border:1.5px solid #e0e0e0;border-radius:7px;padding:7px 10px;background:#fff;color:#333;outline:none;}
@@ -142,6 +142,15 @@ input[type=number]::placeholder {
   header,.part-banner,.step-header{position:relative !important;}
   .btn-navy,.btn-red{display:none !important;}
   #scorebar{position:relative !important;}
+  .result-card{background:#fff !important;border:2px solid #003087;color:#1a1a1a !important;}
+  .result-card .slbl{color:#666 !important;}
+  .result-card .sval{color:#1a1a1a !important;}
+  .result-card .stat-item{background:#f0f4ff !important;border:1px solid #c5cfe8;}
+  #rcPrice{color:#003087 !important;}
+  #trade-in-box{background:#fff !important;border:2px solid #003087;color:#1a1a1a !important;}
+  .ti-price{color:#003087 !important;}
+  .ti-label{color:#666 !important;}
+  .ti-range{color:#666 !important;}
 }
 .anomaly-row td{background:#fff3cd !important;opacity:0.7;}
 .anomaly-row .price-td{color:#b45309 !important;}
@@ -383,16 +392,29 @@ input[type=number]::placeholder {
         </div>
       </div>
 
-      <!-- バンパー損傷 -->
+      <!-- フロントバンパー損傷 -->
       <div class="sel-row">
-        <div class="sel-label">バンパー損傷 / Бамперын гэмтэл<span class="sel-sub">軽易な損傷=擦り傷・変形小 / 亀裂=破損・割れ</span></div>
+        <div class="sel-label">フロントバンパー損傷 / Урд бамперын гэмтэл<span class="sel-sub">軽易な損傷=擦り傷・変形小 / 亀裂=破損・割れ</span></div>
         <div class="sel-inner">
-          <select id="extBumper" onchange="calc()">
+          <select id="extBumperF" onchange="calc()">
             <option value="0">なし / Байхгүй (0点)</option>
             <option value="3">軽易な損傷（擦り傷・変形小）/ Бага зэрэг гэмтэл (-3点)</option>
             <option value="8">亀裂を伴う損傷（割れ・破損）/ Хагарал, эвдрэл (-8点)</option>
           </select>
-          <span class="pts minus" id="pts_extBumper">0</span>
+          <span class="pts minus" id="pts_extBumperF">0</span>
+        </div>
+      </div>
+
+      <!-- リアバンパー損傷 -->
+      <div class="sel-row">
+        <div class="sel-label">リアバンパー損傷 / Хойд бамперын гэмтэл<span class="sel-sub">軽易な損傷=擦り傷・変形小 / 亀裂=破損・割れ</span></div>
+        <div class="sel-inner">
+          <select id="extBumperR" onchange="calc()">
+            <option value="0">なし / Байхгүй (0点)</option>
+            <option value="3">軽易な損傷（擦り傷・変形小）/ Бага зэрэг гэмтэл (-3点)</option>
+            <option value="8">亀裂を伴う損傷（割れ・破損）/ Хагарал, эвдрэл (-8点)</option>
+          </select>
+          <span class="pts minus" id="pts_extBumperR">0</span>
         </div>
       </div>
 
@@ -421,6 +443,73 @@ input[type=number]::placeholder {
           </select>
           <span class="pts minus" id="pts_extGlass">0</span>
         </div>
+      </div>
+    </div>
+
+    <!-- 損傷位置図 -->
+    <div class="card">
+      <div class="sec-title">🖼️ 損傷位置図 / Гэмтлийн байршлын зураг</div>
+      <div style="padding:12px 14px 4px;font-size:11px;color:#888;">記号を選んでからパネルをクリック（複数可）。ダブルクリックでそのパネルをクリア。減点計算には影響せず、記録・印刷用です。</div>
+      <div style="padding:0 14px;display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px;" id="picker">
+        <div class="rbtn active-normal" data-code="A" onclick="selectCode('A',this)">A 傷</div>
+        <div class="rbtn" data-code="U" onclick="selectCode('U',this)">U 凹み</div>
+        <div class="rbtn" data-code="S" onclick="selectCode('S',this)">S サビ</div>
+        <div class="rbtn" data-code="W" onclick="selectCode('W',this)">W 歪み</div>
+        <div class="rbtn" data-code="X" onclick="selectCode('X',this)">X 交換</div>
+        <div class="rbtn" data-code="P" onclick="selectCode('P',this)">P 塗装</div>
+        <div class="rbtn" data-code="C" onclick="selectCode('C',this)">C 要磨き</div>
+      </div>
+      <div style="padding:0 14px;">
+        <svg width="100%" viewBox="0 0 680 460" id="panelDiagramSvg" role="img">
+          <title>車両展開図（上から見た図）</title>
+          <desc>車体13パネルと左右ミラーの損傷位置を記録する図</desc>
+          <rect x="165" y="55" width="350" height="325" rx="40" fill="#fafafa" stroke="#bbb" stroke-width="1"/>
+          <text x="340" y="45" text-anchor="middle" style="font-size:12px;fill:#888;">前 / フロント</text>
+          <text x="340" y="418" text-anchor="middle" style="font-size:12px;fill:#888;">後 / リア</text>
+          <text x="105" y="95" text-anchor="middle" style="font-size:14px;fill:#555;font-weight:700;">左</text>
+          <text x="575" y="95" text-anchor="middle" style="font-size:14px;fill:#555;font-weight:700;">右</text>
+          <circle cx="140" cy="130" r="22" fill="#ccc"/>
+          <circle cx="540" cy="130" r="22" fill="#ccc"/>
+          <circle cx="140" cy="300" r="22" fill="#ccc"/>
+          <circle cx="540" cy="300" r="22" fill="#ccc"/>
+          <text id="tireFLt" x="140" y="130" text-anchor="middle" dominant-baseline="central" style="font-size:11px;font-weight:700;fill:#333;"></text>
+          <text id="tireFRt" x="540" y="130" text-anchor="middle" dominant-baseline="central" style="font-size:11px;font-weight:700;fill:#333;"></text>
+          <text id="tireRLt" x="140" y="300" text-anchor="middle" dominant-baseline="central" style="font-size:11px;font-weight:700;fill:#333;"></text>
+          <text id="tireRRt" x="540" y="300" text-anchor="middle" dominant-baseline="central" style="font-size:11px;font-weight:700;fill:#333;"></text>
+          <rect x="310" y="66" width="60" height="8" rx="3" fill="#ccc"/>
+          <rect x="300" y="350" width="80" height="6" rx="3" fill="#ccc"/>
+          <g id="dz1" class="pdz" onclick="markZone('dz1')" ondblclick="clearZone('dz1')" style="cursor:pointer;"><rect x="250" y="60" width="180" height="40" rx="18" fill="#fff" stroke="#ccc" stroke-width="0.5" stroke-dasharray="3 3"/><text id="dz1t" x="340" y="80" text-anchor="middle" dominant-baseline="central" style="font-size:12px;fill:#666;">1</text></g>
+          <g id="dz2" class="pdz" onclick="markZone('dz2')" ondblclick="clearZone('dz2')" style="cursor:pointer;"><rect x="250" y="100" width="180" height="60" rx="10" fill="#fff" stroke="#ccc" stroke-width="0.5" stroke-dasharray="3 3"/><text id="dz2t" x="340" y="130" text-anchor="middle" dominant-baseline="central" style="font-size:12px;fill:#666;">2</text></g>
+          <g id="dz3" class="pdz" onclick="markZone('dz3')" ondblclick="clearZone('dz3')" style="cursor:pointer;"><rect x="250" y="160" width="180" height="110" rx="10" fill="#fff" stroke="#ccc" stroke-width="0.5" stroke-dasharray="3 3"/><text id="dz3t" x="340" y="215" text-anchor="middle" dominant-baseline="central" style="font-size:12px;fill:#666;">3</text></g>
+          <g id="dz4" class="pdz" onclick="markZone('dz4')" ondblclick="clearZone('dz4')" style="cursor:pointer;"><rect x="250" y="270" width="180" height="60" rx="10" fill="#fff" stroke="#ccc" stroke-width="0.5" stroke-dasharray="3 3"/><text id="dz4t" x="340" y="300" text-anchor="middle" dominant-baseline="central" style="font-size:12px;fill:#666;">4</text></g>
+          <g id="dz5" class="pdz" onclick="markZone('dz5')" ondblclick="clearZone('dz5')" style="cursor:pointer;"><rect x="250" y="330" width="180" height="40" rx="18" fill="#fff" stroke="#ccc" stroke-width="0.5" stroke-dasharray="3 3"/><text id="dz5t" x="340" y="350" text-anchor="middle" dominant-baseline="central" style="font-size:12px;fill:#666;">5</text></g>
+          <g id="dz6" class="pdz" onclick="markZone('dz6')" ondblclick="clearZone('dz6')" style="cursor:pointer;"><rect x="170" y="100" width="80" height="60" rx="8" fill="#fff" stroke="#ccc" stroke-width="0.5" stroke-dasharray="3 3"/><text id="dz6t" x="210" y="130" text-anchor="middle" dominant-baseline="central" style="font-size:12px;fill:#666;">6</text></g>
+          <g id="dz7" class="pdz" onclick="markZone('dz7')" ondblclick="clearZone('dz7')" style="cursor:pointer;"><rect x="170" y="160" width="80" height="55" rx="8" fill="#fff" stroke="#ccc" stroke-width="0.5" stroke-dasharray="3 3"/><text id="dz7t" x="210" y="187" text-anchor="middle" dominant-baseline="central" style="font-size:12px;fill:#666;">7</text></g>
+          <g id="dz8" class="pdz" onclick="markZone('dz8')" ondblclick="clearZone('dz8')" style="cursor:pointer;"><rect x="170" y="215" width="80" height="55" rx="8" fill="#fff" stroke="#ccc" stroke-width="0.5" stroke-dasharray="3 3"/><text id="dz8t" x="210" y="242" text-anchor="middle" dominant-baseline="central" style="font-size:12px;fill:#666;">8</text></g>
+          <g id="dz9" class="pdz" onclick="markZone('dz9')" ondblclick="clearZone('dz9')" style="cursor:pointer;"><rect x="170" y="270" width="80" height="60" rx="8" fill="#fff" stroke="#ccc" stroke-width="0.5" stroke-dasharray="3 3"/><text id="dz9t" x="210" y="300" text-anchor="middle" dominant-baseline="central" style="font-size:12px;fill:#666;">9</text></g>
+          <g id="dz10" class="pdz" onclick="markZone('dz10')" ondblclick="clearZone('dz10')" style="cursor:pointer;"><rect x="430" y="100" width="80" height="60" rx="8" fill="#fff" stroke="#ccc" stroke-width="0.5" stroke-dasharray="3 3"/><text id="dz10t" x="470" y="130" text-anchor="middle" dominant-baseline="central" style="font-size:12px;fill:#666;">10</text></g>
+          <g id="dz11" class="pdz" onclick="markZone('dz11')" ondblclick="clearZone('dz11')" style="cursor:pointer;"><rect x="430" y="160" width="80" height="55" rx="8" fill="#fff" stroke="#ccc" stroke-width="0.5" stroke-dasharray="3 3"/><text id="dz11t" x="470" y="187" text-anchor="middle" dominant-baseline="central" style="font-size:12px;fill:#666;">11</text></g>
+          <g id="dz12" class="pdz" onclick="markZone('dz12')" ondblclick="clearZone('dz12')" style="cursor:pointer;"><rect x="430" y="215" width="80" height="55" rx="8" fill="#fff" stroke="#ccc" stroke-width="0.5" stroke-dasharray="3 3"/><text id="dz12t" x="470" y="242" text-anchor="middle" dominant-baseline="central" style="font-size:12px;fill:#666;">12</text></g>
+          <g id="dz13" class="pdz" onclick="markZone('dz13')" ondblclick="clearZone('dz13')" style="cursor:pointer;"><rect x="430" y="270" width="80" height="60" rx="8" fill="#fff" stroke="#ccc" stroke-width="0.5" stroke-dasharray="3 3"/><text id="dz13t" x="470" y="300" text-anchor="middle" dominant-baseline="central" style="font-size:12px;fill:#666;">13</text></g>
+          <g id="dz14" class="pdz" onclick="markZone('dz14')" ondblclick="clearZone('dz14')" style="cursor:pointer;"><rect x="140" y="165" width="28" height="35" rx="6" fill="#fff" stroke="#ccc" stroke-width="0.5" stroke-dasharray="3 3"/><text id="dz14t" x="154" y="182" text-anchor="middle" dominant-baseline="central" style="font-size:12px;fill:#666;">L</text></g>
+          <circle id="foldL" cx="154" cy="212" r="8" fill="#fff" stroke="#ccc" stroke-width="0.5" style="cursor:pointer;" onclick="toggleFold('mL')"/>
+          <text x="154" y="230" text-anchor="middle" style="font-size:11px;fill:#888;">格納</text>
+          <g id="dz15" class="pdz" onclick="markZone('dz15')" ondblclick="clearZone('dz15')" style="cursor:pointer;"><rect x="512" y="165" width="28" height="35" rx="6" fill="#fff" stroke="#ccc" stroke-width="0.5" stroke-dasharray="3 3"/><text id="dz15t" x="526" y="182" text-anchor="middle" dominant-baseline="central" style="font-size:12px;fill:#666;">R</text></g>
+          <circle id="foldR" cx="526" cy="212" r="8" fill="#fff" stroke="#ccc" stroke-width="0.5" style="cursor:pointer;" onclick="toggleFold('mR')"/>
+          <text x="526" y="230" text-anchor="middle" style="font-size:11px;fill:#888;">格納</text>
+        </svg>
+      </div>
+      <div style="padding:6px 14px 0;font-size:10px;color:#999;">
+        番号: 1前バンパー 2ボンネット 3ルーフ 4トランク 5後バンパー ／ 6左フロントフェンダー 7左フロントドア 8左リアドア 9左リアフェンダー ／ 10右フロントフェンダー 11右フロントドア 12右リアドア 13右リアフェンダー ／ L・R=ドアミラー（下の丸=電動格納の可否）
+      </div>
+      <div class="mkt-grid" style="padding:10px 14px;">
+        <div class="fg"><label>前左タイヤ残り溝(mm)</label><input type="number" step="0.5" min="0" placeholder="6.5" id="tireFL" oninput="updateDiagramSummary()" style="width:100%;padding:8px 10px;border:1.5px solid #e0e0e0;border-radius:6px;font-size:13px;"></div>
+        <div class="fg"><label>前右タイヤ残り溝(mm)</label><input type="number" step="0.5" min="0" placeholder="6.5" id="tireFR" oninput="updateDiagramSummary()" style="width:100%;padding:8px 10px;border:1.5px solid #e0e0e0;border-radius:6px;font-size:13px;"></div>
+        <div class="fg"><label>後左タイヤ残り溝(mm)</label><input type="number" step="0.5" min="0" placeholder="6.5" id="tireRL" oninput="updateDiagramSummary()" style="width:100%;padding:8px 10px;border:1.5px solid #e0e0e0;border-radius:6px;font-size:13px;"></div>
+        <div class="fg"><label>後右タイヤ残り溝(mm)</label><input type="number" step="0.5" min="0" placeholder="6.5" id="tireRR" oninput="updateDiagramSummary()" style="width:100%;padding:8px 10px;border:1.5px solid #e0e0e0;border-radius:6px;font-size:13px;"></div>
+      </div>
+      <div style="padding:8px 14px 12px;font-size:12px;color:#555;border-top:1px solid #f0f0f0;">
+        <strong>記録内容:</strong> <span id="diagramSummary">なし</span>
       </div>
     </div>
 
@@ -504,7 +593,6 @@ input[type=number]::placeholder {
       <div class="radio-row"><div class="radio-row-label">ハンドルガタ / Хулдны сулрал</div><div class="radio-inner"><div class="radio-group" id="rg_mecHandle"><div class="rbtn active-normal" onclick="setR(&#39;mecHandle&#39;,this,0)">無 / Үгүй (0)</div><div class="rbtn" onclick="setR(&#39;mecHandle&#39;,this,5)">有 / Байна (-5)</div></div><span class="pts minus" id="pts_mecHandle">0</span></div></div>
       <div class="radio-row"><div class="radio-row-label">各部ブーツ破れ / Бугуйвч урагдал<span class="sub">ドライブシャフト・ステアリングラック・タイロッドエンド等</span></div><div class="radio-inner"><div class="radio-group" id="rg_mecBoot"><div class="rbtn active-normal" onclick="setR(&#39;mecBoot&#39;,this,0)">無 / Үгүй (0)</div><div class="rbtn" onclick="setR(&#39;mecBoot&#39;,this,5)">有 / Байна (-5)</div></div><span class="pts minus" id="pts_mecBoot">0</span></div></div>
       <div class="radio-row"><div class="radio-row-label">パワーウインドウ作動 / Цахилгаан цонх<span class="sub">全窓作動確認</span></div><div class="radio-inner"><div class="radio-group" id="rg_mecPw"><div class="rbtn active-normal" onclick="setR(&#39;mecPw&#39;,this,0)">全窓正常 / Бүх цонх хэвийн (0)</div><div class="rbtn" onclick="setR(&#39;mecPw&#39;,this,5)">1〜2窓不作動 / 1-2 цонх (-5)</div><div class="rbtn" onclick="setR(&#39;mecPw&#39;,this,10)">3窓以上 / 3+ цонх (-10)</div></div><span class="pts minus" id="pts_mecPw">0</span></div></div>
-      <div class="radio-row"><div class="radio-row-label">異臭 / Хачин үнэр</div><div class="radio-inner"><div class="radio-group" id="rg_mecSmell"><div class="rbtn active-normal" onclick="setR(&#39;mecSmell&#39;,this,0)">無 / Үгүй (0)</div><div class="rbtn" onclick="setR(&#39;mecSmell&#39;,this,5)">有 / Байна (-5)</div></div><span class="pts minus" id="pts_mecSmell">0</span></div></div>
       <div class="radio-row"><div class="radio-row-label">A/C作動 / Агааржуулагч<span class="sub">DUAL A/C含む</span></div><div class="radio-inner"><div class="radio-group" id="rg_mecAc"><div class="rbtn active-normal" onclick="setR(&#39;mecAc&#39;,this,0)">正常 / Хэвийн (0)</div><div class="rbtn" onclick="setR(&#39;mecAc&#39;,this,5)">不作動 / Ажиллахгүй (-5)</div></div><span class="pts minus" id="pts_mecAc">0</span></div></div>
       <div class="radio-row"><div class="radio-row-label">エアバッグ / Аюулгүйн дэр<span class="sub">全車標準装備 — 正常(0) / 警告灯・不具合 (-10) / Бүх машинд стандарт</span></div><div class="radio-inner"><div class="radio-group" id="rg_mecAirbag"><div class="rbtn active-normal" onclick="setR(&#39;mecAirbag&#39;,this,0)">✅ 正常（標準） / Хэвийн (0)</div><div class="rbtn" onclick="setR(&#39;mecAirbag&#39;,this,10)">⚠️ 不具合・警告灯 / Доголдол (-10)</div></div><span class="pts minus" id="pts_mecAirbag">0</span></div></div>
       <!-- ショックアブソーバ -->
@@ -692,11 +780,11 @@ input[type=number]::placeholder {
     <div class="card">
       <div class="sec-title">🔍 市場価格連動項目（必須）/ Зах зээлтэй холбоотой мэдээлэл（Заавал）</div>
       <div class="mkt-panel">
-        <div id="update-badge" style="display:flex;align-items:center;gap:8px;background:#f0f4ff;border:1px solid #c5cfe8;border-radius:7px;padding:7px 12px;margin-bottom:10px;">
-          <span style="font-size:13px;">🕐</span>
-          <div>
-            <span style="font-size:11px;color:#888;font-weight:600;">データ更新日時 / Өгөгдөл шинэчлэгдсэн:</span>
-            <span id="dataUpdatedAt" style="font-size:13px;font-weight:700;color:#003087;margin-left:6px;">UNEGUI.MN実データ 2026年7月</span>
+        <div id="update-badge" style="display:flex;align-items:center;gap:8px;background:#f0f4ff;border:1px solid #c5cfe8;border-radius:7px;padding:7px 12px;margin-bottom:10px;white-space:nowrap;overflow-x:auto;">
+          <span style="font-size:13px;flex-shrink:0;">🕐</span>
+          <div style="white-space:nowrap;">
+            <span style="font-size:10px;color:#888;font-weight:600;">データ更新日時 / Өгөгдөл шинэчлэгдсэн:</span>
+            <span id="dataUpdatedAt" style="font-size:12px;font-weight:700;color:#003087;margin-left:6px;">UNEGUI.MN実データ 2026年7月</span>
           </div>
         </div>
         <div class="info-hint">ℹ️ メーカー・車種・生産年・駆動方式を選択 / Үйлдвэрлэгч, загвар, он, хөдөлгүүрийг сонгоно уу — 市場平均価格が自動取得されます。</div>
@@ -801,12 +889,12 @@ input[type=number]::placeholder {
 
 
 <!-- ══════════════════════════════════════════ -->
-<!--  第三部：下取り価格算出                   -->
+<!--  第三部：査定価格算出                   -->
 <!-- ══════════════════════════════════════════ -->
 <div class="part-banner part3">
   <div class="part-banner-inner">
     <div class="pnum">3</div>
-    <div class="ptitle">下取り価格算出 / Хасах үнийн тооцоолол</div>
+    <div class="ptitle">査定価格算出 / Хасах үнийн тооцоолол</div>
     <div class="pdesc">市場平均価格 × グレード係数 ＝ 下取り参考価格 / Зах зээлийн дундаж үнэ × Коэффициент ＝ Хасах лавлах үнэ</div>
   </div>
 </div>
@@ -826,7 +914,7 @@ input[type=number]::placeholder {
     </div>
   </div>
   <div id="no-result-msg" style="background: rgb(255, 255, 255); border-radius: 10px; padding: 20px 24px; text-align: center; color: rgb(144, 144, 144); font-size: 14px; border: 2px dashed rgb(224, 224, 224); display: block;">
-    第一部で査定を完了し、第二部でメーカー・車種を選択すると下取り価格が自動算出されます
+    第一部で査定を完了し、第二部でメーカー・車種を選択すると査定価格が自動算出されます
   </div>
 </div><!-- /第三部 -->
 
@@ -2313,7 +2401,7 @@ const GRADE_COEFF = {
 const RV = {
   rHist:"none",
   mecExhaust:0,mecBrake:0,mecBattery:0,mecHandle:0,mecBoot:0,mecPw:0,
-  mecSmell:0,mecAc:0,mecAirbag:0,
+  mecAc:0,mecAirbag:0,
   intSeatTear:0,
   eqSunroof:0,eqLed:0,eqSeat:0,eqCamera:0,eqNavi:0,eqRoof:0,eqBsm:0,eqCorner:0,extGlass:0,mecShock:0,
   intSmoke:0,odoCheck:0,
@@ -2332,6 +2420,88 @@ function setR(key, el, val) {
 }
 
 function getS(id){ return parseInt(document.getElementById(id).value)||0; }
+
+// ── 損傷位置図 ──
+const diagramColors = {A:"#378ADD",U:"#EF9F27",S:"#D85A30",W:"#7F77DD",X:"#E24B4A",P:"#1D9E75",C:"#888780"};
+const diagramNames = {dz1:"前バンパー",dz2:"ボンネット",dz3:"ルーフ",dz4:"トランク",dz5:"後バンパー",
+  dz6:"左フロントフェンダー",dz7:"左フロントドア",dz8:"左リアドア",dz9:"左リアフェンダー",
+  dz10:"右フロントフェンダー",dz11:"右フロントドア",dz12:"右リアドア",dz13:"右リアフェンダー",
+  dz14:"左ミラー",dz15:"右ミラー"};
+const diagramZoneNum = {dz1:"1",dz2:"2",dz3:"3",dz4:"4",dz5:"5",dz6:"6",dz7:"7",dz8:"8",dz9:"9",dz10:"10",dz11:"11",dz12:"12",dz13:"13",dz14:"L",dz15:"R"};
+const diagramState = {};
+Object.keys(diagramNames).forEach(k=>diagramState[k]=[]);
+const diagramFold = {mL:"none",mR:"none"};
+let diagramActiveCode = "A";
+
+function selectCode(code, el){
+  diagramActiveCode = code;
+  document.querySelectorAll("#picker .rbtn").forEach(c=>c.classList.remove("active-normal"));
+  el.classList.add("active-normal");
+}
+function markZone(id){
+  diagramState[id].push(diagramActiveCode);
+  renderZone(id);
+  updateDiagramSummary();
+}
+function clearZone(id){
+  diagramState[id] = [];
+  renderZone(id);
+  updateDiagramSummary();
+}
+function renderZone(id){
+  const rect = document.querySelector("#"+id+" rect");
+  const text = document.getElementById(id+"t");
+  const marks = diagramState[id];
+  if(marks.length){
+    const last = marks[marks.length-1];
+    rect.setAttribute("fill", diagramColors[last]);
+    rect.setAttribute("fill-opacity","0.22");
+    rect.setAttribute("stroke", diagramColors[last]);
+    rect.setAttribute("stroke-dasharray","");
+    text.textContent = marks.join("");
+  } else {
+    rect.setAttribute("fill","#fff");
+    rect.setAttribute("fill-opacity","1");
+    rect.setAttribute("stroke","#ccc");
+    rect.setAttribute("stroke-dasharray","3 3");
+    text.textContent = diagramZoneNum[id];
+  }
+}
+function toggleFold(side){
+  const order = ["none","good","bad"];
+  diagramFold[side] = order[(order.indexOf(diagramFold[side])+1) % order.length];
+  const el = document.getElementById(side==="mL"?"foldL":"foldR");
+  const c = diagramFold[side]==="good" ? "#1D9E75" : diagramFold[side]==="bad" ? "#E24B4A" : "#fff";
+  el.setAttribute("fill", c);
+  updateDiagramSummary();
+}
+function updateDiagramSummary(){
+  const parts = [];
+  Object.keys(diagramNames).forEach(k=>{ if(diagramState[k].length) parts.push(diagramNames[k]+"="+diagramState[k].join("")); });
+  if(diagramFold.mL!=="none") parts.push("左ミラー電動格納="+(diagramFold.mL==="good"?"良":"否"));
+  if(diagramFold.mR!=="none") parts.push("右ミラー電動格納="+(diagramFold.mR==="good"?"良":"否"));
+  const tireTextIds = {tireFL:"tireFLt",tireFR:"tireFRt",tireRL:"tireRLt",tireRR:"tireRRt"};
+  ["tireFL","tireFR","tireRL","tireRR"].forEach(id=>{
+    const v = document.getElementById(id) ? document.getElementById(id).value : "";
+    const t = document.getElementById(tireTextIds[id]);
+    if(t) t.textContent = v ? v+"mm" : "";
+    if(v) parts.push({tireFL:"前左タイヤ",tireFR:"前右タイヤ",tireRL:"後左タイヤ",tireRR:"後右タイヤ"}[id]+"="+v+"mm");
+  });
+  const el = document.getElementById("diagramSummary");
+  if(el) el.textContent = parts.length ? parts.join("、") : "なし";
+}
+function resetDiagram(){
+  Object.keys(diagramState).forEach(k=>{ diagramState[k]=[]; renderZone(k); });
+  diagramFold.mL="none"; diagramFold.mR="none";
+  const fl=document.getElementById("foldL"); if(fl) fl.setAttribute("fill","#fff");
+  const fr=document.getElementById("foldR"); if(fr) fr.setAttribute("fill","#fff");
+  ["tireFL","tireFR","tireRL","tireRR"].forEach(id=>{ const e=document.getElementById(id); if(e) e.value=""; });
+  diagramActiveCode = "A";
+  document.querySelectorAll("#picker .rbtn").forEach(c=>c.classList.remove("active-normal"));
+  const first = document.querySelector("#picker .rbtn"); if(first) first.classList.add("active-normal");
+  updateDiagramSummary();
+}
+
 
 // メーカー連動
 function onMaker() {
@@ -2477,13 +2647,13 @@ function calc() {
 
   // 減点集計
   let d=0;
-  ["extScratch","extDent","extWheel","extPaint","extRust","extPanel","extBumper","extTire","extGlass","intSalon","mecEngine","mecUnder","usageHist"].forEach(id=>{
+  ["extScratch","extDent","extWheel","extPaint","extRust","extPanel","extBumperF","extBumperR","extTire","extGlass","intSalon","mecEngine","mecUnder","usageHist"].forEach(id=>{
     const v=getS(id);
     const el=document.getElementById("pts_"+id);
     if(el) el.textContent=v>0?"-"+v:"0";
     d+=v;
   });
-  ["mecExhaust","mecBrake","mecBattery","mecHandle","mecBoot","mecPw","mecSmell","mecAc","mecAirbag","mecShock","intSeatTear","intSmoke","odoCheck"].forEach(k=>{
+  ["mecExhaust","mecBrake","mecBattery","mecHandle","mecBoot","mecPw","mecAc","mecAirbag","mecShock","intSeatTear","intSmoke","odoCheck"].forEach(k=>{
     const v=RV[k]||0;
     const el=document.getElementById("pts_"+k);
     if(el) el.textContent=v>0?"-"+v:"0";
@@ -2569,7 +2739,7 @@ function onManualPrice() {
   calc();
 }
 
-// ── 手入力価格で第三部（下取り価格）を直接計算 ──
+// ── 手入力価格で第三部（査定価格）を直接計算 ──
 function applyManualPrice(manualAvg) {
   const score = parseInt(document.getElementById("scoreNum").textContent)||80;
   const deviation = score - 80;
@@ -2600,7 +2770,7 @@ function applyManualPrice(manualAvg) {
   document.getElementById("rcFormula").textContent = manualAvg.toFixed(1) + " × (1" + adjSign + adjPct + "%) = " + ti.toFixed(1) + " сая ₮";
 }
 
-// ── 第二部：市場価格調査 ＋ 第三部：下取り価格算出 ──
+// ── 第二部：市場価格調査 ＋ 第三部：査定価格算出 ──
 function updatePart2And3(maker, modelSlug, carYear, driveType, grade, gi, score) {
   // その他（手書き）モードの場合はcalcCustomに委譲
   if (maker === "__other__" || modelSlug === "__custom__") {
@@ -2754,7 +2924,7 @@ function updatePart2And3(maker, modelSlug, carYear, driveType, grade, gi, score)
   window.recalcPart3 = recalcPart3;
   window._grade = grade;
 
-  // ── 第三部：下取り価格算出（スコア連動方式）──
+  // ── 第三部：査定価格算出（スコア連動方式）──
   // giの有無に関わらずscoreとavgで計算
   if(avg > 0){
     const baseScore   = 80;                        // 基準点（標準的な中古車）
@@ -2801,7 +2971,7 @@ function doReset(){
   document.getElementById("custom_maker").value="";
   document.getElementById("custom_model").value="";
   document.getElementById("custom_price").value="";
-  ["extScratch","extDent","extWheel","extPaint","extRust","extPanel","extBumper","extTire","extGlass","intSalon","mecEngine","mecUnder","usageHist"].forEach(id=>{
+  ["extScratch","extDent","extWheel","extPaint","extRust","extPanel","extBumperF","extBumperR","extTire","extGlass","intSalon","mecEngine","mecUnder","usageHist"].forEach(id=>{
     document.getElementById(id).selectedIndex=0;
   });
   document.querySelectorAll(".hist-part-cb").forEach(cb=>cb.checked=false);
@@ -2811,6 +2981,7 @@ function doReset(){
   document.querySelectorAll(".radio-group").forEach(g=>{
     const f=g.querySelector(".rbtn"); if(f) f.classList.add("active-normal");
   });
+  resetDiagram();
   calc();
 }
 
@@ -2895,13 +3066,17 @@ function printExplainSheet() {
     odoCheck:     getRadioLabel("rg_odoCheck"),
     odoCheckPts:  getPts("pts_odoCheck"),
     freeNotes:    v("freeNotes"),
+    diagramSummary: g("diagramSummary") ? g("diagramSummary").textContent : "なし",
+    diagramSvg: g("panelDiagramSvg") ? g("panelDiagramSvg").outerHTML : "",
     // 外装
     extScratch: getSelectLabel("extScratch"),
     extScratchPts: getPts("pts_extScratch"),
     extDent:    getSelectLabel("extDent"),
     extDentPts: getPts("pts_extDent"),
-    extBumper:  getSelectLabel("extBumper"),
-    extBumperPts: getPts("pts_extBumper"),
+    extBumperF:  getSelectLabel("extBumperF"),
+    extBumperFPts: getPts("pts_extBumperF"),
+    extBumperR:  getSelectLabel("extBumperR"),
+    extBumperRPts: getPts("pts_extBumperR"),
     extTire:    getSelectLabel("extTire"),
     extTirePts: getPts("pts_extTire"),
     extGlass:   getSelectLabel("extGlass"),
@@ -2936,8 +3111,6 @@ function printExplainSheet() {
     mecBootPts:   getPts("pts_mecBoot"),
     mecPw:        getRadioLabel("rg_mecPw"),
     mecPwPts:     getPts("pts_mecPw"),
-    mecSmell:     getRadioLabel("rg_mecSmell"),
-    mecSmellPts:  getPts("pts_mecSmell"),
     mecAc:        getRadioLabel("rg_mecAc"),
     mecAcPts:     getPts("pts_mecAc"),
     mecAirbag:    getRadioLabel("rg_mecAirbag"),
@@ -2999,17 +3172,20 @@ function printExplainSheet() {
   .grade-label { font-size:11px; color:#888; font-weight:600; text-transform:uppercase; letter-spacing:.05em; }
   .grade-score { font-size:28px; font-weight:800; color:#1a1a1a; }
   .grade-sub { font-size:12px; color:#666; margin-top:2px; }
-  /* 価格バナー */
-  .price-banner { background:#003087; color:#fff; border-radius:10px; padding:14px 20px; margin-bottom:16px; display:flex; gap:20px; align-items:center; flex-wrap:wrap; }
+  /* 価格バナー（エコ印刷: 塗りつぶしを避け、枠線＋濃色文字で表現） */
+  .price-banner { background:#eef3fb; border:2px solid #003087; color:#1a1a1a; border-radius:10px; padding:14px 20px; margin-bottom:16px; display:flex; gap:20px; align-items:center; flex-wrap:wrap; }
   .price-main { }
-  .price-main-label { font-size:11px; color:rgba(255,255,255,.7); margin-bottom:2px; }
-  .price-main-val { font-size:32px; font-weight:900; color:#FFD700; }
+  .price-main-label { font-size:11px; color:#003087; font-weight:700; margin-bottom:2px; }
+  .price-main-val { font-size:32px; font-weight:900; color:#003087; }
   .price-stats { display:flex; gap:10px; flex:1; flex-wrap:wrap; }
-  .price-stat { background:rgba(255,255,255,.12); border-radius:7px; padding:8px 14px; text-align:center; min-width:100px; }
-  .price-stat-label { font-size:10px; color:rgba(255,255,255,.65); margin-bottom:3px; }
-  .price-stat-val { font-size:13px; font-weight:700; color:#fff; }
+  .price-stat { background:#fff; border:1px solid #c5cfe8; border-radius:7px; padding:8px 14px; text-align:center; min-width:100px; }
+  .price-stat-label { font-size:10px; color:#666; margin-bottom:3px; }
+  .price-stat-val { font-size:13px; font-weight:700; color:#1a1a1a; }
   /* セクション */
   .section { margin-bottom:14px; }
+  .section-row { display:flex; gap:12px; margin-bottom:14px; align-items:stretch; }
+  .section-row .section { margin-bottom:0; display:flex; flex-direction:column; }
+  .section-row .section table { flex:1; }
   .section-title { font-size:11px; font-weight:700; color:#fff; text-transform:uppercase; letter-spacing:.07em; padding:6px 12px; border-radius:5px 5px 0 0; }
   .section-title.blue { background:#1565c0; }
   .section-title.ext { background:#37474f; }
@@ -3035,30 +3211,39 @@ function printExplainSheet() {
   .score-bar-fill { height:100%; border-radius:5px; }
   /* フッター */
   .footer { margin-top:20px; border-top:1px solid #e0e0e0; padding-top:10px; font-size:10px; color:#999; display:flex; justify-content:space-between; }
-  /* 印刷 — A4最適化 */
+  /* 印刷 — A4最適化（読みやすさ優先：文字を大きく、セクション単位で改ページ） */
   @media print {
     .no-print { display:none !important; }
-    body { print-color-adjust:exact; -webkit-print-color-adjust:exact; font-size:11px; }
+    body { print-color-adjust:exact; -webkit-print-color-adjust:exact; font-size:13px; }
     .page { max-width:100%; padding:6mm 8mm; }
     .sheet-header { padding-bottom:6px; margin-bottom:8px; }
     .sheet-header img { height:38px !important; }
     .grade-banner { padding:8px 14px; margin-bottom:8px; }
-    .grade-circle { width:52px !important; height:52px !important; font-size:22px !important; }
-    .grade-score { font-size:20px !important; }
-    .price-banner { padding:8px 14px; margin-bottom:8px; }
-    .price-main-val { font-size:22px !important; }
-    .price-stat { padding:5px 10px; min-width:80px; }
+    .grade-circle { width:56px !important; height:56px !important; font-size:24px !important; }
+    .grade-score { font-size:24px !important; }
+    .price-banner { padding:10px 16px; margin-bottom:8px; }
+    .price-main-val { font-size:26px !important; }
+    .price-stat { padding:6px 12px; min-width:88px; }
+    .price-stat-val { font-size:14px !important; }
     .section { margin-bottom:8px; }
-    .section-title { padding:4px 10px; font-size:10px; }
-    table th, table td { padding:3px 8px !important; font-size:10px !important; }
-    .vinfo-table td { padding:3px 10px !important; font-size:10px !important; }
+    .section-row { margin-bottom:8px; gap:8px; }
+    .section-title { padding:5px 10px; font-size:11px; }
+    table th, table td { padding:5px 10px !important; font-size:12px !important; }
+    .vinfo-table td { padding:5px 12px !important; font-size:12px !important; }
     .info-grid-2col { margin-bottom:8px !important; }
-    .info-box { padding:5px 10px; }
-    .info-box-label { font-size:9px; }
-    .info-box-val { font-size:11px; }
-    .hist-box { padding:6px 10px; font-size:11px; }
-    .footer { margin-top:8px; padding-top:6px; font-size:9px; }
-    div[style*="background:#fff8e1"] { padding:6px 10px !important; font-size:10px !important; margin-bottom:8px !important; }
+    .info-box { padding:6px 12px; }
+    .info-box-label { font-size:10px; }
+    .info-box-val { font-size:13px; }
+    .hist-box { padding:7px 12px; font-size:13px; }
+    .footer { margin-top:6px; padding-top:5px; font-size:10px; }
+    div[style*="background:#fff8e1"] { padding:6px 10px !important; font-size:10px !important; margin-bottom:6px !important; }
+    /* 損傷位置図: 印刷では図を縮小してページ消費を抑える */
+    #panelDiagramSvg { max-width:360px !important; width:360px !important; height:auto !important; display:block; margin:0 auto; }
+    /* セクションの途中で改ページされないよう、ブロック単位で次ページへ送る */
+    .section, .section-row, .grade-banner, .price-banner, .info-grid-2col, .hist-box, table, .vinfo-table {
+      page-break-inside: avoid; break-inside: avoid;
+    }
+    .section-title { page-break-after: avoid; break-after: avoid; }
     @page { size:A4 portrait; margin:8mm 8mm 10mm 8mm; }
   }
 </style>
@@ -3143,61 +3328,71 @@ function printExplainSheet() {
     </div>
   </div>
 
-  <!-- 外装評価 -->
+  <!-- 損傷位置図 -->
   <div class="section">
-    <div class="section-title ext">🔎 外装評価 / Гадаад байдлын үнэлгээ</div>
-    <table>
-      <tr><th>評価項目 / Үнэлгээний зүйл</th><th>状態 / Байдал</th><th style="text-align:right;width:80px;">減点 / Хасалт</th></tr>
-      ${deductRow("傷（Aシンボル）","Зураас (A тэмдэг)", items.extScratch, items.extScratchPts)}
-      ${deductRow("へこみ（Uシンボル）","Хонхор (U тэмдэг)", items.extDent, items.extDentPts)}
-      ${deductRow("ホイール損傷","Дугуй обуд", items.extWheel, items.extWheelPts)}
-      ${deductRow("塗装状態","Будагны байдал", items.extPaint, items.extPaintPts)}
-      ${deductRow("錆び","Зэв", items.extRust, items.extRustPts)}
-      ${deductRow("パネル交換","Хавтан солих", items.extPanel, items.extPanelPts)}
-    </table>
+    <div class="section-title blue">🖼️ 損傷位置図 / Гэмтлийн байршлын зураг</div>
+    <div style="border:1px solid #e0e0e0;border-top:none;border-radius:0 0 5px 5px;padding:10px 12px;">
+      ${items.diagramSvg}
+      <div style="font-size:12px;color:#333;margin-top:8px;"><strong>記録内容:</strong> ${items.diagramSummary}</div>
+    </div>
   </div>
 
-  <!-- 内装評価 -->
-  <div class="section">
-    <div class="section-title int">🪑 内装評価 / Дотоод байдлын үнэлгээ</div>
-    <table>
-      <tr><th>評価項目 / Үнэлгээний зүйл</th><th>状態 / Байдал</th><th style="text-align:right;width:80px;">減点 / Хасалт</th></tr>
-      ${deductRow("サロン内装状態","Салоны байдал", items.intSalon, items.intSalonPts)}
-      ${deductRow("シート破れ","Суудал урагдсан", items.intSeatTear, items.intSeatTearPts)}
-    </table>
+  <!-- 外装評価・内装評価（横並び） -->
+  <div class="section-row">
+    <div class="section" style="flex:1.4;">
+      <div class="section-title ext">🔎 外装評価 / Гадаад байдлын үнэлгээ</div>
+      <table>
+        <tr><th>評価項目 / Үнэлгээний зүйл</th><th>状態 / Байдал</th><th style="text-align:right;width:60px;">減点</th></tr>
+        ${deductRow("傷（Aシンボル）","Зураас (A тэмдэг)", items.extScratch, items.extScratchPts)}
+        ${deductRow("へこみ（Uシンボル）","Хонхор (U тэмдэг)", items.extDent, items.extDentPts)}
+        ${deductRow("ホイール損傷","Дугуй обуд", items.extWheel, items.extWheelPts)}
+        ${deductRow("塗装状態","Будагны байдал", items.extPaint, items.extPaintPts)}
+        ${deductRow("錆び","Зэв", items.extRust, items.extRustPts)}
+        ${deductRow("パネル交換","Хавтан солих", items.extPanel, items.extPanelPts)}
+        ${deductRow("フロントバンパー損傷","Урд бамперын гэмтэл", items.extBumperF, items.extBumperFPts)}
+        ${deductRow("リアバンパー損傷","Хойд бамперын гэмтэл", items.extBumperR, items.extBumperRPts)}
+      </table>
+    </div>
+    <div class="section" style="flex:1;">
+      <div class="section-title int">🪑 内装評価 / Дотоод байдлын үнэлгээ</div>
+      <table>
+        <tr><th>評価項目</th><th>状態</th><th style="text-align:right;width:50px;">減点</th></tr>
+        ${deductRow("サロン内装状態","Салоны байдал", items.intSalon, items.intSalonPts)}
+        ${deductRow("シート破れ","Суудал урагдсан", items.intSeatTear, items.intSeatTearPts)}
+      </table>
+    </div>
   </div>
 
-  <!-- メカニカル評価 -->
-  <div class="section">
-    <div class="section-title mec">⚙️ メカニカル評価 / Механик үнэлгээ</div>
-    <table>
-      <tr><th>評価項目 / Үнэлгээний зүйл</th><th>状態 / Байдал</th><th style="text-align:right;width:80px;">減点 / Хасалт</th></tr>
-      ${deductRow("エンジン状態","Хөдөлгүүрийн байдал", items.mecEngine, items.mecEnginePts)}
-      ${deductRow("下回り（オイル漏れ等）","Доорх хэсэг", items.mecUnder, items.mecUnderPts)}
-      ${deductRow("排気ガス漏れ","Яндангийн хий алдах", items.mecExhaust, items.mecExhaustPts)}
-      ${deductRow("ブレーキ残量","Тормозны үлдэгдэл", items.mecBrake, items.mecBrakePts)}
-      ${deductRow("バッテリー劣化","Зайны доройтол", items.mecBattery, items.mecBatteryPts)}
-      ${deductRow("ハンドルガタ","Хулдны сулрал", items.mecHandle, items.mecHandlePts)}
-      ${deductRow("各部ブーツ破れ","Бугуйвч урагдал", items.mecBoot, items.mecBootPts)}
-      ${deductRow("パワーウインドウ","Цахилгаан цонх", items.mecPw, items.mecPwPts)}
-      ${deductRow("異臭","Хачин үнэр", items.mecSmell, items.mecSmellPts)}
-      ${deductRow("A/C作動","Агааржуулагч", items.mecAc, items.mecAcPts)}
-      ${deductRow("エアバッグ","Аюулгүйн дэр", items.mecAirbag, items.mecAirbagPts)}
-    </table>
+  <!-- メカニカル評価・装備加点（横並び） -->
+  <div class="section-row">
+    <div class="section" style="flex:1.4;">
+      <div class="section-title mec">⚙️ メカニカル評価 / Механик үнэлгээ</div>
+      <table>
+        <tr><th>評価項目 / Үнэлгээний зүйл</th><th>状態 / Байдал</th><th style="text-align:right;width:60px;">減点</th></tr>
+        ${deductRow("エンジン状態","Хөдөлгүүрийн байдал", items.mecEngine, items.mecEnginePts)}
+        ${deductRow("下回り（オイル漏れ等）","Доорх хэсэг", items.mecUnder, items.mecUnderPts)}
+        ${deductRow("排気ガス漏れ","Яндангийн хий алдах", items.mecExhaust, items.mecExhaustPts)}
+        ${deductRow("ブレーキ残量","Тормозны үлдэгдэл", items.mecBrake, items.mecBrakePts)}
+        ${deductRow("バッテリー劣化","Зайны доройтол", items.mecBattery, items.mecBatteryPts)}
+        ${deductRow("ハンドルガタ","Хулдны сулрал", items.mecHandle, items.mecHandlePts)}
+        ${deductRow("各部ブーツ破れ","Бугуйвч урагдал", items.mecBoot, items.mecBootPts)}
+        ${deductRow("パワーウインドウ","Цахилгаан цонх", items.mecPw, items.mecPwPts)}
+        ${deductRow("A/C作動","Агааржуулагч", items.mecAc, items.mecAcPts)}
+        ${deductRow("エアバッグ","Аюулгүйн дэр", items.mecAirbag, items.mecAirbagPts)}
+      </table>
+    </div>
+    <div class="section" style="flex:1;">
+      <div class="section-title eq">✨ 装備加点 / Тоноглолын нэмэлт оноо</div>
+      <table>
+        <tr><th>装備</th><th>内容</th><th style="text-align:right;width:50px;">加点</th></tr>
+        ${deductRow("サンルーフ","Нарны дээвэр", items.eqSunroof, items.eqSunroofPts)}
+        ${deductRow("シート素材","Суудлын материал", items.eqSeat, items.eqSeatPts)}
+        ${deductRow("カメラ","Камер", items.eqCamera, items.eqCameraPts)}
+      </table>
+    </div>
   </div>
 
-  <!-- 装備加点 -->
-  <div class="section">
-    <div class="section-title eq">✨ 装備加点 / Тоноглолын нэмэлт оноо</div>
-    <table>
-      <tr><th>装備 / Тоноглол</th><th>内容 / Агуулга</th><th style="text-align:right;width:80px;">加点 / Нэмэлт</th></tr>
-      ${deductRow("サンルーフ","Нарны дээвэр", items.eqSunroof, items.eqSunroofPts)}
-      ${deductRow("シート素材","Суудлын материал", items.eqSeat, items.eqSeatPts)}
-      ${deductRow("カメラ","Камер", items.eqCamera, items.eqCameraPts)}
-    </table>
-  </div>
-
-  <!-- 下取り価格算出 -->
+  <!-- 査定価格算出 -->
   <div class="price-banner">
     <div class="price-main">
       <div class="price-main-label">📋 DEED MOTORS 下取り参考価格 / Авах лавлах үнэ</div>
@@ -3221,7 +3416,7 @@ function printExplainSheet() {
 
   <!-- 価格説明 -->
   <div style="background:#fff8e1;border:1px solid #ffe082;border-radius:7px;padding:10px 14px;margin-bottom:16px;font-size:12px;color:#6d4c00;line-height:1.7;">
-    <strong>下取り価格の算出方法 / Үнэ тооцоолох арга:</strong><br>
+    <strong>査定価格の算出方法 / Үнэ тооцоолох арга:</strong><br>
     UNEGUI.MN市場データの同一車種平均価格をベースに、査定スコア（基準80点）からの偏差をもとに加減算して算出しています。スコア1点の差が市場平均の0.5%に相当します。<br>
     <span style="font-size:10px;color:#888;">市場価格 × グレード係数 = 下取り参考価格。実際の成約価格は状況により変動します。</span>
   </div>
