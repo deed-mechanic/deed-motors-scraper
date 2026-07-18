@@ -2547,34 +2547,29 @@ function calc() {
     if(row) row.className=grade.replace(".","")===g?"current-grade":"";
   });
 
-  // ── 手入力価格の処理 ──
-function onManualPrice() {
-  const val = parseFloat(document.getElementById("manualPrice").value);
-  const badge = document.getElementById("manualPriceBadge");
-  if(val > 0) {
-    badge.style.display = "inline";
-    // 手入力価格で第三部を直接計算
-    applyManualPrice(val);
-  } else {
-    badge.style.display = "none";
-    // 手入力をクリアしたらDBから再計算
-    const maker = document.getElementById("maker").value;
-    const modelSlug = document.getElementById("modelSlug").value;
-    const carYear = document.getElementById("carYear").value;
-    const driveType = document.getElementById("driveType").value;
-    const grade = document.getElementById("gradeBadge").textContent;
-    const gi = GRADE_COEFF[grade];
-    const score = parseInt(document.getElementById("scoreNum").textContent)||80;
-    // 手入力価格がある場合は優先使用
+  // ── 第二部・第三部を更新（手入力価格があれば優先使用） ──
+  const maker=document.getElementById("maker").value;
+  const modelSlug=document.getElementById("modelSlug").value;
+  const carYear=document.getElementById("carYear").value;
+  const driveType=document.getElementById("driveType").value;
   const manualVal = parseFloat(document.getElementById("manualPrice").value);
-  if(manualVal > 0) {
+  const manualBadge = document.getElementById("manualPriceBadge");
+  if (manualVal > 0) {
+    if (manualBadge) manualBadge.style.display = "inline";
     applyManualPrice(manualVal);
-    return;
-  }
-  updatePart2And3(maker, modelSlug, carYear, driveType, grade, gi, score);
+  } else {
+    if (manualBadge) manualBadge.style.display = "none";
+    updatePart2And3(maker, modelSlug, carYear, driveType, grade, gi, score);
   }
 }
 
+// ── 手入力価格の入力欄が変更されたときのハンドラ ──
+// （スコアや査定条件が変わった場合も再計算されるよう、calc()を呼び直す）
+function onManualPrice() {
+  calc();
+}
+
+// ── 手入力価格で第三部（下取り価格）を直接計算 ──
 function applyManualPrice(manualAvg) {
   const score = parseInt(document.getElementById("scoreNum").textContent)||80;
   const deviation = score - 80;
@@ -2587,9 +2582,11 @@ function applyManualPrice(manualAvg) {
   const f = v => v.toFixed(1) + " сая ₮";
 
   const tiBox = document.getElementById("trade-in-box");
+  const noDataBox = document.getElementById("no-data-box");
   const rcWrap = document.getElementById("resultCardWrap");
   const noResMsg = document.getElementById("no-result-msg");
 
+  if (noDataBox) noDataBox.style.display = "none";
   tiBox.style.display = "block";
   document.getElementById("tiPrice").textContent = ti.toFixed(1) + " сая ₮";
   document.getElementById("tiRange").textContent = tiMin.toFixed(1) + "〜" + tiMax.toFixed(1) + " сая ₮";
@@ -2601,14 +2598,6 @@ function applyManualPrice(manualAvg) {
   document.getElementById("rcGrade").textContent = document.getElementById("gradeBadge").textContent + " (" + score + "点)";
   document.getElementById("rcCoeff").textContent = adjSign + adjPct + "% 調整（基準80点）";
   document.getElementById("rcFormula").textContent = manualAvg.toFixed(1) + " × (1" + adjSign + adjPct + "%) = " + ti.toFixed(1) + " сая ₮";
-}
-
-// ── 第二部・第三部を更新 ──
-  const maker=document.getElementById("maker").value;
-  const modelSlug=document.getElementById("modelSlug").value;
-  const carYear=document.getElementById("carYear").value;
-  const driveType=document.getElementById("driveType").value;
-  updatePart2And3(maker, modelSlug, carYear, driveType, grade, gi, score);
 }
 
 // ── 第二部：市場価格調査 ＋ 第三部：下取り価格算出 ──
