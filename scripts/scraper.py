@@ -2,29 +2,31 @@
 # -*- coding: utf-8 -*-
 import json, time, re, sys, argparse, logging
 from datetime import datetime
- 
+
 try:
     import cloudscraper
     from bs4 import BeautifulSoup
 except ImportError:
     print("pip install cloudscraper beautifulsoup4 lxml")
     sys.exit(1)
- 
+
 logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s",
     handlers=[logging.StreamHandler(sys.stdout)])
 log = logging.getLogger(__name__)
- 
+
 BASE_URL = "https://www.unegui.mn"
 REQUEST_DELAY = 3.0
 MAX_PAGES = 3
- 
+
 scraper = cloudscraper.create_scraper(
     browser={"browser": "chrome", "platform": "windows", "mobile": False}
 )
- 
+
 # 正しいURL構造: /avto-mashin/-avtomashin-zarna/メーカー/車種/
 TARGETS = [
-    {"key": "toyota|harrier",                "url": "toyota/harrier"},
+    # Harrier: UNEGUI.MN側は toyota/harrier の1URLに60系・80系が混在しているため、
+    # ここで取得したのち年式・タイトルで60系ガソリン/60系HV/80系の3区分に自動振り分けする
+    {"key": "toyota|harrier",                "url": "toyota/harrier", "harrier_split": True},
     {"key": "toyota|land-cruiser-200",       "url": "toyota/land-cruiser-200"},
     {"key": "toyota|land-cruiser-100",       "url": "toyota/land-cruiser-100"},
     {"key": "toyota|land-cruiser-prado-150", "url": "toyota/land-cruiser-prado"},
@@ -74,11 +76,11 @@ TARGETS = [
     {"key": "audi|q5-fy",                    "url": "audi/q5"},
     {"key": "mazda|cx-5-kf",                 "url": "mazda/cx-5"},
 ]
- 
+
 def build_url(path_suffix, page=1):
     base = f"{BASE_URL}/avto-mashin/-avtomashin-zarna/{path_suffix}/"
     return base if page == 1 else f"{base}?page={page}"
- 
+
 def parse_price(text):
     if not text: return None
     text = text.strip().replace("\xa0"," ").replace(",","")
@@ -89,18 +91,18 @@ def parse_price(text):
     m = re.search(r"(\d{6,})", text)
     if m: return round(int(m.group(1))/1_000_000, 1)
     return None
- 
+
 def parse_year(text):
     # 「2018/2022」形式（生産年/輸入年）→ 最初の年が生産年
     m = re.search(r"\b(19[89]\d|20[012]\d)(?:/20\d\d)?\b", text)
     return int(m.group(1)) if m else None
- 
+
 def parse_drive(text):
     t = text.upper()
     if any(w in t for w in ["4WD","AWD","ПОЛНЫЙ","4×4"]): return "4WD"
     if any(w in t for w in ["2WD","FWD","FF","FR","ПЕРЕДНИЙ"]): return "2WD"
     return "4WD"
- 
+
 def parse_color(text):
     cm = {"цагаан":"白","white":"白","хар":"黒","black":"黒","мөнгө":"銀",
           "silver":"銀","улаан":"赤","red":"赤","саарал":"グレー",
@@ -109,7 +111,7 @@ def parse_color(text):
     for k,v in cm.items():
         if k in t: return v
     return "不明"
- 
+
 def classify_rx_key(rx_type, year, title=""):
     """RXの年式・タイトルから世代×グレード別のDBキーを判定する。
     UNEGUI.MN側は lexus/rx（ガソリン）と lexus/rx-450（ハイブリッド）の
@@ -135,7 +137,21 @@ def classify_rx_key(rx_type, year, title=""):
             if any(w in t for w in ["500h", "f sport", "fsport", "ф спорт"]):
                 return "lexus|rx-al30-500h"
             return "lexus|rx-al30-350"
- 
+
+def classify_harrier_key(year, title=""):
+    """Harrierの年式・タイトルから60系（ACU/MCU）・80系を判定する。
+    UNEGUI.MN側は toyota/harrier の1URLに全世代混在のため、ここで振り分ける。
+    世代の目安: 60系=2003-2013年、80系=2014年以降。
+    60系はタイトルのキーワードでガソリン(ACU)/ハイブリッド(MCU)を判定する。
+    """
+    t = (title or "").lower()
+    if year <= 2013:
+        hv_words = ["hybrid", "hv", "гибрид", "гибрид/hybrid", "mcu"]
+        if any(w in t for w in hv_words):
+            return "toyota|harrier-60-hv"
+        return "toyota|harrier-60-gas"
+    return "toyota|harrier"
+
 def fetch(url, retries=3):
     for i in range(retries):
         try:
@@ -151,14 +167,14 @@ def fetch(url, retries=3):
             log.warning(f"  取得失敗({i+1}/{retries}): {e}")
         if i < retries-1: time.sleep(REQUEST_DELAY*(i+1))
     return None
- 
+
 def parse_card(card):
-    # タイトル（RXの世代・グレード判定用、最終保存前に除去される）
+    # タイトル（RX・Harrierの世代・グレード判定用、最終保存前に除去される）
     title_text = ""
     for sel in [".announcement-block__title", "[class*='title']", "a[itemprop='name']", "h3", "h4"]:
         el = card.select_one(sel)
         if el: title_text = el.get_text(" ", strip=True); break
- 
+
     # 価格
     price_text = ""
     for sel in [".price-announcement",".announcement-pricing",
@@ -170,26 +186,26 @@ def parse_card(card):
         price_text = card.get_text(" ")
     price = parse_price(price_text)
     if not price or price < 1.0 or price > 500.0: return None
- 
+
     full = card.get_text(" ")
- 
+
     # 年（「2018/2022」形式）
     m = re.search(r"\b(19[89]\d|20[012]\d)(?:/20\d\d)?\b", full)
     year = int(m.group(1)) if m else None
     if not year: return None
- 
+
     drive = parse_drive(full)
- 
+
     mileage = "不明"
     m2 = re.search(r"([\d,]+)\s*(?:км|km)", full, re.IGNORECASE)
     if m2: mileage = f"{int(m2.group(1).replace(',','')):,} km"
- 
+
     return {"year":year,"drive":drive,"mileage":mileage,
             "color":parse_color(full),
             "import_year":datetime.now().year,
             "price":round(price,1),
             "_title": title_text or full[:80]}
- 
+
 def parse_page(html):
     soup = BeautifulSoup(html, "lxml")
     results = []
@@ -220,7 +236,7 @@ def parse_page(html):
         except Exception as e:
             log.debug(f"  カードエラー: {e}")
     return results
- 
+
 def has_next(html, page):
     soup = BeautifulSoup(html, "lxml")
     for sel in [".pagination","[class*='pagination']","nav.pager","[class*='pager']"]:
@@ -233,7 +249,7 @@ def has_next(html, page):
                 except ValueError:
                     if any(w in t.lower() for w in ["дараа","next",">"]): return True
     return False
- 
+
 def scrape_one(target):
     key = target["key"]
     path = target["url"]
@@ -252,7 +268,7 @@ def scrape_one(target):
         time.sleep(REQUEST_DELAY)
     log.info(f"  [{key}] 計{len(results)}件")
     return results
- 
+
 def save(db, path="scripts/price_db.json"):
     out = {"updated_at": datetime.now().strftime("%Y-%m-%d %H:%M"),
            "source": "unegui.mn",
@@ -261,7 +277,7 @@ def save(db, path="scripts/price_db.json"):
     with open(path, "w", encoding="utf-8") as f:
         json.dump(out, f, ensure_ascii=False, indent=2)
     log.info(f"保存: {path} ({out['total_records']}件)")
- 
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--test", action="store_true")
@@ -281,6 +297,12 @@ def main():
                     sub_key = classify_rx_key(t["rx_type"], item["year"], item.pop("_title", ""))
                     db.setdefault(sub_key, []).append(item)
                 log.info(f"  RX振り分け完了（元キー: {t['key']}）")
+            elif t.get("harrier_split"):
+                # Harrier: 年式・タイトルキーワードで60系ガソリン/60系HV/80系に自動振り分け
+                for item in r:
+                    sub_key = classify_harrier_key(item["year"], item.pop("_title", ""))
+                    db.setdefault(sub_key, []).append(item)
+                log.info(f"  Harrier振り分け完了（元キー: {t['key']}）")
             else:
                 for item in r:
                     item.pop("_title", None)
@@ -289,7 +311,6 @@ def main():
             log.error(f"エラー: {e}")
         if i < len(targets): time.sleep(REQUEST_DELAY*2)
     save(db, args.output)
- 
+
 if __name__ == "__main__":
     main()
- 
