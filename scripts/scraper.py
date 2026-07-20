@@ -24,7 +24,7 @@ scraper = cloudscraper.create_scraper(
 
 # 正しいURL構造: /avto-mashin/-avtomashin-zarna/メーカー/車種/
 TARGETS = [
-    {"key": "toyota|c-hr",                "url": "toyota/chr"},
+    {"key": "toyota|c-hr",                "url": "toyota/chr", "chr_drive_fix": True},
     # Harrier: UNEGUI.MN側は toyota/harrier の1URLに60系・80系が混在しているため、
     # ここで取得したのち年式・タイトルで60系ガソリン/60系HV/80系の3区分に自動振り分けする
     {"key": "toyota|harrier",                "url": "toyota/harrier", "harrier_split": True},
@@ -156,6 +156,17 @@ def classify_harrier_key(year, title=""):
         return "toyota|harrier-60-gas"
     return "toyota|harrier"
 
+def fix_chr_drive(item):
+    """C-HRの駆動方式を実態に即して補正する。
+    1.8L(NAガソリン)・ハイブリッドはFF(2WD)のみの設定のため、
+    エンジン表記・ハイブリッド表記が確認できれば2WDと確定させる。
+    1.2Lターボのみ2WD/4WD両方の設定があるため、そちらは実際の検出結果（不明含む）をそのまま使う。
+    """
+    t = (item.get("_fulltext") or "").lower()
+    if "1.8" in t or "хайбрид" in t or "hybrid" in t:
+        item["drive"] = "2WD"
+    return item
+
 def fetch(url, retries=3):
     for i in range(retries):
         try:
@@ -212,7 +223,8 @@ def parse_card(card):
             "color":parse_color(full),
             "import_year":datetime.now().year,
             "price":round(price,1),
-            "_title": title_text or full[:80]}
+            "_title": title_text or full[:80],
+            "_fulltext": full}
 
 def parse_page(html):
     soup = BeautifulSoup(html, "lxml")
@@ -322,6 +334,13 @@ def main():
                     sub_key = classify_harrier_key(item["year"], item.pop("_title", ""))
                     db.setdefault(sub_key, []).append(item)
                 log.info(f"  Harrier振り分け完了（元キー: {t['key']}）")
+            elif t.get("chr_drive_fix"):
+                # C-HR: 1.8L/HVは2WD確定、1.2Lは検出結果のまま
+                for item in r:
+                    item.pop("_title", None)
+                    fix_chr_drive(item)
+                    item.pop("_fulltext", None)
+                db[t["key"]] = r
             else:
                 for item in r:
                     item.pop("_title", None)
