@@ -55,7 +55,7 @@ def main():
     new_price_db = "\n".join(lines)
 
     # 置換（文字列検索で確実に）
-    marker = "const PRICE_DB"
+    marker = "const PRICE_DB = {"
     start = html.find(marker)
     if start == -1:
         log.error("const PRICE_DB が見つかりません！")
