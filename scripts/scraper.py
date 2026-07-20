@@ -24,6 +24,7 @@ scraper = cloudscraper.create_scraper(
 
 # 正しいURL構造: /avto-mashin/-avtomashin-zarna/メーカー/車種/
 TARGETS = [
+    {"key": "toyota|c-hr",                "url": "toyota/chr"},
     # Harrier: UNEGUI.MN側は toyota/harrier の1URLに60系・80系が混在しているため、
     # ここで取得したのち年式・タイトルで60系ガソリン/60系HV/80系の3区分に自動振り分けする
     {"key": "toyota|harrier",                "url": "toyota/harrier", "harrier_split": True},
