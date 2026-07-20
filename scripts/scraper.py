@@ -99,10 +99,13 @@ def parse_year(text):
     return int(m.group(1)) if m else None
 
 def parse_drive(text):
+    # 記載がない場合は「4WD」と決め打ちせず「不明」とする
+    # （UNEGUI.MNのカード要約には駆動方式が書かれていない出品が多く、
+    #   特にハイブリッド車は本来2WD(FF)のみのモデルが多いため、断定は誤情報になる）
     t = text.upper()
     if any(w in t for w in ["4WD","AWD","ПОЛНЫЙ","4×4"]): return "4WD"
     if any(w in t for w in ["2WD","FWD","FF","FR","ПЕРЕДНИЙ"]): return "2WD"
-    return "4WD"
+    return "不明"
 
 def parse_color(text):
     cm = {"цагаан":"白","white":"白","хар":"黒","black":"黒","мөнгө":"銀",
