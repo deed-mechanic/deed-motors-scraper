@@ -28,21 +28,21 @@ TARGETS = [
     # Harrier: UNEGUI.MN側は toyota/harrier の1URLに60系・80系が混在しているため、
     # ここで取得したのち年式・タイトルで60系ガソリン/60系HV/80系の3区分に自動振り分けする
     {"key": "toyota|harrier",                "url": "toyota/harrier", "harrier_split": True},
-    {"key": "toyota|land-cruiser-200",       "url": "toyota/land-cruiser-200"},
-    {"key": "toyota|land-cruiser-100",       "url": "toyota/land-cruiser-100"},
-    {"key": "toyota|land-cruiser-prado-150", "url": "toyota/land-cruiser-prado"},
-    {"key": "toyota|alphard-30",             "url": "toyota/alphard"},
-    {"key": "toyota|vellfire-30",            "url": "toyota/vellfire"},
-    {"key": "toyota|prius-50",               "url": "toyota/prius-50"},
-    {"key": "toyota|prius-41",               "url": "toyota/prius-40"},
-    {"key": "toyota|aqua",                   "url": "toyota/aqua"},
-    {"key": "toyota|rav4-50",                "url": "toyota/rav4"},
-    {"key": "toyota|camry-70",               "url": "toyota/camry"},
-    {"key": "toyota|corolla-axio",           "url": "toyota/corolla-axio"},
-    {"key": "toyota|hiace-200",              "url": "toyota/hiace"},
-    {"key": "toyota|highlander",             "url": "toyota/highlander"},
-    {"key": "toyota|fortuner",               "url": "toyota/fortuner"},
-    {"key": "toyota|hilux",                  "url": "toyota/hilux"},
+    {"key": "toyota|land-cruiser-200", "url": "toyota/land-cruiser-200", "year_min": 2007, "year_max": 2021},
+    {"key": "toyota|land-cruiser-100", "url": "toyota/land-cruiser-100", "year_min": 1998, "year_max": 2007},
+    {"key": "toyota|land-cruiser-prado-150", "url": "toyota/land-cruiser-prado", "year_min": 2009, "year_max": 2024},
+    {"key": "toyota|alphard-30", "url": "toyota/alphard", "year_min": 2015, "year_max": 2023},
+    {"key": "toyota|vellfire-30", "url": "toyota/vellfire", "year_min": 2015, "year_max": 2023},
+    {"key": "toyota|prius-50", "url": "toyota/prius-50", "year_min": 2015, "year_max": 2023},
+    {"key": "toyota|prius-41", "url": "toyota/prius-40", "year_min": 2009, "year_max": 2015},
+    {"key": "toyota|aqua", "url": "toyota/aqua", "year_min": 2011},
+    {"key": "toyota|rav4-50", "url": "toyota/rav4", "year_min": 2018},
+    {"key": "toyota|camry-70", "url": "toyota/camry", "year_min": 2017},
+    {"key": "toyota|corolla-axio", "url": "toyota/corolla-axio", "year_min": 2006, "year_max": 2019},
+    {"key": "toyota|hiace-200", "url": "toyota/hiace", "year_min": 2004},
+    {"key": "toyota|highlander", "url": "toyota/highlander", "year_min": 2013},
+    {"key": "toyota|fortuner", "url": "toyota/fortuner", "year_min": 2015},
+    {"key": "toyota|hilux", "url": "toyota/hilux", "year_min": 2015},
     {"key": "nissan|x-trail-t32",            "url": "nissan/x-trail"},
     {"key": "nissan|patrol-y62",             "url": "nissan/patrol"},
     {"key": "nissan|elgrand-e52",            "url": "nissan/elgrand"},
@@ -55,8 +55,8 @@ TARGETS = [
     {"key": "subaru|forester-sj",            "url": "subaru/forester"},
     {"key": "subaru|outback-bs",             "url": "subaru/outback"},
     {"key": "suzuki|jimny-jb64",             "url": "suzuki/jimny"},
-    {"key": "lexus|lx-570",                  "url": "lexus/lx"},
-    {"key": "lexus|gx-460",                  "url": "lexus/gx"},
+    {"key": "lexus|lx-570", "url": "lexus/lx", "year_min": 2007, "year_max": 2021},
+    {"key": "lexus|gx-460", "url": "lexus/gx", "year_min": 2009, "year_max": 2023},
     # RX: UNEGUI.MN側はガソリン/ハイブリッドの2URLしか存在しないため、
     # ここで取得したのち年式・タイトルで7区分（世代×グレード）に自動振り分けする
     {"key": "lexus|rx-gas",                  "url": "lexus/rx",     "rx_type": "gas"},
@@ -67,14 +67,14 @@ TARGETS = [
     {"key": "hyundai|palisade",              "url": "hyundai/palisade"},
     {"key": "kia|sorento-mq4",               "url": "kia/sorento"},
     {"key": "kia|sportage-ql",               "url": "kia/sportage"},
-    {"key": "bmw|x5-f15",                    "url": "bmw/x5"},
+    {"key": "bmw|x5-f15", "url": "bmw/x5", "year_min": 2013, "year_max": 2018},
     {"key": "mercedes-benz|g-class-w463",    "url": "mercedes-benz/g-class"},
     {"key": "mercedes-benz|gle-w166",        "url": "mercedes-benz/gle"},
     {"key": "land-rover|discovery-4",        "url": "land-rover/discovery"},
     {"key": "land-rover|range-rover-l405",   "url": "land-rover/range-rover"},
-    {"key": "volkswagen|tiguan-ad1",         "url": "volkswagen/tiguan"},
-    {"key": "audi|q7-4m",                    "url": "audi/q7"},
-    {"key": "audi|q5-fy",                    "url": "audi/q5"},
+    {"key": "volkswagen|tiguan-ad1", "url": "volkswagen/tiguan", "year_min": 2016},
+    {"key": "audi|q7-4m", "url": "audi/q7", "year_min": 2015},
+    {"key": "audi|q5-fy", "url": "audi/q5", "year_min": 2017},
     {"key": "mazda|cx-5-kf",                 "url": "mazda/cx-5"},
 ]
 
@@ -297,6 +297,15 @@ def scrape_one(target):
             if sig not in seen: seen.add(sig); results.append(item)
         if not has_next(html, page): break
         time.sleep(REQUEST_DELAY)
+    # 年式範囲フィルタ（表示ラベルの世代範囲と実データの食い違いを防ぐ）
+    ymin = target.get("year_min")
+    ymax = target.get("year_max")
+    if ymin is not None or ymax is not None:
+        before = len(results)
+        results = [r for r in results if (ymin is None or r["year"] >= ymin) and (ymax is None or r["year"] <= ymax)]
+        skipped = before - len(results)
+        if skipped:
+            log.info(f"  [{key}] 年式範囲外を除外: {skipped}件（範囲: {ymin}-{ymax}）")
     log.info(f"  [{key}] 計{len(results)}件")
     return results
 
