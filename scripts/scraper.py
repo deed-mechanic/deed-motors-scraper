@@ -170,14 +170,18 @@ def fetch(url, retries=3):
 
 def parse_card(card):
     # タイトル（RX・Harrierの世代・グレード判定用、最終保存前に除去される）
+    # 注意: UNEGUI.MN現行サイトの価格要素は class="advert__content-price _not-title" のように
+    # "title"という文字列を含むため、汎用フォールバック [class*='title'] だけだと価格要素を
+    # 誤って拾ってしまう。実際のタイトル要素 .advert__content-title を最優先で試す。
     title_text = ""
-    for sel in [".announcement-block__title", "[class*='title']", "a[itemprop='name']", "h3", "h4"]:
+    for sel in [".advert__content-title", ".announcement-block__title",
+                "a[itemprop='name']", "h3", "h4", "[class*='title']"]:
         el = card.select_one(sel)
         if el: title_text = el.get_text(" ", strip=True); break
 
-    # 価格
+    # 価格（UNEGUI.MN現行サイトは .advert__content-price）
     price_text = ""
-    for sel in [".price-announcement",".announcement-pricing",
+    for sel in [".advert__content-price", ".price-announcement",".announcement-pricing",
                 "[class*='price']",".cost","[class*='cost']"]:
         el = card.select_one(sel)
         if el: price_text = el.get_text(" ", strip=True); break
@@ -210,7 +214,9 @@ def parse_page(html):
     soup = BeautifulSoup(html, "lxml")
     results = []
     cards = []
-    for sel in ["li.announcement-container",
+    for sel in ["div.advert.js-item-listing",
+                "div.advert",
+                "li.announcement-container",
                 "div.announcement-block",
                 "div[class*='announcement']",
                 "li[class*='announcement']",
@@ -239,6 +245,15 @@ def parse_page(html):
 
 def has_next(html, page):
     soup = BeautifulSoup(html, "lxml")
+    # UNEGUI.MN現行サイトの「次のページ」リンク（例: <a class="number-list-next js-page-filter ..." href="...?page=2">）
+    next_link = soup.select_one("a.number-list-next, a.js-page-filter[href*='page=']")
+    if next_link:
+        href = next_link.get("href", "")
+        m = re.search(r"page=(\d+)", href)
+        if m:
+            return int(m.group(1)) > page
+        return True
+    # フォールバック（旧セレクタ／別レイアウト対策）
     for sel in [".pagination","[class*='pagination']","nav.pager","[class*='pager']"]:
         pager = soup.select_one(sel)
         if pager:
