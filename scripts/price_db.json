@@ -1,7 +1,7 @@
 {
-  "updated_at": "2026-07-20 10:25",
+  "updated_at": "2026-07-20 11:40",
   "source": "unegui.mn",
-  "total_records": 1938,
+  "total_records": 1934,
   "total_models": 43,
   "data": {
     "toyota|c-hr": [
@@ -336,6 +336,22 @@
     ],
     "toyota|harrier": [
       {
+        "year": 2015,
+        "drive": "4WD",
+        "mileage": "250,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 45.0
+      },
+      {
+        "year": 2021,
+        "drive": "4WD",
+        "mileage": "119,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 72.5
+      },
+      {
         "year": 2017,
         "drive": "4WD",
         "mileage": "82,000 km",
@@ -374,14 +390,6 @@
         "color": "不明",
         "import_year": 2026,
         "price": 61.9
-      },
-      {
-        "year": 2021,
-        "drive": "4WD",
-        "mileage": "119,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 72.5
       },
       {
         "year": 2017,
@@ -962,6 +970,22 @@
         "price": 40.0
       },
       {
+        "year": 2007,
+        "drive": "4WD",
+        "mileage": "210,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 23.0
+      },
+      {
+        "year": 2011,
+        "drive": "4WD",
+        "mileage": "133,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 27.0
+      },
+      {
         "year": 2009,
         "drive": "4WD",
         "mileage": "168,000 km",
@@ -1170,14 +1194,6 @@
         "price": 20.0
       },
       {
-        "year": 2007,
-        "drive": "4WD",
-        "mileage": "241,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 23.0
-      },
-      {
         "year": 2005,
         "drive": "4WD",
         "mileage": "11,111,111 km",
@@ -1200,30 +1216,6 @@
         "color": "不明",
         "import_year": 2026,
         "price": 36.0
-      },
-      {
-        "year": 2006,
-        "drive": "4WD",
-        "mileage": "150,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 36.5
-      },
-      {
-        "year": 2006,
-        "drive": "4WD",
-        "mileage": "165,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 26.0
-      },
-      {
-        "year": 2008,
-        "drive": "4WD",
-        "mileage": "150,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 25.0
       }
     ],
     "toyota|land-cruiser-200": [
@@ -1684,6 +1676,14 @@
         "price": 185.0
       },
       {
+        "year": 2019,
+        "drive": "4WD",
+        "mileage": "80,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 165.0
+      },
+      {
         "year": 2013,
         "drive": "4WD",
         "mileage": "160,000 km",
@@ -1762,14 +1762,6 @@
         "color": "不明",
         "import_year": 2026,
         "price": 69.0
-      },
-      {
-        "year": 2019,
-        "drive": "4WD",
-        "mileage": "70,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 165.0
       },
       {
         "year": 2011,
@@ -1996,6 +1988,14 @@
         "color": "不明",
         "import_year": 2026,
         "price": 53.0
+      },
+      {
+        "year": 2006,
+        "drive": "4WD",
+        "mileage": "190,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 50.0
       },
       {
         "year": 2007,
@@ -2336,6 +2336,14 @@
     ],
     "toyota|alphard-30": [
       {
+        "year": 2019,
+        "drive": "4WD",
+        "mileage": "233,500 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 85.0
+      },
+      {
         "year": 2017,
         "drive": "4WD",
         "mileage": "200,000 km",
@@ -2486,6 +2494,38 @@
         "color": "不明",
         "import_year": 2026,
         "price": 56.0
+      },
+      {
+        "year": 2022,
+        "drive": "4WD",
+        "mileage": "115,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 83.0
+      },
+      {
+        "year": 2016,
+        "drive": "4WD",
+        "mileage": "116,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 69.0
+      },
+      {
+        "year": 2018,
+        "drive": "4WD",
+        "mileage": "168,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 72.0
+      },
+      {
+        "year": 2009,
+        "drive": "4WD",
+        "mileage": "135,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 30.0
       },
       {
         "year": 2019,
@@ -3182,54 +3222,6 @@
         "color": "不明",
         "import_year": 2026,
         "price": 12.5
-      },
-      {
-        "year": 2004,
-        "drive": "4WD",
-        "mileage": "320,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 13.0
-      },
-      {
-        "year": 2014,
-        "drive": "4WD",
-        "mileage": "170 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 42.0
-      },
-      {
-        "year": 2012,
-        "drive": "4WD",
-        "mileage": "140,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 44.0
-      },
-      {
-        "year": 2018,
-        "drive": "4WD",
-        "mileage": "80,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 108.0
-      },
-      {
-        "year": 2009,
-        "drive": "4WD",
-        "mileage": "230,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 19.0
-      },
-      {
-        "year": 2018,
-        "drive": "4WD",
-        "mileage": "1 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 84.5
       }
     ],
     "toyota|vellfire-30": [
@@ -3362,6 +3354,38 @@
         "price": 68.0
       },
       {
+        "year": 2016,
+        "drive": "4WD",
+        "mileage": "176,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 66.0
+      },
+      {
+        "year": 2016,
+        "drive": "4WD",
+        "mileage": "107,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 68.0
+      },
+      {
+        "year": 2015,
+        "drive": "4WD",
+        "mileage": "195,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 56.0
+      },
+      {
+        "year": 2015,
+        "drive": "4WD",
+        "mileage": "262,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 53.0
+      },
+      {
         "year": 2009,
         "drive": "4WD",
         "mileage": "199,000 km",
@@ -3447,7 +3471,7 @@
         "mileage": "180,000 km",
         "color": "不明",
         "import_year": 2026,
-        "price": 48.0
+        "price": 45.0
       },
       {
         "year": 2012,
@@ -3720,14 +3744,6 @@
         "color": "不明",
         "import_year": 2026,
         "price": 26.0
-      },
-      {
-        "year": 2015,
-        "drive": "4WD",
-        "mileage": "138,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 56.0
       },
       {
         "year": 2017,
@@ -4048,46 +4064,6 @@
         "color": "不明",
         "import_year": 2026,
         "price": 76.0
-      },
-      {
-        "year": 2011,
-        "drive": "4WD",
-        "mileage": "100 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 34.0
-      },
-      {
-        "year": 2015,
-        "drive": "4WD",
-        "mileage": "130,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 65.0
-      },
-      {
-        "year": 2012,
-        "drive": "4WD",
-        "mileage": "297,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 24.0
-      },
-      {
-        "year": 2016,
-        "drive": "4WD",
-        "mileage": "300,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 57.0
-      },
-      {
-        "year": 2012,
-        "drive": "4WD",
-        "mileage": "200 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 36.0
       }
     ],
     "toyota|prius-41": [
@@ -5032,6 +5008,22 @@
       {
         "year": 2016,
         "drive": "4WD",
+        "mileage": "178,280 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 18.0
+      },
+      {
+        "year": 2018,
+        "drive": "4WD",
+        "mileage": "160,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 21.0
+      },
+      {
+        "year": 2016,
+        "drive": "4WD",
         "mileage": "187,000 km",
         "color": "不明",
         "import_year": 2026,
@@ -5540,14 +5532,6 @@
         "color": "不明",
         "import_year": 2026,
         "price": 33.0
-      },
-      {
-        "year": 2016,
-        "drive": "4WD",
-        "mileage": "250,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 12.0
       }
     ],
     "toyota|rav4-50": [
@@ -6442,6 +6426,14 @@
         "price": 34.0
       },
       {
+        "year": 2019,
+        "drive": "4WD",
+        "mileage": "155,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 50.0
+      },
+      {
         "year": 2017,
         "drive": "4WD",
         "mileage": "124,000 km",
@@ -6607,7 +6599,7 @@
         "mileage": "112,000 km",
         "color": "不明",
         "import_year": 2026,
-        "price": 46.0
+        "price": 45.0
       },
       {
         "year": 2013,
@@ -6696,14 +6688,6 @@
         "color": "不明",
         "import_year": 2026,
         "price": 55.0
-      },
-      {
-        "year": 2017,
-        "drive": "4WD",
-        "mileage": "171,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 45.0
       },
       {
         "year": 2013,
@@ -7050,6 +7034,14 @@
         "price": 36.0
       },
       {
+        "year": 2017,
+        "drive": "4WD",
+        "mileage": "138,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 46.0
+      },
+      {
         "year": 2013,
         "drive": "4WD",
         "mileage": "190,000 km",
@@ -7160,14 +7152,6 @@
         "color": "不明",
         "import_year": 2026,
         "price": 17.0
-      },
-      {
-        "year": 2008,
-        "drive": "4WD",
-        "mileage": "220,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 7.0
       }
     ],
     "toyota|hiace-200": [
@@ -8626,6 +8610,14 @@
         "price": 125.0
       },
       {
+        "year": 2018,
+        "drive": "4WD",
+        "mileage": "180,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 55.0
+      },
+      {
         "year": 2009,
         "drive": "4WD",
         "mileage": "110 km",
@@ -9044,14 +9036,6 @@
         "price": 23.0
       },
       {
-        "year": 2017,
-        "drive": "4WD",
-        "mileage": "170,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 35.0
-      },
-      {
         "year": 2021,
         "drive": "4WD",
         "mileage": "141,000 km",
@@ -9322,6 +9306,14 @@
         "color": "不明",
         "import_year": 2026,
         "price": 15.0
+      },
+      {
+        "year": 2017,
+        "drive": "4WD",
+        "mileage": "140 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 35.0
       },
       {
         "year": 2015,
@@ -9762,6 +9754,14 @@
         "color": "不明",
         "import_year": 2026,
         "price": 6.0
+      },
+      {
+        "year": 2016,
+        "drive": "4WD",
+        "mileage": "135,129 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 30.0
       }
     ],
     "nissan|patrol-y62": [
@@ -9788,14 +9788,6 @@
         "color": "不明",
         "import_year": 2026,
         "price": 175.0
-      },
-      {
-        "year": 2021,
-        "drive": "4WD",
-        "mileage": "130,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 150.0
       },
       {
         "year": 2023,
@@ -10494,14 +10486,6 @@
         "price": 40.0
       },
       {
-        "year": 2015,
-        "drive": "4WD",
-        "mileage": "200,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 35.0
-      },
-      {
         "year": 2013,
         "drive": "4WD",
         "mileage": "255,000 km",
@@ -10628,6 +10612,14 @@
         "color": "不明",
         "import_year": 2026,
         "price": 12.0
+      },
+      {
+        "year": 2015,
+        "drive": "4WD",
+        "mileage": "124,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 35.0
       },
       {
         "year": 2023,
@@ -11210,14 +11202,6 @@
         "color": "不明",
         "import_year": 2026,
         "price": 15.0
-      },
-      {
-        "year": 2014,
-        "drive": "4WD",
-        "mileage": "140,945 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 22.0
       },
       {
         "year": 2013,
@@ -12742,6 +12726,14 @@
         "price": 46.5
       },
       {
+        "year": 2009,
+        "drive": "4WD",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 53.0
+      },
+      {
         "year": 2011,
         "drive": "4WD",
         "mileage": "不明",
@@ -12940,14 +12932,6 @@
         "color": "不明",
         "import_year": 2026,
         "price": 20.0
-      },
-      {
-        "year": 2009,
-        "drive": "4WD",
-        "mileage": "不明",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 35.0
       }
     ],
     "lexus|rx-al20-hybrid": [
@@ -13406,14 +13390,6 @@
       {
         "year": 2018,
         "drive": "4WD",
-        "mileage": "156,000 km",
-        "color": "黄",
-        "import_year": 2026,
-        "price": 72.0
-      },
-      {
-        "year": 2018,
-        "drive": "4WD",
         "mileage": "110,000 km",
         "color": "不明",
         "import_year": 2026,
@@ -13426,6 +13402,22 @@
         "color": "不明",
         "import_year": 2026,
         "price": 77.5
+      },
+      {
+        "year": 2018,
+        "drive": "4WD",
+        "mileage": "99,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 78.5
+      },
+      {
+        "year": 2018,
+        "drive": "4WD",
+        "mileage": "156,000 km",
+        "color": "黄",
+        "import_year": 2026,
+        "price": 72.0
       },
       {
         "year": 2022,
@@ -13474,6 +13466,22 @@
         "color": "不明",
         "import_year": 2026,
         "price": 135.0
+      },
+      {
+        "year": 2014,
+        "drive": "4WD",
+        "mileage": "144 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 52.0
+      },
+      {
+        "year": 2018,
+        "drive": "4WD",
+        "mileage": "177,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 66.0
       },
       {
         "year": 2014,
@@ -13532,14 +13540,6 @@
         "price": 71.8
       },
       {
-        "year": 2018,
-        "drive": "4WD",
-        "mileage": "99,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 78.5
-      },
-      {
         "year": 2015,
         "drive": "4WD",
         "mileage": "100,000 km",
@@ -13586,14 +13586,6 @@
         "color": "不明",
         "import_year": 2026,
         "price": 80.0
-      },
-      {
-        "year": 2018,
-        "drive": "4WD",
-        "mileage": "78,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 66.0
       },
       {
         "year": 2022,
@@ -13698,14 +13690,6 @@
         "color": "不明",
         "import_year": 2026,
         "price": 81.8
-      },
-      {
-        "year": 2014,
-        "drive": "4WD",
-        "mileage": "130,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 52.0
       },
       {
         "year": 2016,
@@ -14130,22 +14114,6 @@
         "color": "不明",
         "import_year": 2026,
         "price": 74.0
-      },
-      {
-        "year": 2017,
-        "drive": "4WD",
-        "mileage": "111,634 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 85.8
-      },
-      {
-        "year": 2015,
-        "drive": "4WD",
-        "mileage": "195,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 45.0
       }
     ],
     "lexus|es-axzh10": [
