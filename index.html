@@ -224,11 +224,27 @@ input[type=number]::placeholder {
         <div class="info-cell"><div class="info-label">グレード / Зэрэглэл</div><input type="text" id="carGrade" placeholder="Elegance"></div>
         <div class="info-cell"><div class="info-label">VIN番号</div><input type="text" id="vinNum" placeholder="VIN"></div>
         <div class="info-cell"><div class="info-label">エンジン型式 / Хөдөлгүүрийн загвар</div><input type="text" id="engType" placeholder="2AR-FXE"></div>
-        <div class="info-cell"><div class="info-label">走行距離 km / Явсан зам</div><input type="number" id="mileageVal" placeholder="98000" oninput="calc()"></div>
-        <div class="info-cell"><div class="info-label">色 / Өнгө</div><input type="text" id="bodyColor" placeholder="パールホワイト"></div>
-        <div class="info-cell"><div class="info-label">排気量 / Багтаамж</div><input type="text" id="displacement" placeholder="2494ml"></div>
+        <div class="info-cell"><div class="info-label">走行距離 km / Явсан зам</div><input type="text" inputmode="numeric" id="mileageVal" placeholder="98000" oninput="calc()" onblur="const n=this.value.replace(/[^0-9]/g,''); this.value = n ? n+' km' : '';"></div>
+        <div class="info-cell"><div class="info-label">色 / Өнгө</div><div style="display:flex;gap:4px;">
+          <select id="bodyColorFamily" onchange="syncBodyColor()" style="flex:1;min-width:0;padding:6px 4px;border:1.5px solid #e0e0e0;border-radius:6px;font-size:12px;">
+            <option value="">選択 / Сонгох</option>
+            <option value="ホワイト系">ホワイト系</option>
+            <option value="シルバー系">シルバー系</option>
+            <option value="ブラック系">ブラック系</option>
+            <option value="レッド系">レッド系</option>
+            <option value="ブラウン系">ブラウン系</option>
+            <option value="イエロー系">イエロー系</option>
+            <option value="グリーン系">グリーン系</option>
+            <option value="ライトブルー系">ライトブルー系</option>
+            <option value="ブルー系">ブルー系</option>
+            <option value="パープル系">パープル系</option>
+          </select>
+          <input type="text" id="bodyColorCode" placeholder="カラーコード" oninput="syncBodyColor()" style="width:80px;">
+        </div>
+        <input type="hidden" id="bodyColor" value=""></div>
+        <div class="info-cell"><div class="info-label">排気量 / Багтаамж</div><input type="text" inputmode="numeric" id="displacement" placeholder="2494" onblur="const n=this.value.replace(/[^0-9]/g,''); this.value = n ? n+'cc' : '';"></div>
         <div class="info-cell"><div class="info-label">査定日 / Огноо</div><input type="date" id="assessDate"></div>
-        <div class="info-cell"><div class="info-label">生産年月 / Үйлдвэрлэсэн он, сар</div><input type="text" id="mfgDate" placeholder="2018年3月"></div>
+        <div class="info-cell"><div class="info-label">生産年 / Үйлдвэрлэсэн он</div><input type="text" inputmode="numeric" id="mfgDate" placeholder="2018" maxlength="4"></div>
         <div class="info-cell"><div class="info-label">点検者 / Үнэлгээч</div><input type="text" id="inspector" placeholder="氏名"></div>
       </div>
     </div>
@@ -3811,6 +3827,11 @@ function setR(key, el, val) {
   calc();
 }
 
+function syncBodyColor(){
+  const fam = document.getElementById("bodyColorFamily").value;
+  const code = document.getElementById("bodyColorCode").value.trim();
+  document.getElementById("bodyColor").value = [fam, code].filter(Boolean).join(" ");
+}
 function getS(id){ return parseInt(document.getElementById(id).value)||0; }
 
 // ── 損傷位置図 ──
