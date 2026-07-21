@@ -218,7 +218,7 @@ input[type=number]::placeholder {
     <div class="card">
       <div class="sec-title">🚗 車両基本情報 / Тээврийн хэрэгслийн үндсэн мэдээлэл</div>
       <div class="info-grid">
-        <div class="info-cell"><div class="info-label">登録番号 / Улсын дугаар</div><input type="text" id="regNum" placeholder="1234УНА"></div>
+        <div class="info-cell"><div class="info-label">登録番号 / Улсын дугаар</div><input type="text" id="regNum" placeholder="1234УНА" oninput="const sc=document.getElementById('smartcarPlate'); if(sc) sc.value=this.value.toUpperCase();"></div>
         <div class="info-cell"><div class="info-label">車名 / Марк</div><input type="text" id="carName" placeholder="Toyota Harrier"></div>
         <div class="info-cell"><div class="info-label">フル型式 / Загвар</div><input type="text" id="fullModel" placeholder="ZSU60W"></div>
         <div class="info-cell"><div class="info-label">グレード / Зэрэглэл</div><input type="text" id="carGrade" placeholder="Elegance"></div>
