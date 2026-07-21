@@ -36,6 +36,7 @@ TARGETS = [
     {"key": "toyota|alphard-30", "url": "toyota/alphard", "alphard_split": True},
     {"key": "toyota|vellfire-30", "url": "toyota/vellfire", "vellfire_split": True},
     {"key": "toyota|prius-30", "url": "toyota/prius-30", "year_min": 2009, "year_max": 2015},
+    {"key": "toyota|prius-50", "url": "toyota/prius-51", "year_min": 2015, "year_max": 2023},
     {"key": "toyota|prius-60", "url": "toyota/prius-60", "year_min": 2023},
     {"key": "toyota|prius-41", "url": "toyota/prius-40", "year_min": 2009, "year_max": 2015},
     {"key": "toyota|aqua", "url": "toyota/aqua", "year_min": 2011},
