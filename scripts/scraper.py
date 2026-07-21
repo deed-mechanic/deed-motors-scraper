@@ -409,9 +409,10 @@ def main():
                     db.setdefault(sub_key, []).append(item)
                 log.info(f"  RX振り分け完了（元キー: {t['key']}）")
             elif t.get("harrier_split"):
-                # Harrier: 年式・タイトルキーワードで60系ガソリン/60系HV/80系に自動振り分け
+                # Harrier: 年式・カード全文キーワードで60系ガソリン/60系HV/80系に自動振り分け
                 for item in r:
-                    sub_key = classify_harrier_key(item["year"], item.pop("_title", ""))
+                    item.pop("_title", None)
+                    sub_key = classify_harrier_key(item["year"], item.pop("_fulltext", ""))
                     db.setdefault(sub_key, []).append(item)
                 log.info(f"  Harrier振り分け完了（元キー: {t['key']}）")
             elif t.get("gx_split"):
@@ -421,31 +422,36 @@ def main():
                 log.info(f"  GX振り分け完了（元キー: {t['key']}）")
             elif t.get("is_split"):
                 for item in r:
-                    sub_key = classify_is_key(item["year"], item.pop("_title", ""))
+                    item.pop("_title", None)
+                    sub_key = classify_is_key(item["year"], item.pop("_fulltext", ""))
                     db.setdefault(sub_key, []).append(item)
                 log.info(f"  IS振り分け完了（元キー: {t['key']}）")
             elif t.get("gs_split"):
                 for item in r:
-                    sub_key = classify_gs_key(item["year"], item.pop("_title", ""))
+                    item.pop("_title", None)
+                    sub_key = classify_gs_key(item["year"], item.pop("_fulltext", ""))
                     db.setdefault(sub_key, []).append(item)
                 log.info(f"  GS振り分け完了（元キー: {t['key']}）")
             elif t.get("ls_split"):
                 for item in r:
-                    sub_key = classify_ls_key(item["year"], item.pop("_title", ""))
+                    item.pop("_title", None)
+                    sub_key = classify_ls_key(item["year"], item.pop("_fulltext", ""))
                     db.setdefault(sub_key, []).append(item)
                 log.info(f"  LS振り分け完了（元キー: {t['key']}）")
             elif t.get("nx_split"):
                 # NX: 世代(AZ10/AZ20)×ガソリン/HVで振り分け
                 for item in r:
-                    sub_key = classify_nx_key(item["year"], item.pop("_title", ""))
+                    item.pop("_title", None)
+                    sub_key = classify_nx_key(item["year"], item.pop("_fulltext", ""))
                     db.setdefault(sub_key, []).append(item)
                 log.info(f"  NX振り分け完了（元キー: {t['key']}）")
             elif t.get("es_split"):
                 # ES: 7代目(2018-)のみ対象、ガソリン/HVで振り分け（旧型は除外）
                 excluded = 0
                 for item in r:
-                    title = item.pop("_title", "")
-                    sub_key = classify_es_key(item["year"], title)
+                    item.pop("_title", None)
+                    fulltext = item.pop("_fulltext", "")
+                    sub_key = classify_es_key(item["year"], fulltext)
                     if sub_key is None:
                         excluded += 1
                         continue
