@@ -1,7 +1,7 @@
 {
-  "updated_at": "2026-07-21 06:57",
+  "updated_at": "2026-07-21 08:04",
   "source": "unegui.mn",
-  "total_records": 2037,
+  "total_records": 2047,
   "total_models": 70,
   "data": {
     "toyota|c-hr": [
@@ -328,6 +328,14 @@
     ],
     "toyota|harrier": [
       {
+        "year": 2020,
+        "drive": "不明",
+        "mileage": "96,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 85.8
+      },
+      {
         "year": 2017,
         "drive": "不明",
         "mileage": "168 km",
@@ -416,20 +424,20 @@
         "price": 45.0
       },
       {
-        "year": 2020,
-        "drive": "不明",
-        "mileage": "96,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 85.8
-      },
-      {
         "year": 2017,
         "drive": "不明",
         "mileage": "115,000 km",
         "color": "不明",
         "import_year": 2026,
         "price": 65.0
+      },
+      {
+        "year": 2015,
+        "drive": "不明",
+        "mileage": "187,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 51.0
       },
       {
         "year": 2015,
@@ -480,12 +488,28 @@
         "price": 49.0
       },
       {
-        "year": 2017,
+        "year": 2014,
         "drive": "不明",
-        "mileage": "117,000 km",
+        "mileage": "180,000 km",
         "color": "不明",
         "import_year": 2026,
-        "price": 59.0
+        "price": 46.0
+      },
+      {
+        "year": 2018,
+        "drive": "不明",
+        "mileage": "98 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 63.0
+      },
+      {
+        "year": 2014,
+        "drive": "不明",
+        "mileage": "213,456 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 55.0
       },
       {
         "year": 2019,
@@ -774,30 +798,6 @@
         "color": "不明",
         "import_year": 2026,
         "price": 55.0
-      },
-      {
-        "year": 2021,
-        "drive": "不明",
-        "mileage": "88,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 83.0
-      },
-      {
-        "year": 2018,
-        "drive": "不明",
-        "mileage": "96,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 69.5
-      },
-      {
-        "year": 2016,
-        "drive": "不明",
-        "mileage": "112,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 65.0
       }
     ],
     "toyota|harrier-60-hv": [
@@ -1028,6 +1028,14 @@
         "price": 28.0
       },
       {
+        "year": 2006,
+        "drive": "不明",
+        "mileage": "180,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 22.0
+      },
+      {
         "year": 2005,
         "drive": "不明",
         "mileage": "160,000 km",
@@ -1092,12 +1100,12 @@
         "price": 17.0
       },
       {
-        "year": 2006,
+        "year": 2008,
         "drive": "不明",
-        "mileage": "180,000 km",
+        "mileage": "179 km",
         "color": "不明",
         "import_year": 2026,
-        "price": 22.0
+        "price": 34.5
       },
       {
         "year": 2006,
@@ -1202,26 +1210,9 @@
         "color": "不明",
         "import_year": 2026,
         "price": 25.0
-      },
-      {
-        "year": 2011,
-        "drive": "不明",
-        "mileage": "199 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 28.0
       }
     ],
     "toyota|land-cruiser-200": [
-      {
-        "year": 2016,
-        "drive": "不明",
-        "mileage": "180 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 154.0,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n VIP \n \n 1 /13\n           \n \n \n \n \n 154 сая  ₮ \n \n \n \n \n          Toyota Land Cruiser 200, 2016/2016\n         \n 180 км \n · Автомат \n · 4.6 л \n · Бензин \n \n \n \n \n 2 цагийн өмнө \n Сүхбаатар, Сүхбаатар, Хороо 10 \n \n \n \n \n \n \n"
-      },
       {
         "year": 2018,
         "drive": "不明",
@@ -1229,7 +1220,16 @@
         "color": "不明",
         "import_year": 2026,
         "price": 176.0,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n VIP \n \n 1 /16\n           \n \n \n \n \n 176 сая  ₮ \n \n \n \n \n          Toyota Land Cruiser 200, 2018/2026\n         \n 123000 км \n · Автомат \n · 4.6 л \n · Бензин \n \n \n \n \n 3 цагийн өмнө \n Сонгинохайрхан, Сонгинохайрхан, Хороо 32 \n \n \n \n \n \n \n"
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n VIP \n \n 1 /16\n           \n \n \n \n \n 176 сая  ₮ \n \n \n \n \n          Toyota Land Cruiser 200, 2018/2026\n         \n 123000 км \n · Автомат \n · 4.6 л \n · Бензин \n \n \n \n \n 30 минутын өмнө \n Сонгинохайрхан, Сонгинохайрхан, Хороо 32 \n \n \n \n \n \n \n"
+      },
+      {
+        "year": 2016,
+        "drive": "不明",
+        "mileage": "180 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 154.0,
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n VIP \n \n 1 /13\n           \n \n \n \n \n 154 сая  ₮ \n \n \n \n \n          Toyota Land Cruiser 200, 2016/2016\n         \n 180 км \n · Автомат \n · 4.6 л \n · Бензин \n \n \n \n \n 3 цагийн өмнө \n Сүхбаатар, Сүхбаатар, Хороо 10 \n \n \n \n \n \n \n"
       },
       {
         "year": 2016,
@@ -1349,13 +1349,22 @@
         "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n VIP \n \n 1 /10\n           \n \n \n \n \n 110 сая  ₮ \n \n \n \n \n \n          Toyota Land Cruiser 200, 2015/2015\n         \n 245000 км \n · Автомат \n · 4.6 л \n · Дизель \n \n \n \n \n 1 жилийн өмнө \n Баянзүрх, Баянзүрх, Хороо 36 \n \n \n \n \n \n \n"
       },
       {
+        "year": 2017,
+        "drive": "不明",
+        "mileage": "125,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 149.0,
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n Онцгой \n \n 1 /10\n           \n \n \n \n \n 149 сая  ₮ \n \n \n \n \n          Toyota Land Cruiser 200, 2017/2017\n         \n 125000 км \n · Автомат \n · 3.0 л \n · Бензин \n \n \n \n \n 39 минутын өмнө \n Сонгинохайрхан, Сонгинохайрхан, Хороо 21 \n \n \n \n \n \n \n"
+      },
+      {
         "year": 2016,
         "drive": "不明",
         "mileage": "170,000 km",
         "color": "不明",
         "import_year": 2026,
-        "price": 149.0,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n Онцгой \n \n 1 /14\n           \n \n \n \n \n 149 сая  ₮ \n \n \n \n \n \n          Toyota Land Cruiser 200, 2016/2016\n         \n 170000 км \n · Автомат \n · 4.5 л \n · Дизель \n \n \n \n \n 5 минутын өмнө \n Баянзүрх, Амгалан \n \n \n \n \n \n \n"
+        "price": 140.0,
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n Онцгой \n \n 1 /14\n           \n \n \n \n \n 140 сая  ₮   149 сая  ₮ \n \n \n \n \n \n          Toyota Land Cruiser 200, 2016/2016\n         \n 170000 км \n · Автомат \n · 4.5 л \n · Дизель \n \n \n \n \n 1 цагийн өмнө \n Баянзүрх, Амгалан \n \n \n \n \n \n \n"
       },
       {
         "year": 2015,
@@ -1412,13 +1421,22 @@
         "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n Онцгой \n \n 1 /8\n           \n \n \n \n \n 108 сая  ₮ \n \n \n \n \n          Toyota Land Cruiser 200, 2014/2014\n         \n 210000 км \n · Механик \n · 4.0 л \n · Бензин \n \n \n \n \n 2 долоо хоногийн өмнө \n Хан-Уул, Хан-Уул, Хороо 17 \n \n \n \n \n \n \n"
       },
       {
+        "year": 2012,
+        "drive": "不明",
+        "mileage": "140,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 85.0,
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /5\n           \n \n \n \n \n 85 сая  ₮ \n \n \n \n \n          Toyota Land Cruiser 200, 2012/2012\n         \n 140000 км \n · Автомат \n · 0.4 л \n · Бензин \n \n \n \n \n 15 минутын өмнө \n Баянзүрх, Зүүн 4 зам \n \n \n \n \n \n \n"
+      },
+      {
         "year": 2019,
         "drive": "不明",
         "mileage": "33,000 km",
         "color": "不明",
         "import_year": 2026,
         "price": 175.0,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /12\n           \n \n \n \n \n 175 сая  ₮ \n \n \n \n \n          Toyota Land Cruiser 200, 2019/2020\n         \n 33000 км \n · Автомат \n · 4.0 л \n · Бензин \n \n \n \n \n 3 цагийн өмнө \n Хан-Уул, Яармаг \n \n \n \n \n \n \n"
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /12\n           \n \n \n \n \n 175 сая  ₮ \n \n \n \n \n          Toyota Land Cruiser 200, 2019/2020\n         \n 33000 км \n · Автомат \n · 4.0 л \n · Бензин \n \n \n \n \n Өнөөдөр \n Хан-Уул, Яармаг \n \n \n \n \n \n \n"
       },
       {
         "year": 2019,
@@ -1427,7 +1445,7 @@
         "color": "不明",
         "import_year": 2026,
         "price": 160.0,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /4\n           \n \n \n \n \n 160 сая  ₮ \n \n \n \n \n          Toyota Land Cruiser 200, 2019/2019\n         \n 132500 км \n · Автомат \n · 4.0 л \n · Бензин \n \n \n \n \n 3 цагийн өмнө \n Хан-Уул, Хан-Уул, Хороо 18 \n \n \n \n \n \n \n"
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /4\n           \n \n \n \n \n 160 сая  ₮ \n \n \n \n \n          Toyota Land Cruiser 200, 2019/2019\n         \n 132500 км \n · Автомат \n · 4.0 л \n · Бензин \n \n \n \n \n Өнөөдөр \n Хан-Уул, Хан-Уул, Хороо 18 \n \n \n \n \n \n \n"
       },
       {
         "year": 2008,
@@ -1436,7 +1454,7 @@
         "color": "不明",
         "import_year": 2026,
         "price": 82.8,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /12\n           \n \n \n \n \n 82.8 сая  ₮ \n \n \n \n \n          Toyota Land Cruiser 200, 2008/2009\n         \n 190000 км \n · Автомат \n · 5.7 л \n · Бензин \n \n \n \n \n 3 цагийн өмнө \n Чингэлтэй, Чингэлтэй, Хороо 5 \n \n \n \n \n \n \n"
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /12\n           \n \n \n \n \n 82.8 сая  ₮ \n \n \n \n \n          Toyota Land Cruiser 200, 2008/2009\n         \n 190000 км \n · Автомат \n · 5.7 л \n · Бензин \n \n \n \n \n Өнөөдөр \n Чингэлтэй, Чингэлтэй, Хороо 5 \n \n \n \n \n \n \n"
       },
       {
         "year": 2021,
@@ -1445,7 +1463,7 @@
         "color": "不明",
         "import_year": 2026,
         "price": 178.0,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /9\n           \n \n \n \n \n 178 сая  ₮ \n \n \n \n \n          Toyota Land Cruiser 200, 2021/2026\n         \n 90000 км \n · Автомат \n · 4.6 л \n · Бензин \n \n \n \n \n 3 цагийн өмнө \n Хан-Уул, Соёолж Авто худалдаа \n \n \n \n \n \n \n"
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /9\n           \n \n \n \n \n 178 сая  ₮ \n \n \n \n \n          Toyota Land Cruiser 200, 2021/2026\n         \n 90000 км \n · Автомат \n · 4.6 л \n · Бензин \n \n \n \n \n Өнөөдөр \n Хан-Уул, Соёолж Авто худалдаа \n \n \n \n \n \n \n"
       },
       {
         "year": 2017,
@@ -1454,7 +1472,7 @@
         "color": "不明",
         "import_year": 2026,
         "price": 135.0,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /10\n           \n \n \n \n \n 135 сая  ₮ \n \n \n \n \n          Toyota Land Cruiser 200, 2017/2017\n         \n 140000 км \n · Автомат \n · 4.5 л \n · Дизель \n \n \n \n \n 3 цагийн өмнө \n Хан-Уул, Соёолж Авто худалдаа \n \n \n \n \n \n \n"
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /10\n           \n \n \n \n \n 135 сая  ₮ \n \n \n \n \n          Toyota Land Cruiser 200, 2017/2017\n         \n 140000 км \n · Автомат \n · 4.5 л \n · Дизель \n \n \n \n \n Өнөөдөр \n Хан-Уул, Соёолж Авто худалдаа \n \n \n \n \n \n \n"
       },
       {
         "year": 2018,
@@ -2048,7 +2066,7 @@
         "color": "不明",
         "import_year": 2026,
         "price": 100.0,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /3\n           \n \n \n \n \n 100 сая  ₮ \n \n \n \n \n          Toyota Land Cruiser 200, 2017/2017\n         \n 133000 км \n · Автомат \n · 4.0 л \n · Бензин \n \n \n \n \n 1 долоо хоногийн өмнө \n Хан-Уул, Яармаг \n \n \n \n \n \n \n"
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /3\n           \n \n \n \n \n 100 сая  ₮ \n \n \n \n \n          Toyota Land Cruiser 200, 2017/2017\n         \n 133000 км \n · Автомат \n · 4.0 л \n · Бензин \n \n \n \n \n 2 долоо хоногийн өмнө \n Хан-Уул, Яармаг \n \n \n \n \n \n \n"
       },
       {
         "year": 2017,
@@ -2076,15 +2094,6 @@
         "import_year": 2026,
         "price": 160.0,
         "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /3\n           \n \n \n \n \n 160 сая  ₮ \n \n \n \n \n          Toyota Land Cruiser 200, 2016/2025\n         \n 130000 км \n · Автомат \n · 4.6 л \n · Бензин \n \n \n \n \n 2 долоо хоногийн өмнө \n Баянзүрх, Баянзүрх, Хороо 30 \n \n \n \n \n \n \n"
-      },
-      {
-        "year": 2012,
-        "drive": "不明",
-        "mileage": "1 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 65.0,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /4\n           \n \n \n \n \n 65 сая  ₮ \n \n \n \n \n \n          Toyota Land Cruiser 200, 2012/2013\n         \n 1 км \n · Механик \n · 4.7 л \n · Дизель \n \n \n \n \n 2 долоо хоногийн өмнө \n Чингэлтэй, Чингэлтэй, Хороо 3 \n \n \n \n \n \n \n"
       }
     ],
     "toyota|land-cruiser-100": [
@@ -2446,7 +2455,7 @@
         "color": "不明",
         "import_year": 2026,
         "price": 58.0,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /10\n           \n \n \n \n \n 58 сая  ₮ \n \n \n \n \n          Toyota Land Cruiser 100, 2007/2009\n         \n 151000 км \n · Автомат \n · 4.7 л \n · Бензин \n \n \n \n \n 3 долоо хоногийн өмнө \n Сонгинохайрхан, Сонгинохайрхан, Хороо 1 \n \n \n \n \n \n \n"
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /10\n           \n \n \n \n \n 58 сая  ₮ \n \n \n \n \n          Toyota Land Cruiser 100, 2007/2009\n         \n 151000 км \n · Автомат \n · 4.7 л \n · Бензин \n \n \n \n \n 4 долоо хоногийн өмнө \n Сонгинохайрхан, Сонгинохайрхан, Хороо 1 \n \n \n \n \n \n \n"
       },
       {
         "year": 2007,
@@ -2573,6 +2582,14 @@
         "price": 58.0
       },
       {
+        "year": 2020,
+        "drive": "不明",
+        "mileage": "94,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 107.0
+      },
+      {
         "year": 2019,
         "drive": "不明",
         "mileage": "170 km",
@@ -2619,14 +2636,6 @@
         "color": "不明",
         "import_year": 2026,
         "price": 80.0
-      },
-      {
-        "year": 2020,
-        "drive": "不明",
-        "mileage": "94,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 107.0
       },
       {
         "year": 2016,
@@ -2747,14 +2756,6 @@
         "color": "不明",
         "import_year": 2026,
         "price": 53.0
-      },
-      {
-        "year": 2019,
-        "drive": "不明",
-        "mileage": "89,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 95.0
       },
       {
         "year": 2017,
@@ -2983,6 +2984,14 @@
         "price": 18.0
       },
       {
+        "year": 2013,
+        "drive": "不明",
+        "mileage": "166,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 39.8
+      },
+      {
         "year": 2004,
         "drive": "不明",
         "mileage": "200,000 km",
@@ -3045,14 +3054,6 @@
         "color": "不明",
         "import_year": 2026,
         "price": 30.0
-      },
-      {
-        "year": 2013,
-        "drive": "不明",
-        "mileage": "166,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 39.8
       },
       {
         "year": 2007,
@@ -3355,6 +3356,14 @@
     ],
     "toyota|vellfire-30": [
       {
+        "year": 2017,
+        "drive": "不明",
+        "mileage": "111,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 68.8
+      },
+      {
         "year": 2016,
         "drive": "不明",
         "mileage": "204,000 km",
@@ -3377,14 +3386,6 @@
         "color": "不明",
         "import_year": 2026,
         "price": 64.0
-      },
-      {
-        "year": 2017,
-        "drive": "不明",
-        "mileage": "111,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 68.8
       },
       {
         "year": 2016,
@@ -3417,6 +3418,14 @@
         "color": "不明",
         "import_year": 2026,
         "price": 68.0
+      },
+      {
+        "year": 2017,
+        "drive": "不明",
+        "mileage": "112,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 67.0
       },
       {
         "year": 2015,
@@ -3761,14 +3770,6 @@
         "color": "不明",
         "import_year": 2026,
         "price": 55.0
-      },
-      {
-        "year": 2019,
-        "drive": "不明",
-        "mileage": "174,142 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 69.0
       }
     ],
     "toyota|vellfire-20": [
@@ -3795,6 +3796,14 @@
         "color": "不明",
         "import_year": 2026,
         "price": 52.0
+      },
+      {
+        "year": 2010,
+        "drive": "不明",
+        "mileage": "113,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 29.0
       },
       {
         "year": 2011,
@@ -4207,7 +4216,7 @@
         "color": "不明",
         "import_year": 2026,
         "price": 23.8,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n VIP \n \n 1 /14\n           \n \n \n \n \n \n \n \n VICTORY CAR \n \n \n \n \n \n \n 23.8 сая  ₮ \n \n \n \n \n \n          Toyota Prius 40, 2014/2026\n         \n 197000 км \n · Автомат \n · 1.8 л \n · Хайбрид \n \n \n \n \n 1 цагийн өмнө \n Баянгол, Өргөө - 1 кино театр \n \n \n \n \n \n \n"
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n VIP \n \n 1 /14\n           \n \n \n \n \n \n \n \n VICTORY CAR \n \n \n \n \n \n \n 23.8 сая  ₮ \n \n \n \n \n \n          Toyota Prius 40, 2014/2026\n         \n 197000 км \n · Автомат \n · 1.8 л \n · Хайбрид \n \n \n \n \n 2 цагийн өмнө \n Баянгол, Өргөө - 1 кино театр \n \n \n \n \n \n \n"
       },
       {
         "year": 2013,
@@ -4216,7 +4225,7 @@
         "color": "不明",
         "import_year": 2026,
         "price": 23.8,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n VIP \n \n 1 /14\n           \n \n \n \n \n \n \n \n VICTORY CAR \n \n \n \n \n \n \n 23.8 сая  ₮ \n \n \n \n \n \n          Toyota Prius 40, 2013/2026\n         \n 190000 км \n · Автомат \n · 1.8 л \n · Хайбрид \n \n \n \n \n 1 цагийн өмнө \n Баянгол, Өргөө - 1 кино театр \n \n \n \n \n \n \n"
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n VIP \n \n 1 /14\n           \n \n \n \n \n \n \n \n VICTORY CAR \n \n \n \n \n \n \n 23.8 сая  ₮ \n \n \n \n \n \n          Toyota Prius 40, 2013/2026\n         \n 190000 км \n · Автомат \n · 1.8 л \n · Хайбрид \n \n \n \n \n 3 цагийн өмнө \n Баянгол, Өргөө - 1 кино театр \n \n \n \n \n \n \n"
       },
       {
         "year": 2012,
@@ -4252,7 +4261,7 @@
         "color": "不明",
         "import_year": 2026,
         "price": 23.0,
-        "_fulltext": "\n \n \n \n \n \n Онцгой \n \n \n \n \n \n 23 сая  ₮ \n \n \n \n \n          Toyota Prius 40, 2014/2025\n         \n 118000 км \n · Автомат \n · 2.7 л \n · Бензин \n \n \n \n \n 3 цагийн өмнө \n Баянгол, 3, 4 хороолол \n \n \n \n \n \n \n"
+        "_fulltext": "\n \n \n \n \n \n Онцгой \n \n \n \n \n \n 23 сая  ₮ \n \n \n \n \n          Toyota Prius 40, 2014/2025\n         \n 118000 км \n · Автомат \n · 2.7 л \n · Бензин \n \n \n \n \n Өнөөдөр \n Баянгол, 3, 4 хороолол \n \n \n \n \n \n \n"
       },
       {
         "year": 2013,
@@ -4288,7 +4297,7 @@
         "color": "不明",
         "import_year": 2026,
         "price": 27.5,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /16\n           \n \n \n \n \n 27.5 сая  ₮ \n \n \n \n \n          Toyota Prius 40, 2014/2024\n         \n 175000 км \n · Автомат \n · 1.8 л \n · Хайбрид \n \n \n \n \n 13 минутын өмнө \n Сонгинохайрхан, Сонгинохайрхан, Хороо 12 \n \n \n \n \n \n \n"
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /16\n           \n \n \n \n \n 27.5 сая  ₮ \n \n \n \n \n          Toyota Prius 40, 2014/2024\n         \n 175000 км \n · Автомат \n · 1.8 л \n · Хайбрид \n \n \n \n \n 1 цагийн өмнө \n Сонгинохайрхан, Сонгинохайрхан, Хороо 12 \n \n \n \n \n \n \n"
       },
       {
         "year": 2013,
@@ -4297,7 +4306,7 @@
         "color": "不明",
         "import_year": 2026,
         "price": 29.0,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /11\n           \n \n \n \n \n \n \n \n Дэвжих жавхлант кар ххк \n \n \n \n \n \n \n 29 сая  ₮ \n \n \n \n \n          Toyota Prius 40, 2013/2026\n         \n 161000 км \n · Автомат \n · 1.8 л \n · Хайбрид \n \n \n \n \n 35 минутын өмнө \n Чингэлтэй, Зурагт \n \n \n \n \n \n \n"
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /11\n           \n \n \n \n \n \n \n \n Дэвжих жавхлант кар ххк \n \n \n \n \n \n \n 29 сая  ₮ \n \n \n \n \n          Toyota Prius 40, 2013/2026\n         \n 161000 км \n · Автомат \n · 1.8 л \n · Хайбрид \n \n \n \n \n 1 цагийн өмнө \n Чингэлтэй, Зурагт \n \n \n \n \n \n \n"
       },
       {
         "year": 2013,
@@ -4306,7 +4315,7 @@
         "color": "不明",
         "import_year": 2026,
         "price": 21.8,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /9\n           \n \n \n \n \n 21.8 сая  ₮ \n \n \n \n \n          Toyota Prius 40, 2013/2022\n         \n 200000 км \n · Автомат \n · 1.8 л \n · Хайбрид \n \n \n \n \n 56 минутын өмнө \n Баянгол, 3, 4 хороолол \n \n \n \n \n \n \n"
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /9\n           \n \n \n \n \n 21.8 сая  ₮ \n \n \n \n \n          Toyota Prius 40, 2013/2022\n         \n 200000 км \n · Автомат \n · 1.8 л \n · Хайбрид \n \n \n \n \n 2 цагийн өмнө \n Баянгол, 3, 4 хороолол \n \n \n \n \n \n \n"
       },
       {
         "year": 2014,
@@ -4315,7 +4324,7 @@
         "color": "不明",
         "import_year": 2026,
         "price": 27.0,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /3\n           \n \n \n \n \n 27 сая  ₮ \n \n \n \n \n          Toyota Prius 40, 2014/2025\n         \n 20000 км \n · Автомат \n · 1.8 л \n · Бензин \n \n \n \n \n 3 цагийн өмнө \n Баянгол, 25-р эмийн сан \n \n \n \n \n \n \n"
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /3\n           \n \n \n \n \n 27 сая  ₮ \n \n \n \n \n          Toyota Prius 40, 2014/2025\n         \n 20000 км \n · Автомат \n · 1.8 л \n · Бензин \n \n \n \n \n Өнөөдөр \n Баянгол, 25-р эмийн сан \n \n \n \n \n \n \n"
       },
       {
         "year": 2011,
@@ -4324,7 +4333,7 @@
         "color": "不明",
         "import_year": 2026,
         "price": 26.3,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /15\n           \n \n \n \n \n 26.3 сая  ₮ \n \n \n \n \n \n          Toyota Prius 40, 2011/2026\n         \n 144000 км \n · Автомат \n · 1.8 л \n · Хайбрид \n \n \n \n \n 3 цагийн өмнө \n Баянзүрх, Баянзүрх, Хороо 26 \n \n \n \n \n \n \n"
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /15\n           \n \n \n \n \n 26.3 сая  ₮ \n \n \n \n \n \n          Toyota Prius 40, 2011/2026\n         \n 144000 км \n · Автомат \n · 1.8 л \n · Хайбрид \n \n \n \n \n Өнөөдөр \n Баянзүрх, Баянзүрх, Хороо 26 \n \n \n \n \n \n \n"
       },
       {
         "year": 2012,
@@ -4938,7 +4947,16 @@
         "color": "不明",
         "import_year": 2026,
         "price": 11.5,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n VIP \n \n 1 /4\n           \n \n \n \n \n 11.5 сая  ₮ \n \n \n \n \n          Toyota Aqua, 2015/2021\n         \n 1950000 км \n · Автомат \n · 1.5 л \n · Бензин \n \n \n \n \n 2 өдрийн өмнө \n Сүхбаатар, Сүхбаатар, Хороо 9 \n \n \n \n \n \n \n"
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n VIP \n \n 1 /4\n           \n \n \n \n \n 11.5 сая  ₮ \n \n \n \n \n          Toyota Aqua, 2015/2021\n         \n 1950000 км \n · Автомат \n · 1.5 л \n · Бензин \n \n \n \n \n 3 өдрийн өмнө \n Сүхбаатар, Сүхбаатар, Хороо 9 \n \n \n \n \n \n \n"
+      },
+      {
+        "year": 2013,
+        "drive": "不明",
+        "mileage": "180 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 7.5,
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n Онцгой \n \n 1 /5\n           \n \n \n \n \n 7.5 сая  ₮ \n \n \n \n \n          Toyota Aqua, 2013/2017\n         \n 180 км \n · Автомат \n · 1.5 л \n · Бензин \n \n \n \n \n 56 минутын өмнө \n Хан-Уул, 120 мянгат \n \n \n \n \n \n \n"
       },
       {
         "year": 2015,
@@ -4947,7 +4965,7 @@
         "color": "不明",
         "import_year": 2026,
         "price": 11.0,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n Онцгой \n \n 1 /12\n           \n \n \n \n \n 11 сая  ₮ \n \n \n \n \n          Toyota Aqua, 2015/2021\n         \n 200000 км \n · Автомат \n · 1.5 л \n · Хайбрид \n \n \n \n \n 7 минутын өмнө \n Хан-Уул, Хан-Уул, Хороо 2 \n \n \n \n \n \n \n"
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n Онцгой \n \n 1 /12\n           \n \n \n \n \n 11 сая  ₮ \n \n \n \n \n          Toyota Aqua, 2015/2021\n         \n 200000 км \n · Автомат \n · 1.5 л \n · Хайбрид \n \n \n \n \n 1 цагийн өмнө \n Хан-Уул, Хан-Уул, Хороо 2 \n \n \n \n \n \n \n"
       },
       {
         "year": 2016,
@@ -4956,7 +4974,7 @@
         "color": "不明",
         "import_year": 2026,
         "price": 12.5,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n Онцгой \n \n 1 /3\n           \n \n \n \n \n 12.5 сая  ₮ \n \n \n \n \n          Toyota Aqua, 2016/2021\n         \n 170000 км \n · Автомат \n · 1.5 л \n · Бензин \n \n \n \n \n 1 цагийн өмнө \n Дархан-Уул, Дархан-Уул \n \n \n \n \n \n \n"
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n Онцгой \n \n 1 /3\n           \n \n \n \n \n 12.5 сая  ₮ \n \n \n \n \n          Toyota Aqua, 2016/2021\n         \n 170000 км \n · Автомат \n · 1.5 л \n · Бензин \n \n \n \n \n 2 цагийн өмнө \n Дархан-Уул, Дархан-Уул \n \n \n \n \n \n \n"
       },
       {
         "year": 2017,
@@ -4965,7 +4983,7 @@
         "color": "不明",
         "import_year": 2026,
         "price": 22.0,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n Онцгой \n \n 1 /12\n           \n \n \n \n \n 22 сая  ₮ \n \n \n \n \n \n          Toyota Aqua, 2017/2026\n         \n 83000 км \n · Автомат \n · 1.5 л \n · Хайбрид \n \n \n \n \n 1 цагийн өмнө \n Баянгол, Модны 2 \n \n \n \n \n \n \n"
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n Онцгой \n \n 1 /12\n           \n \n \n \n \n 22 сая  ₮ \n \n \n \n \n \n          Toyota Aqua, 2017/2026\n         \n 83000 км \n · Автомат \n · 1.5 л \n · Хайбрид \n \n \n \n \n 2 цагийн өмнө \n Баянгол, Модны 2 \n \n \n \n \n \n \n"
       },
       {
         "year": 2019,
@@ -4974,7 +4992,7 @@
         "color": "不明",
         "import_year": 2026,
         "price": 19.5,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n Онцгой \n \n 1 /11\n           \n \n \n \n \n 19.5 сая  ₮ \n \n \n \n \n          Toyota Aqua, 2019/2026\n         \n 102000 км \n · Автомат \n · 1.5 л \n · Хайбрид \n \n \n \n \n 1 цагийн өмнө \n Хан-Уул, Яармаг \n \n \n \n \n \n \n"
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n Онцгой \n \n 1 /11\n           \n \n \n \n \n 19.5 сая  ₮ \n \n \n \n \n          Toyota Aqua, 2019/2026\n         \n 102000 км \n · Автомат \n · 1.5 л \n · Хайбрид \n \n \n \n \n 2 цагийн өмнө \n Хан-Уул, Яармаг \n \n \n \n \n \n \n"
       },
       {
         "year": 2016,
@@ -5190,7 +5208,7 @@
         "color": "不明",
         "import_year": 2026,
         "price": 10.5,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /9\n           \n \n \n \n \n 10.5 сая  ₮ \n \n \n \n \n          Toyota Aqua, 2013/2020\n         \n 190000 км \n · Автомат \n · 1.5 л \n · Хайбрид \n \n \n \n \n 5 минутын өмнө \n Баянзүрх, Баянзүрх, Хороо 30 \n \n \n \n \n \n \n"
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /9\n           \n \n \n \n \n 10.5 сая  ₮ \n \n \n \n \n          Toyota Aqua, 2013/2020\n         \n 190000 км \n · Автомат \n · 1.5 л \n · Хайбрид \n \n \n \n \n 1 цагийн өмнө \n Баянзүрх, Баянзүрх, Хороо 30 \n \n \n \n \n \n \n"
       },
       {
         "year": 2018,
@@ -5199,7 +5217,7 @@
         "color": "不明",
         "import_year": 2026,
         "price": 21.0,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /15\n           \n \n \n \n \n 21 сая  ₮   22.8 сая  ₮ \n \n \n \n \n \n          Toyota Aqua, 2018/2025\n         \n 124000 км \n · Автомат \n · 1.5 л \n · Хайбрид \n \n \n \n \n 54 минутын өмнө \n Баянзүрх, Баянзүрх, Хороо 22 \n \n \n \n \n \n \n"
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /15\n           \n \n \n \n \n 21 сая  ₮   22.8 сая  ₮ \n \n \n \n \n \n          Toyota Aqua, 2018/2025\n         \n 124000 км \n · Автомат \n · 1.5 л \n · Хайбрид \n \n \n \n \n 2 цагийн өмнө \n Баянзүрх, Баянзүрх, Хороо 22 \n \n \n \n \n \n \n"
       },
       {
         "year": 2015,
@@ -5208,7 +5226,7 @@
         "color": "不明",
         "import_year": 2026,
         "price": 10.9,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /8\n           \n \n \n \n \n 10.9 сая  ₮ \n \n \n \n \n          Toyota Aqua, 2015/2020\n         \n 231669 км \n · Автомат \n · 1.5 л \n · Хайбрид \n \n \n \n \n 2 цагийн өмнө \n Сүхбаатар, 220 мянгат \n \n \n \n \n \n \n"
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /8\n           \n \n \n \n \n 10.9 сая  ₮ \n \n \n \n \n          Toyota Aqua, 2015/2020\n         \n 231669 км \n · Автомат \n · 1.5 л \n · Хайбрид \n \n \n \n \n 3 цагийн өмнө \n Сүхбаатар, 220 мянгат \n \n \n \n \n \n \n"
       },
       {
         "year": 2014,
@@ -5217,7 +5235,7 @@
         "color": "不明",
         "import_year": 2026,
         "price": 7.9,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /6\n           \n \n \n \n \n 7.9 сая  ₮ \n \n \n \n \n \n          Toyota Aqua, 2014/2019\n         \n 150000 км \n · Автомат \n · 1.5 л \n · Хайбрид \n \n \n \n \n 3 цагийн өмнө \n Баянзүрх, 13-р хороолол \n \n \n \n \n \n \n"
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /6\n           \n \n \n \n \n 7.9 сая  ₮ \n \n \n \n \n \n          Toyota Aqua, 2014/2019\n         \n 150000 км \n · Автомат \n · 1.5 л \n · Хайбрид \n \n \n \n \n Өнөөдөр \n Баянзүрх, 13-р хороолол \n \n \n \n \n \n \n"
       },
       {
         "year": 2015,
@@ -5370,7 +5388,7 @@
         "color": "不明",
         "import_year": 2026,
         "price": 13.5,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /5\n           \n \n \n \n \n 13.5 сая  ₮ \n \n \n \n \n          Toyota Aqua, 2014/2023\n         \n 150000 км \n · Автомат \n · 1.5 л \n · Хайбрид \n \n \n \n \n 1 өдрийн өмнө \n Хан-Уул, 120 мянгат \n \n \n \n \n \n \n"
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /5\n           \n \n \n \n \n 13.5 сая  ₮ \n \n \n \n \n          Toyota Aqua, 2014/2023\n         \n 150000 км \n · Автомат \n · 1.5 л \n · Хайбрид \n \n \n \n \n 2 өдрийн өмнө \n Хан-Уул, 120 мянгат \n \n \n \n \n \n \n"
       },
       {
         "year": 2014,
@@ -5379,7 +5397,7 @@
         "color": "不明",
         "import_year": 2026,
         "price": 8.0,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /4\n           \n \n \n \n \n 8 сая  ₮ \n \n \n \n \n \n          Toyota Aqua, 2014/2020\n         \n 170000 км \n · Автомат \n · 1.5 л \n · Хайбрид \n \n \n \n \n 1 өдрийн өмнө \n Сонгинохайрхан, Сонгинохайрхан, Хороо 10 \n \n \n \n \n \n \n"
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /4\n           \n \n \n \n \n 8 сая  ₮ \n \n \n \n \n \n          Toyota Aqua, 2014/2020\n         \n 170000 км \n · Автомат \n · 1.5 л \n · Хайбрид \n \n \n \n \n 2 өдрийн өмнө \n Сонгинохайрхан, Сонгинохайрхан, Хороо 10 \n \n \n \n \n \n \n"
       },
       {
         "year": 2012,
@@ -5388,7 +5406,7 @@
         "color": "不明",
         "import_year": 2026,
         "price": 8.5,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /6\n           \n \n \n \n \n 8.5 сая  ₮ \n \n \n \n \n          Toyota Aqua, 2012/2019\n         \n 108000 км \n · Автомат \n · 1.3 л \n · Хайбрид \n \n \n \n \n 1 өдрийн өмнө \n Хан-Уул, Өлзийт хороолол \n \n \n \n \n \n \n"
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /6\n           \n \n \n \n \n 8.5 сая  ₮ \n \n \n \n \n          Toyota Aqua, 2012/2019\n         \n 108000 км \n · Автомат \n · 1.3 л \n · Хайбрид \n \n \n \n \n 2 өдрийн өмнө \n Хан-Уул, Өлзийт хороолол \n \n \n \n \n \n \n"
       },
       {
         "year": 2013,
@@ -5460,7 +5478,7 @@
         "color": "不明",
         "import_year": 2026,
         "price": 13.0,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /8\n           \n \n \n \n \n 13 сая  ₮ \n \n \n \n \n          Toyota Aqua, 2013/2023\n         \n 199000 км \n · Автомат \n · 1.5 л \n · Бензин \n \n \n \n \n 2 өдрийн өмнө \n Сонгинохайрхан, Сонгинохайрхан, Хороо 36 \n \n \n \n \n \n \n"
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /8\n           \n \n \n \n \n 13 сая  ₮ \n \n \n \n \n          Toyota Aqua, 2013/2023\n         \n 199000 км \n · Автомат \n · 1.5 л \n · Бензин \n \n \n \n \n 3 өдрийн өмнө \n Сонгинохайрхан, Сонгинохайрхан, Хороо 36 \n \n \n \n \n \n \n"
       },
       {
         "year": 2014,
@@ -5469,7 +5487,7 @@
         "color": "不明",
         "import_year": 2026,
         "price": 15.0,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /11\n           \n \n \n \n \n 15 сая  ₮ \n \n \n \n \n \n          Toyota Aqua, 2014/2024\n         \n 95292 км \n · Автомат \n · 1.5 л \n · Бензин \n \n \n \n \n 2 өдрийн өмнө \n Сүхбаатар, Сүхбаатар, Хороо 2 \n \n \n \n \n \n \n"
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /11\n           \n \n \n \n \n 15 сая  ₮ \n \n \n \n \n \n          Toyota Aqua, 2014/2024\n         \n 95292 км \n · Автомат \n · 1.5 л \n · Бензин \n \n \n \n \n 3 өдрийн өмнө \n Сүхбаатар, Сүхбаатар, Хороо 2 \n \n \n \n \n \n \n"
       },
       {
         "year": 2016,
@@ -5582,15 +5600,6 @@
       {
         "year": 2013,
         "drive": "不明",
-        "mileage": "452,375 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 8.5,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /4\n           \n \n \n \n \n 8.5 сая  ₮ \n \n \n \n \n          Toyota Aqua, 2013/2018\n         \n 452375 км \n · Автомат \n · 1.4 л \n · Бензин \n \n \n \n \n 3 өдрийн өмнө \n Сүхбаатар, Сүхбаатар, Хороо 19 \n \n \n \n \n \n \n"
-      },
-      {
-        "year": 2013,
-        "drive": "不明",
         "mileage": "250 km",
         "color": "不明",
         "import_year": 2026,
@@ -5613,7 +5622,7 @@
         "color": "不明",
         "import_year": 2026,
         "price": 21.0,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /5\n           \n \n \n \n \n 21 сая  ₮ \n \n \n \n \n          Toyota Aqua, 2017/2026\n         \n 159000 км \n · Автомат \n · 1.5 л \n · Хайбрид \n \n \n \n \n 3 өдрийн өмнө \n Сүхбаатар, 220 мянгат \n \n \n \n \n \n \n"
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /5\n           \n \n \n \n \n 21 сая  ₮ \n \n \n \n \n          Toyota Aqua, 2017/2026\n         \n 159000 км \n · Автомат \n · 1.5 л \n · Хайбрид \n \n \n \n \n 4 өдрийн өмнө \n Сүхбаатар, 220 мянгат \n \n \n \n \n \n \n"
       },
       {
         "year": 2015,
@@ -5742,6 +5751,15 @@
         "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n 1 /2\n           \n \n \n \n \n 15.5 сая  ₮   17 сая  ₮ \n \n \n \n \n          Toyota Aqua, 2014/2024\n         \n 183000 км \n · Автомат \n · 1.5 л \n · Бензин \n \n \n \n \n 1 долоо хоногийн өмнө \n Баянгол, Төмөр зам \n \n \n \n \n \n \n"
       },
       {
+        "year": 2013,
+        "drive": "不明",
+        "mileage": "11,111,111 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 8.5,
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /3\n           \n \n \n \n \n 8.5 сая  ₮ \n \n \n \n \n          Toyota Aqua, 2013/2021\n         \n 11111111 км \n · Автомат \n · 1.5 л \n · Хайбрид \n \n \n \n \n 1 долоо хоногийн өмнө \n Дархан-Уул, Дархан-Уул \n \n \n \n \n \n \n"
+      },
+      {
         "year": 2015,
         "drive": "不明",
         "mileage": "153,154 km",
@@ -5768,7 +5786,7 @@
         "color": "黄",
         "import_year": 2026,
         "price": 67.0,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n VIP \n \n 1 /7\n           \n \n \n \n \n 67 сая  ₮ \n \n \n \n \n          Toyota RAV4, 2021/2026\n         \n 74500 км \n · Автомат \n · 2.0 л \n · Бензин \n \n \n \n \n 58 минутын өмнө \n Сонгинохайрхан, 5 шар \n \n \n \n \n \n \n"
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n VIP \n \n 1 /7\n           \n \n \n \n \n 67 сая  ₮ \n \n \n \n \n          Toyota RAV4, 2021/2026\n         \n 74500 км \n · Автомат \n · 2.0 л \n · Бензин \n \n \n \n \n 2 цагийн өмнө \n Сонгинохайрхан, 5 шар \n \n \n \n \n \n \n"
       },
       {
         "year": 2021,
@@ -5804,7 +5822,7 @@
         "color": "不明",
         "import_year": 2026,
         "price": 63.0,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n Онцгой \n \n 1 /3\n           \n \n \n \n \n 63 сая  ₮ \n \n \n \n \n          Toyota RAV4, 2022/2025\n         \n 59000 км \n · Автомат \n · 2.5 л \n · Бензин \n \n \n \n \n 1 цагийн өмнө \n Баянзүрх, Баянмонгол хороолол \n \n \n \n \n \n \n"
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n Онцгой \n \n 1 /3\n           \n \n \n \n \n 63 сая  ₮ \n \n \n \n \n          Toyota RAV4, 2022/2025\n         \n 59000 км \n · Автомат \n · 2.5 л \n · Бензин \n \n \n \n \n 2 цагийн өмнө \n Баянзүрх, Баянмонгол хороолол \n \n \n \n \n \n \n"
       },
       {
         "year": 2024,
@@ -5852,13 +5870,22 @@
         "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n Онцгой \n \n 1 /14\n           \n \n \n \n \n \n \n \n Jakku Trade LLC \n \n \n \n \n \n \n 92 сая  ₮ \n \n \n \n \n \n          Toyota RAV4, 2021/2026\n         \n 72000 км \n · Автомат \n · 2.5 л \n · Цахилгаан \n \n \n \n \n 4 өдрийн өмнө \n Баянзүрх, Чулуун овоо \n \n \n \n \n \n \n"
       },
       {
+        "year": 2023,
+        "drive": "不明",
+        "mileage": "92,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 85.0,
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /14\n           \n \n \n \n \n \n \n \n Хаан Моторс \n \n \n \n \n \n \n 85 сая  ₮ \n \n \n \n \n          Toyota RAV4, 2023/2026\n         \n 92000 км \n · Автомат \n · 2.5 л \n · Хайбрид \n \n \n \n \n 34 минутын өмнө \n Хан-Уул, Хан-Уул, Хороо 3 \n \n \n \n \n \n \n"
+      },
+      {
         "year": 2020,
         "drive": "不明",
         "mileage": "148,000 km",
         "color": "不明",
         "import_year": 2026,
         "price": 72.5,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /16\n           \n \n \n \n \n \n \n \n Дэвжих жавхлант кар ххк \n \n \n \n \n \n \n 72.5 сая  ₮ \n \n \n \n \n          Toyota RAV4, 2020/2026\n         \n 148000 км \n · Автомат \n · 2.5 л \n · Хайбрид \n \n \n \n \n 32 минутын өмнө \n Чингэлтэй, Зурагт \n \n \n \n \n \n \n"
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /16\n           \n \n \n \n \n \n \n \n Дэвжих жавхлант кар ххк \n \n \n \n \n \n \n 72.5 сая  ₮ \n \n \n \n \n          Toyota RAV4, 2020/2026\n         \n 148000 км \n · Автомат \n · 2.5 л \n · Хайбрид \n \n \n \n \n 1 цагийн өмнө \n Чингэлтэй, Зурагт \n \n \n \n \n \n \n"
       },
       {
         "year": 2025,
@@ -5867,7 +5894,7 @@
         "color": "不明",
         "import_year": 2026,
         "price": 119.0,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /12\n           \n \n \n \n \n 119 сая  ₮ \n \n \n \n \n          Toyota RAV4, 2025/2025\n         \n 3700 км \n · Автомат \n · 2.5 л \n · Хайбрид \n \n \n \n \n 3 цагийн өмнө \n Хан-Уул, Яармаг \n \n \n \n \n \n \n"
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /12\n           \n \n \n \n \n 119 сая  ₮ \n \n \n \n \n          Toyota RAV4, 2025/2025\n         \n 3700 км \n · Автомат \n · 2.5 л \n · Хайбрид \n \n \n \n \n Өнөөдөр \n Хан-Уул, Яармаг \n \n \n \n \n \n \n"
       },
       {
         "year": 2019,
@@ -5904,15 +5931,6 @@
         "import_year": 2026,
         "price": 70.0,
         "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /12\n           \n \n \n \n \n 70 сая  ₮   79.5 сая  ₮ \n \n \n \n \n          Toyota RAV4, 2019/2024\n         \n 30970 км \n · Автомат \n · 2.5 л \n · Хайбрид \n \n \n \n \n Өчигдөр \n Хан-Уул, Хан-Уул, Хороо 4 \n \n \n \n \n \n \n"
-      },
-      {
-        "year": 2023,
-        "drive": "不明",
-        "mileage": "92,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 85.0,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /14\n           \n \n \n \n \n \n \n \n Хаан Моторс \n \n \n \n \n \n \n 85 сая  ₮ \n \n \n \n \n          Toyota RAV4, 2023/2026\n         \n 92000 км \n · Автомат \n · 2.5 л \n · Хайбрид \n \n \n \n \n Өчигдөр \n Хан-Уул, Хан-Уул, Хороо 3 \n \n \n \n \n \n \n"
       },
       {
         "year": 2018,
@@ -5966,7 +5984,7 @@
         "color": "不明",
         "import_year": 2026,
         "price": 75.0,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /4\n           \n \n \n \n \n 75 сая  ₮ \n \n \n \n \n \n          Toyota RAV4, 2021/2021\n         \n 40 км \n · Автомат \n · 2.0 л \n · Бензин \n \n \n \n \n 1 өдрийн өмнө \n Баянзүрх, Баянзүрх, Хороо 26 \n \n \n \n \n \n \n"
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /4\n           \n \n \n \n \n 75 сая  ₮ \n \n \n \n \n \n          Toyota RAV4, 2021/2021\n         \n 40 км \n · Автомат \n · 2.0 л \n · Бензин \n \n \n \n \n 2 өдрийн өмнө \n Баянзүрх, Баянзүрх, Хороо 26 \n \n \n \n \n \n \n"
       },
       {
         "year": 2024,
@@ -6011,7 +6029,7 @@
         "color": "不明",
         "import_year": 2026,
         "price": 50.0,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /3\n           \n \n \n \n \n 50 сая  ₮ \n \n \n \n \n \n          Toyota RAV4, 2019/2021\n         \n 80000 км \n · Автомат \n · 2.5 л \n · Бензин \n \n \n \n \n 3 өдрийн өмнө \n Баянзүрх, Баянзүрх, Хороо 8 \n \n \n \n \n \n \n"
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /3\n           \n \n \n \n \n 50 сая  ₮ \n \n \n \n \n \n          Toyota RAV4, 2019/2021\n         \n 80000 км \n · Автомат \n · 2.5 л \n · Бензин \n \n \n \n \n 4 өдрийн өмнө \n Баянзүрх, Баянзүрх, Хороо 8 \n \n \n \n \n \n \n"
       },
       {
         "year": 2019,
@@ -6065,7 +6083,7 @@
         "color": "不明",
         "import_year": 2026,
         "price": 73.5,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /16\n           \n \n \n \n \n \n \n \n УАЗ МЕГА ХХК \n \n \n \n \n \n \n 73.5 сая  ₮ \n \n \n \n \n \n          Toyota RAV4, 2019/2026\n         \n 128000 км \n · Автомат \n · 2.5 л \n · Хайбрид \n \n \n \n \n 4 өдрийн өмнө \n Баянзүрх, Да хүрээ \n \n \n \n \n \n \n"
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /16\n           \n \n \n \n \n \n \n \n УАЗ МЕГА ХХК \n \n \n \n \n \n \n 73.5 сая  ₮ \n \n \n \n \n \n          Toyota RAV4, 2019/2026\n         \n 128000 км \n · Автомат \n · 2.5 л \n · Хайбрид \n \n \n \n \n 5 өдрийн өмнө \n Баянзүрх, Да хүрээ \n \n \n \n \n \n \n"
       },
       {
         "year": 2024,
@@ -6236,7 +6254,7 @@
         "color": "不明",
         "import_year": 2026,
         "price": 65.0,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /8\n           \n \n \n \n \n 65 сая  ₮   82 сая  ₮ \n \n \n \n \n          Toyota RAV4, 2022/2025\n         \n 50000 км \n · Автомат \n · 2.5 л \n · Бензин \n \n \n \n \n 1 долоо хоногийн өмнө \n Баянзүрх, Баянмонгол хороолол \n \n \n \n \n \n \n"
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /8\n           \n \n \n \n \n 65 сая  ₮   82 сая  ₮ \n \n \n \n \n          Toyota RAV4, 2022/2025\n         \n 50000 км \n · Автомат \n · 2.5 л \n · Бензин \n \n \n \n \n 2 долоо хоногийн өмнө \n Баянзүрх, Баянмонгол хороолол \n \n \n \n \n \n \n"
       },
       {
         "year": 2022,
@@ -6364,7 +6382,7 @@
         "color": "不明",
         "import_year": 2026,
         "price": 42.0,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n VIP \n \n 1 /5\n           \n \n \n \n \n 42 сая  ₮ \n \n \n \n \n          Toyota Camry, 2018/2023\n         \n 150000 км \n · Автомат \n · 2.5 л \n · Бензин \n \n \n \n \n 20 минутын өмнө \n Баянзүрх, Зүүн 4 зам \n \n \n \n \n \n \n"
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n VIP \n \n 1 /5\n           \n \n \n \n \n 42 сая  ₮ \n \n \n \n \n          Toyota Camry, 2018/2023\n         \n 150000 км \n · Автомат \n · 2.5 л \n · Бензин \n \n \n \n \n 1 цагийн өмнө \n Баянзүрх, Зүүн 4 зам \n \n \n \n \n \n \n"
       },
       {
         "year": 2019,
@@ -6373,7 +6391,7 @@
         "color": "不明",
         "import_year": 2026,
         "price": 46.8,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n VIP \n \n 1 /11\n           \n \n \n \n \n \n \n \n Гараг моторс \n \n \n \n \n \n \n 46.8 сая  ₮ \n \n \n \n \n          Toyota Camry, 2019/2026\n         \n 141000 км \n · Автомат \n · 2.5 л \n · Хайбрид \n \n \n \n \n 2 цагийн өмнө \n Хан-Уул, Мишээл \n \n \n \n \n \n \n"
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n VIP \n \n 1 /11\n           \n \n \n \n \n \n \n \n Гараг моторс \n \n \n \n \n \n \n 46.8 сая  ₮ \n \n \n \n \n          Toyota Camry, 2019/2026\n         \n 141000 км \n · Автомат \n · 2.5 л \n · Хайбрид \n \n \n \n \n 3 цагийн өмнө \n Хан-Уул, Мишээл \n \n \n \n \n \n \n"
       },
       {
         "year": 2017,
@@ -6391,7 +6409,7 @@
         "color": "不明",
         "import_year": 2026,
         "price": 48.0,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n Онцгой \n \n 1 /7\n           \n \n \n \n \n 48 сая  ₮ \n \n \n \n \n \n          Toyota Camry, 2018/2025\n         \n 121824 км \n · Автомат \n · 2.5 л \n · Хайбрид \n \n \n \n \n 2 цагийн өмнө \n Баянзүрх, Баянзүрх дүүрэг \n \n \n \n \n \n \n"
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n Онцгой \n \n 1 /7\n           \n \n \n \n \n 48 сая  ₮ \n \n \n \n \n \n          Toyota Camry, 2018/2025\n         \n 121824 км \n · Автомат \n · 2.5 л \n · Хайбрид \n \n \n \n \n 3 цагийн өмнө \n Баянзүрх, Баянзүрх дүүрэг \n \n \n \n \n \n \n"
       },
       {
         "year": 2019,
@@ -6401,15 +6419,6 @@
         "import_year": 2026,
         "price": 42.0,
         "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n Онцгой \n \n 1 /4\n           \n \n \n \n \n 42 сая  ₮ \n \n \n \n \n \n          Toyota Camry, 2019/2024\n         \n 250000 км \n · Автомат \n · 1.6 л \n · Бензин \n \n \n \n \n Өнөөдөр \n Хан-Уул, Viva city \n \n \n \n \n \n \n"
-      },
-      {
-        "year": 2019,
-        "drive": "不明",
-        "mileage": "133,815 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 51.0,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n Онцгой \n \n 1 /16\n           \n \n \n \n \n \n \n \n Munkh Motors \n \n \n \n \n \n \n 51 сая  ₮ \n \n \n \n \n          Toyota Camry, 2019/2026\n         \n 133815 км \n · Автомат \n · 2.5 л \n · Хайбрид \n \n \n \n \n Өчигдөр \n Баянгол, 3, 4 хороолол \n \n \n \n \n \n \n"
       },
       {
         "year": 2018,
@@ -6445,7 +6454,7 @@
         "color": "不明",
         "import_year": 2026,
         "price": 45.5,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /14\n           \n \n \n \n \n \n \n \n Дэвжих жавхлант кар ххк \n \n \n \n \n \n \n 45.5 сая  ₮ \n \n \n \n \n          Toyota Camry, 2018/2026\n         \n 173000 км \n · Автомат \n · 2.5 л \n · Хайбрид \n \n \n \n \n 29 минутын өмнө \n Чингэлтэй, Зурагт \n \n \n \n \n \n \n"
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /14\n           \n \n \n \n \n \n \n \n Дэвжих жавхлант кар ххк \n \n \n \n \n \n \n 45.5 сая  ₮ \n \n \n \n \n          Toyota Camry, 2018/2026\n         \n 173000 км \n · Автомат \n · 2.5 л \n · Хайбрид \n \n \n \n \n 1 цагийн өмнө \n Чингэлтэй, Зурагт \n \n \n \n \n \n \n"
       },
       {
         "year": 2018,
@@ -6454,7 +6463,7 @@
         "color": "不明",
         "import_year": 2026,
         "price": 49.0,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /12\n           \n \n \n \n \n 49 сая  ₮ \n \n \n \n \n          Toyota Camry, 2018/2026\n         \n 162000 км \n · Автомат \n · 2.4 л \n · Хайбрид \n \n \n \n \n 2 цагийн өмнө \n Сонгинохайрхан, Авто худалдааны цогцолбор \n \n \n \n \n \n \n"
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /12\n           \n \n \n \n \n 49 сая  ₮ \n \n \n \n \n          Toyota Camry, 2018/2026\n         \n 162000 км \n · Автомат \n · 2.4 л \n · Хайбрид \n \n \n \n \n 3 цагийн өмнө \n Сонгинохайрхан, Авто худалдааны цогцолбор \n \n \n \n \n \n \n"
       },
       {
         "year": 2017,
@@ -6580,7 +6589,7 @@
         "color": "不明",
         "import_year": 2026,
         "price": 59.0,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /16\n           \n \n \n \n \n 59 сая  ₮   75 сая  ₮ \n \n \n \n \n          Toyota Camry, 2023/2026\n         \n 36000 км \n · Автомат \n · 2.5 л \n · Хайбрид \n \n \n \n \n 4 өдрийн өмнө \n Баянгол, Баянгол, Хороо 6 \n \n \n \n \n \n \n"
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /16\n           \n \n \n \n \n 59 сая  ₮   75 сая  ₮ \n \n \n \n \n          Toyota Camry, 2023/2026\n         \n 36000 км \n · Автомат \n · 2.5 л \n · Хайбрид \n \n \n \n \n 5 өдрийн өмнө \n Баянгол, Баянгол, Хороо 6 \n \n \n \n \n \n \n"
       },
       {
         "year": 2018,
@@ -6735,7 +6744,7 @@
         "color": "不明",
         "import_year": 2026,
         "price": 47.0,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n Онцгой \n \n 1 /6\n           \n \n \n \n \n 47 сая  ₮   58 сая  ₮ \n \n \n \n \n          Toyota Hiace, 2018/2024\n         \n 24666 км \n · Автомат \n · 2.6 л \n · Бензин \n \n \n \n \n 23 минутын өмнө \n Хан-Уул, Хүннү \n \n \n \n \n \n \n"
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n Онцгой \n \n 1 /6\n           \n \n \n \n \n 47 сая  ₮   58 сая  ₮ \n \n \n \n \n          Toyota Hiace, 2018/2024\n         \n 24666 км \n · Автомат \n · 2.6 л \n · Бензин \n \n \n \n \n 1 цагийн өмнө \n Хан-Уул, Хүннү \n \n \n \n \n \n \n"
       },
       {
         "year": 2019,
@@ -6783,13 +6792,22 @@
         "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n Онцгой \n \n 1 /4\n           \n \n \n \n \n 22 сая  ₮ \n \n \n \n \n          Toyota Hiace, 2010/2022\n         \n 1 км \n · Механик \n · 2.9 л \n · Дизель \n \n \n \n \n 5 өдрийн өмнө \n Баянзүрх, Гачуурт \n \n \n \n \n \n \n"
       },
       {
+        "year": 2021,
+        "drive": "不明",
+        "mileage": "262,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 79.0,
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /7\n           \n \n \n \n \n \n \n \n EnkhCar \n \n \n \n \n \n \n 79 сая  ₮ \n \n \n \n \n          Toyota Hiace, 2021/2026\n         \n 262000 км \n · Автомат \n · 2.7 л \n · Бензин \n \n \n \n \n 40 минутын өмнө \n Сонгинохайрхан, Авто худалдааны цогцолбор \n \n \n \n \n \n \n"
+      },
+      {
         "year": 2017,
         "drive": "不明",
         "mileage": "169,000 km",
         "color": "不明",
         "import_year": 2026,
         "price": 60.0,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /7\n           \n \n \n \n \n 60 сая  ₮ \n \n \n \n \n \n          Toyota Hiace, 2017/2022\n         \n 169000 км \n · Автомат \n · 2.7 л \n · Бензин \n \n \n \n \n 2 цагийн өмнө \n Баянзүрх, Баянзүрх, Хороо 36 \n \n \n \n \n \n \n"
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /7\n           \n \n \n \n \n 60 сая  ₮ \n \n \n \n \n \n          Toyota Hiace, 2017/2022\n         \n 169000 км \n · Автомат \n · 2.7 л \n · Бензин \n \n \n \n \n 3 цагийн өмнө \n Баянзүрх, Баянзүрх, Хороо 36 \n \n \n \n \n \n \n"
       },
       {
         "year": 2016,
@@ -6798,7 +6816,7 @@
         "color": "不明",
         "import_year": 2026,
         "price": 58.0,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /8\n           \n \n \n \n \n 58 сая  ₮   63 сая  ₮ \n \n \n \n \n          Toyota Hiace, 2016/2026\n         \n 201000 км \n · Автомат \n · 2.7 л \n · Бензин \n \n \n \n \n 3 цагийн өмнө \n Сонгинохайрхан, Авто худалдааны цогцолбор \n \n \n \n \n \n \n"
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /8\n           \n \n \n \n \n 58 сая  ₮   63 сая  ₮ \n \n \n \n \n          Toyota Hiace, 2016/2026\n         \n 201000 км \n · Автомат \n · 2.7 л \n · Бензин \n \n \n \n \n Өнөөдөр \n Сонгинохайрхан, Авто худалдааны цогцолбор \n \n \n \n \n \n \n"
       },
       {
         "year": 2011,
@@ -6861,7 +6879,7 @@
         "color": "不明",
         "import_year": 2026,
         "price": 62.0,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /16\n           \n \n \n \n \n \n \n \n УАЗ МЕГА ХХК \n \n \n \n \n \n \n 62 сая  ₮ \n \n \n \n \n \n          Toyota Hiace, 2016/2026\n         \n 161000 км \n · Автомат \n · 2.7 л \n · Бензин \n \n \n \n \n 4 өдрийн өмнө \n Баянзүрх, Да хүрээ \n \n \n \n \n \n \n"
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /16\n           \n \n \n \n \n \n \n \n УАЗ МЕГА ХХК \n \n \n \n \n \n \n 62 сая  ₮ \n \n \n \n \n \n          Toyota Hiace, 2016/2026\n         \n 161000 км \n · Автомат \n · 2.7 л \n · Бензин \n \n \n \n \n 5 өдрийн өмнө \n Баянзүрх, Да хүрээ \n \n \n \n \n \n \n"
       },
       {
         "year": 2008,
@@ -7307,13 +7325,22 @@
         "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n Онцгой \n \n 1 /5\n           \n \n \n \n \n 76 сая  ₮   83 сая  ₮ \n \n \n \n \n          Toyota Highlander, 2017/2020\n         \n 200000 км \n · Автомат \n · 3.5 л \n · Хайбрид \n \n \n \n \n 2 өдрийн өмнө \n Хан-Уул, Хүннү \n \n \n \n \n \n \n"
       },
       {
+        "year": 2022,
+        "drive": "不明",
+        "mileage": "43,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 97.0,
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n 1 /2\n           \n \n \n \n \n 97 сая  ₮ \n \n \n \n \n          Toyota Highlander, 2022/2024\n         \n 43000 км \n · Автомат \n · 2.5 л \n · Бензин \n \n \n \n \n 38 минутын өмнө \n Баянзүрх, Баянзүрх, Хороо 43 \n \n \n \n \n \n \n"
+      },
+      {
         "year": 2014,
         "drive": "不明",
         "mileage": "124,000 km",
         "color": "不明",
         "import_year": 2026,
         "price": 48.0,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /5\n           \n \n \n \n \n 48 сая  ₮ \n \n \n \n \n \n          Toyota Highlander, 2014/2015\n         \n 124000 км \n · Автомат \n · 3.5 л \n · Бензин \n \n \n \n \n 1 цагийн өмнө \n Хан-Уул, Хан-Уул, Хороо 17 \n \n \n \n \n \n \n"
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /5\n           \n \n \n \n \n 48 сая  ₮ \n \n \n \n \n \n          Toyota Highlander, 2014/2015\n         \n 124000 км \n · Автомат \n · 3.5 л \n · Бензин \n \n \n \n \n 2 цагийн өмнө \n Хан-Уул, Хан-Уул, Хороо 17 \n \n \n \n \n \n \n"
       },
       {
         "year": 2014,
@@ -7626,6 +7653,15 @@
         "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n VIP \n \n 1 /6\n           \n \n \n \n \n 127 сая  ₮ \n \n \n \n \n          Toyota Hilux, 2024/2025\n         \n 15700 км \n · Автомат \n · 6.0 л \n · Бензин \n \n \n \n \n Өчигдөр \n Хан-Уул, Яармаг \n \n \n \n \n \n \n"
       },
       {
+        "year": 2022,
+        "drive": "不明",
+        "mileage": "50,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 90.0,
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /4\n           \n \n \n \n \n 90 сая  ₮ \n \n \n \n \n          Toyota Hilux, 2022/2022\n         \n 50000 км \n · Механик \n · 2.4 л \n · Дизель \n \n \n \n \n 34 минутын өмнө \n Хан-Уул, Хан-Уул, Хороо 3 \n \n \n \n \n \n \n"
+      },
+      {
         "year": 2017,
         "drive": "不明",
         "mileage": "105,000 km",
@@ -7706,7 +7742,7 @@
         "color": "不明",
         "import_year": 2026,
         "price": 37.0,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n VIP \n \n 1 /16\n           \n \n \n \n \n 37 сая  ₮ \n \n \n \n \n          Nissan X-Trail, 2017/2026\n         \n 170000 км \n · Автомат \n · 2.0 л \n · Бензин \n \n \n \n \n 1 цагийн өмнө \n Хан-Уул, 19-р хороолол \n \n \n \n \n \n \n"
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n VIP \n \n 1 /16\n           \n \n \n \n \n 37 сая  ₮ \n \n \n \n \n          Nissan X-Trail, 2017/2026\n         \n 170000 км \n · Автомат \n · 2.0 л \n · Бензин \n \n \n \n \n 2 цагийн өмнө \n Хан-Уул, 19-р хороолол \n \n \n \n \n \n \n"
       },
       {
         "year": 2022,
@@ -7787,7 +7823,7 @@
         "color": "不明",
         "import_year": 2026,
         "price": 21.0,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /5\n           \n \n \n \n \n 21 сая  ₮ \n \n \n \n \n          Nissan X-Trail, 2014/2024\n         \n 150000 км \n · Автомат \n · 2.0 л \n · Хайбрид \n \n \n \n \n 19 минутын өмнө \n Баянгол, Төмөр зам \n \n \n \n \n \n \n"
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /5\n           \n \n \n \n \n 21 сая  ₮ \n \n \n \n \n          Nissan X-Trail, 2014/2024\n         \n 150000 км \n · Автомат \n · 2.0 л \n · Хайбрид \n \n \n \n \n 1 цагийн өмнө \n Баянгол, Төмөр зам \n \n \n \n \n \n \n"
       },
       {
         "year": 2017,
@@ -7796,7 +7832,7 @@
         "color": "不明",
         "import_year": 2026,
         "price": 38.0,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /6\n           \n \n \n \n \n 38 сая  ₮   39.8 сая  ₮ \n \n \n \n \n          Nissan X-Trail, 2017/2026\n         \n 173000 км \n · Автомат \n · 2.0 л \n · Хайбрид \n \n \n \n \n 2 цагийн өмнө \n Хан-Уул, 120 мянгат \n \n \n \n \n \n \n"
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /6\n           \n \n \n \n \n 38 сая  ₮   39.8 сая  ₮ \n \n \n \n \n          Nissan X-Trail, 2017/2026\n         \n 173000 км \n · Автомат \n · 2.0 л \n · Хайбрид \n \n \n \n \n 3 цагийн өмнө \n Хан-Уул, 120 мянгат \n \n \n \n \n \n \n"
       },
       {
         "year": 2011,
@@ -8093,7 +8129,7 @@
         "color": "不明",
         "import_year": 2026,
         "price": 35.0,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /7\n           \n \n \n \n \n 35 сая  ₮ \n \n \n \n \n          Nissan X-Trail, 2017/2026\n         \n 140 км \n · Автомат \n · 1.9 л \n · Хайбрид \n \n \n \n \n 1 долоо хоногийн өмнө \n Хан-Уул, Хан-Уул, Хороо 21 \n \n \n \n \n \n \n"
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /7\n           \n \n \n \n \n 35 сая  ₮ \n \n \n \n \n          Nissan X-Trail, 2017/2026\n         \n 140 км \n · Автомат \n · 1.9 л \n · Хайбрид \n \n \n \n \n 2 долоо хоногийн өмнө \n Хан-Уул, Хан-Уул, Хороо 21 \n \n \n \n \n \n \n"
       },
       {
         "year": 2015,
@@ -8599,7 +8635,7 @@
         "color": "不明",
         "import_year": 2026,
         "price": 80.0,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /6\n           \n \n \n \n \n 80 сая  ₮ \n \n \n \n \n          Nissan Patrol, 2015/2015\n         \n 186000 км \n · Автомат \n · 5.6 л \n · Бензин \n \n \n \n \n 22 минутын өмнө \n Баянгол, Алтай хотхон \n \n \n \n \n \n \n"
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /6\n           \n \n \n \n \n 80 сая  ₮ \n \n \n \n \n          Nissan Patrol, 2015/2015\n         \n 186000 км \n · Автомат \n · 5.6 л \n · Бензин \n \n \n \n \n 1 цагийн өмнө \n Баянгол, Алтай хотхон \n \n \n \n \n \n \n"
       },
       {
         "year": 2020,
@@ -8608,7 +8644,7 @@
         "color": "不明",
         "import_year": 2026,
         "price": 175.0,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /6\n           \n \n \n \n \n 175 сая  ₮ \n \n \n \n \n          Nissan Patrol, 2020/2021\n         \n 30000 км \n · Автомат \n · 4.0 л \n · Бензин \n \n \n \n \n 2 цагийн өмнө \n Хан-Уул, 19-р хороолол \n \n \n \n \n \n \n"
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /6\n           \n \n \n \n \n 175 сая  ₮ \n \n \n \n \n          Nissan Patrol, 2020/2021\n         \n 30000 км \n · Автомат \n · 4.0 л \n · Бензин \n \n \n \n \n 3 цагийн өмнө \n Хан-Уул, 19-р хороолол \n \n \n \n \n \n \n"
       },
       {
         "year": 2014,
@@ -8617,7 +8653,7 @@
         "color": "不明",
         "import_year": 2026,
         "price": 75.0,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /11\n           \n \n \n \n \n 75 сая  ₮ \n \n \n \n \n          Nissan Patrol, 2014/2014\n         \n 158000 км \n · Автомат \n · 5.6 л \n · Бензин \n \n \n \n \n 2 цагийн өмнө \n Баянзүрх, Улиастай \n \n \n \n \n \n \n"
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /11\n           \n \n \n \n \n 75 сая  ₮ \n \n \n \n \n          Nissan Patrol, 2014/2014\n         \n 158000 км \n · Автомат \n · 5.6 л \n · Бензин \n \n \n \n \n Өнөөдөр \n Баянзүрх, Улиастай \n \n \n \n \n \n \n"
       },
       {
         "year": 2023,
@@ -8761,7 +8797,7 @@
         "color": "不明",
         "import_year": 2026,
         "price": 55.0,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /4\n           \n \n \n \n \n 55 сая  ₮ \n \n \n \n \n          Nissan Patrol, 2011/2011\n         \n 60000 км \n · Автомат \n · 4.8 л \n · Бензин \n \n \n \n \n 1 долоо хоногийн өмнө \n Хан-Уул, Хан-Уул, Хороо 2 \n \n \n \n \n \n \n"
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /4\n           \n \n \n \n \n 55 сая  ₮ \n \n \n \n \n          Nissan Patrol, 2011/2011\n         \n 60000 км \n · Автомат \n · 4.8 л \n · Бензин \n \n \n \n \n 2 долоо хоногийн өмнө \n Хан-Уул, Хан-Уул, Хороо 2 \n \n \n \n \n \n \n"
       },
       {
         "year": 2002,
@@ -8770,7 +8806,7 @@
         "color": "不明",
         "import_year": 2026,
         "price": 21.0,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n 21 сая  ₮ \n \n \n \n \n \n          Nissan Patrol, 2002/2002\n         \n 16000000 км \n · Механик \n · 4.2 л \n · Дизель \n \n \n \n \n 1 долоо хоногийн өмнө \n Сүхбаатар, Хүүхдийн 100 \n \n \n \n \n \n \n"
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n 21 сая  ₮ \n \n \n \n \n \n          Nissan Patrol, 2002/2002\n         \n 16000000 км \n · Механик \n · 4.2 л \n · Дизель \n \n \n \n \n 2 долоо хоногийн өмнө \n Сүхбаатар, Хүүхдийн 100 \n \n \n \n \n \n \n"
       },
       {
         "year": 2024,
@@ -8869,7 +8905,7 @@
         "color": "不明",
         "import_year": 2026,
         "price": 199.0,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /6\n           \n \n \n \n \n 199 сая  ₮ \n \n \n \n \n          Nissan Patrol, 2022/2023\n         \n 39000 км \n · Автомат \n · 5.5 л \n · Бензин \n \n \n \n \n 2 долоо хоногийн өмнө \n Хан-Уул, Хан-Уул, Хороо 23 \n \n \n \n \n \n \n"
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /6\n           \n \n \n \n \n 199 сая  ₮ \n \n \n \n \n          Nissan Patrol, 2022/2023\n         \n 39000 км \n · Автомат \n · 5.5 л \n · Бензин \n \n \n \n \n 3 долоо хоногийн өмнө \n Хан-Уул, Хан-Уул, Хороо 23 \n \n \n \n \n \n \n"
       },
       {
         "year": 1997,
@@ -8988,7 +9024,7 @@
         "color": "不明",
         "import_year": 2026,
         "price": 45.0,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n VIP \n \n 1 /12\n           \n \n \n \n \n 45 сая  ₮ \n \n \n \n \n \n          Nissan Elgrand, 2016/2026\n         \n 138000 км \n · Автомат \n · 3.5 л \n · Бензин \n \n \n \n \n 1 өдрийн өмнө \n Сонгинохайрхан, Сонгинохайрхан, Хороо 22 \n \n \n \n \n \n \n"
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n VIP \n \n 1 /12\n           \n \n \n \n \n 45 сая  ₮ \n \n \n \n \n \n          Nissan Elgrand, 2016/2026\n         \n 138000 км \n · Автомат \n · 3.5 л \n · Бензин \n \n \n \n \n 2 өдрийн өмнө \n Сонгинохайрхан, Сонгинохайрхан, Хороо 22 \n \n \n \n \n \n \n"
       },
       {
         "year": 2011,
@@ -9035,7 +9071,7 @@
         "color": "不明",
         "import_year": 2026,
         "price": 14.0,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /10\n           \n \n \n \n \n 14 сая  ₮ \n \n \n \n \n          Nissan Serena, 2012/2022\n         \n 220900 км \n · Автомат \n · 2.0 л \n · Хайбрид \n \n \n \n \n 5 өдрийн өмнө \n Хан-Уул, 19-р хороолол \n \n \n \n \n \n \n"
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /10\n           \n \n \n \n \n 14 сая  ₮ \n \n \n \n \n          Nissan Serena, 2012/2022\n         \n 220900 км \n · Автомат \n · 2.0 л \n · Хайбрид \n \n \n \n \n 6 өдрийн өмнө \n Хан-Уул, 19-р хороолол \n \n \n \n \n \n \n"
       },
       {
         "year": 2019,
@@ -9182,6 +9218,15 @@
         "import_year": 2026,
         "price": 18.0,
         "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n VIP \n \n 1 /6\n           \n \n \n \n \n 18 сая  ₮ \n \n \n \n \n          Mitsubishi Pajero, 2005/2017\n         \n 200 км \n · Автомат \n · 3.0 л \n · Бензин \n \n \n \n \n 2 өдрийн өмнө \n Хан-Уул, Яармаг \n \n \n \n \n \n \n"
+      },
+      {
+        "year": 2000,
+        "drive": "不明",
+        "mileage": "160,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 8.5,
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n 8.5 сая  ₮ \n \n \n \n \n          Mitsubishi Pajero, 2000/2007\n         \n 160000 км \n · Автомат \n · 3.5 л \n · Бензин \n \n \n \n \n 57 минутын өмнө \n Баянзүрх, Баянзүрх, Хороо 13 \n \n \n \n \n \n \n"
       },
       {
         "year": 2012,
@@ -9345,7 +9390,7 @@
         "color": "不明",
         "import_year": 2026,
         "price": 36.0,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n Онцгой \n \n 1 /16\n           \n \n \n \n \n 36 сая  ₮ \n \n \n \n \n          Mitsubishi Outlander, 2015/2026\n         \n 110000 км \n · Автомат \n · 1.8 л \n · Хайбрид \n \n \n \n \n 11 минутын өмнө \n Баянгол, 6-р бичил \n \n \n \n \n \n \n"
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n Онцгой \n \n 1 /16\n           \n \n \n \n \n 36 сая  ₮ \n \n \n \n \n          Mitsubishi Outlander, 2015/2026\n         \n 110000 км \n · Автомат \n · 1.8 л \n · Хайбрид \n \n \n \n \n 1 цагийн өмнө \n Баянгол, 6-р бичил \n \n \n \n \n \n \n"
       },
       {
         "year": 2013,
@@ -9354,7 +9399,7 @@
         "color": "不明",
         "import_year": 2026,
         "price": 19.5,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n Онцгой \n \n 1 /11\n           \n \n \n \n \n \n \n \n Сайн Моторс     \n \n \n \n \n \n \n 19.5 сая  ₮ \n \n \n \n \n \n          Mitsubishi Outlander, 2013/2021\n         \n 258000 км \n · Автомат \n · 2.0 л \n · Цахилгаан \n \n \n \n \n 3 цагийн өмнө \n Сонгинохайрхан, 1-р хороолол \n \n \n \n \n \n \n"
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n Онцгой \n \n 1 /11\n           \n \n \n \n \n \n \n \n Сайн Моторс     \n \n \n \n \n \n \n 19.5 сая  ₮ \n \n \n \n \n \n          Mitsubishi Outlander, 2013/2021\n         \n 258000 км \n · Автомат \n · 2.0 л \n · Цахилгаан \n \n \n \n \n Өнөөдөр \n Сонгинохайрхан, 1-р хороолол \n \n \n \n \n \n \n"
       },
       {
         "year": 2014,
@@ -9390,7 +9435,7 @@
         "color": "不明",
         "import_year": 2026,
         "price": 32.5,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /8\n           \n \n \n \n \n 32.5 сая  ₮ \n \n \n \n \n          Mitsubishi Outlander, 2015/2025\n         \n 96000 км \n · Автомат \n · 2.0 л \n · Хайбрид \n \n \n \n \n 8 минутын өмнө \n Баянгол, Тээврийн товчоо \n \n \n \n \n \n \n"
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /8\n           \n \n \n \n \n 32.5 сая  ₮ \n \n \n \n \n          Mitsubishi Outlander, 2015/2025\n         \n 96000 км \n · Автомат \n · 2.0 л \n · Хайбрид \n \n \n \n \n 1 цагийн өмнө \n Баянгол, Тээврийн товчоо \n \n \n \n \n \n \n"
       },
       {
         "year": 2019,
@@ -9399,7 +9444,7 @@
         "color": "不明",
         "import_year": 2026,
         "price": 45.5,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /16\n           \n \n \n \n \n 45.5 сая  ₮ \n \n \n \n \n          Mitsubishi Outlander, 2019/2026\n         \n 50000 км \n · Автомат \n · 2.4 л \n · Бензин \n \n \n \n \n 1 цагийн өмнө \n Хан-Уул, 120 мянгат \n \n \n \n \n \n \n"
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /16\n           \n \n \n \n \n 45.5 сая  ₮ \n \n \n \n \n          Mitsubishi Outlander, 2019/2026\n         \n 50000 км \n · Автомат \n · 2.4 л \n · Бензин \n \n \n \n \n 2 цагийн өмнө \n Хан-Уул, 120 мянгат \n \n \n \n \n \n \n"
       },
       {
         "year": 2017,
@@ -9804,7 +9849,7 @@
         "color": "不明",
         "import_year": 2026,
         "price": 28.5,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /5\n           \n \n \n \n \n 28.5 сая  ₮ \n \n \n \n \n \n          Mitsubishi Outlander, 2013/2026\n         \n 180000 км \n · Автомат \n · 2.0 л \n · Хайбрид \n \n \n \n \n 2 долоо хоногийн өмнө \n Сонгинохайрхан, Авто худалдааны цогцолбор \n \n \n \n \n \n \n"
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /5\n           \n \n \n \n \n 28.5 сая  ₮ \n \n \n \n \n \n          Mitsubishi Outlander, 2013/2026\n         \n 180000 км \n · Автомат \n · 2.0 л \n · Хайбрид \n \n \n \n \n 3 долоо хоногийн өмнө \n Сонгинохайрхан, Авто худалдааны цогцолбор \n \n \n \n \n \n \n"
       },
       {
         "year": 2013,
@@ -10110,13 +10155,22 @@
     ],
     "subaru|forester-sj": [
       {
+        "year": 2018,
+        "drive": "不明",
+        "mileage": "123,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 53.8,
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n VIP \n \n 1 /16\n           \n \n \n \n \n \n \n \n Хаан Моторс \n \n \n \n \n \n \n 53.8 сая  ₮ \n \n \n \n \n          Subaru Forester, 2018/2026\n         \n 123000 км \n · Автомат \n · 2.5 л \n · Бензин \n \n \n \n \n 35 минутын өмнө \n Хан-Уул, Хан-Уул, Хороо 3 \n \n \n \n \n \n \n"
+      },
+      {
         "year": 2016,
         "drive": "不明",
         "mileage": "130,000 km",
         "color": "黄",
         "import_year": 2026,
         "price": 32.8,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n VIP \n \n 1 /7\n           \n \n \n \n \n 32.8 сая  ₮ \n \n \n \n \n          Subaru Forester, 2016/2026\n         \n 130000 км \n · Автомат \n · 2.0 л \n · Бензин \n \n \n \n \n 57 минутын өмнө \n Баянзүрх, Шар хад \n \n \n \n \n \n \n"
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n VIP \n \n 1 /7\n           \n \n \n \n \n 32.8 сая  ₮ \n \n \n \n \n          Subaru Forester, 2016/2026\n         \n 130000 км \n · Автомат \n · 2.0 л \n · Бензин \n \n \n \n \n 2 цагийн өмнө \n Баянзүрх, Шар хад \n \n \n \n \n \n \n"
       },
       {
         "year": 2013,
@@ -10125,7 +10179,7 @@
         "color": "不明",
         "import_year": 2026,
         "price": 22.8,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n VIP \n \n 1 /15\n           \n \n \n \n \n 22.8 сая  ₮ \n \n \n \n \n \n          Subaru Forester, 2013/2022\n         \n 200000 км \n · Автомат \n · 2.0 л \n · Бензин \n \n \n \n \n 1 цагийн өмнө \n Хан-Уул, UB Town \n \n \n \n \n \n \n"
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n VIP \n \n 1 /15\n           \n \n \n \n \n 22.8 сая  ₮ \n \n \n \n \n \n          Subaru Forester, 2013/2022\n         \n 200000 км \n · Автомат \n · 2.0 л \n · Бензин \n \n \n \n \n 2 цагийн өмнө \n Хан-Уул, UB Town \n \n \n \n \n \n \n"
       },
       {
         "year": 2010,
@@ -10153,15 +10207,6 @@
         "import_year": 2026,
         "price": 40.0,
         "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n VIP \n \n 1 /7\n           \n \n \n \n \n 40 сая  ₮   45 сая  ₮ \n \n \n \n \n          Subaru Forester, 2016/2025\n         \n 133 км \n · Автомат \n · 2.5 л \n · Бензин \n \n \n \n \n Өчигдөр \n Баянзүрх, Баянзүрх, Хороо 43 \n \n \n \n \n \n \n"
-      },
-      {
-        "year": 2018,
-        "drive": "不明",
-        "mileage": "123,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 53.8,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n VIP \n \n 1 /16\n           \n \n \n \n \n \n \n \n Хаан Моторс \n \n \n \n \n \n \n 53.8 сая  ₮ \n \n \n \n \n          Subaru Forester, 2018/2026\n         \n 123000 км \n · Автомат \n · 2.5 л \n · Бензин \n \n \n \n \n Өчигдөр \n Хан-Уул, Хан-Уул, Хороо 3 \n \n \n \n \n \n \n"
       },
       {
         "year": 2009,
@@ -10197,7 +10242,7 @@
         "color": "不明",
         "import_year": 2026,
         "price": 46.0,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n Онцгой \n \n 1 /5\n           \n \n \n \n \n 46 сая  ₮ \n \n \n \n \n \n          Subaru Forester, 2019/2025\n         \n 184000 км \n · Автомат \n · 2.5 л \n · Бензин \n \n \n \n \n 2 цагийн өмнө \n Хан-Уул, Хан-Уул, Хороо 21 \n \n \n \n \n \n \n"
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n Онцгой \n \n 1 /5\n           \n \n \n \n \n 46 сая  ₮ \n \n \n \n \n \n          Subaru Forester, 2019/2025\n         \n 184000 км \n · Автомат \n · 2.5 л \n · Бензин \n \n \n \n \n 3 цагийн өмнө \n Хан-Уул, Хан-Уул, Хороо 21 \n \n \n \n \n \n \n"
       },
       {
         "year": 2014,
@@ -10206,7 +10251,7 @@
         "color": "不明",
         "import_year": 2026,
         "price": 15.7,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n Онцгой \n \n 1 /4\n           \n \n \n \n \n 15.7 сая  ₮ \n \n \n \n \n          Subaru Forester, 2014/2019\n         \n 220000 км \n · Автомат \n · 2.0 л \n · Бензин \n \n \n \n \n 2 цагийн өмнө \n Баянзүрх, 33-р сургуулийн ойролцоо \n \n \n \n \n \n \n"
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n Онцгой \n \n 1 /4\n           \n \n \n \n \n 15.7 сая  ₮ \n \n \n \n \n          Subaru Forester, 2014/2019\n         \n 220000 км \n · Автомат \n · 2.0 л \n · Бензин \n \n \n \n \n 3 цагийн өмнө \n Баянзүрх, 33-р сургуулийн ойролцоо \n \n \n \n \n \n \n"
       },
       {
         "year": 2008,
@@ -10215,7 +10260,7 @@
         "color": "不明",
         "import_year": 2026,
         "price": 12.5,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n Онцгой \n \n 1 /4\n           \n \n \n \n \n 12.5 сая  ₮   14 сая  ₮ \n \n \n \n \n          Subaru Forester, 2008/2017\n         \n 284000 км \n · Автомат \n · 2.0 л \n · Бензин \n \n \n \n \n 2 цагийн өмнө \n Хан-Уул, Мишээл \n \n \n \n \n \n \n"
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n Онцгой \n \n 1 /4\n           \n \n \n \n \n 12.5 сая  ₮   14 сая  ₮ \n \n \n \n \n          Subaru Forester, 2008/2017\n         \n 284000 км \n · Автомат \n · 2.0 л \n · Бензин \n \n \n \n \n 3 цагийн өмнө \n Хан-Уул, Мишээл \n \n \n \n \n \n \n"
       },
       {
         "year": 2011,
@@ -10299,13 +10344,22 @@
         "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n Онцгой \n \n 1 /3\n           \n \n \n \n \n 35.9 сая  ₮ \n \n \n \n \n          Subaru Forester, 2016/2026\n         \n 111000 км \n · Автомат \n · 2.0 л \n · Бензин \n \n \n \n \n 2 долоо хоногийн өмнө \n Сонгинохайрхан, Авто худалдааны цогцолбор \n \n \n \n \n \n \n"
       },
       {
+        "year": 2008,
+        "drive": "不明",
+        "mileage": "123,456 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 6.5,
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /3\n           \n \n \n \n \n 6.5 сая  ₮ \n \n \n \n \n          Subaru Forester, 2008/2017\n         \n 123456 км \n · Автомат \n · 2.0 л \n · Бензин \n \n \n \n \n 40 минутын өмнө \n Төв, Төв \n \n \n \n \n \n \n"
+      },
+      {
         "year": 2018,
         "drive": "不明",
         "mileage": "151,000 km",
         "color": "不明",
         "import_year": 2026,
         "price": 46.0,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /15\n           \n \n \n \n \n \n \n \n Дэвжих жавхлант кар ххк \n \n \n \n \n \n \n 46 сая  ₮   51 сая  ₮ \n \n \n \n \n          Subaru Forester, 2018/2026\n         \n 151000 км \n · Автомат \n · 2.0 л \n · Хайбрид \n \n \n \n \n 33 минутын өмнө \n Чингэлтэй, Зурагт \n \n \n \n \n \n \n"
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /15\n           \n \n \n \n \n \n \n \n Дэвжих жавхлант кар ххк \n \n \n \n \n \n \n 46 сая  ₮   51 сая  ₮ \n \n \n \n \n          Subaru Forester, 2018/2026\n         \n 151000 км \n · Автомат \n · 2.0 л \n · Хайбрид \n \n \n \n \n 1 цагийн өмнө \n Чингэлтэй, Зурагт \n \n \n \n \n \n \n"
       },
       {
         "year": 2011,
@@ -10449,7 +10503,7 @@
         "color": "不明",
         "import_year": 2026,
         "price": 38.0,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /5\n           \n \n \n \n \n 38 сая  ₮ \n \n \n \n \n \n          Subaru Forester, 2019/2024\n         \n 200000 км \n · Автомат \n · 2.5 л \n · Бензин \n \n \n \n \n 1 өдрийн өмнө \n Хан-Уул, Хан-Уул, Хороо 23 \n \n \n \n \n \n \n"
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /5\n           \n \n \n \n \n 38 сая  ₮ \n \n \n \n \n \n          Subaru Forester, 2019/2024\n         \n 200000 км \n · Автомат \n · 2.5 л \n · Бензин \n \n \n \n \n 2 өдрийн өмнө \n Хан-Уул, Хан-Уул, Хороо 23 \n \n \n \n \n \n \n"
       },
       {
         "year": 2014,
@@ -10494,7 +10548,7 @@
         "color": "不明",
         "import_year": 2026,
         "price": 16.5,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /8\n           \n \n \n \n \n 16.5 сая  ₮ \n \n \n \n \n          Subaru Forester, 2010/2019\n         \n 210000 км \n · Автомат \n · 2.0 л \n · Бензин \n \n \n \n \n 2 өдрийн өмнө \n Баянзүрх, 13-р хороолол \n \n \n \n \n \n \n"
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /8\n           \n \n \n \n \n 16.5 сая  ₮ \n \n \n \n \n          Subaru Forester, 2010/2019\n         \n 210000 км \n · Автомат \n · 2.0 л \n · Бензин \n \n \n \n \n 3 өдрийн өмнө \n Баянзүрх, 13-р хороолол \n \n \n \n \n \n \n"
       },
       {
         "year": 2013,
@@ -10512,7 +10566,7 @@
         "color": "不明",
         "import_year": 2026,
         "price": 45.0,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /5\n           \n \n \n \n \n 45 сая  ₮ \n \n \n \n \n          Subaru Forester, 2018/2024\n         \n 131860 км \n · Автомат \n · 2.5 л \n · Бензин \n \n \n \n \n 3 өдрийн өмнө \n Чингэлтэй, Чингэлтэй, Хороо 9 \n \n \n \n \n \n \n"
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /5\n           \n \n \n \n \n 45 сая  ₮ \n \n \n \n \n          Subaru Forester, 2018/2024\n         \n 131860 км \n · Автомат \n · 2.5 л \n · Бензин \n \n \n \n \n 4 өдрийн өмнө \n Чингэлтэй, Чингэлтэй, Хороо 9 \n \n \n \n \n \n \n"
       },
       {
         "year": 2020,
@@ -11000,7 +11054,7 @@
         "color": "不明",
         "import_year": 2026,
         "price": 7.0,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /3\n           \n \n \n \n \n 7 сая  ₮ \n \n \n \n \n          Subaru Outback, 2008/2018\n         \n 172000 км \n · Автомат \n · 2.5 л \n · Бензин \n \n \n \n \n 3 өдрийн өмнө \n Хан-Уул, 19-р хороолол \n \n \n \n \n \n \n"
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /3\n           \n \n \n \n \n 7 сая  ₮ \n \n \n \n \n          Subaru Outback, 2008/2018\n         \n 172000 км \n · Автомат \n · 2.5 л \n · Бензин \n \n \n \n \n 4 өдрийн өмнө \n Хан-Уул, 19-р хороолол \n \n \n \n \n \n \n"
       },
       {
         "year": 2018,
@@ -11198,7 +11252,7 @@
         "color": "不明",
         "import_year": 2026,
         "price": 45.0,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /13\n           \n \n \n \n \n 45 сая  ₮ \n \n \n \n \n          Subaru Outback, 2017/2026\n         \n 144350 км \n · Автомат \n · 2.5 л \n · Бензин \n \n \n \n \n 3 долоо хоногийн өмнө \n Сонгинохайрхан, Авто худалдааны цогцолбор \n \n \n \n \n \n \n"
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /13\n           \n \n \n \n \n 45 сая  ₮ \n \n \n \n \n          Subaru Outback, 2017/2026\n         \n 144350 км \n · Автомат \n · 2.5 л \n · Бензин \n \n \n \n \n 4 долоо хоногийн өмнө \n Сонгинохайрхан, Авто худалдааны цогцолбор \n \n \n \n \n \n \n"
       },
       {
         "year": 2018,
@@ -11263,7 +11317,7 @@
         "color": "不明",
         "import_year": 2026,
         "price": 67.0,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /4\n           \n \n \n \n \n 67 сая  ₮ \n \n \n \n \n          Suzuki Jimny, 2023/2024\n         \n 24000 км \n · Автомат \n · 1.5 л \n · Бензин \n \n \n \n \n 43 минутын өмнө \n Хан-Уул, Хан-Уул, Хороо 15 \n \n \n \n \n \n \n"
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /4\n           \n \n \n \n \n 67 сая  ₮ \n \n \n \n \n          Suzuki Jimny, 2023/2024\n         \n 24000 км \n · Автомат \n · 1.5 л \n · Бензин \n \n \n \n \n 1 цагийн өмнө \n Хан-Уул, Хан-Уул, Хороо 15 \n \n \n \n \n \n \n"
       },
       {
         "year": 2021,
@@ -11272,7 +11326,7 @@
         "color": "不明",
         "import_year": 2026,
         "price": 52.0,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /6\n           \n \n \n \n \n 52 сая  ₮ \n \n \n \n \n          Suzuki Jimny, 2021/2022\n         \n 79000 км \n · Механик \n · 1.5 л \n · Бензин \n \n \n \n \n 2 цагийн өмнө \n Баянзүрх, Сансар \n \n \n \n \n \n \n"
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /6\n           \n \n \n \n \n 52 сая  ₮ \n \n \n \n \n          Suzuki Jimny, 2021/2022\n         \n 79000 км \n · Механик \n · 1.5 л \n · Бензин \n \n \n \n \n 3 цагийн өмнө \n Баянзүрх, Сансар \n \n \n \n \n \n \n"
       },
       {
         "year": 2011,
@@ -11499,7 +11553,7 @@
         "color": "不明",
         "import_year": 2026,
         "price": 410.0,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n 410 сая  ₮ \n \n \n \n \n      Lexus LX 600, 2024/2024\n     \n \n 3 цагийн өмнө   |   Хан-Уул, Яармаг \n \n \n \n \n"
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n 410 сая  ₮ \n \n \n \n \n      Lexus LX 600, 2024/2024\n     \n \n Өнөөдөр   |   Хан-Уул, Яармаг \n \n \n \n \n"
       },
       {
         "year": 2025,
@@ -11780,7 +11834,7 @@
         "color": "不明",
         "import_year": 2026,
         "price": 81.8,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 81.8 сая  ₮ \n \n \n \n \n      Lexus LX 570, 2008/2009\n     \n \n 3 цагийн өмнө   |   Чингэлтэй, Чингэлтэй, Хороо 5 \n \n \n \n \n"
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 81.8 сая  ₮ \n \n \n \n \n      Lexus LX 570, 2008/2009\n     \n \n Өнөөдөр   |   Чингэлтэй, Чингэлтэй, Хороо 5 \n \n \n \n \n"
       },
       {
         "year": 2020,
@@ -11987,7 +12041,7 @@
         "color": "不明",
         "import_year": 2026,
         "price": 138.0,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 138 сая  ₮   145 сая  ₮ \n \n \n \n \n      Lexus LX 570, 2013/2023\n     \n \n 1 долоо хоногийн өмнө   |   Баянгол, 3, 4 хороолол \n \n \n \n \n"
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 138 сая  ₮   145 сая  ₮ \n \n \n \n \n      Lexus LX 570, 2013/2023\n     \n \n 2 долоо хоногийн өмнө   |   Баянгол, 3, 4 хороолол \n \n \n \n \n"
       },
       {
         "year": 2013,
@@ -12457,7 +12511,7 @@
         "color": "不明",
         "import_year": 2026,
         "price": 35.0,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /3\n           \n \n \n \n \n 35 сая  ₮ \n \n \n \n \n          Lexus LX 470, 2004/2008\n         \n 211240 км \n · Автомат \n · 4.7 л \n · Бензин \n \n \n \n \n 2 цагийн өмнө \n Баянзүрх, 15-р хороолол \n \n \n \n \n \n \n"
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /3\n           \n \n \n \n \n 35 сая  ₮ \n \n \n \n \n          Lexus LX 470, 2004/2008\n         \n 211240 км \n · Автомат \n · 4.7 л \n · Бензин \n \n \n \n \n 3 цагийн өмнө \n Баянзүрх, 15-р хороолол \n \n \n \n \n \n \n"
       },
       {
         "year": 2006,
@@ -12745,7 +12799,7 @@
         "color": "不明",
         "import_year": 2026,
         "price": 39.8,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /4\n           \n \n \n \n \n 39.8 сая  ₮ \n \n \n \n \n          Lexus LX 470, 2004/2007\n         \n 150000 км \n · Автомат \n · 4.7 л \n · Бензин \n \n \n \n \n 2 долоо хоногийн өмнө \n Баянзүрх, Баянзүрх, Хороо 31 \n \n \n \n \n \n \n"
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /4\n           \n \n \n \n \n 39.8 сая  ₮ \n \n \n \n \n          Lexus LX 470, 2004/2007\n         \n 150000 км \n · Автомат \n · 4.7 л \n · Бензин \n \n \n \n \n 3 долоо хоногийн өмнө \n Баянзүрх, Баянзүрх, Хороо 31 \n \n \n \n \n \n \n"
       },
       {
         "year": 2007,
@@ -12960,7 +13014,7 @@
         "color": "不明",
         "import_year": 2026,
         "price": 55.0,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n VIP \n \n \n \n \n \n 55 сая  ₮ \n \n \n \n \n      Lexus RX 350, 2012/2026\n     \n 150000 км \n · Автомат \n · 3.5 л \n · Бензин \n \n 2 цагийн өмнө   |   Сонгинохайрхан, 1-р хороолол \n \n \n \n \n"
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n VIP \n \n \n \n \n \n 55 сая  ₮ \n \n \n \n \n      Lexus RX 350, 2012/2026\n     \n 150000 км \n · Автомат \n · 3.5 л \n · Бензин \n \n 3 цагийн өмнө   |   Сонгинохайрхан, 1-р хороолол \n \n \n \n \n"
       },
       {
         "year": 2010,
@@ -13037,11 +13091,11 @@
       {
         "year": 2013,
         "drive": "不明",
-        "mileage": "150,000 km",
+        "mileage": "120,000 km",
         "color": "不明",
         "import_year": 2026,
-        "price": 45.0,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n Онцгой \n \n \n \n \n \n 45 сая  ₮ \n \n \n \n \n \n      Lexus RX 350, 2013/2022\n     \n 150000 км \n · Автомат \n · 3.5 л \n · Бензин \n \n 4 өдрийн өмнө   |   Баянзүрх, Зүүн 4 зам \n \n \n \n \n"
+        "price": 40.0,
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 40 сая  ₮ \n \n \n \n \n      Lexus RX 350, 2013/2020\n     \n 120000 км \n · Автомат \n · 3.5 л \n · Бензин \n \n 9 минутын өмнө   |   Баянзүрх, Сансар \n \n \n \n \n"
       },
       {
         "year": 2011,
@@ -13050,7 +13104,7 @@
         "color": "不明",
         "import_year": 2026,
         "price": 34.5,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 34.5 сая  ₮ \n \n \n \n \n      Lexus RX 350, 2011/2011\n     \n 89000 км \n · Автомат \n · 3.5 л \n · Бензин \n \n 1 цагийн өмнө   |   Баянгол, Баянгол, Хороо 26 \n \n \n \n \n"
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 34.5 сая  ₮ \n \n \n \n \n      Lexus RX 350, 2011/2011\n     \n 89000 км \n · Автомат \n · 3.5 л \n · Бензин \n \n 2 цагийн өмнө   |   Баянгол, Баянгол, Хороо 26 \n \n \n \n \n"
       },
       {
         "year": 2013,
@@ -13059,7 +13113,16 @@
         "color": "不明",
         "import_year": 2026,
         "price": 75.8,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 75.8 сая  ₮ \n \n \n \n \n      Lexus RX 350, 2013/2024\n     \n 135800 км \n · Автомат \n · 3.5 л \n · Бензин \n \n 2 цагийн өмнө   |   Хан-Уул, 19-р хороолол \n \n \n \n \n"
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 75.8 сая  ₮ \n \n \n \n \n      Lexus RX 350, 2013/2024\n     \n 135800 км \n · Автомат \n · 3.5 л \n · Бензин \n \n Өнөөдөр   |   Хан-Уул, 19-р хороолол \n \n \n \n \n"
+      },
+      {
+        "year": 2013,
+        "drive": "不明",
+        "mileage": "200,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 45.0,
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 45 сая  ₮ \n \n \n \n \n      Lexus RX 350, 2013/2020\n     \n 200000 км \n · Автомат \n · 3.5 л \n · Бензин \n \n Өчигдөр   |   Сүхбаатар, Сүхбаатар, Хороо 9 \n \n \n \n \n"
       },
       {
         "year": 2013,
@@ -13131,7 +13194,7 @@
         "color": "不明",
         "import_year": 2026,
         "price": 40.0,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 40 сая  ₮ \n \n \n \n \n \n      Lexus RX 350, 2010/2024\n     \n 91000 км \n · Автомат \n · 3.5 л \n · Бензин \n \n 4 өдрийн өмнө   |   Баянзүрх, 13-р хороолол \n \n \n \n \n"
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 40 сая  ₮ \n \n \n \n \n \n      Lexus RX 350, 2010/2024\n     \n 91000 км \n · Автомат \n · 3.5 л \n · Бензин \n \n 5 өдрийн өмнө   |   Баянзүрх, 13-р хороолол \n \n \n \n \n"
       },
       {
         "year": 2011,
@@ -13285,15 +13348,6 @@
         "import_year": 2026,
         "price": 37.0,
         "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n 37 сая  ₮ \n \n \n \n \n      Lexus RX 350, 2009/2016\n     \n 112000 км \n · Автомат \n · 3.5 л \n · Бензин \n \n 2 долоо хоногийн өмнө   |   Хан-Уул, Хан-Уул, Хороо 3 \n \n \n \n \n"
-      },
-      {
-        "year": 2013,
-        "drive": "不明",
-        "mileage": "110,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 40.0,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 40 сая  ₮ \n \n \n \n \n \n      Lexus RX 350, 2013/2013\n     \n 110000 км \n · Автомат \n · 3.5 л \n · Бензин \n \n 2 долоо хоногийн өмнө   |   Баянзүрх, Баянзүрх, Хороо 16 \n \n \n \n \n"
       },
       {
         "year": 2013,
@@ -13520,7 +13574,7 @@
         "color": "不明",
         "import_year": 2026,
         "price": 225.0,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n Онцгой \n \n \n \n \n \n 225 сая  ₮ \n \n \n \n \n      Lexus RX 350, 2024/2024\n     \n 17000 км \n · Автомат \n · 2.5 л \n · Хайбрид \n \n 2 цагийн өмнө   |   Хан-Уул, Соёолж Авто худалдаа \n \n \n \n \n"
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n Онцгой \n \n \n \n \n \n 225 сая  ₮ \n \n \n \n \n      Lexus RX 350, 2024/2024\n     \n 17000 км \n · Автомат \n · 2.5 л \n · Хайбрид \n \n 3 цагийн өмнө   |   Хан-Уул, Соёолж Авто худалдаа \n \n \n \n \n"
       },
       {
         "year": 2024,
@@ -13666,7 +13720,7 @@
         "color": "不明",
         "import_year": 2026,
         "price": 80.0,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 80 сая  ₮   85 сая  ₮ \n \n \n \n \n      Lexus RX 350, 2016/2016\n     \n 118000 км \n · Автомат \n · 3.5 л \n · Бензин \n \n 1 долоо хоногийн өмнө   |   Хан-Уул, Хан-Уул, Хороо 15 \n \n \n \n \n"
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 80 сая  ₮   85 сая  ₮ \n \n \n \n \n      Lexus RX 350, 2016/2016\n     \n 118000 км \n · Автомат \n · 3.5 л \n · Бензин \n \n 2 долоо хоногийн өмнө   |   Хан-Уул, Хан-Уул, Хороо 15 \n \n \n \n \n"
       },
       {
         "year": 2022,
@@ -13792,7 +13846,7 @@
         "color": "不明",
         "import_year": 2026,
         "price": 120.0,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 120 сая  ₮ \n \n \n \n \n      Lexus RX 350, 2018/2024\n     \n 43000 км \n · Автомат \n · 3.0 л \n · Бензин \n \n 2 долоо хоногийн өмнө   |   Сүхбаатар, Сүхбаатар, Хороо 1 \n \n \n \n \n"
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 120 сая  ₮ \n \n \n \n \n      Lexus RX 350, 2018/2024\n     \n 43000 км \n · Автомат \n · 3.0 л \n · Бензин \n \n 3 долоо хоногийн өмнө   |   Сүхбаатар, Сүхбаатар, Хороо 1 \n \n \n \n \n"
       },
       {
         "year": 2017,
@@ -13820,487 +13874,17 @@
         "import_year": 2026,
         "price": 75.0,
         "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 75 сая  ₮ \n \n \n \n \n      Lexus RX 350, 2016/2020\n     \n 105000 км \n · Автомат \n · 3.5 л \n · Бензин \n \n 3 долоо хоногийн өмнө   |   Баянзүрх, Баянзүрх, Хороо 26 \n \n \n \n \n"
-      },
-      {
-        "year": 2016,
-        "drive": "不明",
-        "mileage": "84,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 65.0,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 65 сая  ₮ \n \n \n \n \n      Lexus RX 350, 2016/2018\n     \n 84000 км \n · Автомат \n · 3.5 л \n · Бензин \n \n 3 долоо хоногийн өмнө   |   Баянзүрх, 13-р хороолол \n \n \n \n \n"
-      }
-    ],
-    "lexus|rx-450h-al10": [
-      {
-        "year": 2010,
-        "drive": "不明",
-        "mileage": "不明",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 48.0,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n VIP \n \n 1 /2\n           \n \n \n \n \n 48 сая  ₮ \n \n \n \n \n \n          Lexus RX 450, 2010/2023\n         \n \n \n \n \n 1 цагийн өмнө \n Хан-Уул, Хан-Уул, Хороо 20 \n \n \n \n \n \n \n"
-      },
-      {
-        "year": 2011,
-        "drive": "不明",
-        "mileage": "不明",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 59.0,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n VIP \n \n 1 /7\n           \n \n \n \n \n 59 сая  ₮   64 сая  ₮ \n \n \n \n \n          Lexus RX 450, 2011/2024\n         \n \n \n \n \n Өнөөдөр \n Баянзүрх, Үндэсний цэцэрлэгт хүрээлэн \n \n \n \n \n \n \n"
-      },
-      {
-        "year": 2012,
-        "drive": "不明",
-        "mileage": "不明",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 66.0,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n VIP \n \n 1 /16\n           \n \n \n \n \n \n Buuk \n \n \n \n \n \n \n 66 сая  ₮   69.8 сая  ₮ \n \n \n \n \n          Lexus RX 450, 2012/2026\n         \n \n \n \n \n Өчигдөр \n Баянгол, 10-р хороолол \n \n \n \n \n \n \n"
-      },
-      {
-        "year": 2013,
-        "drive": "不明",
-        "mileage": "不明",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 61.0,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n VIP \n \n 1 /16\n           \n \n \n \n \n \n \n \n VICTORY CAR \n \n \n \n \n \n \n 61 сая  ₮ \n \n \n \n \n \n          Lexus RX 450, 2013/2026\n         \n \n \n \n \n Өчигдөр \n Баянгол, Өргөө - 1 кино театр \n \n \n \n \n \n \n"
-      },
-      {
-        "year": 2010,
-        "drive": "不明",
-        "mileage": "不明",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 49.8,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n VIP \n \n 1 /15\n           \n \n \n \n \n \n \n \n VICTORY CAR \n \n \n \n \n \n \n 49.8 сая  ₮ \n \n \n \n \n \n          Lexus RX 450, 2010/2026\n         \n \n \n \n \n Өчигдөр \n Баянгол, Өргөө - 1 кино театр \n \n \n \n \n \n \n"
-      },
-      {
-        "year": 2012,
-        "drive": "不明",
-        "mileage": "不明",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 52.5,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n VIP \n \n 1 /11\n           \n \n \n \n \n 52.5 сая  ₮ \n \n \n \n \n          Lexus RX 450, 2012/2021\n         \n \n \n \n \n Өчигдөр \n Хан-Уул, Хан-Уул, Хороо 25 \n \n \n \n \n \n \n"
-      },
-      {
-        "year": 2013,
-        "drive": "不明",
-        "mileage": "不明",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 53.0,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n VIP \n \n 1 /10\n           \n \n \n \n \n 53 сая  ₮   63 сая  ₮ \n \n \n \n \n          Lexus RX 450, 2013/2025\n         \n \n \n \n \n Өчигдөр \n Дархан-Уул, Дархан-Уул \n \n \n \n \n \n \n"
-      },
-      {
-        "year": 2013,
-        "drive": "不明",
-        "mileage": "不明",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 56.0,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n VIP \n \n 1 /8\n           \n \n \n \n \n 56 сая  ₮ \n \n \n \n \n          Lexus RX 450, 2013/2023\n         \n \n \n \n \n 1 өдрийн өмнө \n Баянзүрх, 13-р хороолол \n \n \n \n \n \n \n"
-      },
-      {
-        "year": 2011,
-        "drive": "不明",
-        "mileage": "不明",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 46.5,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n VIP \n \n 1 /7\n           \n \n \n \n \n 46.5 сая  ₮ \n \n \n \n \n \n          Lexus RX 450, 2011/2025\n         \n \n \n \n \n 2 өдрийн өмнө \n Баянгол, Баянгол, Хороо 13 \n \n \n \n \n \n \n"
-      },
-      {
-        "year": 2014,
-        "drive": "不明",
-        "mileage": "不明",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 60.0,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n VIP \n \n 1 /4\n           \n \n \n \n \n 60 сая  ₮ \n \n \n \n \n          Lexus RX 450, 2014/2023\n         \n \n \n \n \n 2 өдрийн өмнө \n Баянгол, Баянгол, Хороо 32 \n \n \n \n \n \n \n"
-      },
-      {
-        "year": 2011,
-        "drive": "不明",
-        "mileage": "不明",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 50.0,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n VIP \n \n 1 /7\n           \n \n \n \n \n 50 сая  ₮ \n \n \n \n \n          Lexus RX 450, 2011/2025\n         \n \n \n \n \n 2 өдрийн өмнө \n Хан-Уул, Хан-Уул, Хороо 20 \n \n \n \n \n \n \n"
-      },
-      {
-        "year": 2010,
-        "drive": "不明",
-        "mileage": "不明",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 34.0,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n VIP \n \n 1 /3\n           \n \n \n \n \n 34 сая  ₮ \n \n \n \n \n          Lexus RX 450, 2010/2019\n         \n \n \n \n \n 3 өдрийн өмнө \n Баянгол, 3, 4 хороолол \n \n \n \n \n \n \n"
-      },
-      {
-        "year": 2013,
-        "drive": "不明",
-        "mileage": "不明",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 52.0,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n VIP \n \n 1 /7\n           \n \n \n \n \n 52 сая  ₮ \n \n \n \n \n          Lexus RX 450, 2013/2024\n         \n \n \n \n \n 4 өдрийн өмнө \n Хан-Уул, Хан-Уул, Хороо 18 \n \n \n \n \n \n \n"
-      },
-      {
-        "year": 2013,
-        "drive": "不明",
-        "mileage": "不明",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 50.0,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n Онцгой \n \n 1 /2\n           \n \n \n \n \n 50 сая  ₮ \n \n \n \n \n          Lexus RX 450, 2013/2020\n         \n \n \n \n \n 1 цагийн өмнө \n Хан-Уул, Яармаг \n \n \n \n \n \n \n"
-      },
-      {
-        "year": 2009,
-        "drive": "不明",
-        "mileage": "不明",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 45.0,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n Онцгой \n \n 1 /3\n           \n \n \n \n \n 45 сая  ₮   50 сая  ₮ \n \n \n \n \n          Lexus RX 450, 2009/2023\n         \n \n \n \n \n Өчигдөр \n Сүхбаатар, 5-р хороолол \n \n \n \n \n \n \n"
-      },
-      {
-        "year": 2010,
-        "drive": "不明",
-        "mileage": "不明",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 44.0,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n Онцгой \n \n 1 /6\n           \n \n \n \n \n 44 сая  ₮ \n \n \n \n \n          Lexus RX 450, 2010/2021\n         \n \n \n \n \n Өчигдөр \n Хан-Уул, Яармаг \n \n \n \n \n \n \n"
-      },
-      {
-        "year": 2012,
-        "drive": "不明",
-        "mileage": "不明",
-        "color": "赤",
-        "import_year": 2026,
-        "price": 60.0,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n Онцгой \n \n 1 /10\n           \n \n \n \n \n 60 сая  ₮ \n \n \n \n \n          Lexus RX 450, 2012/2024\n         \n \n \n \n \n Өчигдөр \n Баянзүрх, Улаанхуаран \n \n \n \n \n \n \n"
-      },
-      {
-        "year": 2010,
-        "drive": "不明",
-        "mileage": "不明",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 35.0,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n Онцгой \n \n 1 /10\n           \n \n \n \n \n 35 сая  ₮   37 сая  ₮ \n \n \n \n \n          Lexus RX 450, 2010/2019\n         \n \n \n \n \n Өчигдөр \n Сонгинохайрхан, Авто худалдааны цогцолбор \n \n \n \n \n \n \n"
-      },
-      {
-        "year": 2012,
-        "drive": "不明",
-        "mileage": "不明",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 49.2,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n Онцгой \n \n 1 /5\n           \n \n \n \n \n 49.2 сая  ₮ \n \n \n \n \n          Lexus RX 450, 2012/2026\n         \n \n \n \n \n Өчигдөр \n Баянзүрх, Их Монгол хороолол \n \n \n \n \n \n \n"
-      },
-      {
-        "year": 2011,
-        "drive": "不明",
-        "mileage": "不明",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 43.5,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n Онцгой \n \n 1 /11\n           \n \n \n \n \n 43.5 сая  ₮ \n \n \n \n \n          Lexus RX 450, 2011/2023\n         \n \n \n \n \n 1 өдрийн өмнө \n Сонгинохайрхан, 1-р хороолол \n \n \n \n \n \n \n"
-      },
-      {
-        "year": 2015,
-        "drive": "不明",
-        "mileage": "不明",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 66.8,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n Онцгой \n \n 1 /15\n           \n \n \n \n \n \n Gold car \n \n \n \n \n \n \n 66.8 сая  ₮ \n \n \n \n \n          Lexus RX 450, 2015/2026\n         \n \n \n \n \n 2 өдрийн өмнө \n Баянзүрх, Да хүрээ \n \n \n \n \n \n \n"
-      },
-      {
-        "year": 2011,
-        "drive": "不明",
-        "mileage": "不明",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 37.0,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n Онцгой \n \n 1 /3\n           \n \n \n \n \n 37 сая  ₮ \n \n \n \n \n          Lexus RX 450, 2011/2019\n         \n \n \n \n \n 2 өдрийн өмнө \n Сонгинохайрхан, 1-р хороолол \n \n \n \n \n \n \n"
-      },
-      {
-        "year": 2013,
-        "drive": "不明",
-        "mileage": "不明",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 67.9,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n Онцгой \n \n 1 /16\n           \n \n \n \n \n \n Gold car \n \n \n \n \n \n \n 67.9 сая  ₮ \n \n \n \n \n          Lexus RX 450, 2013/2026\n         \n \n \n \n \n 2 өдрийн өмнө \n Баянзүрх, Да хүрээ \n \n \n \n \n \n \n"
-      },
-      {
-        "year": 2011,
-        "drive": "不明",
-        "mileage": "不明",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 42.5,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n Онцгой \n \n 1 /6\n           \n \n \n \n \n 42.5 сая  ₮ \n \n \n \n \n          Lexus RX 450, 2011/2022\n         \n \n \n \n \n 2 өдрийн өмнө \n Баянзүрх, Баянзүрх, Хороо 2 \n \n \n \n \n \n \n"
-      },
-      {
-        "year": 2013,
-        "drive": "不明",
-        "mileage": "不明",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 63.0,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n Онцгой \n \n 1 /7\n           \n \n \n \n \n 63 сая  ₮ \n \n \n \n \n          Lexus RX 450, 2013/2023\n         \n \n \n \n \n 2 өдрийн өмнө \n Баянгол, Нарны хороолол \n \n \n \n \n \n \n"
-      },
-      {
-        "year": 2009,
-        "drive": "不明",
-        "mileage": "不明",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 43.0,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n Онцгой \n \n 1 /6\n           \n \n \n \n \n 43 сая  ₮ \n \n \n \n \n          Lexus RX 450, 2009/2022\n         \n \n \n \n \n 2 өдрийн өмнө \n Баянзүрх, Чулуун овоо \n \n \n \n \n \n \n"
-      },
-      {
-        "year": 2013,
-        "drive": "不明",
-        "mileage": "不明",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 60.0,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n Онцгой \n \n 1 /5\n           \n \n \n \n \n 60 сая  ₮ \n \n \n \n \n          Lexus RX 450, 2013/2025\n         \n \n \n \n \n 3 өдрийн өмнө \n Баянгол, Богд-Ар \n \n \n \n \n \n \n"
-      },
-      {
-        "year": 2010,
-        "drive": "不明",
-        "mileage": "不明",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 48.5,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n Онцгой \n \n 1 /5\n           \n \n \n \n \n 48.5 сая  ₮ \n \n \n \n \n          Lexus RX 450, 2010/2024\n         \n \n \n \n \n 3 өдрийн өмнө \n Баянзүрх, 16-р хороолол \n \n \n \n \n \n \n"
-      },
-      {
-        "year": 2010,
-        "drive": "不明",
-        "mileage": "不明",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 36.0,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n Онцгой \n \n 1 /6\n           \n \n \n \n \n 36 сая  ₮ \n \n \n \n \n          Lexus RX 450, 2010/2018\n         \n \n \n \n \n 4 өдрийн өмнө \n Хан-Уул, Хан-Уул, Хороо 23 \n \n \n \n \n \n \n"
-      },
-      {
-        "year": 2012,
-        "drive": "不明",
-        "mileage": "不明",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 46.5,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n Онцгой \n \n 1 /16\n           \n \n \n \n \n 46.5 сая  ₮ \n \n \n \n \n          Lexus RX 450, 2012/2022\n         \n \n \n \n \n 4 өдрийн өмнө \n Чингэлтэй, Чингэлтэй \n \n \n \n \n \n \n"
-      },
-      {
-        "year": 2011,
-        "drive": "不明",
-        "mileage": "不明",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 49.3,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /11\n           \n \n \n \n \n 49.3 сая  ₮ \n \n \n \n \n          Lexus RX 450, 2011/2026\n         \n \n \n \n \n 1 цагийн өмнө \n Баянгол, 3, 4 хороолол \n \n \n \n \n \n \n"
-      },
-      {
-        "year": 2010,
-        "drive": "不明",
-        "mileage": "不明",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 58.0,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /11\n           \n \n \n \n \n 58 сая  ₮ \n \n \n \n \n          Lexus RX 450, 2010/2026\n         \n \n \n \n \n 2 цагийн өмнө \n Сонгинохайрхан, Авто худалдааны цогцолбор \n \n \n \n \n \n \n"
-      },
-      {
-        "year": 2012,
-        "drive": "不明",
-        "mileage": "不明",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 63.0,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /12\n           \n \n \n \n \n 63 сая  ₮ \n \n \n \n \n          Lexus RX 450, 2012/2026\n         \n \n \n \n \n 2 цагийн өмнө \n Сонгинохайрхан, Авто худалдааны цогцолбор \n \n \n \n \n \n \n"
-      },
-      {
-        "year": 2011,
-        "drive": "不明",
-        "mileage": "不明",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 39.9,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /6\n           \n \n \n \n \n 39.9 сая  ₮   43 сая  ₮ \n \n \n \n \n          Lexus RX 450, 2011/2021\n         \n \n \n \n \n 2 цагийн өмнө \n Хан-Уул, 19-р хороолол \n \n \n \n \n \n \n"
-      },
-      {
-        "year": 2011,
-        "drive": "不明",
-        "mileage": "不明",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 46.0,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /14\n           \n \n \n \n \n \n \n \n Сайн Моторс     \n \n \n \n \n \n \n 46 сая  ₮ \n \n \n \n \n \n          Lexus RX 450, 2011/2022\n         \n \n \n \n \n 2 цагийн өмнө \n Сонгинохайрхан, 1-р хороолол \n \n \n \n \n \n \n"
-      },
-      {
-        "year": 2012,
-        "drive": "不明",
-        "mileage": "不明",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 59.0,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /16\n           \n \n \n \n \n \n \n \n Сайн Моторс     \n \n \n \n \n \n \n 59 сая  ₮ \n \n \n \n \n \n          Lexus RX 450, 2012/2023\n         \n \n \n \n \n 3 цагийн өмнө \n Сонгинохайрхан, 1-р хороолол \n \n \n \n \n \n \n"
-      },
-      {
-        "year": 2015,
-        "drive": "不明",
-        "mileage": "不明",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 79.0,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /7\n           \n \n \n \n \n 79 сая  ₮ \n \n \n \n \n          Lexus RX 450, 2015/2025\n         \n \n \n \n \n 3 цагийн өмнө \n Сүхбаатар, 11-р хороолол \n \n \n \n \n \n \n"
-      },
-      {
-        "year": 2010,
-        "drive": "不明",
-        "mileage": "不明",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 31.0,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /7\n           \n \n \n \n \n 31 сая  ₮ \n \n \n \n \n          Lexus RX 450, 2010/2013\n         \n \n \n \n \n Өчигдөр \n Баянгол, 10-р хороолол \n \n \n \n \n \n \n"
-      },
-      {
-        "year": 2010,
-        "drive": "不明",
-        "mileage": "不明",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 37.0,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /7\n           \n \n \n \n \n 37 сая  ₮ \n \n \n \n \n          Lexus RX 450, 2010/2019\n         \n \n \n \n \n Өчигдөр \n Баянгол, Нарны хороолол \n \n \n \n \n \n \n"
-      },
-      {
-        "year": 2011,
-        "drive": "不明",
-        "mileage": "不明",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 38.0,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /3\n           \n \n \n \n \n 38 сая  ₮ \n \n \n \n \n          Lexus RX 450, 2011/2021\n         \n \n \n \n \n Өчигдөр \n Хан-Уул, Нисэх \n \n \n \n \n \n \n"
-      },
-      {
-        "year": 2012,
-        "drive": "不明",
-        "mileage": "不明",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 44.0,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /9\n           \n \n \n \n \n 44 сая  ₮ \n \n \n \n \n          Lexus RX 450, 2012/2020\n         \n \n \n \n \n Өчигдөр \n Баянгол, 10-р хороолол \n \n \n \n \n \n \n"
-      },
-      {
-        "year": 2015,
-        "drive": "不明",
-        "mileage": "不明",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 52.0,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /6\n           \n \n \n \n \n 52 сая  ₮ \n \n \n \n \n          Lexus RX 450, 2015/2020\n         \n \n \n \n \n Өчигдөр \n Баянзүрх, 14-р хороолол \n \n \n \n \n \n \n"
-      },
-      {
-        "year": 2009,
-        "drive": "不明",
-        "mileage": "不明",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 53.0,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /10\n           \n \n \n \n \n \n \n \n TAF MOTORS \n \n \n \n \n \n \n 53 сая  ₮ \n \n \n \n \n          Lexus RX 450, 2009/2026\n         \n \n \n \n \n Өчигдөр \n Сонгинохайрхан, Авто худалдааны цогцолбор \n \n \n \n \n \n \n"
-      },
-      {
-        "year": 2011,
-        "drive": "不明",
-        "mileage": "不明",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 40.0,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /10\n           \n \n \n \n \n 40 сая  ₮ \n \n \n \n \n          Lexus RX 450, 2011/2023\n         \n \n \n \n \n Өчигдөр \n Баянзүрх, 16-р хороолол \n \n \n \n \n \n \n"
-      },
-      {
-        "year": 2013,
-        "drive": "不明",
-        "mileage": "不明",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 46.0,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /5\n           \n \n \n \n \n 46 сая  ₮ \n \n \n \n \n          Lexus RX 450, 2013/2019\n         \n \n \n \n \n Өчигдөр \n Баянзүрх, Олимп хотхон \n \n \n \n \n \n \n"
-      },
-      {
-        "year": 2010,
-        "drive": "不明",
-        "mileage": "不明",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 46.0,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n 1 /2\n           \n \n \n \n \n 46 сая  ₮ \n \n \n \n \n          Lexus RX 450, 2010/2025\n         \n \n \n \n \n Өчигдөр \n Чингэлтэй, 40 мянгат \n \n \n \n \n \n \n"
-      },
-      {
-        "year": 2014,
-        "drive": "不明",
-        "mileage": "不明",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 70.0,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /5\n           \n \n \n \n \n 70 сая  ₮ \n \n \n \n \n          Lexus RX 450, 2014/2026\n         \n \n \n \n \n Өчигдөр \n Баянзүрх, 13-р хороолол \n \n \n \n \n \n \n"
-      },
-      {
-        "year": 2009,
-        "drive": "不明",
-        "mileage": "不明",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 49.5,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /14\n           \n \n \n \n \n 49.5 сая  ₮ \n \n \n \n \n \n          Lexus RX 450, 2009/2026\n         \n \n \n \n \n Өчигдөр \n Баянгол, 3, 4 хороолол \n \n \n \n \n \n \n"
-      },
-      {
-        "year": 2013,
-        "drive": "不明",
-        "mileage": "不明",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 56.5,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /5\n           \n \n \n \n \n 56.5 сая  ₮ \n \n \n \n \n          Lexus RX 450, 2013/2026\n         \n \n \n \n \n Өчигдөр \n Хан-Уул, Marshall town \n \n \n \n \n \n \n"
       }
     ],
     "lexus|rx-450h-al20": [
       {
-        "year": 2016,
+        "year": 2017,
         "drive": "不明",
         "mileage": "不明",
         "color": "不明",
         "import_year": 2026,
-        "price": 68.0,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n VIP \n \n 1 /12\n           \n \n \n \n \n 68 сая  ₮ \n \n \n \n \n          Lexus RX 450, 2016/2021\n         \n \n \n \n \n 2 цагийн өмнө \n Сүхбаатар, 220 мянгат \n \n \n \n \n \n \n"
-      },
-      {
-        "year": 2019,
-        "drive": "不明",
-        "mileage": "不明",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 92.9,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n VIP \n \n 1 /16\n           \n \n \n \n \n \n \n \n AMAR CAR \n \n \n \n \n \n \n 92.9 сая  ₮ \n \n \n \n \n          Lexus RX 450, 2019/2026\n         \n \n \n \n \n 2 цагийн өмнө \n Хан-Уул, Хан-Уул, Хороо 3 \n \n \n \n \n \n \n"
-      },
-      {
-        "year": 2018,
-        "drive": "不明",
-        "mileage": "不明",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 95.9,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n VIP \n \n 1 /12\n           \n \n \n \n \n \n \n \n AMAR CAR \n \n \n \n \n \n \n 95.9 сая  ₮ \n \n \n \n \n          Lexus RX 450, 2018/2026\n         \n \n \n \n \n 2 цагийн өмнө \n Хан-Уул, Хан-Уул, Хороо 3 \n \n \n \n \n \n \n"
+        "price": 106.0,
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n VIP \n \n 1 /13\n           \n \n \n \n \n \n \n \n Хаан Моторс \n \n \n \n \n \n \n 106 сая  ₮ \n \n \n \n \n          Lexus RX 450, 2017/2026\n         \n \n \n \n \n 38 минутын өмнө \n Хан-Уул, Хан-Уул, Хороо 3 \n \n \n \n \n \n \n"
       },
       {
         "year": 2017,
@@ -14309,16 +13893,43 @@
         "color": "不明",
         "import_year": 2026,
         "price": 95.0,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n VIP \n \n 1 /12\n           \n \n \n \n \n \n \n \n Хаан Моторс \n \n \n \n \n \n \n 95 сая  ₮ \n \n \n \n \n          Lexus RX 450, 2017/2026\n         \n \n \n \n \n Өчигдөр \n Хан-Уул, Хан-Уул, Хороо 3 \n \n \n \n \n \n \n"
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n VIP \n \n 1 /12\n           \n \n \n \n \n \n \n \n Хаан Моторс \n \n \n \n \n \n \n 95 сая  ₮ \n \n \n \n \n          Lexus RX 450, 2017/2026\n         \n \n \n \n \n 38 минутын өмнө \n Хан-Уул, Хан-Уул, Хороо 3 \n \n \n \n \n \n \n"
       },
       {
-        "year": 2017,
+        "year": 2016,
         "drive": "不明",
         "mileage": "不明",
         "color": "不明",
         "import_year": 2026,
-        "price": 106.0,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n VIP \n \n 1 /13\n           \n \n \n \n \n \n \n \n Хаан Моторс \n \n \n \n \n \n \n 106 сая  ₮ \n \n \n \n \n          Lexus RX 450, 2017/2026\n         \n \n \n \n \n Өчигдөр \n Хан-Уул, Хан-Уул, Хороо 3 \n \n \n \n \n \n \n"
+        "price": 89.0,
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n VIP \n \n 1 /7\n           \n \n \n \n \n 89 сая  ₮ \n \n \n \n \n          Lexus RX 450, 2016/2026\n         \n \n \n \n \n 38 минутын өмнө \n Чингэлтэй, 50 мянгат \n \n \n \n \n \n \n"
+      },
+      {
+        "year": 2016,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 68.0,
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n VIP \n \n 1 /12\n           \n \n \n \n \n 68 сая  ₮ \n \n \n \n \n          Lexus RX 450, 2016/2021\n         \n \n \n \n \n 3 цагийн өмнө \n Сүхбаатар, 220 мянгат \n \n \n \n \n \n \n"
+      },
+      {
+        "year": 2019,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 92.9,
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n VIP \n \n 1 /16\n           \n \n \n \n \n \n \n \n AMAR CAR \n \n \n \n \n \n \n 92.9 сая  ₮ \n \n \n \n \n          Lexus RX 450, 2019/2026\n         \n \n \n \n \n 3 цагийн өмнө \n Хан-Уул, Хан-Уул, Хороо 3 \n \n \n \n \n \n \n"
+      },
+      {
+        "year": 2018,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 95.9,
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n VIP \n \n 1 /12\n           \n \n \n \n \n \n \n \n AMAR CAR \n \n \n \n \n \n \n 95.9 сая  ₮ \n \n \n \n \n          Lexus RX 450, 2018/2026\n         \n \n \n \n \n 3 цагийн өмнө \n Хан-Уул, Хан-Уул, Хороо 3 \n \n \n \n \n \n \n"
       },
       {
         "year": 2020,
@@ -14336,7 +13947,7 @@
         "color": "不明",
         "import_year": 2026,
         "price": 83.0,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n VIP \n \n 1 /8\n           \n \n \n \n \n 83 сая  ₮ \n \n \n \n \n          Lexus RX 450, 2016/2026\n         \n \n \n \n \n 2 өдрийн өмнө \n Баянзүрх, Үндэсний цэцэрлэгт хүрээлэн \n \n \n \n \n \n \n"
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n VIP \n \n 1 /8\n           \n \n \n \n \n 83 сая  ₮ \n \n \n \n \n          Lexus RX 450, 2016/2026\n         \n \n \n \n \n 3 өдрийн өмнө \n Баянзүрх, Үндэсний цэцэрлэгт хүрээлэн \n \n \n \n \n \n \n"
       },
       {
         "year": 2016,
@@ -14346,6 +13957,15 @@
         "import_year": 2026,
         "price": 95.0,
         "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n VIP \n \n 1 /11\n           \n \n \n \n \n \n SSS \n \n \n \n \n \n \n 95 сая  ₮ \n \n \n \n \n          Lexus RX 450, 2016/2024\n         \n \n \n \n \n 4 өдрийн өмнө \n Сонгинохайрхан, Авто худалдааны цогцолбор \n \n \n \n \n \n \n"
+      },
+      {
+        "year": 2017,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 85.0,
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n Онцгой \n \n 1 /11\n           \n \n \n \n \n 85 сая  ₮ \n \n \n \n \n          Lexus RX 450, 2017/2026\n         \n \n \n \n \n 41 минутын өмнө \n Хан-Уул, Нисэх \n \n \n \n \n \n \n"
       },
       {
         "year": 2016,
@@ -14551,8 +14171,35 @@
         "mileage": "不明",
         "color": "不明",
         "import_year": 2026,
+        "price": 86.0,
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /6\n           \n \n \n \n \n 86 сая  ₮ \n \n \n \n \n \n          Lexus RX 450, 2016/2023\n         \n \n \n \n \n 20 минутын өмнө \n Хан-Уул, Зайсан \n \n \n \n \n \n \n"
+      },
+      {
+        "year": 2018,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 112.0,
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /12\n           \n \n \n \n \n \n \n \n Хаан Моторс \n \n \n \n \n \n \n 112 сая  ₮ \n \n \n \n \n          Lexus RX 450, 2018/2026\n         \n \n \n \n \n 38 минутын өмнө \n Хан-Уул, Хан-Уул, Хороо 3 \n \n \n \n \n \n \n"
+      },
+      {
+        "year": 2022,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 132.0,
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /12\n           \n \n \n \n \n \n \n \n Хаан Моторс \n \n \n \n \n \n \n 132 сая  ₮ \n \n \n \n \n          Lexus RX 450, 2022/2026\n         \n \n \n \n \n 38 минутын өмнө \n Хан-Уул, Хан-Уул, Хороо 3 \n \n \n \n \n \n \n"
+      },
+      {
+        "year": 2016,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2026,
         "price": 84.0,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /5\n           \n \n \n \n \n 84 сая  ₮ \n \n \n \n \n          Lexus RX 450, 2016/2025\n         \n \n \n \n \n 1 цагийн өмнө \n Хан-Уул, Зайсан \n \n \n \n \n \n \n"
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /5\n           \n \n \n \n \n 84 сая  ₮ \n \n \n \n \n          Lexus RX 450, 2016/2025\n         \n \n \n \n \n 2 цагийн өмнө \n Хан-Уул, Зайсан \n \n \n \n \n \n \n"
       },
       {
         "year": 2017,
@@ -14561,7 +14208,7 @@
         "color": "不明",
         "import_year": 2026,
         "price": 90.0,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /9\n           \n \n \n \n \n 90 сая  ₮ \n \n \n \n \n          Lexus RX 450, 2017/2025\n         \n \n \n \n \n 2 цагийн өмнө \n Хан-Уул, Хан-Уул, Хороо 11 \n \n \n \n \n \n \n"
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /9\n           \n \n \n \n \n 90 сая  ₮ \n \n \n \n \n          Lexus RX 450, 2017/2025\n         \n \n \n \n \n 3 цагийн өмнө \n Хан-Уул, Хан-Уул, Хороо 11 \n \n \n \n \n \n \n"
       },
       {
         "year": 2018,
@@ -14570,7 +14217,7 @@
         "color": "不明",
         "import_year": 2026,
         "price": 98.9,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /16\n           \n \n \n \n \n \n \n \n AMAR CAR \n \n \n \n \n \n \n 98.9 сая  ₮ \n \n \n \n \n          Lexus RX 450, 2018/2026\n         \n \n \n \n \n 2 цагийн өмнө \n Хан-Уул, Хан-Уул, Хороо 3 \n \n \n \n \n \n \n"
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /16\n           \n \n \n \n \n \n \n \n AMAR CAR \n \n \n \n \n \n \n 98.9 сая  ₮ \n \n \n \n \n          Lexus RX 450, 2018/2026\n         \n \n \n \n \n 3 цагийн өмнө \n Хан-Уул, Хан-Уул, Хороо 3 \n \n \n \n \n \n \n"
       },
       {
         "year": 2020,
@@ -14579,7 +14226,7 @@
         "color": "不明",
         "import_year": 2026,
         "price": 94.9,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /16\n           \n \n \n \n \n \n \n \n AMAR CAR \n \n \n \n \n \n \n 94.9 сая  ₮ \n \n \n \n \n          Lexus RX 450, 2020/2026\n         \n \n \n \n \n 2 цагийн өмнө \n Хан-Уул, Хан-Уул, Хороо 3 \n \n \n \n \n \n \n"
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /16\n           \n \n \n \n \n \n \n \n AMAR CAR \n \n \n \n \n \n \n 94.9 сая  ₮ \n \n \n \n \n          Lexus RX 450, 2020/2026\n         \n \n \n \n \n 3 цагийн өмнө \n Хан-Уул, Хан-Уул, Хороо 3 \n \n \n \n \n \n \n"
       },
       {
         "year": 2019,
@@ -14588,7 +14235,7 @@
         "color": "不明",
         "import_year": 2026,
         "price": 94.9,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /14\n           \n \n \n \n \n \n \n \n AMAR CAR \n \n \n \n \n \n \n 94.9 сая  ₮ \n \n \n \n \n          Lexus RX 450, 2019/2026\n         \n \n \n \n \n 2 цагийн өмнө \n Хан-Уул, Хан-Уул, Хороо 3 \n \n \n \n \n \n \n"
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /14\n           \n \n \n \n \n \n \n \n AMAR CAR \n \n \n \n \n \n \n 94.9 сая  ₮ \n \n \n \n \n          Lexus RX 450, 2019/2026\n         \n \n \n \n \n 3 цагийн өмнө \n Хан-Уул, Хан-Уул, Хороо 3 \n \n \n \n \n \n \n"
       },
       {
         "year": 2019,
@@ -14597,7 +14244,7 @@
         "color": "不明",
         "import_year": 2026,
         "price": 104.9,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /12\n           \n \n \n \n \n \n \n \n AMAR CAR \n \n \n \n \n \n \n 104.9 сая  ₮ \n \n \n \n \n          Lexus RX 450, 2019/2026\n         \n \n \n \n \n 2 цагийн өмнө \n Хан-Уул, Хан-Уул, Хороо 3 \n \n \n \n \n \n \n"
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /12\n           \n \n \n \n \n \n \n \n AMAR CAR \n \n \n \n \n \n \n 104.9 сая  ₮ \n \n \n \n \n          Lexus RX 450, 2019/2026\n         \n \n \n \n \n 3 цагийн өмнө \n Хан-Уул, Хан-Уул, Хороо 3 \n \n \n \n \n \n \n"
       },
       {
         "year": 2019,
@@ -14606,7 +14253,7 @@
         "color": "不明",
         "import_year": 2026,
         "price": 109.9,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /11\n           \n \n \n \n \n \n \n \n AMAR CAR \n \n \n \n \n \n \n 109.9 сая  ₮ \n \n \n \n \n          Lexus RX 450, 2019/2026\n         \n \n \n \n \n 2 цагийн өмнө \n Хан-Уул, Хан-Уул, Хороо 3 \n \n \n \n \n \n \n"
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /11\n           \n \n \n \n \n \n \n \n AMAR CAR \n \n \n \n \n \n \n 109.9 сая  ₮ \n \n \n \n \n          Lexus RX 450, 2019/2026\n         \n \n \n \n \n 3 цагийн өмнө \n Хан-Уул, Хан-Уул, Хороо 3 \n \n \n \n \n \n \n"
       },
       {
         "year": 2019,
@@ -14615,7 +14262,7 @@
         "color": "不明",
         "import_year": 2026,
         "price": 95.9,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /11\n           \n \n \n \n \n \n \n \n AMAR CAR \n \n \n \n \n \n \n 95.9 сая  ₮ \n \n \n \n \n          Lexus RX 450, 2019/2026\n         \n \n \n \n \n 2 цагийн өмнө \n Хан-Уул, Хан-Уул, Хороо 3 \n \n \n \n \n \n \n"
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /11\n           \n \n \n \n \n \n \n \n AMAR CAR \n \n \n \n \n \n \n 95.9 сая  ₮ \n \n \n \n \n          Lexus RX 450, 2019/2026\n         \n \n \n \n \n 3 цагийн өмнө \n Хан-Уул, Хан-Уул, Хороо 3 \n \n \n \n \n \n \n"
       },
       {
         "year": 2018,
@@ -14624,7 +14271,7 @@
         "color": "不明",
         "import_year": 2026,
         "price": 97.0,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /11\n           \n \n \n \n \n 97 сая  ₮ \n \n \n \n \n          Lexus RX 450, 2018/2024\n         \n \n \n \n \n 2 цагийн өмнө \n Баянзүрх, Баянзүрх, Хороо 23 \n \n \n \n \n \n \n"
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /11\n           \n \n \n \n \n 97 сая  ₮ \n \n \n \n \n          Lexus RX 450, 2018/2024\n         \n \n \n \n \n Өнөөдөр \n Баянзүрх, Баянзүрх, Хороо 23 \n \n \n \n \n \n \n"
       },
       {
         "year": 2018,
@@ -14633,7 +14280,7 @@
         "color": "不明",
         "import_year": 2026,
         "price": 98.0,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /7\n           \n \n \n \n \n 98 сая  ₮ \n \n \n \n \n \n          Lexus RX 450, 2018/2022\n         \n \n \n \n \n 3 цагийн өмнө \n Хан-Уул, Хансвилл хотхон \n \n \n \n \n \n \n"
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /7\n           \n \n \n \n \n 98 сая  ₮ \n \n \n \n \n \n          Lexus RX 450, 2018/2022\n         \n \n \n \n \n Өнөөдөр \n Хан-Уул, Хансвилл хотхон \n \n \n \n \n \n \n"
       },
       {
         "year": 2021,
@@ -14642,7 +14289,7 @@
         "color": "不明",
         "import_year": 2026,
         "price": 118.0,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /7\n           \n \n \n \n \n 118 сая  ₮ \n \n \n \n \n          Lexus RX 450, 2021/2026\n         \n \n \n \n \n 3 цагийн өмнө \n Сүхбаатар, Хүүхдийн 100 \n \n \n \n \n \n \n"
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /7\n           \n \n \n \n \n 118 сая  ₮ \n \n \n \n \n          Lexus RX 450, 2021/2026\n         \n \n \n \n \n Өнөөдөр \n Сүхбаатар, Хүүхдийн 100 \n \n \n \n \n \n \n"
       },
       {
         "year": 2016,
@@ -14651,7 +14298,7 @@
         "color": "不明",
         "import_year": 2026,
         "price": 105.0,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /10\n           \n \n \n \n \n 105 сая  ₮ \n \n \n \n \n          Lexus RX 450, 2016/2025\n         \n \n \n \n \n 3 цагийн өмнө \n Хан-Уул, Соёолж Авто худалдаа \n \n \n \n \n \n \n"
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /10\n           \n \n \n \n \n 105 сая  ₮ \n \n \n \n \n          Lexus RX 450, 2016/2025\n         \n \n \n \n \n Өнөөдөр \n Хан-Уул, Соёолж Авто худалдаа \n \n \n \n \n \n \n"
       },
       {
         "year": 2017,
@@ -14724,33 +14371,458 @@
         "import_year": 2026,
         "price": 80.0,
         "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /4\n           \n \n \n \n \n 80 сая  ₮ \n \n \n \n \n          Lexus RX 450, 2016/2024\n         \n \n \n \n \n Өчигдөр \n Хан-Уул, Хан-Уул, Хороо 3 \n \n \n \n \n \n \n"
-      },
+      }
+    ],
+    "lexus|rx-450h-al10": [
       {
-        "year": 2018,
+        "year": 2010,
         "drive": "不明",
         "mileage": "不明",
         "color": "不明",
         "import_year": 2026,
-        "price": 112.0,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /12\n           \n \n \n \n \n \n \n \n Хаан Моторс \n \n \n \n \n \n \n 112 сая  ₮ \n \n \n \n \n          Lexus RX 450, 2018/2026\n         \n \n \n \n \n Өчигдөр \n Хан-Уул, Хан-Уул, Хороо 3 \n \n \n \n \n \n \n"
+        "price": 48.0,
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n VIP \n \n 1 /2\n           \n \n \n \n \n 48 сая  ₮ \n \n \n \n \n \n          Lexus RX 450, 2010/2023\n         \n \n \n \n \n 3 цагийн өмнө \n Хан-Уул, Хан-Уул, Хороо 20 \n \n \n \n \n \n \n"
       },
       {
-        "year": 2022,
+        "year": 2011,
         "drive": "不明",
         "mileage": "不明",
         "color": "不明",
         "import_year": 2026,
-        "price": 132.0,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /12\n           \n \n \n \n \n \n \n \n Хаан Моторс \n \n \n \n \n \n \n 132 сая  ₮ \n \n \n \n \n          Lexus RX 450, 2022/2026\n         \n \n \n \n \n Өчигдөр \n Хан-Уул, Хан-Уул, Хороо 3 \n \n \n \n \n \n \n"
+        "price": 59.0,
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n VIP \n \n 1 /7\n           \n \n \n \n \n 59 сая  ₮   64 сая  ₮ \n \n \n \n \n          Lexus RX 450, 2011/2024\n         \n \n \n \n \n Өнөөдөр \n Баянзүрх, Үндэсний цэцэрлэгт хүрээлэн \n \n \n \n \n \n \n"
       },
       {
-        "year": 2018,
+        "year": 2012,
         "drive": "不明",
         "mileage": "不明",
         "color": "不明",
         "import_year": 2026,
-        "price": 94.0,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /6\n           \n \n \n \n \n 94 сая  ₮ \n \n \n \n \n          Lexus RX 450, 2018/2025\n         \n \n \n \n \n Өчигдөр \n Сүхбаатар, 220 мянгат \n \n \n \n \n \n \n"
+        "price": 66.0,
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n VIP \n \n 1 /16\n           \n \n \n \n \n \n Buuk \n \n \n \n \n \n \n 66 сая  ₮   69.8 сая  ₮ \n \n \n \n \n          Lexus RX 450, 2012/2026\n         \n \n \n \n \n Өчигдөр \n Баянгол, 10-р хороолол \n \n \n \n \n \n \n"
+      },
+      {
+        "year": 2013,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 61.0,
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n VIP \n \n 1 /16\n           \n \n \n \n \n \n \n \n VICTORY CAR \n \n \n \n \n \n \n 61 сая  ₮ \n \n \n \n \n \n          Lexus RX 450, 2013/2026\n         \n \n \n \n \n Өчигдөр \n Баянгол, Өргөө - 1 кино театр \n \n \n \n \n \n \n"
+      },
+      {
+        "year": 2010,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 49.8,
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n VIP \n \n 1 /15\n           \n \n \n \n \n \n \n \n VICTORY CAR \n \n \n \n \n \n \n 49.8 сая  ₮ \n \n \n \n \n \n          Lexus RX 450, 2010/2026\n         \n \n \n \n \n Өчигдөр \n Баянгол, Өргөө - 1 кино театр \n \n \n \n \n \n \n"
+      },
+      {
+        "year": 2012,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 52.5,
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n VIP \n \n 1 /11\n           \n \n \n \n \n 52.5 сая  ₮ \n \n \n \n \n          Lexus RX 450, 2012/2021\n         \n \n \n \n \n Өчигдөр \n Хан-Уул, Хан-Уул, Хороо 25 \n \n \n \n \n \n \n"
+      },
+      {
+        "year": 2013,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 53.0,
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n VIP \n \n 1 /10\n           \n \n \n \n \n 53 сая  ₮   63 сая  ₮ \n \n \n \n \n          Lexus RX 450, 2013/2025\n         \n \n \n \n \n Өчигдөр \n Дархан-Уул, Дархан-Уул \n \n \n \n \n \n \n"
+      },
+      {
+        "year": 2013,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 56.0,
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n VIP \n \n 1 /8\n           \n \n \n \n \n 56 сая  ₮ \n \n \n \n \n          Lexus RX 450, 2013/2023\n         \n \n \n \n \n 2 өдрийн өмнө \n Баянзүрх, 13-р хороолол \n \n \n \n \n \n \n"
+      },
+      {
+        "year": 2011,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 46.5,
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n VIP \n \n 1 /7\n           \n \n \n \n \n 46.5 сая  ₮ \n \n \n \n \n \n          Lexus RX 450, 2011/2025\n         \n \n \n \n \n 2 өдрийн өмнө \n Баянгол, Баянгол, Хороо 13 \n \n \n \n \n \n \n"
+      },
+      {
+        "year": 2014,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 60.0,
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n VIP \n \n 1 /4\n           \n \n \n \n \n 60 сая  ₮ \n \n \n \n \n          Lexus RX 450, 2014/2023\n         \n \n \n \n \n 2 өдрийн өмнө \n Баянгол, Баянгол, Хороо 32 \n \n \n \n \n \n \n"
+      },
+      {
+        "year": 2011,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 50.0,
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n VIP \n \n 1 /7\n           \n \n \n \n \n 50 сая  ₮ \n \n \n \n \n          Lexus RX 450, 2011/2025\n         \n \n \n \n \n 3 өдрийн өмнө \n Хан-Уул, Хан-Уул, Хороо 20 \n \n \n \n \n \n \n"
+      },
+      {
+        "year": 2010,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 34.0,
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n VIP \n \n 1 /3\n           \n \n \n \n \n 34 сая  ₮ \n \n \n \n \n          Lexus RX 450, 2010/2019\n         \n \n \n \n \n 3 өдрийн өмнө \n Баянгол, 3, 4 хороолол \n \n \n \n \n \n \n"
+      },
+      {
+        "year": 2013,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 52.0,
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n VIP \n \n 1 /7\n           \n \n \n \n \n 52 сая  ₮ \n \n \n \n \n          Lexus RX 450, 2013/2024\n         \n \n \n \n \n 4 өдрийн өмнө \n Хан-Уул, Хан-Уул, Хороо 18 \n \n \n \n \n \n \n"
+      },
+      {
+        "year": 2014,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 68.0,
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n Онцгой \n \n 1 /4\n           \n \n \n \n \n 68 сая  ₮ \n \n \n \n \n          Lexus RX 450, 2014/2024\n         \n \n \n \n \n 11 минутын өмнө \n Баянзүрх, 16-р хороолол \n \n \n \n \n \n \n"
+      },
+      {
+        "year": 2010,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 54.5,
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n Онцгой \n \n 1 /6\n           \n \n \n \n \n 54.5 сая  ₮   57.5 сая  ₮ \n \n \n \n \n          Lexus RX 450, 2010/2024\n         \n \n \n \n \n 1 цагийн өмнө \n Сонгинохайрхан, Сонгинохайрхан, Хороо 13 \n \n \n \n \n \n \n"
+      },
+      {
+        "year": 2013,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 50.0,
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n Онцгой \n \n 1 /2\n           \n \n \n \n \n 50 сая  ₮ \n \n \n \n \n          Lexus RX 450, 2013/2020\n         \n \n \n \n \n 2 цагийн өмнө \n Хан-Уул, Яармаг \n \n \n \n \n \n \n"
+      },
+      {
+        "year": 2009,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 45.0,
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n Онцгой \n \n 1 /3\n           \n \n \n \n \n 45 сая  ₮   50 сая  ₮ \n \n \n \n \n          Lexus RX 450, 2009/2023\n         \n \n \n \n \n Өчигдөр \n Сүхбаатар, 5-р хороолол \n \n \n \n \n \n \n"
+      },
+      {
+        "year": 2010,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 44.0,
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n Онцгой \n \n 1 /6\n           \n \n \n \n \n 44 сая  ₮ \n \n \n \n \n          Lexus RX 450, 2010/2021\n         \n \n \n \n \n Өчигдөр \n Хан-Уул, Яармаг \n \n \n \n \n \n \n"
+      },
+      {
+        "year": 2012,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "赤",
+        "import_year": 2026,
+        "price": 60.0,
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n Онцгой \n \n 1 /10\n           \n \n \n \n \n 60 сая  ₮ \n \n \n \n \n          Lexus RX 450, 2012/2024\n         \n \n \n \n \n Өчигдөр \n Баянзүрх, Улаанхуаран \n \n \n \n \n \n \n"
+      },
+      {
+        "year": 2010,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 35.0,
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n Онцгой \n \n 1 /10\n           \n \n \n \n \n 35 сая  ₮   37 сая  ₮ \n \n \n \n \n          Lexus RX 450, 2010/2019\n         \n \n \n \n \n Өчигдөр \n Сонгинохайрхан, Авто худалдааны цогцолбор \n \n \n \n \n \n \n"
+      },
+      {
+        "year": 2012,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 49.2,
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n Онцгой \n \n 1 /5\n           \n \n \n \n \n 49.2 сая  ₮ \n \n \n \n \n          Lexus RX 450, 2012/2026\n         \n \n \n \n \n Өчигдөр \n Баянзүрх, Их Монгол хороолол \n \n \n \n \n \n \n"
+      },
+      {
+        "year": 2011,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 43.5,
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n Онцгой \n \n 1 /11\n           \n \n \n \n \n 43.5 сая  ₮ \n \n \n \n \n          Lexus RX 450, 2011/2023\n         \n \n \n \n \n 1 өдрийн өмнө \n Сонгинохайрхан, 1-р хороолол \n \n \n \n \n \n \n"
+      },
+      {
+        "year": 2015,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 66.8,
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n Онцгой \n \n 1 /15\n           \n \n \n \n \n \n Gold car \n \n \n \n \n \n \n 66.8 сая  ₮ \n \n \n \n \n          Lexus RX 450, 2015/2026\n         \n \n \n \n \n 2 өдрийн өмнө \n Баянзүрх, Да хүрээ \n \n \n \n \n \n \n"
+      },
+      {
+        "year": 2011,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 37.0,
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n Онцгой \n \n 1 /3\n           \n \n \n \n \n 37 сая  ₮ \n \n \n \n \n          Lexus RX 450, 2011/2019\n         \n \n \n \n \n 2 өдрийн өмнө \n Сонгинохайрхан, 1-р хороолол \n \n \n \n \n \n \n"
+      },
+      {
+        "year": 2013,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 67.9,
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n Онцгой \n \n 1 /16\n           \n \n \n \n \n \n Gold car \n \n \n \n \n \n \n 67.9 сая  ₮ \n \n \n \n \n          Lexus RX 450, 2013/2026\n         \n \n \n \n \n 2 өдрийн өмнө \n Баянзүрх, Да хүрээ \n \n \n \n \n \n \n"
+      },
+      {
+        "year": 2011,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 42.5,
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n Онцгой \n \n 1 /6\n           \n \n \n \n \n 42.5 сая  ₮ \n \n \n \n \n          Lexus RX 450, 2011/2022\n         \n \n \n \n \n 2 өдрийн өмнө \n Баянзүрх, Баянзүрх, Хороо 2 \n \n \n \n \n \n \n"
+      },
+      {
+        "year": 2013,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 63.0,
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n Онцгой \n \n 1 /7\n           \n \n \n \n \n 63 сая  ₮ \n \n \n \n \n          Lexus RX 450, 2013/2023\n         \n \n \n \n \n 3 өдрийн өмнө \n Баянгол, Нарны хороолол \n \n \n \n \n \n \n"
+      },
+      {
+        "year": 2009,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 43.0,
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n Онцгой \n \n 1 /6\n           \n \n \n \n \n 43 сая  ₮ \n \n \n \n \n          Lexus RX 450, 2009/2022\n         \n \n \n \n \n 3 өдрийн өмнө \n Баянзүрх, Чулуун овоо \n \n \n \n \n \n \n"
+      },
+      {
+        "year": 2013,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 60.0,
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n Онцгой \n \n 1 /5\n           \n \n \n \n \n 60 сая  ₮ \n \n \n \n \n          Lexus RX 450, 2013/2025\n         \n \n \n \n \n 3 өдрийн өмнө \n Баянгол, Богд-Ар \n \n \n \n \n \n \n"
+      },
+      {
+        "year": 2010,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 48.5,
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n Онцгой \n \n 1 /5\n           \n \n \n \n \n 48.5 сая  ₮ \n \n \n \n \n          Lexus RX 450, 2010/2024\n         \n \n \n \n \n 3 өдрийн өмнө \n Баянзүрх, 16-р хороолол \n \n \n \n \n \n \n"
+      },
+      {
+        "year": 2010,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 36.0,
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n Онцгой \n \n 1 /6\n           \n \n \n \n \n 36 сая  ₮ \n \n \n \n \n          Lexus RX 450, 2010/2018\n         \n \n \n \n \n 4 өдрийн өмнө \n Хан-Уул, Хан-Уул, Хороо 23 \n \n \n \n \n \n \n"
+      },
+      {
+        "year": 2009,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 54.0,
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /5\n           \n \n \n \n \n 54 сая  ₮ \n \n \n \n \n \n          Lexus RX 450, 2009/2024\n         \n \n \n \n \n 3 минутын өмнө \n Баянзүрх, 16-р хороолол \n \n \n \n \n \n \n"
+      },
+      {
+        "year": 2014,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 69.0,
+        "_fulltext": "\n \n \n \n \n \n \n \n \n 69 сая  ₮ \n \n \n \n \n          Lexus RX 450, 2014/2024\n         \n \n \n \n \n 30 минутын өмнө \n Баянзүрх, 16-р хороолол \n \n \n \n \n \n \n"
+      },
+      {
+        "year": 2011,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 49.3,
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /11\n           \n \n \n \n \n 49.3 сая  ₮ \n \n \n \n \n          Lexus RX 450, 2011/2026\n         \n \n \n \n \n 2 цагийн өмнө \n Баянгол, 3, 4 хороолол \n \n \n \n \n \n \n"
+      },
+      {
+        "year": 2010,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 58.0,
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /11\n           \n \n \n \n \n 58 сая  ₮ \n \n \n \n \n          Lexus RX 450, 2010/2026\n         \n \n \n \n \n 3 цагийн өмнө \n Сонгинохайрхан, Авто худалдааны цогцолбор \n \n \n \n \n \n \n"
+      },
+      {
+        "year": 2012,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 63.0,
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /12\n           \n \n \n \n \n 63 сая  ₮ \n \n \n \n \n          Lexus RX 450, 2012/2026\n         \n \n \n \n \n 3 цагийн өмнө \n Сонгинохайрхан, Авто худалдааны цогцолбор \n \n \n \n \n \n \n"
+      },
+      {
+        "year": 2011,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 39.9,
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /6\n           \n \n \n \n \n 39.9 сая  ₮   43 сая  ₮ \n \n \n \n \n          Lexus RX 450, 2011/2021\n         \n \n \n \n \n 3 цагийн өмнө \n Хан-Уул, 19-р хороолол \n \n \n \n \n \n \n"
+      },
+      {
+        "year": 2011,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 46.0,
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /14\n           \n \n \n \n \n \n \n \n Сайн Моторс     \n \n \n \n \n \n \n 46 сая  ₮ \n \n \n \n \n \n          Lexus RX 450, 2011/2022\n         \n \n \n \n \n Өнөөдөр \n Сонгинохайрхан, 1-р хороолол \n \n \n \n \n \n \n"
+      },
+      {
+        "year": 2012,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 59.0,
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /16\n           \n \n \n \n \n \n \n \n Сайн Моторс     \n \n \n \n \n \n \n 59 сая  ₮ \n \n \n \n \n \n          Lexus RX 450, 2012/2023\n         \n \n \n \n \n Өнөөдөр \n Сонгинохайрхан, 1-р хороолол \n \n \n \n \n \n \n"
+      },
+      {
+        "year": 2015,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 79.0,
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /7\n           \n \n \n \n \n 79 сая  ₮ \n \n \n \n \n          Lexus RX 450, 2015/2025\n         \n \n \n \n \n Өнөөдөр \n Сүхбаатар, 11-р хороолол \n \n \n \n \n \n \n"
+      },
+      {
+        "year": 2010,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 31.0,
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /7\n           \n \n \n \n \n 31 сая  ₮ \n \n \n \n \n          Lexus RX 450, 2010/2013\n         \n \n \n \n \n Өчигдөр \n Баянгол, 10-р хороолол \n \n \n \n \n \n \n"
+      },
+      {
+        "year": 2010,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 37.0,
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /7\n           \n \n \n \n \n 37 сая  ₮ \n \n \n \n \n          Lexus RX 450, 2010/2019\n         \n \n \n \n \n Өчигдөр \n Баянгол, Нарны хороолол \n \n \n \n \n \n \n"
+      },
+      {
+        "year": 2011,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 38.0,
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /3\n           \n \n \n \n \n 38 сая  ₮ \n \n \n \n \n          Lexus RX 450, 2011/2021\n         \n \n \n \n \n Өчигдөр \n Хан-Уул, Нисэх \n \n \n \n \n \n \n"
+      },
+      {
+        "year": 2012,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 44.0,
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /9\n           \n \n \n \n \n 44 сая  ₮ \n \n \n \n \n          Lexus RX 450, 2012/2020\n         \n \n \n \n \n Өчигдөр \n Баянгол, 10-р хороолол \n \n \n \n \n \n \n"
+      },
+      {
+        "year": 2015,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 52.0,
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /6\n           \n \n \n \n \n 52 сая  ₮ \n \n \n \n \n          Lexus RX 450, 2015/2020\n         \n \n \n \n \n Өчигдөр \n Баянзүрх, 14-р хороолол \n \n \n \n \n \n \n"
+      },
+      {
+        "year": 2009,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 53.0,
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /10\n           \n \n \n \n \n \n \n \n TAF MOTORS \n \n \n \n \n \n \n 53 сая  ₮ \n \n \n \n \n          Lexus RX 450, 2009/2026\n         \n \n \n \n \n Өчигдөр \n Сонгинохайрхан, Авто худалдааны цогцолбор \n \n \n \n \n \n \n"
+      },
+      {
+        "year": 2011,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 40.0,
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /10\n           \n \n \n \n \n 40 сая  ₮ \n \n \n \n \n          Lexus RX 450, 2011/2023\n         \n \n \n \n \n Өчигдөр \n Баянзүрх, 16-р хороолол \n \n \n \n \n \n \n"
+      },
+      {
+        "year": 2013,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 46.0,
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /5\n           \n \n \n \n \n 46 сая  ₮ \n \n \n \n \n          Lexus RX 450, 2013/2019\n         \n \n \n \n \n Өчигдөр \n Баянзүрх, Олимп хотхон \n \n \n \n \n \n \n"
+      },
+      {
+        "year": 2010,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 46.0,
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n 1 /2\n           \n \n \n \n \n 46 сая  ₮ \n \n \n \n \n          Lexus RX 450, 2010/2025\n         \n \n \n \n \n Өчигдөр \n Чингэлтэй, 40 мянгат \n \n \n \n \n \n \n"
+      },
+      {
+        "year": 2014,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 70.0,
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /5\n           \n \n \n \n \n 70 сая  ₮ \n \n \n \n \n          Lexus RX 450, 2014/2026\n         \n \n \n \n \n Өчигдөр \n Баянзүрх, 13-р хороолол \n \n \n \n \n \n \n"
       }
     ],
     "lexus|rx-500h": [
@@ -14968,14 +15040,6 @@
         "price": 72.0
       },
       {
-        "year": 2016,
-        "drive": "不明",
-        "mileage": "130,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 65.0
-      },
-      {
         "year": 2014,
         "drive": "不明",
         "mileage": "94,000 km",
@@ -15150,6 +15214,14 @@
         "color": "不明",
         "import_year": 2026,
         "price": 62.0
+      },
+      {
+        "year": 2016,
+        "drive": "不明",
+        "mileage": "130,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 65.0
       },
       {
         "year": 2017,
@@ -15407,7 +15479,7 @@
         "mileage": "70,000 km",
         "color": "不明",
         "import_year": 2026,
-        "price": 116.9
+        "price": 125.0
       },
       {
         "year": 2021,
@@ -15626,6 +15698,14 @@
         "price": 89.0
       },
       {
+        "year": 2013,
+        "drive": "不明",
+        "mileage": "2,000,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 36.0
+      },
+      {
         "year": 2014,
         "drive": "不明",
         "mileage": "150,000 km",
@@ -15760,14 +15840,6 @@
         "color": "不明",
         "import_year": 2026,
         "price": 33.0
-      },
-      {
-        "year": 2013,
-        "drive": "不明",
-        "mileage": "185,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 36.0
       }
     ],
     "lexus|is-300-xe30": [
@@ -16254,20 +16326,20 @@
     ],
     "lexus|ls-500h": [
       {
-        "year": 2018,
-        "drive": "不明",
-        "mileage": "160,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 108.0
-      },
-      {
         "year": 2020,
         "drive": "不明",
         "mileage": "113,000 km",
         "color": "不明",
         "import_year": 2026,
         "price": 140.0
+      },
+      {
+        "year": 2018,
+        "drive": "不明",
+        "mileage": "160,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 108.0
       },
       {
         "year": 2017,
@@ -16324,6 +16396,15 @@
     ],
     "lexus|ct-200h": [
       {
+        "year": 2016,
+        "drive": "不明",
+        "mileage": "155,303 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 32.0,
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n Онцгой \n \n 1 /12\n           \n \n \n \n \n \n \n \n EnkhCar \n \n \n \n \n \n \n 32 сая  ₮   36 сая  ₮ \n \n \n \n \n          Lexus CT, 2016/2025\n         \n 155303 км \n · Автомат \n · 1.8 л \n · Хайбрид \n \n \n \n \n 45 минутын өмнө \n Сонгинохайрхан, Авто худалдааны цогцолбор \n \n \n \n \n \n \n"
+      },
+      {
         "year": 2011,
         "drive": "不明",
         "mileage": "160,000 km",
@@ -16366,7 +16447,7 @@
         "color": "不明",
         "import_year": 2026,
         "price": 19.5,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /15\n           \n \n \n \n \n \n Buuk \n \n \n \n \n \n \n 19.5 сая  ₮ \n \n \n \n \n          Lexus CT, 2011/2023\n         \n 241000 км \n · Автомат \n · 1.8 л \n · Хайбрид \n \n \n \n \n 6 өдрийн өмнө \n Баянгол, 10-р хороолол \n \n \n \n \n \n \n"
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /15\n           \n \n \n \n \n \n Buuk \n \n \n \n \n \n \n 19.5 сая  ₮ \n \n \n \n \n          Lexus CT, 2011/2023\n         \n 241000 км \n · Автомат \n · 1.8 л \n · Хайбрид \n \n \n \n \n 1 долоо хоногийн өмнө \n Баянгол, 10-р хороолол \n \n \n \n \n \n \n"
       },
       {
         "year": 2011,
@@ -16494,7 +16575,7 @@
         "color": "不明",
         "import_year": 2026,
         "price": 26.8,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n VIP \n \n 1 /13\n           \n \n \n \n \n \n \n \n DREAM CAR \n \n \n \n \n \n \n 26.8 сая  ₮ \n \n \n \n \n          Lexus HS, 2012/2026\n         \n 84000 км \n · Автомат \n · 2.4 л \n · Хайбрид \n \n \n \n \n 3 цагийн өмнө \n Баянзүрх, Офицер \n \n \n \n \n \n \n"
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n VIP \n \n 1 /13\n           \n \n \n \n \n \n \n \n DREAM CAR \n \n \n \n \n \n \n 26.8 сая  ₮ \n \n \n \n \n          Lexus HS, 2012/2026\n         \n 84000 км \n · Автомат \n · 2.4 л \n · Хайбрид \n \n \n \n \n Өнөөдөр \n Баянзүрх, Офицер \n \n \n \n \n \n \n"
       },
       {
         "year": 2011,
@@ -16539,7 +16620,7 @@
         "color": "不明",
         "import_year": 2026,
         "price": 27.5,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n VIP \n \n 1 /4\n           \n \n \n \n \n 27.5 сая  ₮ \n \n \n \n \n          Lexus HS, 2009/2025\n         \n 60000 км \n · Автомат \n · 2.4 л \n · Бензин \n \n \n \n \n 1 өдрийн өмнө \n Баянзүрх, 15-р хороолол \n \n \n \n \n \n \n"
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n VIP \n \n 1 /4\n           \n \n \n \n \n 27.5 сая  ₮ \n \n \n \n \n          Lexus HS, 2009/2025\n         \n 60000 км \n · Автомат \n · 2.4 л \n · Бензин \n \n \n \n \n 2 өдрийн өмнө \n Баянзүрх, 15-р хороолол \n \n \n \n \n \n \n"
       },
       {
         "year": 2013,
@@ -16551,13 +16632,31 @@
         "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n VIP \n \n 1 /9\n           \n \n \n \n \n 33 сая  ₮ \n \n \n \n \n          Lexus HS, 2013/2024\n         \n 75195 км \n · Автомат \n · 2.3 л \n · Хайбрид \n \n \n \n \n 2 өдрийн өмнө \n Баянзүрх, 13-р хороолол \n \n \n \n \n \n \n"
       },
       {
+        "year": 2009,
+        "drive": "不明",
+        "mileage": "120,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 23.0,
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n Онцгой \n \n 1 /11\n           \n \n \n \n \n \n \n \n Agent Smith \n \n \n \n \n \n \n 23 сая  ₮ \n \n \n \n \n \n          Lexus HS, 2009/2023\n         \n 120000 км \n · Автомат \n · 2.4 л \n · Хайбрид \n \n \n \n \n 1 минутын өмнө \n Баянзүрх, 13-р хороолол \n \n \n \n \n \n \n"
+      },
+      {
+        "year": 2009,
+        "drive": "不明",
+        "mileage": "250,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 17.0,
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n Онцгой \n \n 1 /5\n           \n \n \n \n \n 17 сая  ₮ \n \n \n \n \n          Lexus HS, 2009/2018\n         \n 250000 км \n · Автомат \n · 2.5 л \n · Хайбрид \n \n \n \n \n 49 минутын өмнө \n Баянзүрх, Баянзүрх дүүрэг \n \n \n \n \n \n \n"
+      },
+      {
         "year": 2010,
         "drive": "不明",
         "mileage": "240,000 km",
         "color": "不明",
         "import_year": 2026,
         "price": 22.5,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n Онцгой \n \n 1 /6\n           \n \n \n \n \n 22.5 сая  ₮ \n \n \n \n \n \n          Lexus HS, 2010/2023\n         \n 240000 км \n · Автомат \n · 2.4 л \n · Бензин \n \n \n \n \n 1 цагийн өмнө \n Сүхбаатар, 11-р хороолол \n \n \n \n \n \n \n"
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n Онцгой \n \n 1 /6\n           \n \n \n \n \n 22.5 сая  ₮ \n \n \n \n \n \n          Lexus HS, 2010/2023\n         \n 240000 км \n · Автомат \n · 2.4 л \n · Бензин \n \n \n \n \n 2 цагийн өмнө \n Сүхбаатар, 11-р хороолол \n \n \n \n \n \n \n"
       },
       {
         "year": 2009,
@@ -16566,7 +16665,7 @@
         "color": "不明",
         "import_year": 2026,
         "price": 16.0,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n Онцгой \n \n 1 /4\n           \n \n \n \n \n 16 сая  ₮ \n \n \n \n \n          Lexus HS, 2009/2019\n         \n 11111111 км \n · Автомат \n · 2.4 л \n · Бензин \n \n \n \n \n 2 цагийн өмнө \n Сүхбаатар, 11-р хороолол \n \n \n \n \n \n \n"
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n Онцгой \n \n 1 /4\n           \n \n \n \n \n 16 сая  ₮ \n \n \n \n \n          Lexus HS, 2009/2019\n         \n 11111111 км \n · Автомат \n · 2.4 л \n · Бензин \n \n \n \n \n 3 цагийн өмнө \n Сүхбаатар, 11-р хороолол \n \n \n \n \n \n \n"
       },
       {
         "year": 2012,
@@ -16704,13 +16803,31 @@
         "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n Онцгой \n \n 1 /10\n           \n \n \n \n \n \n \n \n EnkhCar \n \n \n \n \n \n \n 27 сая  ₮   29 сая  ₮ \n \n \n \n \n          Lexus HS, 2010/2026\n         \n 113000 км \n · Автомат \n · 2.4 л \n · Хайбрид \n \n \n \n \n 2 долоо хоногийн өмнө \n Сонгинохайрхан, Авто худалдааны цогцолбор \n \n \n \n \n \n \n"
       },
       {
+        "year": 2011,
+        "drive": "不明",
+        "mileage": "120,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 23.0,
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /5\n           \n \n \n \n \n 23 сая  ₮ \n \n \n \n \n          Lexus HS, 2011/2021\n         \n 120000 км \n · Автомат \n · 2.4 л \n · Бензин \n \n \n \n \n 3 минутын өмнө \n Дархан-Уул, Дархан-Уул \n \n \n \n \n \n \n"
+      },
+      {
+        "year": 2012,
+        "drive": "不明",
+        "mileage": "149,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 24.0,
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /6\n           \n \n \n \n \n 24 сая  ₮ \n \n \n \n \n          Lexus HS, 2012/2023\n         \n 149000 км \n · Автомат \n · 2.5 л \n · Хайбрид \n \n \n \n \n 28 минутын өмнө \n Сүхбаатар, Дөлгөөн нуур \n \n \n \n \n \n \n"
+      },
+      {
         "year": 2009,
         "drive": "不明",
         "mileage": "260,000 km",
         "color": "不明",
         "import_year": 2026,
         "price": 17.5,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /5\n           \n \n \n \n \n 17.5 сая  ₮   19.5 сая  ₮ \n \n \n \n \n          Lexus HS, 2009/2021\n         \n 260000 км \n · Автомат \n · 2.4 л \n · Хайбрид \n \n \n \n \n 45 минутын өмнө \n Баянзүрх, Офицер \n \n \n \n \n \n \n"
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /5\n           \n \n \n \n \n 17.5 сая  ₮   19.5 сая  ₮ \n \n \n \n \n          Lexus HS, 2009/2021\n         \n 260000 км \n · Автомат \n · 2.4 л \n · Хайбрид \n \n \n \n \n 1 цагийн өмнө \n Баянзүрх, Офицер \n \n \n \n \n \n \n"
       },
       {
         "year": 2010,
@@ -16719,7 +16836,7 @@
         "color": "不明",
         "import_year": 2026,
         "price": 27.5,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /12\n           \n \n \n \n \n 27.5 сая  ₮ \n \n \n \n \n          Lexus HS, 2010/2026\n         \n 64000 км \n · Автомат \n · 2.4 л \n · Хайбрид \n \n \n \n \n 2 цагийн өмнө \n Сонгинохайрхан, Авто худалдааны цогцолбор \n \n \n \n \n \n \n"
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /12\n           \n \n \n \n \n 27.5 сая  ₮ \n \n \n \n \n          Lexus HS, 2010/2026\n         \n 64000 км \n · Автомат \n · 2.4 л \n · Хайбрид \n \n \n \n \n 3 цагийн өмнө \n Сонгинохайрхан, Авто худалдааны цогцолбор \n \n \n \n \n \n \n"
       },
       {
         "year": 2009,
@@ -16836,7 +16953,7 @@
         "color": "不明",
         "import_year": 2026,
         "price": 40.0,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /12\n           \n \n \n \n \n \n baagii \n \n \n \n \n \n \n 40 сая  ₮ \n \n \n \n \n          Lexus HS, 2013/2026\n         \n 117000 км \n · Автомат \n · 2.4 л \n · Хайбрид \n \n \n \n \n 5 өдрийн өмнө \n Сонгинохайрхан, Сонгинохайрхан, Хороо 32 \n \n \n \n \n \n \n"
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /12\n           \n \n \n \n \n \n baagii \n \n \n \n \n \n \n 40 сая  ₮ \n \n \n \n \n          Lexus HS, 2013/2026\n         \n 117000 км \n · Автомат \n · 2.4 л \n · Хайбрид \n \n \n \n \n 6 өдрийн өмнө \n Сонгинохайрхан, Сонгинохайрхан, Хороо 32 \n \n \n \n \n \n \n"
       },
       {
         "year": 2014,
@@ -16845,7 +16962,7 @@
         "color": "不明",
         "import_year": 2026,
         "price": 39.0,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /15\n           \n \n \n \n \n \n baagii \n \n \n \n \n \n \n 39 сая  ₮ \n \n \n \n \n          Lexus HS, 2014/2026\n         \n 153000 км \n · Автомат \n · 2.4 л \n · Хайбрид \n \n \n \n \n 5 өдрийн өмнө \n Сонгинохайрхан, Сонгинохайрхан, Хороо 32 \n \n \n \n \n \n \n"
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /15\n           \n \n \n \n \n \n baagii \n \n \n \n \n \n \n 39 сая  ₮ \n \n \n \n \n          Lexus HS, 2014/2026\n         \n 153000 км \n · Автомат \n · 2.4 л \n · Хайбрид \n \n \n \n \n 6 өдрийн өмнө \n Сонгинохайрхан, Сонгинохайрхан, Хороо 32 \n \n \n \n \n \n \n"
       },
       {
         "year": 2014,
@@ -16854,7 +16971,7 @@
         "color": "不明",
         "import_year": 2026,
         "price": 40.0,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /16\n           \n \n \n \n \n \n baagii \n \n \n \n \n \n \n 40 сая  ₮ \n \n \n \n \n          Lexus HS, 2014/2026\n         \n 72000 км \n · Автомат \n · 2.4 л \n · Хайбрид \n \n \n \n \n 5 өдрийн өмнө \n Сонгинохайрхан, Сонгинохайрхан, Хороо 32 \n \n \n \n \n \n \n"
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /16\n           \n \n \n \n \n \n baagii \n \n \n \n \n \n \n 40 сая  ₮ \n \n \n \n \n          Lexus HS, 2014/2026\n         \n 72000 км \n · Автомат \n · 2.4 л \n · Хайбрид \n \n \n \n \n 6 өдрийн өмнө \n Сонгинохайрхан, Сонгинохайрхан, Хороо 32 \n \n \n \n \n \n \n"
       },
       {
         "year": 2009,
@@ -16936,15 +17053,6 @@
         "import_year": 2026,
         "price": 29.1,
         "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /10\n           \n \n \n \n \n 29.1 сая  ₮ \n \n \n \n \n          Lexus HS, 2012/2025\n         \n 62270 км \n · Автомат \n · 2.5 л \n · Хайбрид \n \n \n \n \n 1 долоо хоногийн өмнө \n Хан-Уул, Хан-Уул, Хороо 23 \n \n \n \n \n \n \n"
-      },
-      {
-        "year": 2009,
-        "drive": "不明",
-        "mileage": "120,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 23.0,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /11\n           \n \n \n \n \n \n \n \n Agent Smith \n \n \n \n \n \n \n 23 сая  ₮ \n \n \n \n \n \n          Lexus HS, 2009/2023\n         \n 120000 км \n · Автомат \n · 2.4 л \n · Хайбрид \n \n \n \n \n 1 долоо хоногийн өмнө \n Баянзүрх, 13-р хороолол \n \n \n \n \n \n \n"
       },
       {
         "year": 2009,
@@ -17073,15 +17181,6 @@
         "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /6\n           \n \n \n \n \n 25 сая  ₮ \n \n \n \n \n          Lexus HS, 2013/2022\n         \n 158000 км \n · Автомат \n · 2.0 л \n · Хайбрид \n \n \n \n \n 2 долоо хоногийн өмнө \n Хан-Уул, Мишээл \n \n \n \n \n \n \n"
       },
       {
-        "year": 2011,
-        "drive": "不明",
-        "mileage": "157,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 23.0,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /10\n           \n \n \n \n \n 23 сая  ₮ \n \n \n \n \n \n          Lexus HS, 2011/2020\n         \n 157000 км \n · Автомат \n · 1.5 л \n · Бензин \n \n \n \n \n 2 долоо хоногийн өмнө \n Хан-Уул, Хан-Уул, Хороо 17 \n \n \n \n \n \n \n"
-      },
-      {
         "year": 2009,
         "drive": "不明",
         "mileage": "130,000 km",
@@ -17170,24 +17269,6 @@
         "import_year": 2026,
         "price": 44.0,
         "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /10\n           \n \n \n \n \n 44 сая  ₮ \n \n \n \n \n          Lexus HS, 2017/2025\n         \n 60000 км \n · Автомат \n · 2.4 л \n · Бензин \n \n \n \n \n 2 долоо хоногийн өмнө \n Хан-Уул, Яармаг \n \n \n \n \n \n \n"
-      },
-      {
-        "year": 2010,
-        "drive": "不明",
-        "mileage": "170 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 23.8,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /8\n           \n \n \n \n \n 23.8 сая  ₮ \n \n \n \n \n          Lexus HS, 2010/2023\n         \n 170 км \n · Автомат \n · 2.4 л \n · Хайбрид \n \n \n \n \n 2 долоо хоногийн өмнө \n Сүхбаатар, Дөлгөөн нуур \n \n \n \n \n \n \n"
-      },
-      {
-        "year": 2013,
-        "drive": "不明",
-        "mileage": "153,599 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 28.0,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /5\n           \n \n \n \n \n 28 сая  ₮ \n \n \n \n \n          Lexus HS, 2013/2021\n         \n 153599 км \n · Автомат \n · 2.4 л \n · Хайбрид \n \n \n \n \n 2 долоо хоногийн өмнө \n Хан-Уул, Яармаг \n \n \n \n \n \n \n"
       }
     ],
     "hyundai|santa-fe-tm": [
@@ -17386,7 +17467,7 @@
         "color": "不明",
         "import_year": 2026,
         "price": 450.0,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n VIP \n \n 1 /11\n           \n \n \n \n \n 450 сая  ₮ \n \n \n \n \n \n          Mercedes-Benz G-Class, 2022/2022\n         \n 50000 км \n · Автомат \n · 4.0 л \n · Бензин \n \n \n \n \n 2 цагийн өмнө \n Хан-Уул, Хан-Уул, Хороо 15 \n \n \n \n \n \n \n"
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n VIP \n \n 1 /11\n           \n \n \n \n \n 450 сая  ₮ \n \n \n \n \n \n          Mercedes-Benz G-Class, 2022/2022\n         \n 50000 км \n · Автомат \n · 4.0 л \n · Бензин \n \n \n \n \n 3 цагийн өмнө \n Хан-Уул, Хан-Уул, Хороо 15 \n \n \n \n \n \n \n"
       },
       {
         "year": 2019,
@@ -17416,6 +17497,15 @@
         "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n Онцгой \n \n 1 /5\n           \n \n \n \n \n 435 сая  ₮ \n \n \n \n \n \n          Mercedes-Benz G-Class, 2022/2022\n         \n 38000 км \n · Автомат \n · 4.0 л \n · Бензин \n \n \n \n \n 4 өдрийн өмнө \n Хан-Уул, Хан-Уул, Хороо 18 \n \n \n \n \n \n \n"
       },
       {
+        "year": 2022,
+        "drive": "不明",
+        "mileage": "41,300 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 390.0,
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n 390 сая  ₮ \n \n \n \n \n          Mercedes-Benz G-Class, 2022/2022\n         \n 41300 км \n · Автомат \n · 4.0 л \n · Бензин \n \n \n \n \n 11 минутын өмнө \n Сүхбаатар, Сүхбаатар, Хороо 1 \n \n \n \n \n \n \n"
+      },
+      {
         "year": 2023,
         "drive": "不明",
         "mileage": "33,000 km",
@@ -17431,7 +17521,7 @@
         "color": "不明",
         "import_year": 2026,
         "price": 380.0,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /10\n           \n \n \n \n \n 380 сая  ₮ \n \n \n \n \n          Mercedes-Benz G-Class, 2019/2019\n         \n 54000 км \n · Автомат \n · 5.0 л \n · Бензин \n \n \n \n \n 1 өдрийн өмнө \n Хан-Уул, 120 мянгат \n \n \n \n \n \n \n"
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /10\n           \n \n \n \n \n 380 сая  ₮ \n \n \n \n \n          Mercedes-Benz G-Class, 2019/2019\n         \n 54000 км \n · Автомат \n · 5.0 л \n · Бензин \n \n \n \n \n 2 өдрийн өмнө \n Хан-Уул, 120 мянгат \n \n \n \n \n \n \n"
       },
       {
         "year": 2021,
@@ -17440,7 +17530,7 @@
         "color": "不明",
         "import_year": 2026,
         "price": 390.0,
-        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /8\n           \n \n \n \n \n 390 сая  ₮ \n \n \n \n \n          Mercedes-Benz G-Class, 2021/2021\n         \n 60000 км \n · Автомат \n · 4.0 л \n · Бензин \n \n \n \n \n 2 өдрийн өмнө \n Хан-Уул, River Garden \n \n \n \n \n \n \n"
+        "_fulltext": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n 1 /8\n           \n \n \n \n \n 390 сая  ₮ \n \n \n \n \n          Mercedes-Benz G-Class, 2021/2021\n         \n 60000 км \n · Автомат \n · 4.0 л \n · Бензин \n \n \n \n \n 3 өдрийн өмнө \n Хан-Уул, River Garden \n \n \n \n \n \n \n"
       },
       {
         "year": 2021,
