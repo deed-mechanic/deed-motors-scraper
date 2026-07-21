@@ -155,7 +155,7 @@ def classify_harrier_key(year, title=""):
     """
     t = (title or "").lower()
     if year <= 2013:
-        hv_words = ["hybrid", "hv", "гибрид", "гибрид/hybrid", "mcu"]
+        hv_words = ["hybrid", "хайбрид", "гибрид", "mcu"]
         if any(w in t for w in hv_words):
             return "toyota|harrier-60-hv"
         return "toyota|harrier-60-gas"
