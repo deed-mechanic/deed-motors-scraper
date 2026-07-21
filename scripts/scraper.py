@@ -55,14 +55,21 @@ TARGETS = [
     {"key": "subaru|forester-sj",            "url": "subaru/forester"},
     {"key": "subaru|outback-bs",             "url": "subaru/outback"},
     {"key": "suzuki|jimny-jb64",             "url": "suzuki/jimny"},
-    {"key": "lexus|lx-570", "url": "lexus/lx", "year_min": 2007, "year_max": 2021},
-    {"key": "lexus|gx-460", "url": "lexus/gx", "year_min": 2009, "year_max": 2023},
+    {"key": "lexus|lx-600", "url": "lexus/lx-600", "year_min": 2021},
+    {"key": "lexus|lx-570", "url": "lexus/lx-570", "year_min": 2007, "year_max": 2021},
+    {"key": "lexus|lx-470", "url": "lexus/lx-470", "year_min": 1998, "year_max": 2007},
+    {"key": "lexus|gx-460", "url": "lexus/gx", "gx_split": True},
     # RX: UNEGUI.MN側はガソリン/ハイブリッドの2URLしか存在しないため、
     # ここで取得したのち年式・タイトルで7区分（世代×グレード）に自動振り分けする
     {"key": "lexus|rx-gas",                  "url": "lexus/rx",     "rx_type": "gas"},
     {"key": "lexus|rx-hybrid",               "url": "lexus/rx-450", "rx_type": "hybrid"},
     {"key": "lexus|nx-az10",                 "url": "lexus/nx", "nx_split": True},
     {"key": "lexus|es-axzh10",               "url": "lexus/es", "es_split": True},
+    {"key": "lexus|is-300-xe30",             "url": "lexus/is", "is_split": True},
+    {"key": "lexus|gs-350",                  "url": "lexus/gs", "gs_split": True},
+    {"key": "lexus|ls-500",                  "url": "lexus/ls", "ls_split": True},
+    {"key": "lexus|ct-200h",                 "url": "lexus/ct", "year_min": 2011, "year_max": 2017},
+    {"key": "lexus|hs-250h",                 "url": "lexus/hs", "year_min": 2009, "year_max": 2018},
     {"key": "hyundai|santa-fe-tm",           "url": "hyundai/santa-fe"},
     {"key": "hyundai|palisade",              "url": "hyundai/palisade"},
     {"key": "kia|sorento-mq4",               "url": "kia/sorento"},
@@ -189,6 +196,47 @@ def classify_es_key(year, title=""):
     is_hybrid = "хайбрид" in t or "hybrid" in t
     return "lexus|es-300h" if is_hybrid else "lexus|es-250"
 
+def classify_gx_key(year, title=""):
+    """GXの年式からMODELS_MAPのスラッグに一致するキーを判定する。
+    UNEGUI.MN側は lexus/gx の1URLに全世代混在。専用URL(gx-460/gx-550)は存在しないため年式で振り分ける。
+    """
+    if year < 2009:
+        return "lexus|gx-470"
+    elif year < 2023:
+        return "lexus|gx-460"
+    else:
+        return "lexus|gx-550"
+
+def classify_is_key(year, title=""):
+    """ISの年式・ハイブリッド判定からMODELS_MAPのスラッグに一致するキーを判定する。
+    XE20(2代目 2005-2013)はガソリンのみ、XE30(3代目 2013-)はガソリン/HV。
+    """
+    t = (title or "").lower()
+    if year < 2013:
+        return "lexus|is-250-xe20"
+    is_hybrid = "хайбрид" in t or "hybrid" in t
+    return "lexus|is-300h-xe30" if is_hybrid else "lexus|is-300-xe30"
+
+def classify_gs_key(year, title=""):
+    """GSの年式・ハイブリッド判定からMODELS_MAPのスラッグに一致するキーを判定する。
+    GRS190(3代目 2005-2012)はガソリンのみ、AWL10/GRL10(4代目 2012-)はガソリン/HV。
+    """
+    t = (title or "").lower()
+    if year < 2012:
+        return "lexus|gs-350-grs190"
+    is_hybrid = "хайбрид" in t or "hybrid" in t
+    return "lexus|gs-300h" if is_hybrid else "lexus|gs-350"
+
+def classify_ls_key(year, title=""):
+    """LSの年式・ハイブリッド判定からMODELS_MAPのスラッグに一致するキーを判定する。
+    UVF45(2006-2017)はHV(LS600h)のみ、VXFA50(2017-)はガソリン/HV。
+    """
+    t = (title or "").lower()
+    if year < 2017:
+        return "lexus|ls-600h"
+    is_hybrid = "хайбрид" in t or "hybrid" in t
+    return "lexus|ls-500h" if is_hybrid else "lexus|ls-500"
+
 def fetch(url, retries=3):
     for i in range(retries):
         try:
@@ -211,14 +259,14 @@ def parse_card(card):
     # "title"という文字列を含むため、汎用フォールバック [class*='title'] だけだと価格要素を
     # 誤って拾ってしまう。実際のタイトル要素 .advert__content-title を最優先で試す。
     title_text = ""
-    for sel in [".advert__content-title", ".announcement-block__title",
+    for sel in [".advert__content-title", ".advert-grid__content-title", ".announcement-block__title",
                 "a[itemprop='name']", "h3", "h4", "[class*='title']"]:
         el = card.select_one(sel)
         if el: title_text = el.get_text(" ", strip=True); break
 
     # 価格（UNEGUI.MN現行サイトは .advert__content-price）
     price_text = ""
-    for sel in [".advert__content-price", ".price-announcement",".announcement-pricing",
+    for sel in [".advert__content-price", ".advert-grid__content-price", ".price-announcement",".announcement-pricing",
                 "[class*='price']",".cost","[class*='cost']"]:
         el = card.select_one(sel)
         if el: price_text = el.get_text(" ", strip=True); break
@@ -254,6 +302,7 @@ def parse_page(html):
     cards = []
     for sel in ["div.advert.js-item-listing",
                 "div.advert",
+                "div.advert-grid",
                 "li.announcement-container",
                 "div.announcement-block",
                 "div[class*='announcement']",
@@ -365,6 +414,26 @@ def main():
                     sub_key = classify_harrier_key(item["year"], item.pop("_title", ""))
                     db.setdefault(sub_key, []).append(item)
                 log.info(f"  Harrier振り分け完了（元キー: {t['key']}）")
+            elif t.get("gx_split"):
+                for item in r:
+                    sub_key = classify_gx_key(item["year"], item.pop("_title", ""))
+                    db.setdefault(sub_key, []).append(item)
+                log.info(f"  GX振り分け完了（元キー: {t['key']}）")
+            elif t.get("is_split"):
+                for item in r:
+                    sub_key = classify_is_key(item["year"], item.pop("_title", ""))
+                    db.setdefault(sub_key, []).append(item)
+                log.info(f"  IS振り分け完了（元キー: {t['key']}）")
+            elif t.get("gs_split"):
+                for item in r:
+                    sub_key = classify_gs_key(item["year"], item.pop("_title", ""))
+                    db.setdefault(sub_key, []).append(item)
+                log.info(f"  GS振り分け完了（元キー: {t['key']}）")
+            elif t.get("ls_split"):
+                for item in r:
+                    sub_key = classify_ls_key(item["year"], item.pop("_title", ""))
+                    db.setdefault(sub_key, []).append(item)
+                log.info(f"  LS振り分け完了（元キー: {t['key']}）")
             elif t.get("nx_split"):
                 # NX: 世代(AZ10/AZ20)×ガソリン/HVで振り分け
                 for item in r:
