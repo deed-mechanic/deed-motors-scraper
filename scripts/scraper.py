@@ -61,8 +61,8 @@ TARGETS = [
     # ここで取得したのち年式・タイトルで7区分（世代×グレード）に自動振り分けする
     {"key": "lexus|rx-gas",                  "url": "lexus/rx",     "rx_type": "gas"},
     {"key": "lexus|rx-hybrid",               "url": "lexus/rx-450", "rx_type": "hybrid"},
-    {"key": "lexus|nx-az10",                 "url": "lexus/nx"},
-    {"key": "lexus|es-axzh10",               "url": "lexus/es"},
+    {"key": "lexus|nx-az10",                 "url": "lexus/nx", "nx_split": True},
+    {"key": "lexus|es-axzh10",               "url": "lexus/es", "es_split": True},
     {"key": "hyundai|santa-fe-tm",           "url": "hyundai/santa-fe"},
     {"key": "hyundai|palisade",              "url": "hyundai/palisade"},
     {"key": "kia|sorento-mq4",               "url": "kia/sorento"},
@@ -164,6 +164,30 @@ def fix_chr_drive(item):
     if "1.8" in t or "хайбрид" in t or "hybrid" in t:
         item["drive"] = "2WD"
     return item
+
+def classify_nx_key(year, title=""):
+    """NXの年式・ハイブリッド判定からMODELS_MAPのスラッグに一致するキーを判定する。
+    UNEGUI.MN側は lexus/nx の1URLに全世代・全グレードが混在しているため、
+    AZ10(初代 2014-2021)/AZ20(2代目 2021-)、ガソリン/HVで振り分ける。
+    PHEV(NX450h+)は判別材料が乏しいため、まずはHV(NX350h)に含める。
+    """
+    t = (title or "").lower()
+    is_hybrid = "хайбрид" in t or "hybrid" in t
+    if year <= 2020:
+        return "lexus|nx-300h-az10" if is_hybrid else "lexus|nx-300-az10"
+    else:
+        return "lexus|nx-350h-az20" if is_hybrid else "lexus|nx-350-az20"
+
+def classify_es_key(year, title=""):
+    """ESのハイブリッド判定からMODELS_MAPのスラッグに一致するキーを判定する。
+    UNEGUI.MN側は lexus/es の1URLに旧型(6代目以前)も混在しているため、
+    MODELS_MAPに存在する7代目(AXZH10, 2018-)以外は除外する（Noneを返す）。
+    """
+    if year < 2018:
+        return None
+    t = (title or "").lower()
+    is_hybrid = "хайбрид" in t or "hybrid" in t
+    return "lexus|es-300h" if is_hybrid else "lexus|es-250"
 
 def fetch(url, retries=3):
     for i in range(retries):
@@ -341,6 +365,23 @@ def main():
                     sub_key = classify_harrier_key(item["year"], item.pop("_title", ""))
                     db.setdefault(sub_key, []).append(item)
                 log.info(f"  Harrier振り分け完了（元キー: {t['key']}）")
+            elif t.get("nx_split"):
+                # NX: 世代(AZ10/AZ20)×ガソリン/HVで振り分け
+                for item in r:
+                    sub_key = classify_nx_key(item["year"], item.pop("_title", ""))
+                    db.setdefault(sub_key, []).append(item)
+                log.info(f"  NX振り分け完了（元キー: {t['key']}）")
+            elif t.get("es_split"):
+                # ES: 7代目(2018-)のみ対象、ガソリン/HVで振り分け（旧型は除外）
+                excluded = 0
+                for item in r:
+                    title = item.pop("_title", "")
+                    sub_key = classify_es_key(item["year"], title)
+                    if sub_key is None:
+                        excluded += 1
+                        continue
+                    db.setdefault(sub_key, []).append(item)
+                log.info(f"  ES振り分け完了（元キー: {t['key']}、旧型除外: {excluded}件）")
             elif t.get("chr_drive_fix"):
                 # C-HR: 1.8L/HVは2WD確定、1.2Lは検出結果のまま
                 for item in r:
