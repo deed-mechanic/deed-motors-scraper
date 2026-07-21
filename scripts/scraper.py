@@ -31,8 +31,8 @@ TARGETS = [
     {"key": "toyota|land-cruiser-200", "url": "toyota/land-cruiser-200", "year_min": 2007, "year_max": 2021},
     {"key": "toyota|land-cruiser-100", "url": "toyota/land-cruiser-100", "year_min": 1998, "year_max": 2007},
     {"key": "toyota|land-cruiser-prado-150", "url": "toyota/land-cruiser-prado", "year_min": 2009, "year_max": 2024},
-    {"key": "toyota|alphard-30", "url": "toyota/alphard", "year_min": 2015, "year_max": 2023},
-    {"key": "toyota|vellfire-30", "url": "toyota/vellfire", "year_min": 2015, "year_max": 2023},
+    {"key": "toyota|alphard-30", "url": "toyota/alphard", "alphard_split": True},
+    {"key": "toyota|vellfire-30", "url": "toyota/vellfire", "vellfire_split": True},
     {"key": "toyota|prius-50", "url": "toyota/prius-50", "year_min": 2015, "year_max": 2023},
     {"key": "toyota|prius-41", "url": "toyota/prius-40", "year_min": 2009, "year_max": 2015},
     {"key": "toyota|aqua", "url": "toyota/aqua", "year_min": 2011},
@@ -239,6 +239,28 @@ def classify_ls_key(year, title=""):
     is_hybrid = "хайбрид" in t or "hybrid" in t
     return "lexus|ls-500h" if is_hybrid else "lexus|ls-500"
 
+def classify_alphard_key(year, title=""):
+    """Alphardの年式からMODELS_MAPのスラッグ（20系/30系/40系）に振り分ける。
+    UNEGUI.MN側は toyota/alphard の1URLに全世代混在。
+    """
+    if year < 2015:
+        return "toyota|alphard-20"
+    elif year < 2023:
+        return "toyota|alphard-30"
+    else:
+        return "toyota|alphard-40"
+
+def classify_vellfire_key(year, title=""):
+    """Vellfireの年式からMODELS_MAPのスラッグ（20系/30系/40系）に振り分ける。
+    UNEGUI.MN側は toyota/vellfire の1URLに全世代混在。
+    """
+    if year < 2015:
+        return "toyota|vellfire-20"
+    elif year < 2023:
+        return "toyota|vellfire-30"
+    else:
+        return "toyota|vellfire-40"
+
 def fetch(url, retries=3):
     for i in range(retries):
         try:
@@ -419,6 +441,18 @@ def main():
                     sub_key = classify_harrier_key(item["year"], item.pop("_fulltext", ""))
                     db.setdefault(sub_key, []).append(item)
                 log.info(f"  Harrier振り分け完了（元キー: {t['key']}）")
+            elif t.get("alphard_split"):
+                for item in r:
+                    item.pop("_title", None); item.pop("_fulltext", None)
+                    sub_key = classify_alphard_key(item["year"])
+                    db.setdefault(sub_key, []).append(item)
+                log.info(f"  Alphard振り分け完了（元キー: {t['key']}）")
+            elif t.get("vellfire_split"):
+                for item in r:
+                    item.pop("_title", None); item.pop("_fulltext", None)
+                    sub_key = classify_vellfire_key(item["year"])
+                    db.setdefault(sub_key, []).append(item)
+                log.info(f"  Vellfire振り分け完了（元キー: {t['key']}）")
             elif t.get("gx_split"):
                 for item in r:
                     sub_key = classify_gx_key(item["year"], item.pop("_title", ""))
