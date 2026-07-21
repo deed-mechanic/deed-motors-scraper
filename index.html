@@ -756,6 +756,14 @@ input[type=number]::placeholder {
           </tbody>
         </table>
       </div>
+      <div style="margin-top:14px;padding-top:14px;border-top:1px solid #f0f0f0;">
+        <div class="sel-label" style="margin-bottom:6px;">🔍 SmartCar車両照会 / Улсын дугаараар шалгах<span class="sel-sub">SmartCar.mnで事故歴・車検・保険情報を確認</span></div>
+        <div style="display:flex;gap:8px;">
+          <input type="text" id="smartcarPlate" placeholder="0000ААА" style="flex:1;padding:8px 10px;border:1.5px solid #e0e0e0;border-radius:6px;font-size:13px;text-transform:uppercase;">
+          <button type="button" onclick="const v=document.getElementById('smartcarPlate').value.trim(); if(v){navigator.clipboard.writeText(v).catch(()=>{});} window.open('https://smartcar.mn/home','_blank');" style="padding:8px 16px;background:#1a56db;color:#fff;border:none;border-radius:6px;font-size:13px;font-weight:700;cursor:pointer;white-space:nowrap;">🔍 SmartCarで確認</button>
+        </div>
+        <div style="font-size:10px;color:#999;margin-top:4px;">※番号はコピーされます。SmartCar.mn側はログインが必要なため、開いたページに貼り付けて検索してください。</div>
+      </div>
     </div>
 
   </div><!-- /右カラム -->
