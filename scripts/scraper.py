@@ -30,15 +30,18 @@ TARGETS = [
     {"key": "toyota|harrier",                "url": "toyota/harrier", "harrier_split": True},
     {"key": "toyota|land-cruiser-200", "url": "toyota/land-cruiser-200", "year_min": 2007, "year_max": 2021},
     {"key": "toyota|land-cruiser-100", "url": "toyota/land-cruiser-100", "year_min": 1998, "year_max": 2007},
-    {"key": "toyota|land-cruiser-prado-150", "url": "toyota/land-cruiser-prado", "year_min": 2009, "year_max": 2024},
+    {"key": "toyota|land-cruiser-prado-150", "url": "toyota/land-cruiser-prado-150", "year_min": 2009, "year_max": 2024},
+    {"key": "toyota|land-cruiser-prado-120", "url": "toyota/land-cruiser-prado-120", "year_min": 2002, "year_max": 2009},
+    {"key": "toyota|land-cruiser-prado-250", "url": "toyota/land-cruiser-prado-250", "year_min": 2024},
     {"key": "toyota|alphard-30", "url": "toyota/alphard", "alphard_split": True},
     {"key": "toyota|vellfire-30", "url": "toyota/vellfire", "vellfire_split": True},
-    {"key": "toyota|prius-50", "url": "toyota/prius-50", "year_min": 2015, "year_max": 2023},
+    {"key": "toyota|prius-30", "url": "toyota/prius-30", "year_min": 2009, "year_max": 2015},
+    {"key": "toyota|prius-60", "url": "toyota/prius-60", "year_min": 2023},
     {"key": "toyota|prius-41", "url": "toyota/prius-40", "year_min": 2009, "year_max": 2015},
     {"key": "toyota|aqua", "url": "toyota/aqua", "year_min": 2011},
-    {"key": "toyota|rav4-50", "url": "toyota/rav4", "year_min": 2018},
-    {"key": "toyota|camry-70", "url": "toyota/camry", "year_min": 2017},
-    {"key": "toyota|corolla-axio", "url": "toyota/corolla-axio", "year_min": 2006, "year_max": 2019},
+    {"key": "toyota|rav4-50", "url": "toyota/rav4", "rav4_split": True},
+    {"key": "toyota|camry-70", "url": "toyota/camry", "camry_split": True},
+    {"key": "toyota|corolla-axio", "url": "toyota/corolla", "year_min": 2006, "year_max": 2019},
     {"key": "toyota|hiace-200", "url": "toyota/hiace", "year_min": 2004},
     {"key": "toyota|highlander", "url": "toyota/highlander", "year_min": 2013},
     {"key": "toyota|fortuner", "url": "toyota/fortuner", "year_min": 2015},
@@ -150,18 +153,16 @@ def classify_rx_key(rx_type, year, title=""):
             return "lexus|rx-500h"  # 5代目(2022-) HV/PHEV
 
 def classify_harrier_key(year, title=""):
-    """Harrierの年式・タイトルから60系（ACU/MCU）・80系を判定する。
+    """Harrierの年式・カード全文から60系（ACU/MCU）ガソリン/HV・80系ガソリン/HVを判定する。
     UNEGUI.MN側は toyota/harrier の1URLに全世代混在のため、ここで振り分ける。
     世代の目安: 60系=2003-2013年、80系=2014年以降。
-    60系はタイトルのキーワードでガソリン(ACU)/ハイブリッド(MCU)を判定する。
     """
     t = (title or "").lower()
+    hv_words = ["hybrid", "хайбрид", "гибрид", "mcu"]
+    is_hybrid = any(w in t for w in hv_words)
     if year <= 2013:
-        hv_words = ["hybrid", "хайбрид", "гибрид", "mcu"]
-        if any(w in t for w in hv_words):
-            return "toyota|harrier-60-hv"
-        return "toyota|harrier-60-gas"
-    return "toyota|harrier"
+        return "toyota|harrier-60-hv" if is_hybrid else "toyota|harrier-60-gas"
+    return "toyota|harrier-80-hv" if is_hybrid else "toyota|harrier-80-gas"
 
 def fix_chr_drive(item):
     """C-HRの駆動方式を実態に即して補正する。
@@ -260,6 +261,18 @@ def classify_vellfire_key(year, title=""):
         return "toyota|vellfire-30"
     else:
         return "toyota|vellfire-40"
+
+def classify_camry_key(year, title=""):
+    """Camryの年式からMODELS_MAPのスラッグ（50系/70系）に振り分ける。
+    UNEGUI.MN側は toyota/camry の1URLに全世代混在。
+    """
+    return "toyota|camry-50" if year < 2017 else "toyota|camry-70"
+
+def classify_rav4_key(year, title=""):
+    """RAV4の年式からMODELS_MAPのスラッグ（40系/50系）に振り分ける。
+    UNEGUI.MN側は toyota/rav4 の1URLに全世代混在。
+    """
+    return "toyota|rav4-40" if year < 2018 else "toyota|rav4-50"
 
 def fetch(url, retries=3):
     for i in range(retries):
@@ -441,6 +454,18 @@ def main():
                     sub_key = classify_harrier_key(item["year"], item.pop("_fulltext", ""))
                     db.setdefault(sub_key, []).append(item)
                 log.info(f"  Harrier振り分け完了（元キー: {t['key']}）")
+            elif t.get("camry_split"):
+                for item in r:
+                    item.pop("_title", None); item.pop("_fulltext", None)
+                    sub_key = classify_camry_key(item["year"])
+                    db.setdefault(sub_key, []).append(item)
+                log.info(f"  Camry振り分け完了（元キー: {t['key']}）")
+            elif t.get("rav4_split"):
+                for item in r:
+                    item.pop("_title", None); item.pop("_fulltext", None)
+                    sub_key = classify_rav4_key(item["year"])
+                    db.setdefault(sub_key, []).append(item)
+                log.info(f"  RAV4振り分け完了（元キー: {t['key']}）")
             elif t.get("alphard_split"):
                 for item in r:
                     item.pop("_title", None); item.pop("_fulltext", None)
