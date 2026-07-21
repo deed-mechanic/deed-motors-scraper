@@ -4450,10 +4450,11 @@ function printExplainSheet() {
   const grade       = g("gradeBadge")? g("gradeBadge").textContent: "—";
   const deduct      = g("deductNum") ? g("deductNum").textContent : "0";
   const added       = g("addedNum")  ? g("addedNum").textContent  : "0";
-  const tiPrice     = g("tiPrice")   ? g("tiPrice").textContent   : "—";
-  const rcMktAvg    = g("rcMktAvg")  ? g("rcMktAvg").textContent  : "—";
-  const rcCoeff     = g("rcCoeff")   ? g("rcCoeff").textContent   : "—";
-  const rcFormula   = g("rcFormula") ? g("rcFormula").textContent : "—";
+  const hasResult = g("resultCardWrap") && g("resultCardWrap").style.display === "block";
+  const tiPrice     = hasResult ? g("tiPrice").textContent   : "—";
+  const rcMktAvg    = hasResult ? g("rcMktAvg").textContent  : "—";
+  const rcCoeff     = hasResult ? g("rcCoeff").textContent   : "—";
+  const rcFormula   = hasResult ? g("rcFormula").textContent : "—";
 
   // ── 評価項目の選択値を取得するヘルパー ──
   function getRadioLabel(groupId) {
