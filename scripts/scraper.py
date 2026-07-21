@@ -132,6 +132,8 @@ def classify_rx_key(rx_type, year, title=""):
       検索結果が常に0件になる不具合があったため、スラッグ基準に統一した）
     世代の目安: AL10=～2015, AL20=2016～2022, AL30=2023～
     """
+    if year < 2008:
+        return None  # AL10より前（ドロップダウンに存在しない世代）は除外
     if rx_type == "gas":
         if year <= 2015:
             return "lexus|rx-350-al10"
@@ -403,9 +405,11 @@ def main():
             if not r:
                 continue
             if "rx_type" in t:
-                # RX: 年式・タイトルキーワードで世代×グレード別キーに自動振り分け
+                # RX: 年式・タイトルキーワードで世代×グレード別キーに自動振り分け（対象外年式はNoneで除外）
                 for item in r:
                     sub_key = classify_rx_key(t["rx_type"], item["year"], item.pop("_title", ""))
+                    if sub_key is None:
+                        continue
                     db.setdefault(sub_key, []).append(item)
                 log.info(f"  RX振り分け完了（元キー: {t['key']}）")
             elif t.get("harrier_split"):
