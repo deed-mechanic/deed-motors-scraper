@@ -117,30 +117,28 @@ def parse_color(text):
     return "不明"
 
 def classify_rx_key(rx_type, year, title=""):
-    """RXの年式・タイトルから世代×グレード別のDBキーを判定する。
+    """RXの年式からドロップダウン（MODELS_MAP）のスラッグに一致するキーを判定する。
     UNEGUI.MN側は lexus/rx（ガソリン）と lexus/rx-450（ハイブリッド）の
-    2カテゴリしか存在しないため、ここで7区分に振り分ける。
+    2カテゴリしか存在しないため、ここで世代・グレード別に振り分ける。
+    重要: 生成するキーは index.html の MODELS_MAP 内スラッグと完全一致させること。
+    （以前は独自の命名（rx-al10-gas等）を使っており、画面側と一致せず
+      検索結果が常に0件になる不具合があったため、スラッグ基準に統一した）
     世代の目安: AL10=～2015, AL20=2016～2022, AL30=2023～
     """
-    t = (title or "").lower()
     if rx_type == "gas":
         if year <= 2015:
-            return "lexus|rx-al10-gas"
+            return "lexus|rx-350-al10"
         elif year <= 2022:
-            return "lexus|rx-al20-gas"
+            return "lexus|rx-350-al20-gas"
         else:
-            return "lexus|rx-al30-350"
+            return "lexus|rx-350-al20"  # 5代目(2022-)ガソリン。MODELS_MAPのスラッグ表記に合わせる
     else:  # hybrid
         if year <= 2015:
-            return "lexus|rx-al10-hybrid"
+            return "lexus|rx-450h-al10"
         elif year <= 2022:
-            if any(w in t for w in ["450hl", "450h l", "7 suudal", "7-suudal", "7суудал", "долгион", "long"]):
-                return "lexus|rx-al20-450hl"
-            return "lexus|rx-al20-hybrid"
+            return "lexus|rx-450h-al20"
         else:
-            if any(w in t for w in ["500h", "f sport", "fsport", "ф спорт"]):
-                return "lexus|rx-al30-500h"
-            return "lexus|rx-al30-350"
+            return "lexus|rx-500h"  # 5代目(2022-) HV/PHEV
 
 def classify_harrier_key(year, title=""):
     """Harrierの年式・タイトルから60系（ACU/MCU）・80系を判定する。
