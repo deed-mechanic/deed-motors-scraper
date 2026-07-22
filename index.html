@@ -4507,7 +4507,7 @@ function printExplainSheet() {
   const items = {
     // 修復歴
     rHist:    getRadioLabel("rg_rHist"),
-    rHistParts: Array.from(document.querySelectorAll(".hist-part-cb:checked")).map(cb=>cb.value).join("、") || "—",
+    rHistParts: Array.from(document.querySelectorAll(".hist-part-cb:checked")).map(cb=>mnOnly(cb.value)).join("、") || "—",
     // 追加チェック項目
     usageHist:    getSelectLabel("usageHist"),
     usageHistPts: getPts("pts_usageHist"),
@@ -4516,8 +4516,26 @@ function printExplainSheet() {
     odoCheck:     getRadioLabel("rg_odoCheck"),
     odoCheckPts:  getPts("pts_odoCheck"),
     freeNotes:    v("freeNotes"),
-    diagramSummary: g("diagramSummary") ? g("diagramSummary").textContent : "なし",
-    diagramSvg: g("panelDiagramSvg") ? g("panelDiagramSvg").outerHTML : "",
+    diagramSummary: (function(){
+      const s = g("diagramSummary") ? g("diagramSummary").textContent : "";
+      if (!s || s === "なし") return "Байхгүй";
+      const dict = {
+        "前バンパー":"Урд бампер","ボンネット":"Капот","ルーフ":"Дээвэр","トランク":"Багажник","後バンパー":"Ард бампер",
+        "左フロントフェンダー":"Зүүн урд крыло","左フロントドア":"Зүүн урд хаалга","左リアドア":"Зүүн ард хаалга","左リアフェンダー":"Зүүн ард крыло",
+        "右フロントフェンダー":"Баруун урд крыло","右フロントドア":"Баруун урд хаалга","右リアドア":"Баруун ард хаалга","右リアフェンダー":"Баруун ард крыло",
+        "左ミラー":"Зүүн толь","右ミラー":"Баруун толь","電動格納":"Цахилгаан хаалт",
+        "前左タイヤ":"Урд зүүн дугуй","前右タイヤ":"Урд баруун дугуй","後左タイヤ":"Ард зүүн дугуй","後右タイヤ":"Ард баруун дугуй",
+        "良":"Сайн","否":"Эвдэрсэн"
+      };
+      let out = s;
+      Object.keys(dict).forEach(k => { out = out.split(k).join(dict[k]); });
+      return out;
+    })(),
+    diagramSvg: (function(){
+      const el = g("panelDiagramSvg");
+      if (!el) return "";
+      return el.outerHTML.replace(/>([^<>$]*?) \/ ([^<>$]*?)</g, ">$2<");
+    })(),
     // 外装
     extScratch: getSelectLabel("extScratch"),
     extScratchPts: getPts("pts_extScratch"),
@@ -4585,6 +4603,11 @@ function printExplainSheet() {
   const gradeColor = gradeColors[grade] || "#333";
 
   // ── 外装減点行ヘルパー ──
+  function mnOnly(s) {
+    if (!s) return s;
+    const i = s.indexOf(" / ");
+    return i === -1 ? s : s.slice(i + 3);
+  }
   function deductRow(label, labelMn, val, pts) {
     const isZero = (pts === "0" || pts === "+0");
     const style = isZero
@@ -4593,8 +4616,8 @@ function printExplainSheet() {
         ? "color:#c62828;font-weight:600;"
         : "color:#2e7d32;font-weight:600;";
     return `<tr>
-      <td style="padding:5px 10px;border-bottom:1px solid #f0f0f0;font-size:12px;">${label}<br><span style="font-size:10px;color:#888;">${labelMn}</span></td>
-      <td style="padding:5px 10px;border-bottom:1px solid #f0f0f0;font-size:12px;color:#333;">${val}</td>
+      <td style="padding:5px 10px;border-bottom:1px solid #f0f0f0;font-size:12px;">${labelMn}</td>
+      <td style="padding:5px 10px;border-bottom:1px solid #f0f0f0;font-size:12px;color:#333;">${mnOnly(val)}</td>
       <td style="padding:5px 10px;border-bottom:1px solid #f0f0f0;font-size:13px;text-align:right;${style}">${pts}</td>
     </tr>`;
   }
@@ -4708,31 +4731,31 @@ function printExplainSheet() {
       <div style="font-size:11px;color:#888;line-height:1.5;">中古車査定説明シート<br>Дээд Моторс — Үнэлгээний тайлбар</div>
     </div>
     <div class="sheet-title">
-      <div>査定説明書 / Үнэлгээний тайлбар</div>
-      <div class="sheet-date">査定日 / Огноо: ${assessDate}&nbsp;&nbsp;&nbsp;担当 / Хариуцагч: ${inspector}</div>
+      <div>Үнэлгээний тайлбар</div>
+      <div class="sheet-date">Огноо: ${assessDate}&nbsp;&nbsp;&nbsp;Хариуцагч: ${inspector}</div>
     </div>
   </div>
 
   <!-- 車両基本情報 -->
   <div class="section">
-    <div class="section-title blue">🚗 車両基本情報 / Тээврийн хэрэгслийн үндсэн мэдээлэл</div>
+    <div class="section-title blue">Тээврийн хэрэгслийн үндсэн мэдээлэл</div>
     <table class="vinfo-table">
-      <tr><td>登録番号 / Улсын дугаар</td><td>${regNum}</td><td>車名 / Марк загвар</td><td>${carName}</td></tr>
-      <tr><td>フル型式 / Бүтэн загвар</td><td>${fullModel}</td><td>グレード / Зэрэглэл</td><td>${carGrade}</td></tr>
-      <tr><td>VIN</td><td>${vinNum}</td><td>エンジン型式 / Хөдөлгүүр</td><td>${engType}</td></tr>
-      <tr><td>排気量 / Багтаамж</td><td>${displacement}</td><td>色 / Өнгө</td><td>${bodyColor}</td></tr>
-      <tr><td>生産年月 / Үйлдвэрлэсэн</td><td>${mfgDate}</td><td>MN輸入年月 / Оруулсан</td><td>${mnImport}</td></tr>
+      <tr><td>Улсын дугаар</td><td>${regNum}</td><td>Марк загвар</td><td>${carName}</td></tr>
+      <tr><td>Бүтэн загвар</td><td>${fullModel}</td><td>Зэрэглэл</td><td>${carGrade}</td></tr>
+      <tr><td>VIN</td><td>${vinNum}</td><td>Хөдөлгүүр</td><td>${engType}</td></tr>
+      <tr><td>Багтаамж</td><td>${displacement}</td><td>Өнгө</td><td>${bodyColor}</td></tr>
+      <tr><td>Үйлдвэрлэсэн</td><td>${mfgDate}</td><td>Оруулсан</td><td>${mnImport}</td></tr>
     </table>
   </div>
 
   <!-- 走行距離 + グレード -->
   <div class="info-grid-2col" style="margin-bottom:14px;">
     <div class="info-box">
-      <div class="info-box-label">走行距離 / Явсан зам</div>
+      <div class="info-box-label">Явсан зам</div>
       <div class="info-box-val">${mileage ? Number(mileage).toLocaleString() + " km" : "—"}</div>
     </div>
     <div class="info-box">
-      <div class="info-box-label">MN輸入年月 / Оруулсан он сар</div>
+      <div class="info-box-label">Оруулсан он сар</div>
       <div class="info-box-val">${mnImport}</div>
     </div>
   </div>
@@ -4741,46 +4764,43 @@ function printExplainSheet() {
   <div class="grade-banner" style="margin-bottom:14px;">
     <div class="grade-circle" style="background:${gradeColor};">${grade}</div>
     <div class="grade-info">
-      <div class="grade-label">査定グレード / Үнэлгээний зэрэглэл</div>
+      <div class="grade-label">Үнэлгээний зэрэглэл</div>
       <div class="grade-score">${score} <span style="font-size:16px;color:#888;">/ 100点</span></div>
       <div class="score-bar-wrap">
         <div class="score-bar-bg"><div class="score-bar-fill" style="width:${score}%;background:${gradeColor};"></div></div>
       </div>
-      <div class="grade-sub">
-        減点計 / Нийт хасалт: <strong style="color:#c62828;">${deduct}</strong>　
-        加点計 / Нийт нэмэлт: <strong style="color:#2e7d32;">${added}</strong>
+      <div class="grade-sub">Нийт хасалт: <strong style="color:#c62828;">${deduct}</strong>Нийт нэмэлт: <strong style="color:#2e7d32;">${added}</strong>
       </div>
     </div>
   </div>
 
   <!-- 修復歴 -->
   <div class="section">
-    <div class="section-title" style="background:${items.rHist.includes("重大") ? "#c62828" : items.rHist.includes("軽微") ? "#b45309" : "#37474f"};">
-      ⚠️ 修復歴 / Засварын түүх（最優先評価）
+    <div class="section-title" style="background:${items.rHist.includes("重大") ? "#c62828" : items.rHist.includes("軽微") ? "#b45309" : "#37474f"};">Засварын түүх（最優先評価）
     </div>
     <div class="hist-box" style="border-color:${items.rHist.includes("重大") ? "#c62828" : items.rHist.includes("軽微") ? "#e65100" : "#43a047"};color:${items.rHist.includes("重大") ? "#c62828" : items.rHist.includes("軽微") ? "#e65100" : "#2e7d32"};background:${items.rHist.includes("重大") ? "#ffebee" : items.rHist.includes("軽微") ? "#fff8e1" : "#e8f5e9"};">
-      ${items.rHist}
+      ${mnOnly(items.rHist)}
     </div>
-    <div style="font-size:11px;color:#666;padding:6px 2px 0;">該当箇所 / Байршил: ${items.rHistParts}</div>
+    <div style="font-size:11px;color:#666;padding:6px 2px 0;">Байршил: ${items.rHistParts}</div>
   </div>
 
   <!-- 追加チェック項目 -->
   <div class="section">
-    <div class="section-title blue">📝 追加チェック項目 / Нэмэлт шалгах зүйлс</div>
+    <div class="section-title blue">Нэмэлт шалгах зүйлс</div>
     <table>
-      <tr><th>評価項目 / Үнэлгээний зүйл</th><th>状態 / Байдал</th><th style="text-align:right;width:80px;">減点 / Хасалт</th></tr>
+      <tr><th>Үнэлгээний зүйл</th><th>Байдал</th><th style="text-align:right;width:80px;">Хасалт</th></tr>
       ${deductRow("前所有者使用歴","Өмнөх ашиглалт", items.usageHist, items.usageHistPts)}
       ${deductRow("喫煙・臭い","Тамхи, үнэр", items.intSmoke, items.intSmokePts)}
       ${deductRow("オドメーター整合性","Гүйлтийн заалтын нийцэл", items.odoCheck, items.odoCheckPts)}
     </table>
     <div style="border:1px solid #e0e0e0;border-top:none;border-radius:0 0 5px 5px;padding:8px 12px;font-size:12px;color:#333;">
-      <strong>特記事項 / Нэмэлт тэмдэглэл:</strong> ${items.freeNotes === "—" || !items.freeNotes ? "（なし）" : items.freeNotes}
+      <strong>Нэмэлт тэмдэглэл:</strong> ${items.freeNotes === "—" || !items.freeNotes ? "（なし）" : items.freeNotes}
     </div>
   </div>
 
   <!-- 損傷位置図 -->
   <div class="section">
-    <div class="section-title blue">🖼️ 損傷位置図 / Гэмтлийн байршлын зураг</div>
+    <div class="section-title blue">Гэмтлийн байршлын зураг</div>
     <div style="border:1px solid #e0e0e0;border-top:none;border-radius:0 0 5px 5px;padding:10px 12px;">
       ${items.diagramSvg}
       <div style="font-size:12px;color:#333;margin-top:8px;"><strong>記録内容:</strong> ${items.diagramSummary}</div>
@@ -4790,9 +4810,9 @@ function printExplainSheet() {
   <!-- 外装評価・内装評価（横並び） -->
   <div class="section-row">
     <div class="section" style="flex:1.4;">
-      <div class="section-title ext">🔎 外装評価 / Гадаад байдлын үнэлгээ</div>
+      <div class="section-title ext">Гадаад байдлын үнэлгээ</div>
       <table>
-        <tr><th>評価項目 / Үнэлгээний зүйл</th><th>状態 / Байдал</th><th style="text-align:right;width:60px;">減点</th></tr>
+        <tr><th>Үнэлгээний зүйл</th><th>Байдал</th><th style="text-align:right;width:60px;">減点</th></tr>
         ${deductRow("傷（Aシンボル）","Зураас (A тэмдэг)", items.extScratch, items.extScratchPts)}
         ${deductRow("へこみ（Uシンボル）","Хонхор (U тэмдэг)", items.extDent, items.extDentPts)}
         ${deductRow("ホイール損傷","Дугуй обуд", items.extWheel, items.extWheelPts)}
@@ -4804,7 +4824,7 @@ function printExplainSheet() {
       </table>
     </div>
     <div class="section" style="flex:1;">
-      <div class="section-title int">🪑 内装評価 / Дотоод байдлын үнэлгээ</div>
+      <div class="section-title int">Дотоод байдлын үнэлгээ</div>
       <table>
         <tr><th>評価項目</th><th>状態</th><th style="text-align:right;width:50px;">減点</th></tr>
         ${deductRow("サロン内装状態","Салоны байдал", items.intSalon, items.intSalonPts)}
@@ -4816,9 +4836,9 @@ function printExplainSheet() {
   <!-- メカニカル評価・装備加点（横並び） -->
   <div class="section-row">
     <div class="section" style="flex:1.4;">
-      <div class="section-title mec">⚙️ メカニカル評価 / Механик үнэлгээ</div>
+      <div class="section-title mec">Механик үнэлгээ</div>
       <table>
-        <tr><th>評価項目 / Үнэлгээний зүйл</th><th>状態 / Байдал</th><th style="text-align:right;width:60px;">減点</th></tr>
+        <tr><th>Үнэлгээний зүйл</th><th>Байдал</th><th style="text-align:right;width:60px;">減点</th></tr>
         ${deductRow("エンジン状態","Хөдөлгүүрийн байдал", items.mecEngine, items.mecEnginePts)}
         ${deductRow("下回り（オイル漏れ等）","Доорх хэсэг", items.mecUnder, items.mecUnderPts)}
         ${deductRow("排気ガス漏れ","Яндангийн хий алдах", items.mecExhaust, items.mecExhaustPts)}
@@ -4832,7 +4852,7 @@ function printExplainSheet() {
       </table>
     </div>
     <div class="section" style="flex:1;">
-      <div class="section-title eq">✨ 装備加点 / Тоноглолын нэмэлт оноо</div>
+      <div class="section-title eq">Тоноглолын нэмэлт оноо</div>
       <table>
         <tr><th>装備</th><th>内容</th><th style="text-align:right;width:50px;">加点</th></tr>
         ${deductRow("サンルーフ","Нарны дээвэр", items.eqSunroof, items.eqSunroofPts)}
@@ -4845,20 +4865,20 @@ function printExplainSheet() {
   <!-- 査定価格算出 -->
   <div class="price-banner">
     <div class="price-main">
-      <div class="price-main-label">📋 DEED MOTORS 査定参考価格 / Үнэлгээний лавлах үнэ</div>
+      <div class="price-main-label">Үнэлгээний лавлах үнэ</div>
       <div class="price-main-val">${tiPrice}</div>
     </div>
     <div class="price-stats">
       <div class="price-stat">
-        <div class="price-stat-label">市場平均価格 / Зах зээлийн дундаж</div>
+        <div class="price-stat-label">Зах зээлийн дундаж</div>
         <div class="price-stat-val">${rcMktAvg}</div>
       </div>
       <div class="price-stat">
-        <div class="price-stat-label">グレード係数 / Зэрэглэлийн итгэлцүүр</div>
+        <div class="price-stat-label">Зэрэглэлийн итгэлцүүр</div>
         <div class="price-stat-val">${rcCoeff}</div>
       </div>
       <div class="price-stat">
-        <div class="price-stat-label">算出式 / Томъёо</div>
+        <div class="price-stat-label">Томъёо</div>
         <div class="price-stat-val">${rcFormula}</div>
       </div>
     </div>
@@ -4866,21 +4886,20 @@ function printExplainSheet() {
 
   <!-- 価格説明 -->
   <div style="background:#fff8e1;border:1px solid #ffe082;border-radius:7px;padding:10px 14px;margin-bottom:16px;font-size:12px;color:#6d4c00;line-height:1.7;">
-    <strong>査定価格の算出方法 / Үнэ тооцоолох арга:</strong><br>
+    <strong>Үнэ тооцоолох арга:</strong><br>
     UNEGUI.MN市場データの同一車種平均価格をベースに、査定スコア（基準80点）からの偏差をもとに加減算して算出しています。スコア1点の差が市場平均の0.5%に相当します。<br>
     <span style="font-size:10px;color:#888;">市場価格 × スコア調整率 = 査定参考価格。実際の成約価格は状況により変動します。</span>
   </div>
 
   <!-- フッター -->
   <div class="footer">
-    <div>DEED MOTORS — Дээд Моторс　査定説明シート / Үнэлгээний тайлбар</div>
-    <div>査定日 / Огноо: ${assessDate}　担当 / Хариуцагч: ${inspector}</div>
+    <div>Үнэлгээний тайлбар</div>
+    <div>Огноо: ${assessDate}　Хариуцагч: ${inspector}</div>
   </div>
 
   <!-- 印刷ボタン（印刷時は非表示） -->
   <div class="no-print" style="text-align:center;margin-top:20px;">
-    <button onclick="window.print()" style="padding:10px 30px;background:#003087;color:#fff;border:none;border-radius:7px;font-size:14px;font-weight:700;cursor:pointer;margin-right:10px;">
-      🖨️ このシートを印刷 / Хэвлэх
+    <button onclick="window.print()" style="padding:10px 30px;background:#003087;color:#fff;border:none;border-radius:7px;font-size:14px;font-weight:700;cursor:pointer;margin-right:10px;">Хэвлэх
     </button>
     <button onclick="window.close()" style="padding:10px 20px;background:#f5f5f5;color:#333;border:1px solid #ccc;border-radius:7px;font-size:14px;cursor:pointer;">
       ✕ 閉じる
