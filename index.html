@@ -480,10 +480,10 @@ input[type=number]::placeholder {
           <title>車両展開図（上から見た図）</title>
           <desc>車体13パネルと左右ミラーの損傷位置を記録する図</desc>
           <rect x="165" y="55" width="350" height="325" rx="40" fill="#fafafa" stroke="#bbb" stroke-width="1"/>
-          <text x="340" y="45" text-anchor="middle" style="font-size:12px;fill:#888;">前 / フロント</text>
-          <text x="340" y="418" text-anchor="middle" style="font-size:12px;fill:#888;">後 / リア</text>
-          <text x="105" y="95" text-anchor="middle" style="font-size:14px;fill:#555;font-weight:700;">左</text>
-          <text x="575" y="95" text-anchor="middle" style="font-size:14px;fill:#555;font-weight:700;">右</text>
+          <text x="340" y="45" text-anchor="middle" style="font-size:12px;fill:#888;">Урд</text>
+          <text x="340" y="418" text-anchor="middle" style="font-size:12px;fill:#888;">Ард</text>
+          <text x="105" y="95" text-anchor="middle" style="font-size:14px;fill:#555;font-weight:700;">Зүүн</text>
+          <text x="575" y="95" text-anchor="middle" style="font-size:14px;fill:#555;font-weight:700;">Баруун</text>
           <circle cx="140" cy="130" r="22" fill="#ccc"/>
           <circle cx="540" cy="130" r="22" fill="#ccc"/>
           <circle cx="140" cy="300" r="22" fill="#ccc"/>
@@ -3868,10 +3868,10 @@ function getS(id){ return parseInt(document.getElementById(id).value)||0; }
 
 // ── 損傷位置図 ──
 const diagramColors = {A:"#378ADD",U:"#EF9F27",S:"#D85A30",W:"#7F77DD",X:"#E24B4A",P:"#1D9E75",C:"#888780"};
-const diagramNames = {dz1:"前バンパー",dz2:"ボンネット",dz3:"ルーフ",dz4:"トランク",dz5:"後バンパー",
-  dz6:"左フロントフェンダー",dz7:"左フロントドア",dz8:"左リアドア",dz9:"左リアフェンダー",
-  dz10:"右フロントフェンダー",dz11:"右フロントドア",dz12:"右リアドア",dz13:"右リアフェンダー",
-  dz14:"左ミラー",dz15:"右ミラー"};
+const diagramNames = {dz1:"Урд бампер",dz2:"Капот",dz3:"Дээвэр",dz4:"Ачааны тасалгаа",dz5:"Хойд бампер",
+  dz6:"Зүүн урд буслуур",dz7:"Зүүн урд хаалга",dz8:"Зүүн хойд хаалга",dz9:"Зүүн хойд буслуур",
+  dz10:"Баруун урд буслуур",dz11:"Баруун урд хаалга",dz12:"Баруун хойд хаалга",dz13:"Баруун хойд буслуур",
+  dz14:"Зүүн толь",dz15:"Баруун толь"};
 const diagramZoneNum = {dz1:"1",dz2:"2",dz3:"3",dz4:"4",dz5:"5",dz6:"6",dz7:"7",dz8:"8",dz9:"9",dz10:"10",dz11:"11",dz12:"12",dz13:"13",dz14:"L",dz15:"R"};
 const diagramState = {};
 Object.keys(diagramNames).forEach(k=>diagramState[k]=[]);
@@ -4794,7 +4794,7 @@ function printExplainSheet() {
       ${deductRow("オドメーター整合性","Гүйлтийн заалтын нийцэл", items.odoCheck, items.odoCheckPts)}
     </table>
     <div style="border:1px solid #e0e0e0;border-top:none;border-radius:0 0 5px 5px;padding:8px 12px;font-size:12px;color:#333;">
-      <strong>Нэмэлт тэмдэглэл:</strong> ${items.freeNotes === "—" || !items.freeNotes ? "（なし）" : items.freeNotes}
+      <strong>Нэмэлт тэмдэглэл:</strong> ${items.freeNotes === "—" || !items.freeNotes ? "(Байхгүй)" : items.freeNotes}
     </div>
   </div>
 
@@ -4812,7 +4812,7 @@ function printExplainSheet() {
     <div class="section" style="flex:1.4;">
       <div class="section-title ext">Гадаад байдлын үнэлгээ</div>
       <table>
-        <tr><th>Үнэлгээний зүйл</th><th>Байдал</th><th style="text-align:right;width:60px;">減点</th></tr>
+        <tr><th>Үнэлгээний зүйл</th><th>Байдал</th><th style="text-align:right;width:70px;">Хасалт</th></tr>
         ${deductRow("傷（Aシンボル）","Зураас (A тэмдэг)", items.extScratch, items.extScratchPts)}
         ${deductRow("へこみ（Uシンボル）","Хонхор (U тэмдэг)", items.extDent, items.extDentPts)}
         ${deductRow("ホイール損傷","Дугуй обуд", items.extWheel, items.extWheelPts)}
@@ -4826,7 +4826,7 @@ function printExplainSheet() {
     <div class="section" style="flex:1;">
       <div class="section-title int">Дотоод байдлын үнэлгээ</div>
       <table>
-        <tr><th>評価項目</th><th>状態</th><th style="text-align:right;width:50px;">減点</th></tr>
+        <tr><th>Үнэлгээний зүйл</th><th>Байдал</th><th style="text-align:right;width:60px;">Хасалт</th></tr>
         ${deductRow("サロン内装状態","Салоны байдал", items.intSalon, items.intSalonPts)}
         ${deductRow("シート破れ","Суудал урагдсан", items.intSeatTear, items.intSeatTearPts)}
       </table>
@@ -4838,7 +4838,7 @@ function printExplainSheet() {
     <div class="section" style="flex:1.4;">
       <div class="section-title mec">Механик үнэлгээ</div>
       <table>
-        <tr><th>Үнэлгээний зүйл</th><th>Байдал</th><th style="text-align:right;width:60px;">減点</th></tr>
+        <tr><th>Үнэлгээний зүйл</th><th>Байдал</th><th style="text-align:right;width:70px;">Хасалт</th></tr>
         ${deductRow("エンジン状態","Хөдөлгүүрийн байдал", items.mecEngine, items.mecEnginePts)}
         ${deductRow("下回り（オイル漏れ等）","Доорх хэсэг", items.mecUnder, items.mecUnderPts)}
         ${deductRow("排気ガス漏れ","Яндангийн хий алдах", items.mecExhaust, items.mecExhaustPts)}
@@ -4854,7 +4854,7 @@ function printExplainSheet() {
     <div class="section" style="flex:1;">
       <div class="section-title eq">Тоноглолын нэмэлт оноо</div>
       <table>
-        <tr><th>装備</th><th>内容</th><th style="text-align:right;width:50px;">加点</th></tr>
+        <tr><th>Тоноглол</th><th>Агуулга</th><th style="text-align:right;width:60px;">Нэмэлт</th></tr>
         ${deductRow("サンルーフ","Нарны дээвэр", items.eqSunroof, items.eqSunroofPts)}
         ${deductRow("シート素材","Суудлын материал", items.eqSeat, items.eqSeatPts)}
         ${deductRow("カメラ","Камер", items.eqCamera, items.eqCameraPts)}
@@ -4912,6 +4912,9 @@ function printExplainSheet() {
 
   // 新しいウィンドウで開く
   const win = window.open("", "_blank", "width=900,height=1000,scrollbars=yes");
+  // 説明シートはモンゴル人顧客向けのため、日本語／モンゴル語併記部分の日本語側を自動除去し、モンゴル語のみを残す
+  html = html.replace(/[^<>]*[一-龠ぁ-ゖァ-ヶー][^<>]*\/([^<>]*)/g, function(m, mn){ return mn.trim(); });
+  html = html.replace(/点(?=[\s\)<])/g, "");
   win.document.open();
   win.document.write(html);
   win.document.close();
