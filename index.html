@@ -4693,32 +4693,30 @@ function printExplainSheet() {
   /* 印刷 — A4最適化（読みやすさ優先：文字を大きく、セクション単位で改ページ） */
   @media print {
     .no-print { display:none !important; }
-    body { print-color-adjust:exact; -webkit-print-color-adjust:exact; font-size:11px; }
-    .page { max-width:100%; padding:6mm 8mm; }
-    .sheet-header { padding-bottom:6px; margin-bottom:8px; }
-    .sheet-header img { height:30px !important; }
-    .grade-banner { padding:6px 12px; margin-bottom:5px; }
-    .grade-circle { width:44px !important; height:44px !important; font-size:19px !important; }
-    .grade-score { font-size:19px !important; }
-    .price-banner { padding:7px 14px; margin-bottom:5px; }
-    .price-main-val { font-size:21px !important; }
-    .price-stat { padding:4px 10px; min-width:78px; }
-    .price-stat-val { font-size:12px !important; }
-    .section { margin-bottom:5px; }
-    .section-row { margin-bottom:5px; gap:6px; }
-    .section-title { padding:3px 8px; font-size:10px; }
-    table th, table td { padding:3px 7px !important; font-size:10.5px !important; }
-    .vinfo-table td { padding:3px 10px !important; font-size:10.5px !important; }
-    .info-grid-2col { margin-bottom:8px !important; }
-    .info-box { padding:6px 12px; }
-    .info-box-label { font-size:10px; }
-    .info-box-val { font-size:13px; }
-    .hist-box { padding:7px 12px; font-size:13px; }
-    .footer { margin-top:4px; padding-top:3px; font-size:9px; }
-    div[style*="background:#fff8e1"] { padding:6px 10px !important; font-size:10px !important; margin-bottom:6px !important; }
-    /* 損傷位置図: 印刷では図を縮小してページ消費を抑える */
-    #panelDiagramSvg { max-width:300px !important; width:300px !important; height:auto !important; display:block; margin:0 auto; }
-    /* セクションの途中で改ページされないよう、ブロック単位で次ページへ送る */
+    body { print-color-adjust:exact; -webkit-print-color-adjust:exact; font-size:14px; }
+    .page { max-width:100%; padding:8mm 10mm; }
+    .sheet-header { padding-bottom:8px; margin-bottom:10px; }
+    .sheet-header img { height:38px !important; }
+    .grade-banner { padding:10px 16px; margin-bottom:8px; }
+    .grade-circle { width:60px !important; height:60px !important; font-size:26px !important; }
+    .grade-score { font-size:26px !important; }
+    .price-banner { padding:12px 18px; margin-bottom:8px; }
+    .price-main-val { font-size:32px !important; }
+    .price-stat { padding:8px 14px; min-width:96px; }
+    .price-stat-val { font-size:16px !important; }
+    .section { margin-bottom:10px; }
+    .section-row { margin-bottom:10px; gap:10px; }
+    .section-title { padding:7px 12px; font-size:13px; }
+    table th, table td { padding:7px 12px !important; font-size:13px !important; }
+    .vinfo-table td { padding:7px 12px !important; font-size:13px !important; }
+    .info-grid-2col { margin-bottom:10px !important; }
+    .info-box { padding:8px 14px; }
+    .info-box-label { font-size:11px; }
+    .info-box-val { font-size:15px; }
+    .hist-box { padding:9px 14px; font-size:15px; }
+    .footer { margin-top:6px; padding-top:5px; font-size:11px; }
+    div[style*="background:#fff8e1"] { padding:8px 12px !important; font-size:12px !important; margin-bottom:8px !important; }
+    #panelDiagramSvg { max-width:380px !important; width:380px !important; height:auto !important; display:block; margin:0 auto; }
     .section, .section-row, .grade-banner, .price-banner, .info-grid-2col, .hist-box, table, .vinfo-table {
       page-break-inside: avoid; break-inside: avoid;
     }
