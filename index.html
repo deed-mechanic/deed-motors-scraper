@@ -4909,7 +4909,7 @@ function printExplainSheet() {
   // 新しいウィンドウで開く
   const win = window.open("", "_blank", "width=900,height=1000,scrollbars=yes");
   // 説明シートはモンゴル人顧客向けのため、日本語／モンゴル語併記部分の日本語側を自動除去し、モンゴル語のみを残す
-  html = html.replace(/[^<>]*[一-龠ぁ-ゖァ-ヶー][^<>]*\/([^<>]*)/g, function(m, mn){ return mn.trim(); });
+  html = html.replace(/(<style[\s\S]*?<\/style>)|(<script[\s\S]*?<\/script>)|([^<>]*[一-龠ぁ-ゖァ-ヶー][^<>]*\/([^<>]*))/g, function(m, styleBlock, scriptBlock, fullMatch, mn){ if (styleBlock || scriptBlock) return m; return mn.trim(); });
   html = html.replace(/点(?=[\s\)<])/g, "");
   win.document.open();
   win.document.write(html);
