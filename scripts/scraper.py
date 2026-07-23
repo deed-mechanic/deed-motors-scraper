@@ -27,12 +27,12 @@ TARGETS = [
     {"key": "toyota|c-hr",                "url": "toyota/chr", "chr_drive_fix": True},
     # Harrier: UNEGUI.MN側は toyota/harrier の1URLに60系・80系が混在しているため、
     # ここで取得したのち年式・タイトルで60系ガソリン/60系HV/80系の3区分に自動振り分けする
-    {"key": "toyota|harrier",                "url": "toyota/harrier", "harrier_split": True},
-    {"key": "toyota|land-cruiser-200", "url": "toyota/land-cruiser-200", "year_min": 2007, "year_max": 2021},
-    {"key": "toyota|land-cruiser-100", "url": "toyota/land-cruiser-100", "year_min": 1998, "year_max": 2007},
-    {"key": "toyota|land-cruiser-prado-150", "url": "toyota/land-cruiser-prado-150", "year_min": 2009, "year_max": 2024},
-    {"key": "toyota|land-cruiser-prado-120", "url": "toyota/land-cruiser-prado-120", "year_min": 2002, "year_max": 2009},
-    {"key": "toyota|land-cruiser-prado-250", "url": "toyota/land-cruiser-prado-250", "year_min": 2024},
+    {"key": "toyota|harrier",                "url": "toyota/harrier", "harrier_split": True, "detail_fetch": True},
+    {"key": "toyota|land-cruiser-200", "url": "toyota/land-cruiser-200", "year_min": 2007, "year_max": 2021, "force_4wd": True},
+    {"key": "toyota|land-cruiser-100", "url": "toyota/land-cruiser-100", "year_min": 1998, "year_max": 2007, "force_4wd": True},
+    {"key": "toyota|land-cruiser-prado-150", "url": "toyota/land-cruiser-prado-150", "year_min": 2009, "year_max": 2024, "force_4wd": True},
+    {"key": "toyota|land-cruiser-prado-120", "url": "toyota/land-cruiser-prado-120", "year_min": 2002, "year_max": 2009, "force_4wd": True},
+    {"key": "toyota|land-cruiser-prado-250", "url": "toyota/land-cruiser-prado-250", "year_min": 2024, "force_4wd": True},
     {"key": "toyota|alphard-30", "url": "toyota/alphard", "alphard_split": True},
     {"key": "toyota|vellfire-30", "url": "toyota/vellfire", "vellfire_split": True},
     {"key": "toyota|prius-30", "url": "toyota/prius-30", "year_min": 2009, "year_max": 2015},
@@ -40,9 +40,9 @@ TARGETS = [
     {"key": "toyota|prius-60", "url": "toyota/prius-60", "year_min": 2023},
     {"key": "toyota|prius-41", "url": "toyota/prius-40", "year_min": 2009, "year_max": 2015},
     {"key": "toyota|aqua", "url": "toyota/aqua", "year_min": 2011},
-    {"key": "toyota|rav4-50", "url": "toyota/rav4", "rav4_split": True},
+    {"key": "toyota|rav4-50", "url": "toyota/rav4", "rav4_split": True, "detail_fetch": True},
     {"key": "toyota|camry-70", "url": "toyota/camry", "camry_split": True},
-    {"key": "toyota|corolla-axio", "url": "toyota/corolla", "year_min": 2006, "year_max": 2019},
+    {"key": "toyota|corolla-axio", "url": "toyota/corolla", "year_min": 2006, "year_max": 2019, "detail_fetch": True},
     {"key": "toyota|hiace-200", "url": "toyota/hiace", "year_min": 2004},
     {"key": "toyota|highlander", "url": "toyota/highlander", "year_min": 2013},
     {"key": "toyota|fortuner", "url": "toyota/fortuner", "year_min": 2015},
@@ -275,6 +275,24 @@ def classify_rav4_key(year, title=""):
     """
     return "toyota|rav4-40" if year < 2018 else "toyota|rav4-50"
 
+def fetch_detail_drive(url, retries=2):
+    """detail_fetch フラグの車種のみ、詳細ページの「Хөтлөгч」欄から
+    正確な駆動方式(2WD/4WD)を取得する。一覧ページのカードには
+    駆動方式の記載がほぼ無いため、1件ずつ詳細ページを開いて確認する。
+    """
+    html = fetch(url, retries=retries)
+    if not html:
+        return None
+    m = re.search(r'key-chars">\s*Хөтлөгч:\s*</span>\s*<a[^>]*class="value-chars"[^>]*>([^<]+)</a>', html)
+    if not m:
+        return None
+    val = m.group(1).upper()
+    if "4WD" in val or "БҮХ ДУГУЙТ" in val or "AWD" in val:
+        return "4WD"
+    if "FWD" in val or "УРДАА" in val or "2WD" in val:
+        return "2WD"
+    return None
+
 def fetch(url, retries=3):
     for i in range(retries):
         try:
@@ -327,12 +345,21 @@ def parse_card(card):
     m2 = re.search(r"([\d,]+)\s*(?:км|km)", full, re.IGNORECASE)
     if m2: mileage = f"{int(m2.group(1).replace(',','')):,} km"
 
+    # 詳細ページURL（駆動方式の正確な取得が必要な車種のみ使用、最終保存前に除去される）
+    href = None
+    link_el = card.select_one("a[href*='/adv/']")
+    if link_el:
+        href = link_el.get("href")
+        if href and href.startswith("/"):
+            href = BASE_URL + href
+
     return {"year":year,"drive":drive,"mileage":mileage,
             "color":parse_color(full),
             "import_year":datetime.now().year,
             "price":round(price,1),
             "_title": title_text or full[:80],
-            "_fulltext": full}
+            "_fulltext": full,
+            "_href": href}
 
 def parse_page(html):
     soup = BeautifulSoup(html, "lxml")
@@ -415,6 +442,30 @@ def scrape_one(target):
         skipped = before - len(results)
         if skipped:
             log.info(f"  [{key}] 年式範囲外を除外: {skipped}件（範囲: {ymin}-{ymax}）")
+
+    # 全車4WD固定（Land Cruiser・Prado等、2WD設定が存在しない車種向け）
+    if target.get("force_4wd"):
+        for item in results:
+            item["drive"] = "4WD"
+        log.info(f"  [{key}] 全件4WD固定")
+
+    # 詳細ページから正確な駆動方式を取得（一覧ページに記載が無い車種向け）
+    if target.get("detail_fetch"):
+        fixed = 0
+        for item in results:
+            href = item.pop("_href", None)
+            if not href:
+                continue
+            real_drive = fetch_detail_drive(href)
+            if real_drive:
+                item["drive"] = real_drive
+                fixed += 1
+            time.sleep(1.5)
+        log.info(f"  [{key}] 詳細ページから駆動方式取得: {fixed}/{len(results)}件")
+    else:
+        for item in results:
+            item.pop("_href", None)
+
     log.info(f"  [{key}] 計{len(results)}件")
     return results
 
