@@ -4696,7 +4696,7 @@ function printExplainSheet() {
     body { print-color-adjust:exact; -webkit-print-color-adjust:exact; font-size:14px; }
     .page { max-width:100%; padding:8mm 10mm; }
     .sheet-header { padding-bottom:8px; margin-bottom:10px; }
-    .sheet-header img { height:38px !important; }
+    .sheet-header img { height:46px !important; }
     .grade-banner { padding:10px 16px; margin-bottom:8px; }
     .grade-circle { width:60px !important; height:60px !important; font-size:26px !important; }
     .grade-score { font-size:26px !important; }
@@ -4716,12 +4716,13 @@ function printExplainSheet() {
     .hist-box { padding:9px 14px; font-size:15px; }
     .footer { margin-top:6px; padding-top:5px; font-size:11px; }
     div[style*="background:#fff8e1"] { padding:8px 12px !important; font-size:12px !important; margin-bottom:8px !important; }
-    #panelDiagramSvg { max-width:380px !important; width:380px !important; height:auto !important; display:block; margin:0 auto; }
+    #panelDiagramSvg { max-width:440px !important; width:440px !important; height:auto !important; display:block; margin:0 auto; }
     .section, .section-row, .grade-banner, .price-banner, .info-grid-2col, .hist-box, table, .vinfo-table {
       page-break-inside: avoid; break-inside: avoid;
     }
     .section-title { page-break-after: avoid; break-after: avoid; }
-    @page { size:A4 portrait; margin:8mm 8mm 10mm 8mm; }
+    @page { size:A4 portrait; margin:14mm 8mm 10mm 8mm; }
+    @page :first { margin-top:8mm; }
   }
 </style>
 </head>
