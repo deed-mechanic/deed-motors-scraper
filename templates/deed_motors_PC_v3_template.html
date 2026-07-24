@@ -577,6 +577,10 @@ input[type=number]::placeholder {
           </div>
         </div>
       </div>
+      <div style="margin-top:8px;display:flex;align-items:center;gap:6px;">
+        <span style="font-size:11px;color:#888;">為替レート JPY→MNT</span>
+        <input type="number" id="jpyMntRate" value="22.1" step="0.1" oninput="calc()" style="width:70px;padding:4px 6px;border:1.5px solid #e0e0e0;border-radius:6px;font-size:12px;">
+      </div>
       <div id="jpMileageResult" style="margin-top:6px;font-size:11px;color:#888;"></div>
     </div>
 
@@ -3891,6 +3895,44 @@ function setR(key, el, val) {
   calc();
 }
 
+// ── JAAI（日本自動車査定協会）表2：乗用車・ワゴン・オフロードタイプ Ⅱ・Ⅲクラス ──
+// 走行距離(千km)×使用経過月数 の基本価格に対する加減率(%)表（画像より転記）
+const JAAI_COLS = [4,8,12,16,20,24,28,32,36,40,44,48,54,60,66,72,78,84,90,96,102,108,114,120,999];
+const JAAI_ROWS = [
+  [5, [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,23]],
+  [10, [-3,-2,0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,21]],
+  [15, [-5,-4,-3,0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21]],
+  [20, [-7,-6,-5,-3,0,0,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,19,19]],
+  [25, [-9,-8,-7,-5,-4,-3,0,0,3,4,5,6,7,8,9,10,11,12,13,14,15,16,16,16,16]],
+  [30, [-11,-10,-9,-7,-6,-5,-4,-3,0,0,3,4,5,6,7,8,9,10,11,12,13,13,13,13,13]],
+  [35, [-13,-12,-11,-9,-8,-7,-6,-5,-4,-3,0,0,3,4,5,6,7,8,9,10,11,11,11,11,11]],
+  [40, [-15,-14,-13,-11,-10,-9,-8,-7,-6,-5,-4,-3,0,0,4,5,6,7,8,9,10,11,11,11,11]],
+  [45, [-17,-16,-15,-13,-12,-11,-10,-9,-8,-7,-6,-5,-4,0,0,4,6,7,8,9,10,10,10,10,10]],
+  [50, [-19,-18,-17,-15,-14,-13,-11,-10,-9,-8,-7,-6,-5,-3,0,0,5,6,7,7,7,7,7,7,7]],
+  [55, [-21,-20,-19,-17,-16,-15,-14,-13,-12,-10,-9,-8,-7,-5,-3,0,2,5,6,7,7,7,7,7,7]],
+  [60, [-25,-24,-23,-21,-20,-19,-17,-16,-15,-14,-13,-11,-10,-9,-7,-6,-4,-3,0,3,4,5,5,5,5]],
+  [65, [-25,-24,-23,-21,-20,-19,-18,-17,-15,-14,-13,-12,-11,-9,-7,-6,-5,-3,0,0,0,0,0,0,0]],
+  [70, [-27,-26,-25,-23,-21,-20,-19,-17,-16,-15,-14,-13,-11,-9,-8,-7,-6,-5,-3,0,0,0,0,0,0]],
+  [75, [-29,-28,-27,-25,-24,-23,-22,-20,-19,-17,-16,-15,-13,-12,-10,-9,-8,-7,-5,-3,0,0,0,0,0]],
+  [80, [-31,-30,-29,-27,-26,-25,-24,-22,-21,-19,-18,-17,-16,-15,-13,-12,-11,-10,-7,-5,-3,-2,0,0,0]],
+  [90, [-37,-36,-35,-33,-32,-31,-30,-28,-27,-25,-24,-23,-21,-20,-19,-18,-16,-15,-14,-13,-9,-7,-5,-3,0]],
+  [100, [-42,-41,-40,-38,-37,-36,-34,-33,-32,-31,-29,-28,-27,-26,-25,-23,-22,-20,-19,-18,-14,-11,-8,-6,0]],
+  [110, [-47,-46,-45,-43,-41,-40,-39,-38,-37,-35,-34,-33,-31,-29,-28,-27,-25,-23,-21,-20,-19,-16,-14,-11,-8]],
+  [120, [-52,-51,-50,-48,-47,-46,-44,-43,-42,-40,-39,-38,-36,-35,-33,-32,-30,-28,-27,-26,-24,-22,-20,-18,-16]],
+  [130, [-57,-56,-55,-53,-52,-51,-49,-48,-47,-45,-44,-43,-41,-39,-38,-36,-35,-33,-32,-30,-28,-27,-25,-24,-22]],
+  [140, [-57,-56,-55,-53,-52,-51,-49,-48,-47,-45,-44,-43,-41,-39,-38,-36,-35,-33,-32,-30,-28,-27,-25,-24,-22]],
+  [999, [-60,-60,-60,-60,-60,-60,-60,-60,-60,-60,-60,-60,-60,-60,-60,-60,-60,-60,-60,-60,-60,-60,-60,-60,-58]]
+];
+function jaaiLookup(mileageKm, months){
+  const kmThousand = mileageKm / 1000;
+  let row = null;
+  for (let i = 0; i < JAAI_ROWS.length; i++) { if (kmThousand <= JAAI_ROWS[i][0]) { row = JAAI_ROWS[i]; break; } }
+  if (!row) row = JAAI_ROWS[JAAI_ROWS.length - 1];
+  let colIdx = JAAI_COLS.length - 1;
+  for (let i = 0; i < JAAI_COLS.length; i++) { if (months <= JAAI_COLS[i]) { colIdx = i; break; } }
+  return row[1][colIdx];
+}
+let jaaiRateGlobal = 0;
 let plateStatus = "has";
 // ── 日本自動車査定協会 表2（乗用車・ワゴン・オフロードタイプ Ⅱ・Ⅲクラス）走行距離加減率表 ──
 // 行: 走行キロ(千km単位の代表値) / 列: 使用経過月数の上限値（帯の右端）
@@ -4097,7 +4139,7 @@ function calcCustom() {
   const baseScore = 80;
   const deviation = score - baseScore;
   const adjustRate = deviation * 0.005;
-  const ti = price * (1 + adjustRate);
+  const ti = price * (1 + adjustRate) + jaaiRateGlobal;
   const tiMin = price * (1 + adjustRate - 0.05);
   const tiMax = price * (1 + adjustRate + 0.05);
   const adjPct = (adjustRate * 100).toFixed(1);
@@ -4208,25 +4250,35 @@ function calc() {
     a+=v;
   });
 
+  // 日本仕様走行距離判定（ナンバー未登録車のみ・日本自動車査定協会 表2準拠）
   // 日本仕様走行距離判定（ナンバー未登録車のみ・日本査定士協会 表2準拠）
-  let jpMileageDeduction = 0;
+  // 表の数値は千円単位の金額（例: -50 なら-50,000円）。為替レートでモンゴルトゥグルクに換算し、
+  // 査定価格への追加調整額として表示する（自動で本体価格には合算していません）。
+  jaaiRateGlobal = 0;
   let jpMileageMsg = "";
   if (typeof plateStatus !== "undefined" && plateStatus === "none") {
     const mileageRaw = (document.getElementById("mileageVal").value || "").replace(/[^0-9]/g, "");
     const mileage = parseInt(mileageRaw) || 0;
     const mfgYearRaw = parseInt(document.getElementById("mfgDate").value) || null;
+    const rateEl = document.getElementById("jpyMntRate");
+    const rate = (rateEl && parseFloat(rateEl.value)) || 22.1;
     if (mileage > 0 && mfgYearRaw) {
       const nowYear = new Date().getFullYear();
       const months = Math.max(1, (nowYear - mfgYearRaw) * 12);
-      const jaaiRate = lookupJaaiRate(mileage, months);
-      // 表の加減率(%)を、査定率の±0.5%/点の換算則に合わせて点数化（マイナスのみ減点として適用）
-      jpMileageDeduction = jaaiRate < 0 ? Math.min(50, Math.round(-jaaiRate / 0.5)) : 0;
-      const sign = jaaiRate >= 0 ? "+" : "";
-      jpMileageMsg = "使用経過約" + months + "ヶ月・走行" + mileage.toLocaleString() + "km → 日本査定士協会表2: " + sign + jaaiRate + "% （" + (jpMileageDeduction ? "-" + jpMileageDeduction + "点換算" : "減点なし") + "）";
+      const jaaiThousandYen = lookupJaaiRate(mileage, months);
+      const yenAmount = jaaiThousandYen * 1000;
+      const mntAmount = yenAmount * rate;
+      const mntMillion = mntAmount / 1000000;
+      jaaiRateGlobal = mntMillion;
+      const sign = jaaiThousandYen >= 0 ? "+" : "";
+      jpMileageMsg = "使用経過約" + months + "ヶ月・走行" + mileage.toLocaleString() + "km \u2192 表2: " + sign + jaaiThousandYen + "千円（" + sign + yenAmount.toLocaleString() + "円）\u00d7" + rate + " = " + (mntMillion>=0?"+":"") + mntMillion.toFixed(2) + " сая \u20AE";
     }
   }
-  d += jpMileageDeduction;
   const jpMsgEl = document.getElementById("jpMileageResult");
+  if (jpMsgEl) jpMsgEl.textContent = jpMileageMsg;
+
+
+
   if (jpMsgEl) jpMsgEl.textContent = jpMileageMsg;
 
   const score = Math.max(0, Math.min(100, 100-d+a));
@@ -4295,7 +4347,7 @@ function applyManualPrice(manualAvg) {
   const score = parseInt(document.getElementById("scoreNum").textContent)||80;
   const deviation = score - 80;
   const adjustRate = deviation * 0.005;
-  const ti = manualAvg * (1 + adjustRate);
+  const ti = manualAvg * (1 + adjustRate) + jaaiRateGlobal;
   const tiMin = manualAvg * (1 + adjustRate - 0.05);
   const tiMax = manualAvg * (1 + adjustRate + 0.05);
   const adjPct = (adjustRate*100).toFixed(1);
@@ -4452,7 +4504,7 @@ function updatePart2And3(maker, modelSlug, carYear, driveType, grade, gi, score)
     const sc = window._currentScore||80;
     const deviation = sc - 80;
     const ar = deviation * 0.005;
-    const ti = useAvg * (1 + ar);
+    const ti = useAvg * (1 + ar) + jaaiRateGlobal;
     const tiMin = useMin * (1 + ar - 0.05);
     const tiMax = useMax * (1 + ar + 0.05);
     const adjPct = (ar*100).toFixed(1);
@@ -4481,9 +4533,9 @@ function updatePart2And3(maker, modelSlug, carYear, driveType, grade, gi, score)
     const baseScore   = 80;                        // 基準点（стандарт的な中古車）
     const deviation   = score - baseScore;         // スコア偏差（例: 81点 → +1）
     const adjustRate  = deviation * 0.005;         // 調整率（例: +1 → +0.5%）
-    const ti          = avg * (1 + adjustRate);    // 査定参考価格
-    const tiMin       = min * (1 + adjustRate - 0.05); // 下限（-5%バッファ）
-    const tiMax       = max * (1 + adjustRate + 0.05); // 上限（+5%バッファ）
+    const ti          = avg * (1 + adjustRate) + jaaiRateGlobal;    // 査定参考価格
+    const tiMin       = min * (1 + adjustRate - 0.05) + jaaiRateGlobal; // 下限（-5%バッファ）
+    const tiMax       = max * (1 + adjustRate + 0.05) + jaaiRateGlobal; // 上限（+5%バッファ）
     const adjPct      = (adjustRate * 100).toFixed(1);
     const adjSign     = adjustRate >= 0 ? "+" : "";
 
