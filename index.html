@@ -577,6 +577,10 @@ input[type=number]::placeholder {
           </div>
         </div>
       </div>
+      <div style="margin-top:8px;display:flex;align-items:center;gap:6px;">
+        <span style="font-size:11px;color:#888;">為替レート JPY→MNT</span>
+        <input type="number" id="jpyMntRate" value="22.1" step="0.1" oninput="calc()" style="width:70px;padding:4px 6px;border:1.5px solid #e0e0e0;border-radius:6px;font-size:12px;">
+      </div>
       <div id="jpMileageResult" style="margin-top:6px;font-size:11px;color:#888;"></div>
     </div>
 
@@ -4134,8 +4138,8 @@ function calcCustom() {
   const score = parseInt(document.getElementById("scoreNum").textContent)||80;
   const baseScore = 80;
   const deviation = score - baseScore;
-  const adjustRate = deviation * 0.005 + (jaaiRateGlobal/100);
-  const ti = price * (1 + adjustRate);
+  const adjustRate = deviation * 0.005;
+  const ti = price * (1 + adjustRate) + jaaiRateGlobal;
   const tiMin = price * (1 + adjustRate - 0.05);
   const tiMax = price * (1 + adjustRate + 0.05);
   const adjPct = (adjustRate * 100).toFixed(1);
@@ -4247,24 +4251,33 @@ function calc() {
   });
 
   // 日本仕様走行距離判定（ナンバー未登録車のみ・日本自動車査定協会 表2準拠）
-  // JAAIの表2は「基本価格に対する加減率(%)」のため、価格算出時の調整率に加算する
+  // 日本仕様走行距離判定（ナンバー未登録車のみ・日本査定士協会 表2準拠）
+  // 表の数値は千円単位の金額（例: -50 なら-50,000円）。為替レートでモンゴルトゥグルクに換算し、
+  // 査定価格への追加調整額として表示する（自動で本体価格には合算していません）。
   jaaiRateGlobal = 0;
   let jpMileageMsg = "";
   if (typeof plateStatus !== "undefined" && plateStatus === "none") {
     const mileageRaw = (document.getElementById("mileageVal").value || "").replace(/[^0-9]/g, "");
     const mileage = parseInt(mileageRaw) || 0;
     const mfgYearRaw = parseInt(document.getElementById("mfgDate").value) || null;
+    const rateEl = document.getElementById("jpyMntRate");
+    const rate = (rateEl && parseFloat(rateEl.value)) || 22.1;
     if (mileage > 0 && mfgYearRaw) {
       const nowYear = new Date().getFullYear();
       const months = Math.max(1, (nowYear - mfgYearRaw) * 12);
-      const rate = jaaiLookup(mileage, months);
-      jaaiRateGlobal = rate;
-      const sign = rate > 0 ? "+" : "";
-      jpMileageMsg = "使用経過" + months + "ヶ月・走行" + mileage.toLocaleString() + "km（日本査定士協会 表2）: " + sign + rate + "%（基本価格に対する加減率）";
+      const jaaiThousandYen = lookupJaaiRate(mileage, months);
+      const yenAmount = jaaiThousandYen * 1000;
+      const mntAmount = yenAmount * rate;
+      const mntMillion = mntAmount / 1000000;
+      jaaiRateGlobal = mntMillion;
+      const sign = jaaiThousandYen >= 0 ? "+" : "";
+      jpMileageMsg = "使用経過約" + months + "ヶ月・走行" + mileage.toLocaleString() + "km \u2192 表2: " + sign + jaaiThousandYen + "千円（" + sign + yenAmount.toLocaleString() + "円）\u00d7" + rate + " = " + (mntMillion>=0?"+":"") + mntMillion.toFixed(2) + " сая \u20AE";
     }
   }
   const jpMsgEl = document.getElementById("jpMileageResult");
   if (jpMsgEl) jpMsgEl.textContent = jpMileageMsg;
+
+
 
   if (jpMsgEl) jpMsgEl.textContent = jpMileageMsg;
 
@@ -4333,8 +4346,8 @@ function onManualPrice() {
 function applyManualPrice(manualAvg) {
   const score = parseInt(document.getElementById("scoreNum").textContent)||80;
   const deviation = score - 80;
-  const adjustRate = deviation * 0.005 + (jaaiRateGlobal/100);
-  const ti = manualAvg * (1 + adjustRate);
+  const adjustRate = deviation * 0.005;
+  const ti = manualAvg * (1 + adjustRate) + jaaiRateGlobal;
   const tiMin = manualAvg * (1 + adjustRate - 0.05);
   const tiMax = manualAvg * (1 + adjustRate + 0.05);
   const adjPct = (adjustRate*100).toFixed(1);
@@ -4490,8 +4503,8 @@ function updatePart2And3(maker, modelSlug, carYear, driveType, grade, gi, score)
     const useMax = activePrices.length > 0 ? Math.max(...activePrices) : window._currentMax;
     const sc = window._currentScore||80;
     const deviation = sc - 80;
-    const ar = deviation * 0.005 + (jaaiRateGlobal/100);
-    const ti = useAvg * (1 + ar);
+    const ar = deviation * 0.005;
+    const ti = useAvg * (1 + ar) + jaaiRateGlobal;
     const tiMin = useMin * (1 + ar - 0.05);
     const tiMax = useMax * (1 + ar + 0.05);
     const adjPct = (ar*100).toFixed(1);
@@ -4519,10 +4532,10 @@ function updatePart2And3(maker, modelSlug, carYear, driveType, grade, gi, score)
   if(avg > 0){
     const baseScore   = 80;                        // 基準点（стандарт的な中古車）
     const deviation   = score - baseScore;         // スコア偏差（例: 81点 → +1）
-    const adjustRate  = deviation * 0.005 + (jaaiRateGlobal/100);         // 調整率（例: +1 → +0.5%）
-    const ti          = avg * (1 + adjustRate);    // 査定参考価格
-    const tiMin       = min * (1 + adjustRate - 0.05); // 下限（-5%バッファ）
-    const tiMax       = max * (1 + adjustRate + 0.05); // 上限（+5%バッファ）
+    const adjustRate  = deviation * 0.005;         // 調整率（例: +1 → +0.5%）
+    const ti          = avg * (1 + adjustRate) + jaaiRateGlobal;    // 査定参考価格
+    const tiMin       = min * (1 + adjustRate - 0.05) + jaaiRateGlobal; // 下限（-5%バッファ）
+    const tiMax       = max * (1 + adjustRate + 0.05) + jaaiRateGlobal; // 上限（+5%バッファ）
     const adjPct      = (adjustRate * 100).toFixed(1);
     const adjSign     = adjustRate >= 0 ? "+" : "";
 
