@@ -564,6 +564,22 @@ input[type=number]::placeholder {
         <input type="month" id="mnImport" oninput="calc()">
         <div id="mnPeriodResult" style="margin-top: 8px; font-size: 13px; color: rgb(85, 85, 85); display: none;">使用期間: 2年2ヶ月（26ヶ月）<span style="margin-left:12px;color:#d32f2f;font-weight:700;">-13.0点</span></div>
       </div>
+
+    <!-- ナンバー登録・日本仕様走行距離判定 -->
+    <div class="card">
+      <div class="sec-title">🚚 ナンバー登録 / Улсын дугаар<span style="font-size:10px;color:#888;font-weight:400;margin-left:8px;">未登録車は日本での走行距離（年間1万km基準）で判定</span></div>
+      <div class="radio-row">
+        <div class="radio-row-label">ナンバー登録状況 / Улсын дугаарын байдал</div>
+        <div class="radio-inner">
+          <div class="radio-group" id="rg_plateStatus">
+            <div class="rbtn active-normal" onclick="setPlateStatus('has',this)">有 / Бий</div>
+            <div class="rbtn" onclick="setPlateStatus('none',this)">無 / Байхгүй</div>
+          </div>
+        </div>
+      </div>
+      <div id="jpMileageResult" style="margin-top:6px;font-size:11px;color:#888;"></div>
+    </div>
+
     </div>
 
     <!-- 走行距離 -->
@@ -3875,6 +3891,13 @@ function setR(key, el, val) {
   calc();
 }
 
+let plateStatus = "has";
+function setPlateStatus(val, el){
+  plateStatus = val;
+  document.querySelectorAll("#rg_plateStatus .rbtn").forEach(b=>b.classList.remove("active-normal"));
+  if (el) el.classList.add("active-normal");
+  calc();
+}
 function syncBodyColor(){
   const fam = document.getElementById("bodyColorFamily").value;
   const code = document.getElementById("bodyColorCode").value.trim();
@@ -4142,6 +4165,31 @@ function calc() {
     }
     a+=v;
   });
+
+  // 日本仕様走行距離判定（ナンバー未登録車のみ・年間1万km基準）
+  let jpMileageDeduction = 0;
+  let jpMileageMsg = "";
+  if (typeof plateStatus !== "undefined" && plateStatus === "none") {
+    const mileageRaw = (document.getElementById("mileageVal").value || "").replace(/[^0-9]/g, "");
+    const mileage = parseInt(mileageRaw) || 0;
+    const mfgYearRaw = parseInt(document.getElementById("mfgDate").value) || null;
+    if (mileage > 0 && mfgYearRaw) {
+      const nowYear = new Date().getFullYear();
+      const ageYears = Math.max(1, nowYear - mfgYearRaw);
+      const threshold = ageYears * 10000;
+      const perYear = Math.round(mileage / ageYears);
+      if (mileage > threshold) {
+        const excess = mileage - threshold;
+        jpMileageDeduction = Math.min(25, Math.round(excess / 1000));
+        jpMileageMsg = "年間走行距離 約" + perYear.toLocaleString() + "km/年（基準1万km/年・" + ageYears + "年で" + threshold.toLocaleString() + "km）を" + excess.toLocaleString() + "km超過 -" + jpMileageDeduction + "点（上限25点）";
+      } else {
+        jpMileageMsg = "年間走行距離 約" + perYear.toLocaleString() + "km/年（基準内）";
+      }
+    }
+  }
+  d += jpMileageDeduction;
+  const jpMsgEl = document.getElementById("jpMileageResult");
+  if (jpMsgEl) jpMsgEl.textContent = jpMileageMsg;
 
   const score = Math.max(0, Math.min(100, 100-d+a));
   document.getElementById("deductNum").textContent="-"+d;
@@ -4446,6 +4494,12 @@ function doReset(){
   document.querySelectorAll(".radio-group").forEach(g=>{
     const f=g.querySelector(".rbtn"); if(f) f.classList.add("active-normal");
   });
+  plateStatus = "has";
+  document.querySelectorAll("#rg_plateStatus .rbtn").forEach(b=>b.classList.remove("active-normal"));
+  const plateFirst = document.querySelector("#rg_plateStatus .rbtn");
+  if (plateFirst) plateFirst.classList.add("active-normal");
+  const jpMsgReset = document.getElementById("jpMileageResult");
+  if (jpMsgReset) jpMsgReset.textContent = "";
   resetDiagram();
   calc();
 }
