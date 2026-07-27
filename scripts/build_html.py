@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-import json, sys, argparse, logging
+import json, re, sys, argparse, logging
 from pathlib import Path
 from datetime import datetime
 
@@ -72,12 +72,19 @@ def main():
     log.info(f"PRICE_DB位置: {start}〜{end}")
     html = html[:start] + new_price_db + html[end:]
 
-    # 更新日時バッジ追加
+    # 更新日時バッジ追加（既存バッジは除去してから1個だけ挿入する＝べき等。
+    # そうしないとテンプレートに古いバッジが残っていた場合に無限に積み重なる）
     badge = (
         f'<span style="font-size:10px;color:#888;margin-left:8px;">'
         f'更新: {updated_at} / {len(data)}車種 {total}件</span>'
     )
-    html = html.replace('class="hdr-title">', f'class="hdr-title">{badge}', 1)
+    badge_pattern = re.compile(
+        r'(class="hdr-title">)'
+        r'(?:<span style="font-size:10px;color:#888;margin-left:8px;">.*?</span>)*'
+    )
+    html, n = badge_pattern.subn(lambda m: m.group(1) + badge, html, count=1)
+    if n == 0:
+        log.warning('class="hdr-title" が見つからずバッジを挿入できませんでした')
 
     # 出力
     Path(args.out).parent.mkdir(parents=True, exist_ok=True)

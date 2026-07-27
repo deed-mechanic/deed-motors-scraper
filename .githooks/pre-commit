@@ -1,0 +1,24 @@
+#!/bin/sh
+# index.html <-> テンプレート の同期チェック（同期漏れコミットのブロック用）
+#
+# 有効化: git config core.hooksPath .githooks
+#
+# index.html / bilingual.html が変更されたコミットに限り、対応するテンプレートと
+# 内容が一致しているか（PRICE_DBブロックと更新バッジを除く）をチェックする。
+# 不一致の場合は `python scripts/sync_template.py sync ...` の実行を促してブロックする。
+
+PY=python
+command -v python >/dev/null 2>&1 || PY=python3
+
+staged=$(git diff --cached --name-only)
+status=0
+
+echo "$staged" | grep -qx "index.html\|templates/deed_motors_PC_v3_template.html" && {
+  $PY scripts/sync_template.py check --index index.html --template templates/deed_motors_PC_v3_template.html || status=1
+}
+
+echo "$staged" | grep -qx "bilingual.html\|templates/deed_motors_PC_v3_BILINGUAL_template.html" && {
+  $PY scripts/sync_template.py check --index bilingual.html --template templates/deed_motors_PC_v3_BILINGUAL_template.html || status=1
+}
+
+exit $status
