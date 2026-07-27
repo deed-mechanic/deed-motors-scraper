@@ -37,6 +37,12 @@ function exportAppraisalData(){
   // 修復歴（ツール内部の状態変数 RV から取得。RVはメインスクリプトのグローバルスコープで定義済み）
   const histStatus = (typeof RV !== "undefined" && RV.rHist) ? RV.rHist : "none";
 
+  // 修復歴部位（該当箇所）：チェック済みの .hist-part-cb から日本語ラベルのみ取得
+  // （value属性は "日本語 / モンゴル語" 形式。モンゴル語部分が無い項目もあるためsplitで先頭のみ使う）
+  const affectedParts = Array.from(document.querySelectorAll(".hist-part-cb:checked"))
+    .map(cb => cb.value.split("/")[0].trim())
+    .filter(Boolean);
+
   // 市場価格プレビュー（#mktPreview 内の 平均/最低/最高/件数、個別IDが無いため出現順で取得）
   let averagePriceManMnt = null, minPriceManMnt = null, maxPriceManMnt = null, sampleCount = null;
   const mktStrongs = document.querySelectorAll("#mktPreview .mkt-nums strong");
@@ -75,7 +81,7 @@ function exportAppraisalData(){
 
     damageHistory: {
       status: histStatus,
-      affectedParts: []
+      affectedParts: affectedParts
     },
 
     score: {
