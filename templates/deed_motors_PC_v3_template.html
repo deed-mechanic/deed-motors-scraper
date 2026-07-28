@@ -669,14 +669,16 @@ input[type=number]::placeholder {
         </div>
       </div>
 
-      <!-- LEDヘッドランプ -->
+      <!-- ヘッドランプ：ハロゲン→HID→LEDの標準/MOP追加 -->
       <div class="radio-row">
         <div class="radio-row-label">ヘッドランプ / Толгойн гэрэл
-          <span class="sel-sub">上位グレード＝стандарт装備 / 下位グレードへのMOP追加＝加点</span>
+          <span class="sel-sub">上位グレード標準装備（HID・LED）＝加点なし / 下位グレードへのMOP追加＝加点</span>
         </div>
         <div class="radio-inner">
           <div class="radio-group" id="rg_eqLed">
             <div class="rbtn active-normal" onclick="setR(&#39;eqLed&#39;,this,0)">ハロゲン（стандарт）(0)</div>
+            <div class="rbtn" onclick="setR(&#39;eqLed&#39;,this,0)">✅ HID（上位グレードстандарт）(0)</div>
+            <div class="rbtn" onclick="setR(&#39;eqLed&#39;,this,3)">HID（下位グレードへのMOP追加）(+3)</div>
             <div class="rbtn" onclick="setR(&#39;eqLed&#39;,this,0)">✅ LED（上位グレードстандарт）(0)</div>
             <div class="rbtn" onclick="setR(&#39;eqLed&#39;,this,3)">LED（下位グレードへのMOP追加）(+3)</div>
           </div>
@@ -700,30 +702,31 @@ input[type=number]::placeholder {
         </div>
       </div>
 
-      <!-- カメラ：バックカメラстандарт / 360°はナビセット -->
+      <!-- カメラ：なし/バックカメラ/360°をそれぞれ加点対象として区別 -->
       <div class="radio-row">
         <div class="radio-row-label">カメラ / Камер
-          <span class="sel-sub">バックカメラ＝стандарт / マルチテレインモニター（360°）はナビセットMOP 674,300円に含む</span>
+          <span class="sel-sub">バックカメラ・360°/マルチテレインモニターをそれぞれ加点対象として区別</span>
         </div>
         <div class="radio-inner">
           <div class="radio-group" id="rg_eqCamera">
             <div class="rbtn active-normal" onclick="setR(&#39;eqCamera&#39;,this,0)">なし / Байхгүй (0)</div>
-            <div class="rbtn" onclick="setR(&#39;eqCamera&#39;,this,0)">✅ バックカメラ（стандарт）</div>
-            <div class="rbtn" onclick="setR(&#39;eqCamera&#39;,this,3)">360°/マルチテレインモニター (+3)</div>
+            <div class="rbtn" onclick="setR(&#39;eqCamera&#39;,this,2)">バックカメラ (+2)</div>
+            <div class="rbtn" onclick="setR(&#39;eqCamera&#39;,this,4)">360°/マルチテレインモニター (+4)</div>
           </div>
           <span class="pts plus" id="pts_eqCamera">+0</span>
         </div>
       </div>
 
-      <!-- ナビ MOP 531,300〜674,300円（公式カタログ価格） -->
+      <!-- ナビ：DOP（ディーラー装着 約20万円）/ MOP（メーカー装着 約40万円） -->
       <div class="radio-row">
         <div class="radio-row-label">ナビ・マルチディスプレイ / Навигаци
-          <span class="sel-sub">MOP 531,300〜674,300円（公式価格）/ 不具合あり＝減点</span>
+          <span class="sel-sub">DOP＝ディーラー装着オプション 約20万円 / MOP＝メーカー装着オプション 約40万円 / 不具合あり＝減点</span>
         </div>
         <div class="radio-inner">
           <div class="radio-group" id="rg_eqNavi">
             <div class="rbtn active-normal" onclick="setR(&#39;eqNavi&#39;,this,0)">なし / Байхгүй (0)</div>
-            <div class="rbtn" onclick="setR(&#39;eqNavi&#39;,this,4)">正常作動・MOP装着 / Хэвийн (+4)</div>
+            <div class="rbtn" onclick="setR(&#39;eqNavi&#39;,this,2)">DOP装着・正常作動 (+2)</div>
+            <div class="rbtn" onclick="setR(&#39;eqNavi&#39;,this,5)">MOP装着・正常作動 (+5)</div>
             <div class="rbtn" onclick="setR(&#39;eqNavi&#39;,this,-3)">不具合あり / Доголдол (-3)</div>
           </div>
           <span class="pts" id="pts_eqNavi">0</span>
@@ -758,15 +761,16 @@ input[type=number]::placeholder {
         </div>
       </div>
 
-      <!-- コーナーセンサー MOP 15,400円（公式カタログ価格） -->
+      <!-- クリアランスソナー：なし/標準装備/オプション装備（MOP 15,400円） -->
       <div class="radio-row">
         <div class="radio-row-label">クリアランスソナー / Булангийн мэдрэгч
-          <span class="sel-sub">メーカーOP 15,400円（公式価格）— 装着車が人気 / MOP ¥15,400</span>
+          <span class="sel-sub">標準装備＝加点なし / 下位グレードへのMOP追加＝加点（メーカーOP 15,400円）</span>
         </div>
         <div class="radio-inner">
           <div class="radio-group" id="rg_eqCorner">
-            <div class="rbtn active-normal" onclick="setR(&#39;eqCorner&#39;,this,0)">無 / Үгүй (0)</div>
-            <div class="rbtn" onclick="setR(&#39;eqCorner&#39;,this,1)">有（メーカーOP）/ MOP (+1)</div>
+            <div class="rbtn active-normal" onclick="setR(&#39;eqCorner&#39;,this,0)">なし / Байхгүй (0)</div>
+            <div class="rbtn" onclick="setR(&#39;eqCorner&#39;,this,0)">✅ 標準装備（стандарт）(0)</div>
+            <div class="rbtn" onclick="setR(&#39;eqCorner&#39;,this,1)">オプション装備（下位グレードへのMOP追加）(+1)</div>
           </div>
           <span class="pts plus" id="pts_eqCorner">+0</span>
         </div>
