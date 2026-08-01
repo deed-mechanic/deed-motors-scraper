@@ -28,15 +28,15 @@ TARGETS = [
     # Harrier: UNEGUI.MN側は toyota/harrier の1URLに60系・80系が混在しているため、
     # ここで取得したのち年式・タイトルで60系ガソリン/60系HV/80系の3区分に自動振り分けする
     {"key": "toyota|harrier",                "url": "toyota/harrier", "harrier_split": True, "detail_fetch": True},
-    {"key": "toyota|land-cruiser-200", "url": "toyota/land-cruiser-200", "year_min": 2007, "year_max": 2021, "force_4wd": True},
+    {"key": "toyota|land-cruiser-200", "url": "toyota/land-cruiser-200", "year_min": 2007, "year_max": 2021, "force_4wd": True, "wheel_fetch": True},
     {"key": "toyota|land-cruiser-100", "url": "toyota/land-cruiser-100", "year_min": 1998, "year_max": 2007, "force_4wd": True},
-    {"key": "toyota|land-cruiser-prado-150", "url": "toyota/land-cruiser-prado-150", "year_min": 2009, "year_max": 2024, "force_4wd": True},
+    {"key": "toyota|land-cruiser-prado-150", "url": "toyota/land-cruiser-prado-150", "year_min": 2009, "year_max": 2024, "force_4wd": True, "wheel_fetch": True},
     {"key": "toyota|land-cruiser-prado-120", "url": "toyota/land-cruiser-prado-120", "year_min": 2002, "year_max": 2009, "force_4wd": True},
     {"key": "toyota|land-cruiser-prado-250", "url": "toyota/land-cruiser-prado-250", "year_min": 2024, "force_4wd": True},
     {"key": "toyota|alphard-30", "url": "toyota/alphard", "alphard_split": True},
     {"key": "toyota|vellfire-30", "url": "toyota/vellfire", "vellfire_split": True},
     {"key": "toyota|prius-30", "url": "toyota/prius-30", "year_min": 2009, "year_max": 2015},
-    {"key": "toyota|prius-50", "url": "toyota/prius-51", "year_min": 2015, "year_max": 2023},
+    {"key": "toyota|prius-50", "url": "toyota/prius-51", "year_min": 2015, "year_max": 2023, "wheel_fetch": True},
     {"key": "toyota|prius-60", "url": "toyota/prius-60", "year_min": 2023},
     {"key": "toyota|prius-41", "url": "toyota/prius-40", "year_min": 2009, "year_max": 2015},
     {"key": "toyota|aqua", "url": "toyota/aqua", "year_min": 2011},
@@ -275,23 +275,38 @@ def classify_rav4_key(year, title=""):
     """
     return "toyota|rav4-40" if year < 2018 else "toyota|rav4-50"
 
-def fetch_detail_drive(url, retries=2):
-    """detail_fetch フラグの車種のみ、詳細ページの「Хөтлөгч」欄から
-    正確な駆動方式(2WD/4WD)を取得する。一覧ページのカードには
-    駆動方式の記載がほぼ無いため、1件ずつ詳細ページを開いて確認する。
+def fetch_detail_extra(url, retries=2):
+    """detail_fetch / wheel_fetch フラグの車種向けに、詳細ページから
+    駆動方式（Хөтлөгч）とハンドル位置（Хүрд）をまとめて取得する。
+    一覧ページのカードにはどちらの記載もほぼ無いため、1件ずつ詳細ページを
+    開いて確認する必要がある。両方必要な車種で2回開かずに済むよう1回のfetchで両方拾う。
+
+    ハンドル位置はモンゴル語で「Зөв」＝正しい（モンゴルは右側通行のため左ハンドルが正）、
+    「Буруу」＝誤り（右ハンドル＝主に日本からの中古直輸入車）という表現になっている。
     """
     html = fetch(url, retries=retries)
     if not html:
-        return None
+        return None, None
+
+    drive = None
     m = re.search(r'key-chars">\s*Хөтлөгч:\s*</span>\s*<a[^>]*class="value-chars"[^>]*>([^<]+)</a>', html)
-    if not m:
-        return None
-    val = m.group(1).upper()
-    if "4WD" in val or "БҮХ ДУГУЙТ" in val or "AWD" in val:
-        return "4WD"
-    if "FWD" in val or "УРДАА" in val or "2WD" in val:
-        return "2WD"
-    return None
+    if m:
+        val = m.group(1).upper()
+        if "4WD" in val or "БҮХ ДУГУЙТ" in val or "AWD" in val:
+            drive = "4WD"
+        elif "FWD" in val or "УРДАА" in val or "2WD" in val:
+            drive = "2WD"
+
+    wheel = None
+    m2 = re.search(r'key-chars">\s*Хүрд:\s*</span>\s*<a[^>]*class="value-chars"[^>]*>([^<]+)</a>', html)
+    if m2:
+        val2 = m2.group(1).strip()
+        if val2 == "Зөв":
+            wheel = "LHD"
+        elif val2 == "Буруу":
+            wheel = "RHD"
+
+    return drive, wheel
 
 def fetch(url, retries=3):
     for i in range(retries):
@@ -449,19 +464,23 @@ def scrape_one(target):
             item["drive"] = "4WD"
         log.info(f"  [{key}] 全件4WD固定")
 
-    # 詳細ページから正確な駆動方式を取得（一覧ページに記載が無い車種向け）
-    if target.get("detail_fetch"):
-        fixed = 0
+    # 詳細ページから正確な駆動方式・ハンドル位置を取得（一覧ページに記載が無いため）
+    need_detail = target.get("detail_fetch") or target.get("wheel_fetch")
+    if need_detail:
+        fixed_drive, fixed_wheel = 0, 0
         for item in results:
             href = item.pop("_href", None)
             if not href:
                 continue
-            real_drive = fetch_detail_drive(href)
-            if real_drive:
+            real_drive, wheel = fetch_detail_extra(href)
+            if target.get("detail_fetch") and real_drive:
                 item["drive"] = real_drive
-                fixed += 1
+                fixed_drive += 1
+            if wheel:
+                item["wheel"] = wheel
+                fixed_wheel += 1
             time.sleep(1.5)
-        log.info(f"  [{key}] 詳細ページから駆動方式取得: {fixed}/{len(results)}件")
+        log.info(f"  [{key}] 詳細ページ取得: 駆動方式{fixed_drive}件 / ハンドル位置{fixed_wheel}件（全{len(results)}件）")
     else:
         for item in results:
             item.pop("_href", None)

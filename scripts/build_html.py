@@ -45,10 +45,11 @@ def main():
         lines.append(f'  "{key}":[')
         for ridx, rec in enumerate(records):
             comma = "" if ridx == len(records)-1 else ","
+            wheel_part = f',wheel:"{rec["wheel"]}"' if rec.get("wheel") else ""
             lines.append(
                 f'    {{year:{rec["year"]},drive:"{rec["drive"]}",'
                 f'mileage:"{rec.get("mileage","不明")}",color:"{rec.get("color","不明")}",'
-                f'import_year:{rec["import_year"]},price:{rec["price"]}}}{comma}'
+                f'import_year:{rec["import_year"]},price:{rec["price"]}{wheel_part}}}{comma}'
             )
         lines.append("  ]" + ("" if is_last else ","))
     lines.append("};")

@@ -914,6 +914,13 @@ input[type=number]::placeholder {
               <option value="4wd">4WD / AWD</option>
             </select>
           </div>
+          <div class="fg"><label>ハンドル位置 / Рулийн байрлал<span class="sel-sub">対応車種のみ市場データに反映（多くの車種は未収集）</span></label>
+            <select id="wheelSide" onchange="calc()">
+              <option value="">指定なし</option>
+              <option value="LHD">左ハンドル / Зөв (LHD)</option>
+              <option value="RHD">右ハンドル / Буруу (RHD)</option>
+            </select>
+          </div>
         </div>
         <div id="mktPreview" style="display: none;" class="mkt-box has-data"><div style="font-size:11px;color:#555;margin-bottom:6px;">Lexus RX450h（GYL2#） 2013年式 4WD — 市場参照価格</div><div class="mkt-nums"><div><span style="font-size:11px;color:#888;">平均 </span><strong style="font-size:17px;color:#C8102E;">64.8 сая ₮</strong></div><div><span style="font-size:11px;color:#888;">最低 </span><strong>47.9 сая ₮</strong></div><div><span style="font-size:11px;color:#888;">最高 </span><strong>98.0 сая ₮</strong></div><div><span style="font-size:11px;color:#888;">件数 </span><strong>5件</strong></div></div></div>
       </div>
@@ -4277,6 +4284,7 @@ function calc() {
   const modelSlug=document.getElementById("modelSlug").value;
   const carYear=document.getElementById("carYear").value;
   const driveType=document.getElementById("driveType").value;
+  const wheelSide=document.getElementById("wheelSide").value;
   const manualVal = parseFloat(document.getElementById("manualPrice").value);
   const manualBadge = document.getElementById("manualPriceBadge");
   if (manualVal > 0) {
@@ -4284,7 +4292,7 @@ function calc() {
     applyManualPrice(manualVal);
   } else {
     if (manualBadge) manualBadge.style.display = "none";
-    updatePart2And3(maker, modelSlug, carYear, driveType, grade, gi, score);
+    updatePart2And3(maker, modelSlug, carYear, driveType, wheelSide, grade, gi, score);
   }
 }
 
@@ -4326,7 +4334,7 @@ function applyManualPrice(manualAvg) {
 }
 
 // ── 第二部：市場価格調査 ＋ 第三部：査定価格算出 ──
-function updatePart2And3(maker, modelSlug, carYear, driveType, grade, gi, score) {
+function updatePart2And3(maker, modelSlug, carYear, driveType, wheelSide, grade, gi, score) {
   // その他（手書き）モードの場合はcalcCustomに委譲
   if (maker === "__other__" || modelSlug === "__custom__") {
     calcCustom();
@@ -4352,16 +4360,20 @@ function updatePart2And3(maker, modelSlug, carYear, driveType, grade, gi, score)
 
   const key = maker+"|"+modelSlug;
   const df  = driveType==="4wd"?"4WD":driveType==="2wd"?"2WD":"";
+  // ハンドル位置：データが無い車種が大半のため、wheelを持つレコードのみ絞り込み対象にする
+  // （c.wheelが未収集の車種はこのフィルタで除外されない＝後方互換）
+  const wf  = wheelSide==="LHD"?"LHD":wheelSide==="RHD"?"RHD":"";
   const yr  = parseInt(carYear)||0;
 
   // 生産年±2年でフィルタ、なければ全件
   let cars=(PRICE_DB[key]||[]).filter(c=>{
     if(df && c.drive!==df) return false;
+    if(wf && c.wheel && c.wheel!==wf) return false;
     if(yr>0 && Math.abs(c.year-yr)>2) return false;
     return true;
   }).sort((a,b)=>a.year-b.year);
   if(cars.length===0){
-    cars=(PRICE_DB[key]||[]).filter(c=>!(df && c.drive!==df)).sort((a,b)=>a.year-b.year);
+    cars=(PRICE_DB[key]||[]).filter(c=>!(df && c.drive!==df) && !(wf && c.wheel && c.wheel!==wf)).sort((a,b)=>a.year-b.year);
   }
 
   const prices=cars.map(c=>c.price).filter(Boolean);
@@ -4385,7 +4397,7 @@ function updatePart2And3(maker, modelSlug, carYear, driveType, grade, gi, score)
   prev.style.display="block"; prev.className="mkt-box has-data";
   prev.innerHTML=
     "<div style='font-size:11px;color:#555;margin-bottom:6px;'>"+mLabel2+
-    (carYear?" "+carYear+"年式":"")+(df?" "+df:"")+" — 市場参照価格</div>"+
+    (carYear?" "+carYear+"年式":"")+(df?" "+df:"")+(wf?" "+(wf==="LHD"?"左H":"右H"):"")+" — 市場参照価格</div>"+
     "<div class='mkt-nums'>"+
     "<div><span style='font-size:11px;color:#888;'>平均 </span><strong style='font-size:17px;color:#C8102E;'>"+f(avg)+"</strong></div>"+
     "<div><span style='font-size:11px;color:#888;'>最低 </span><strong>"+f(min)+"</strong></div>"+
@@ -4426,7 +4438,7 @@ function updatePart2And3(maker, modelSlug, carYear, driveType, grade, gi, score)
         " title='チェックで除外 / Шалгавал хасна'>"+
       "</td>"+
       "<td class='"+(ym?"yr-match-cell":"")+"'>"+c.year+"年"+flagHtml+"</td>"+
-      "<td>"+c.drive+"</td><td>"+c.mileage+"</td><td>"+c.color+"</td>"+
+      "<td>"+c.drive+(c.wheel?(c.wheel==="LHD"?" (左H)":" (右H)"):"")+"</td><td>"+c.mileage+"</td><td>"+c.color+"</td>"+
       "<td>"+c.import_year+"年</td>"+
       "<td class='price-td'>"+c.price.toFixed(1)+" сая ₮</td>";
     tb.appendChild(tr);
@@ -4521,6 +4533,7 @@ function doReset(){
   document.getElementById("modelSlug").disabled=true;
   document.getElementById("carYear").value="";
   document.getElementById("driveType").value="";
+  document.getElementById("wheelSide").value="";
   // その他手書き入力クリア
   document.getElementById("custom-input-area").style.display="none";
   document.getElementById("custom_maker").value="";
