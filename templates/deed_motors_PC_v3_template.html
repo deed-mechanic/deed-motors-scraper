@@ -625,6 +625,7 @@ input[type=number]::placeholder {
           <span class="pts minus" id="pts_mecUnder">0</span>
         </div>
       </div>
+      <div class="radio-row"><div class="radio-row-label">オイル漏れ / Тос алдах</div><div class="radio-inner"><div class="radio-group" id="rg_mecOilLeak"><div class="rbtn active-normal" onclick="setR(&#39;mecOilLeak&#39;,this,0)">無 / Үгүй (0)</div><div class="rbtn" onclick="setR(&#39;mecOilLeak&#39;,this,10)">有 / Байна (-10)</div></div><span class="pts minus" id="pts_mecOilLeak">0</span></div></div>
       <div class="radio-row"><div class="radio-row-label">排気ガス漏れ / Яндангийн хий алдах</div><div class="radio-inner"><div class="radio-group" id="rg_mecExhaust"><div class="rbtn active-normal" onclick="setR(&#39;mecExhaust&#39;,this,0)">無 / Үгүй (0)</div><div class="rbtn" onclick="setR(&#39;mecExhaust&#39;,this,10)">有 / Байна (-10)</div></div><span class="pts minus" id="pts_mecExhaust">0</span></div></div>
       <div class="radio-row"><div class="radio-row-label">ブレーキ残量 / Тормозны үлдэгдэл</div><div class="radio-inner"><div class="radio-group" id="rg_mecBrake"><div class="rbtn active-normal" onclick="setR(&#39;mecBrake&#39;,this,0)">十分 / Хангалттай (0)</div><div class="rbtn" onclick="setR(&#39;mecBrake&#39;,this,5)">要交換 / Солих (-5)</div></div><span class="pts minus" id="pts_mecBrake">0</span></div></div>
       <div class="radio-row"><div class="radio-row-label">バッテリー劣化 / Зайны доройтол</div><div class="radio-inner"><div class="radio-group" id="rg_mecBattery"><div class="rbtn active-normal" onclick="setR(&#39;mecBattery&#39;,this,0)">正常 / Хэвийн (0)</div><div class="rbtn" onclick="setR(&#39;mecBattery&#39;,this,5)">劣化 / Доройтсон (-5)</div></div><span class="pts minus" id="pts_mecBattery">0</span></div></div>
@@ -3781,7 +3782,7 @@ const GRADE_COEFF = {
 // ラジオ値ストア
 const RV = {
   rHist:"none",
-  mecExhaust:0,mecBrake:0,mecBattery:0,mecHandle:0,mecBoot:0,mecPw:0,
+  mecOilLeak:0,mecExhaust:0,mecBrake:0,mecBattery:0,mecHandle:0,mecBoot:0,mecPw:0,
   mecAc:0,mecAirbag:0,
   intSeatTear:0,
   eqSunroof:0,eqLed:0,eqSeat:0,eqCamera:0,eqNavi:0,eqRoof:0,eqBsm:0,eqCorner:0,extGlass:0,mecShock:0,
@@ -4092,7 +4093,7 @@ function calcCustom() {
 // ── メイン計算（第一部） ──
 function calc() {
   const km = parseInt(document.getElementById("mileageVal").value)||0;
-  const mecOk = getS("mecEngine")===0 && getS("mecUnder")===0 && RV.mecExhaust===0;
+  const mecOk = getS("mecEngine")===0 && getS("mecUnder")===0 && RV.mecExhaust===0 && RV.mecOilLeak===0;
   let mp = km<=0?0:km<=50000?0:km<=100000?-5:km<=150000?-10:mecOk?0:-15;
 
   // モンゴル使用期間
@@ -4131,7 +4132,7 @@ function calc() {
     if(el) el.textContent=v>0?"-"+v:"0";
     d+=v;
   });
-  ["mecExhaust","mecBrake","mecBattery","mecHandle","mecBoot","mecPw","mecAc","mecAirbag","mecShock","intSeatTear","intSmoke","odoCheck"].forEach(k=>{
+  ["mecOilLeak","mecExhaust","mecBrake","mecBattery","mecHandle","mecBoot","mecPw","mecAc","mecAirbag","mecShock","intSeatTear","intSmoke","odoCheck"].forEach(k=>{
     const v=RV[k]||0;
     const el=document.getElementById("pts_"+k);
     if(el) el.textContent=v>0?"-"+v:"0";
@@ -4638,6 +4639,8 @@ function printExplainSheet() {
     mecEnginePts: getPts("pts_mecEngine"),
     mecUnder:     getSelectLabel("mecUnder"),
     mecUnderPts:  getPts("pts_mecUnder"),
+    mecOilLeak:   getRadioLabel("rg_mecOilLeak"),
+    mecOilLeakPts:getPts("pts_mecOilLeak"),
     mecExhaust:   getRadioLabel("rg_mecExhaust"),
     mecExhaustPts:getPts("pts_mecExhaust"),
     mecBrake:     getRadioLabel("rg_mecBrake"),
@@ -4911,6 +4914,7 @@ function printExplainSheet() {
         <tr><th>Үнэлгээний зүйл</th><th>Байдал</th><th style="text-align:right;width:70px;">Хасалт</th></tr>
         ${deductRow("エンジン状態","Хөдөлгүүрийн байдал", items.mecEngine, items.mecEnginePts)}
         ${deductRow("下回り（オイル漏れ等）","Доорх хэсэг", items.mecUnder, items.mecUnderPts)}
+        ${deductRow("オイル漏れ","Тос алдах", items.mecOilLeak, items.mecOilLeakPts)}
         ${deductRow("排気ガス漏れ","Яндангийн хий алдах", items.mecExhaust, items.mecExhaustPts)}
         ${deductRow("ブレーキ残量","Тормозны үлдэгдэл", items.mecBrake, items.mecBrakePts)}
         ${deductRow("バッテリー劣化","Зайны доройтол", items.mecBattery, items.mecBatteryPts)}
