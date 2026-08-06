@@ -326,6 +326,17 @@ input[type=number]::placeholder {
         </div>
       </div>
 
+      <!-- 水害被害：ありの場合は評価1に確定（改造・水害車） -->
+      <div class="radio-row">
+        <div class="radio-row-label">水害被害 / Усны гэмтэл<span class="sub">浸水歴確認 — ありの場合は評価「1」に確定</span></div>
+        <div class="radio-inner">
+          <div class="radio-group" id="rg_floodDamage">
+            <div class="rbtn active-normal" onclick="setR(&#39;floodDamage&#39;,this,&#39;none&#39;)">無 / Үгүй</div>
+            <div class="rbtn" onclick="setR(&#39;floodDamage&#39;,this,&#39;yes&#39;)">有 / Байна（評価1に確定）</div>
+          </div>
+        </div>
+      </div>
+
       <!-- 特記事項 -->
       <div class="sel-row">
         <div class="sel-label">特記事項（自由記述） / Нэмэлт тэмдэглэл<span class="sel-sub">社外パーツ・改造・リコール未対応・ハンドル位置変更車 等</span></div>
@@ -681,7 +692,7 @@ input[type=number]::placeholder {
             <div class="rbtn" onclick="setR(&#39;eqLed&#39;,this,0)">✅ HID（上位グレードстандарт）(0)</div>
             <div class="rbtn" onclick="setR(&#39;eqLed&#39;,this,3)">HID（下位グレードへのMOP追加）(+3)</div>
             <div class="rbtn" onclick="setR(&#39;eqLed&#39;,this,0)">✅ LED（上位グレードстандарт）(0)</div>
-            <div class="rbtn" onclick="setR(&#39;eqLed&#39;,this,3)">LED（下位グレードへのMOP追加）(+3)</div>
+            <div class="rbtn" onclick="setR(&#39;eqLed&#39;,this,10)">LED（下位グレードへのMOP追加）(+10)</div>
           </div>
           <span class="pts plus" id="pts_eqLed">+0</span>
         </div>
@@ -697,7 +708,7 @@ input[type=number]::placeholder {
             <div class="rbtn active-normal" onclick="setR(&#39;eqSeat&#39;,this,0)">✅ ファブリック / Даавуу（стандарт）</div>
             <div class="rbtn" onclick="setR(&#39;eqSeat&#39;,this,2)">合成皮革 / Нийлэг арьс (+2)</div>
             <div class="rbtn" onclick="setR(&#39;eqSeat&#39;,this,0)">✅ 本革（上位グレードстандарт）(0)</div>
-            <div class="rbtn" onclick="setR(&#39;eqSeat&#39;,this,4)">本革（下位グレードへのMOP追加）(+4)</div>
+            <div class="rbtn" onclick="setR(&#39;eqSeat&#39;,this,15)">本革（下位グレードへのMOP追加）(+15)</div>
           </div>
           <span class="pts plus" id="pts_eqSeat">+0</span>
         </div>
@@ -727,7 +738,7 @@ input[type=number]::placeholder {
           <div class="radio-group" id="rg_eqNavi">
             <div class="rbtn active-normal" onclick="setR(&#39;eqNavi&#39;,this,0)">なし / Байхгүй (0)</div>
             <div class="rbtn" onclick="setR(&#39;eqNavi&#39;,this,2)">DOP装着・正常作動 (+2)</div>
-            <div class="rbtn" onclick="setR(&#39;eqNavi&#39;,this,5)">MOP装着・正常作動 (+5)</div>
+            <div class="rbtn" onclick="setR(&#39;eqNavi&#39;,this,15)">MOP装着・正常作動 (+15)</div>
             <div class="rbtn" onclick="setR(&#39;eqNavi&#39;,this,-3)">不具合あり / Доголдол (-3)</div>
           </div>
           <span class="pts" id="pts_eqNavi">0</span>
@@ -3782,6 +3793,7 @@ const GRADE_COEFF = {
 // ラジオ値ストア
 const RV = {
   rHist:"none",
+  floodDamage:"none",
   mecOilLeak:0,mecExhaust:0,mecBrake:0,mecBattery:0,mecHandle:0,mecBoot:0,mecPw:0,
   mecAc:0,mecAirbag:0,
   intSeatTear:0,
@@ -4196,7 +4208,8 @@ function calc() {
   // グレード判定
   const hist=RV.rHist;
   let grade="";
-  if(hist==="major") grade="R";
+  if(RV.floodDamage==="yes") grade="1";
+  else if(hist==="major") grade="R";
   else if(hist==="minor") grade="RA";
   else if(score>=95) grade="S";
   else if(score>=85) grade="5";
@@ -4491,7 +4504,7 @@ function doReset(){
   });
   document.querySelectorAll(".hist-part-cb").forEach(cb=>cb.checked=false);
   const fn=document.getElementById("freeNotes"); if(fn) fn.value="";
-  Object.keys(RV).forEach(k=>{ RV[k]=k==="rHist"?"none":0; });
+  Object.keys(RV).forEach(k=>{ RV[k]=(k==="rHist"||k==="floodDamage")?"none":0; });
   document.querySelectorAll(".rbtn").forEach(b=>b.classList.remove("active-normal","active-danger","active-success"));
   document.querySelectorAll(".radio-group").forEach(g=>{
     const f=g.querySelector(".rbtn"); if(f) f.classList.add("active-normal");
@@ -4580,6 +4593,7 @@ function printExplainSheet() {
     // 修復歴
     rHist:    getRadioLabel("rg_rHist"),
     rHistParts: Array.from(document.querySelectorAll(".hist-part-cb:checked")).map(cb=>mnOnly(cb.value)).join("、") || "—",
+    floodDamage:  getRadioLabel("rg_floodDamage"),
     // 追加チェック項目
     usageHist:    getSelectLabel("usageHist"),
     usageHistPts: getPts("pts_usageHist"),
