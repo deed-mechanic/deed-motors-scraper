@@ -73,6 +73,15 @@ def main():
     log.info(f"PRICE_DB位置: {start}〜{end}")
     html = html[:start] + new_price_db + html[end:]
 
+    # PRICE_DB_UPDATED_AT 定数も更新（「同一車種の市場価格調査」カード内の
+    # データ更新日時表示用。PRICE_DB本体とは別の定数のため、放置すると
+    # ここだけ永久に最初の値のまま固まってしまう）
+    updated_at_pattern = re.compile(r'const PRICE_DB_UPDATED_AT = "[^"]*";')
+    updated_at_const = f'const PRICE_DB_UPDATED_AT = "UNEGUI.MN実データ {updated_at}";'
+    html, n_ua = updated_at_pattern.subn(updated_at_const, html, count=1)
+    if n_ua == 0:
+        log.warning('PRICE_DB_UPDATED_AT が見つからず更新できませんでした')
+
     # 更新日時バッジ追加（既存バッジは除去してから1個だけ挿入する＝べき等。
     # そうしないとテンプレートに古いバッジが残っていた場合に無限に積み重なる）
     badge = (
