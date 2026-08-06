@@ -412,7 +412,7 @@ input[type=number]::placeholder {
 
       <!-- フロントバンパー損傷 -->
       <div class="sel-row">
-        <div class="sel-label">フロントバンパー損傷 / Урд бамперын гэмтэл<span class="sel-sub">軽易な損傷=擦り傷・変形小 / 亀裂=破損・割れ</span></div>
+        <div class="sel-label">フロントバンパー損傷 / Урд гуперийн гэмтэл<span class="sel-sub">軽易な損傷=擦り傷・変形小 / 亀裂=破損・割れ</span></div>
         <div class="sel-inner">
           <select id="extBumperF" onchange="calc()">
             <option value="0">なし / Байхгүй (0点)</option>
@@ -425,7 +425,7 @@ input[type=number]::placeholder {
 
       <!-- リアバンパー損傷 -->
       <div class="sel-row">
-        <div class="sel-label">リアバンパー損傷 / Хойд бамперын гэмтэл<span class="sel-sub">軽易な損傷=擦り傷・変形小 / 亀裂=破損・割れ</span></div>
+        <div class="sel-label">リアバンパー損傷 / Хойд гуперийн гэмтэл<span class="sel-sub">軽易な損傷=擦り傷・変形小 / 亀裂=破損・割れ</span></div>
         <div class="sel-inner">
           <select id="extBumperR" onchange="calc()">
             <option value="0">なし / Байхгүй (0点)</option>
@@ -3896,7 +3896,7 @@ function getS(id){ return parseInt(document.getElementById(id).value)||0; }
 
 // ── 損傷位置図 ──
 const diagramColors = {A:"#378ADD",U:"#EF9F27",S:"#D85A30",W:"#7F77DD",X:"#E24B4A",P:"#1D9E75",C:"#888780"};
-const diagramNames = {dz1:"Урд бампер",dz2:"Капот",dz3:"Дээвэр",dz4:"Ачааны тасалгаа",dz5:"Хойд бампер",
+const diagramNames = {dz1:"Урд гупер",dz2:"Капот",dz3:"Дээвэр",dz4:"Ачааны тасалгаа",dz5:"Хойд гупер",
   dz6:"Зүүн урд буслуур",dz7:"Зүүн урд хаалга",dz8:"Зүүн хойд хаалга",dz9:"Зүүн хойд буслуур",
   dz10:"Баруун урд буслуур",dz11:"Баруун урд хаалга",dz12:"Баруун хойд хаалга",dz13:"Баруун хойд буслуур",
   dz14:"Зүүн толь",dz15:"Баруун толь"};
@@ -4591,7 +4591,7 @@ function printExplainSheet() {
       const s = g("diagramSummary") ? g("diagramSummary").textContent : "";
       if (!s || s === "なし") return "Байхгүй";
       const dict = {
-        "前バンパー":"Урд бампер","ボンネット":"Капот","ルーフ":"Дээвэр","トランク":"Багажник","後バンパー":"Ард бампер",
+        "前バンパー":"Урд гупер","ボンネット":"Капот","ルーフ":"Дээвэр","トランク":"Багажник","後バンパー":"Ард гупер",
         "左フロントフェンダー":"Зүүн урд крыло","左フロントドア":"Зүүн урд хаалга","左リアドア":"Зүүн ард хаалга","左リアフェンダー":"Зүүн ард крыло",
         "右フロントフェンダー":"Баруун урд крыло","右フロントドア":"Баруун урд хаалга","右リアドア":"Баруун ард хаалга","右リアフェンダー":"Баруун ард крыло",
         "左ミラー":"Зүүн толь","右ミラー":"Баруун толь","電動Хумх":"Цахилгаан хаалт",
@@ -4889,8 +4889,8 @@ function printExplainSheet() {
         ${deductRow("塗装状態","Будагны байдал", items.extPaint, items.extPaintPts)}
         ${deductRow("錆び","Зэв", items.extRust, items.extRustPts)}
         ${deductRow("パネル交換","Хавтан солих", items.extPanel, items.extPanelPts)}
-        ${deductRow("フロントバンパー損傷","Урд бамперын гэмтэл", items.extBumperF, items.extBumperFPts)}
-        ${deductRow("リアバンパー損傷","Хойд бамперын гэмтэл", items.extBumperR, items.extBumperRPts)}
+        ${deductRow("フロントバンパー損傷","Урд гуперийн гэмтэл", items.extBumperF, items.extBumperFPts)}
+        ${deductRow("リアバンパー損傷","Хойд гуперийн гэмтэл", items.extBumperR, items.extBumperRPts)}
       </table>
     </div>
     <div class="section" style="flex:1;">
