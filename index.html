@@ -857,24 +857,38 @@ input[type=number]::placeholder {
           <div class="fg"><label>メーカー / Үйлдвэрлэгч</label>
             <select id="maker" onchange="onMaker()">
               <option value="">選択してください</option>
-              <option value="toyota">Toyota</option>
-              <option value="nissan">Nissan</option>
-              <option value="mitsubishi">Mitsubishi</option>
-              <option value="honda">Honda</option>
-              <option value="subaru">Subaru</option>
-              <option value="suzuki">Suzuki</option>
-              <option value="lexus">Lexus</option>
-              <option value="hyundai">Hyundai</option>
-              <option value="kia">Kia</option>
-              <option value="bmw">BMW</option>
-              <option value="mercedes-benz">Mercedes-Benz</option>
-              <option value="land-rover">Land Rover</option>
-              <option value="volkswagen">Volkswagen</option>
-              <option value="audi">Audi</option>
-              <option value="mazda">Mazda</option>
-              <option value="dongfeng">Dongfeng / 东风</option>
-              <option value="ford">Ford</option>
-              <option value="__other__">その他（手書き）/ Бусад</option>
+              <optgroup label="日本 / Япон">
+                <option value="toyota">Toyota</option>
+                <option value="lexus">Lexus</option>
+                <option value="nissan">Nissan</option>
+                <option value="honda">Honda</option>
+                <option value="mazda">Mazda</option>
+                <option value="mitsubishi">Mitsubishi</option>
+                <option value="subaru">Subaru</option>
+                <option value="suzuki">Suzuki</option>
+              </optgroup>
+              <optgroup label="ドイツ / Герман">
+                <option value="mercedes-benz">Mercedes-Benz</option>
+                <option value="bmw">BMW</option>
+                <option value="audi">Audi</option>
+                <option value="volkswagen">Volkswagen</option>
+              </optgroup>
+              <optgroup label="韓国 / Солонгос">
+                <option value="hyundai">Hyundai</option>
+                <option value="kia">Kia</option>
+              </optgroup>
+              <optgroup label="アメリカ / Америк">
+                <option value="ford">Ford</option>
+              </optgroup>
+              <optgroup label="イギリス / Их Британи">
+                <option value="land-rover">Land Rover</option>
+              </optgroup>
+              <optgroup label="中国 / Хятад">
+                <option value="dongfeng">Dongfeng / 东风</option>
+              </optgroup>
+              <optgroup label="その他 / Бусад">
+                <option value="__other__">その他（手書き）/ Бусад</option>
+              </optgroup>
             </select>
           </div>
           <div class="fg"><label>車種モデル / Загвар</label>
