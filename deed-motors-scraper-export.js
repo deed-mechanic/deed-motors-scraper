@@ -112,11 +112,49 @@ function exportAppraisalData(){
 
   const jsonText = JSON.stringify(payload, null, 2);
 
-  if (navigator.clipboard && navigator.clipboard.writeText) {
-    navigator.clipboard.writeText(jsonText)
-      .then(() => alert("査定結果をコピーしました。DEED MOTORS DMSの車両登録画面に貼り付けてください。\nҮнэлгээний үр дүнг хууллаа. DEED MOTORS DMS-ийн машин бүртгэх дэлгэц рүү буулгана уу."))
-      .catch(() => prompt("コピーに失敗しました。以下を手動でコピーしてください:", jsonText));
+  try {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(jsonText)
+        .then(() => showExportFeedback(true, jsonText))
+        .catch(() => showExportFeedback(false, jsonText));
+    } else {
+      showExportFeedback(false, jsonText);
+    }
+  } catch (e) {
+    showExportFeedback(false, jsonText);
+  }
+}
+
+// 結果をページ内に常に表示する（alert/promptはFacebook内ブラウザ等の埋め込みWebViewで
+// サイレントに無効化されることがあり、その場合「ボタンを押しても何も起きない」ように
+// 見えてしまうため、ネイティブダイアログに頼らずDOM表示でフィードバックする）
+function showExportFeedback(success, jsonText) {
+  const el = document.getElementById("exportFeedback");
+  if (!el) {
+    // フォールバック（要素が見つからない旧バージョンのページ向け）
+    if (success) alert("査定結果をコピーしました。DEED MOTORS DMSの車両登録画面に貼り付けてください。");
+    else prompt("コピーに失敗しました。以下を手動でコピーしてください:", jsonText);
+    return;
+  }
+  el.innerHTML = "";
+  el.style.display = "block";
+  if (success) {
+    el.style.background = "#e8f5e9";
+    el.style.border = "1.5px solid #4caf50";
+    el.style.color = "#2e7d32";
+    el.textContent = "✅ 査定結果をコピーしました。DEED MOTORS DMSの車両登録画面に貼り付けてください。 / Үнэлгээний үр дүнг хууллаа.";
   } else {
-    prompt("以下をコピーしてください:", jsonText);
+    el.style.background = "#fff3e0";
+    el.style.border = "1.5px solid #ff9800";
+    el.style.color = "#e65100";
+    const msg = document.createElement("div");
+    msg.textContent = "⚠️ 自動コピーができませんでした。下のテキストを選択（長押し）してコピーしてください。";
+    const ta = document.createElement("textarea");
+    ta.readOnly = true;
+    ta.value = jsonText;
+    ta.style.cssText = "width:100%;height:100px;margin-top:6px;font-size:11px;font-family:monospace;box-sizing:border-box;";
+    ta.onclick = () => ta.select();
+    el.appendChild(msg);
+    el.appendChild(ta);
   }
 }
