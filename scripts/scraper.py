@@ -1,13 +1,22 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+# 2026-09: UNEGUI.MNがNext.js（React）ベースの構成に全面リニューアルされ、
+# 一覧・詳細ページの実データがJavaScriptによるクライアント側描画になった
+# （旧来のcloudscraper + 静的HTML解析では中身が空のシェルしか取得できない）。
+# さらにCloudflareのボット検知（Turnstile）も導入されており、ヘッドレス
+# ブラウザだと素の状態では"Just a moment..."チャレンジで弾かれる。
+# そのためPlaywright（ヘッドレスChromium）+ playwright-stealth（ボット
+# 検知の回避パッチ）でページを実際にレンダリングしてから解析する方式に変更した。
 import json, time, re, sys, argparse, logging
 from datetime import datetime
 
 try:
-    import cloudscraper
+    from playwright.sync_api import sync_playwright
+    from playwright_stealth import Stealth
     from bs4 import BeautifulSoup
 except ImportError:
-    print("pip install cloudscraper beautifulsoup4 lxml")
+    print("pip install playwright playwright-stealth beautifulsoup4 lxml")
+    print("python -m playwright install chromium")
     sys.exit(1)
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s",
@@ -15,12 +24,13 @@ logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(me
 log = logging.getLogger(__name__)
 
 BASE_URL = "https://www.unegui.mn"
-REQUEST_DELAY = 3.0
+REQUEST_DELAY = 1.5
 MAX_PAGES = 3
+USER_AGENT = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+              "(KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36")
 
-scraper = cloudscraper.create_scraper(
-    browser={"browser": "chrome", "platform": "windows", "mobile": False}
-)
+# main()内でPlaywrightのページを生成しここに保持する（fetch()から使う）
+_page = None
 
 # 正しいURL構造: /avto-mashin/-avtomashin-zarna/メーカー/車種/
 TARGETS = [
@@ -86,7 +96,10 @@ TARGETS = [
     {"key": "volkswagen|tiguan-ad1", "url": "volkswagen/tiguan", "year_min": 2016},
     {"key": "audi|q7-4m", "url": "audi/q7", "year_min": 2015},
     {"key": "audi|q5-fy", "url": "audi/q5", "year_min": 2017},
-    {"key": "mazda|cx-5-kf",                 "url": "mazda/cx-5"},
+    # 注意: サイトリニューアルでCX-3/CX-5/CX-8等が mazda/cx に統合され、
+    # タイトル・詳細ページどちらにも車種番号の区別情報が無くなったため、
+    # フィルタ不可能。CX-5専用ではなくMazda CX全般のデータになる
+    {"key": "mazda|cx-5-kf",                 "url": "mazda/cx"},
 ]
 
 def build_url(path_suffix, page=1):
@@ -281,6 +294,11 @@ def fetch_detail_extra(url, retries=2):
     一覧ページのカードにはどちらの記載もほぼ無いため、1件ずつ詳細ページを
     開いて確認する必要がある。両方必要な車種で2回開かずに済むよう1回のfetchで両方拾う。
 
+    リニューアル後のサイトは <meta name="keywords" content="...,Хүрд Буруу,
+    Хөтлөгч Бүх дугуй 4WD,..."> にスペック一覧をまとめて埋め込んでいるため、
+    そこから正規表現で拾うのが最も簡単で壊れにくい（可視DOM側はTailwindの
+    ユーティリティクラスのみでキー識別できるクラス名が無い）。
+
     ハンドル位置はモンゴル語で「Зөв」＝正しい（モンゴルは右側通行のため左ハンドルが正）、
     「Буруу」＝誤り（右ハンドル＝主に日本からの中古直輸入車）という表現になっている。
     """
@@ -288,8 +306,11 @@ def fetch_detail_extra(url, retries=2):
     if not html:
         return None, None
 
+    km = re.search(r'name="keywords"\s+content="([^"]+)"', html)
+    keywords = km.group(1) if km else ""
+
     drive = None
-    m = re.search(r'key-chars">\s*Хөтлөгч:\s*</span>\s*<a[^>]*class="value-chars"[^>]*>([^<]+)</a>', html)
+    m = re.search(r'Хөтлөгч\s+([^,"]+)', keywords)
     if m:
         val = m.group(1).upper()
         if "4WD" in val or "БҮХ ДУГУЙТ" in val or "AWD" in val:
@@ -298,7 +319,7 @@ def fetch_detail_extra(url, retries=2):
             drive = "2WD"
 
     wheel = None
-    m2 = re.search(r'key-chars">\s*Хүрд:\s*</span>\s*<a[^>]*class="value-chars"[^>]*>([^<]+)</a>', html)
+    m2 = re.search(r'Хүрд\s+([^,"]+)', keywords)
     if m2:
         val2 = m2.group(1).strip()
         if val2 == "Зөв":
@@ -309,48 +330,60 @@ def fetch_detail_extra(url, retries=2):
     return drive, wheel
 
 def fetch(url, retries=3):
+    """Playwright（ステルスパッチ済み）でページを実際に開いて描画後のHTMLを返す。
+    Cloudflareのチャレンジ画面が出た場合は間隔を空けてリトライする。
+    """
     for i in range(retries):
         try:
-            resp = scraper.get(url, timeout=30)
-            log.info(f"  HTTP {resp.status_code} ({len(resp.text)} chars): {url}")
-            if resp.status_code == 200:
-                return resp.text
-            elif resp.status_code == 404:
-                log.warning(f"  404 — URLが存在しません")
-                return None
-            log.warning(f"  ステータス {resp.status_code}")
+            _page.goto(url, wait_until="load", timeout=45000)
+            _page.wait_for_timeout(2500)
+            html = _page.content()
+            head = html[:3000]
+            if "Just a moment" in head or "challenges.cloudflare.com" in head:
+                log.warning(f"  Cloudflareチャレンジ検出、再試行します({i+1}/{retries})")
+                time.sleep(REQUEST_DELAY*(i+3))
+                continue
+            # サイトリニューアルでカテゴリURLのスラッグが変わっている場合、
+            # /search/ やトップページにリダイレクトされることがある。
+            # その場合は「0件」ではなく明示的に警告を出す（TARGETSのURL要修正のサイン）
+            final_url = _page.url
+            if "/search" in final_url or final_url.rstrip("/") == BASE_URL:
+                log.warning(f"  ⚠️ URLがリダイレクトされました（スラッグ変更の可能性）: {url} -> {final_url}")
+            log.info(f"  取得成功 ({len(html)} chars): {url}")
+            return html
         except Exception as e:
             log.warning(f"  取得失敗({i+1}/{retries}): {e}")
         if i < retries-1: time.sleep(REQUEST_DELAY*(i+1))
     return None
 
 def parse_card(card):
-    # タイトル（RX・Harrierの世代・グレード判定用、最終保存前に除去される）
-    # 注意: UNEGUI.MN現行サイトの価格要素は class="advert__content-price _not-title" のように
-    # "title"という文字列を含むため、汎用フォールバック [class*='title'] だけだと価格要素を
-    # 誤って拾ってしまう。実際のタイトル要素 .advert__content-title を最優先で試す。
+    # タイトル: リニューアル後は itemprop="name" のmetaタグにフルタイトルが入っている
+    # （RX・Harrierの世代・グレード判定用、最終保存前に除去される）
     title_text = ""
-    for sel in [".advert__content-title", ".advert-grid__content-title", ".announcement-block__title",
-                "a[itemprop='name']", "h3", "h4", "[class*='title']"]:
-        el = card.select_one(sel)
-        if el: title_text = el.get_text(" ", strip=True); break
+    title_el = card.select_one('meta[itemprop="name"]')
+    if title_el: title_text = (title_el.get("content") or "").strip()
+    if not title_text:
+        for sel in ["h3", "h4", "[class*='title']"]:
+            el = card.select_one(sel)
+            if el: title_text = el.get_text(" ", strip=True); break
 
-    # 価格（UNEGUI.MN現行サイトは .advert__content-price）
+    # 価格: itemprop="price" のmetaタグ（例: content="124 сая ₮"）
     price_text = ""
-    for sel in [".advert__content-price", ".advert-grid__content-price", ".price-announcement",".announcement-pricing",
-                "[class*='price']",".cost","[class*='cost']"]:
-        el = card.select_one(sel)
-        if el: price_text = el.get_text(" ", strip=True); break
+    price_el = card.select_one('meta[itemprop="price"]')
+    if price_el: price_text = (price_el.get("content") or "").strip()
     if not price_text:
         # テキスト全体から「сая ₮」を探す
         price_text = card.get_text(" ")
     price = parse_price(price_text)
     if not price or price < 1.0 or price > 500.0: return None
 
-    full = card.get_text(" ")
+    # 走行距離・駆動方式等の要約テキスト（data-component="ListingFeatures" 内に列挙）
+    feat_el = card.select_one('[data-component="ListingFeatures"]')
+    feat_text = feat_el.get_text(" ", strip=True) if feat_el else ""
+    full = " ".join(t for t in [title_text, feat_text] if t) or card.get_text(" ")
 
-    # 年（「2018/2022」形式）
-    m = re.search(r"\b(19[89]\d|20[012]\d)(?:/20\d\d)?\b", full)
+    # 年（「2018/2022」形式、タイトルに含まれる）
+    m = re.search(r"\b(19[89]\d|20[012]\d)(?:/20\d\d)?\b", title_text or full)
     year = int(m.group(1)) if m else None
     if not year: return None
 
@@ -360,9 +393,9 @@ def parse_card(card):
     m2 = re.search(r"([\d,]+)\s*(?:км|km)", full, re.IGNORECASE)
     if m2: mileage = f"{int(m2.group(1).replace(',','')):,} km"
 
-    # 詳細ページURL（駆動方式の正確な取得が必要な車種のみ使用、最終保存前に除去される）
+    # 詳細ページURL（駆動方式・ハンドル位置の正確な取得が必要な車種のみ使用、最終保存前に除去される）
     href = None
-    link_el = card.select_one("a[href*='/adv/']")
+    link_el = card.select_one('a[itemprop="url"]') or card.select_one("a[href*='/adv/']")
     if link_el:
         href = link_el.get("href")
         if href and href.startswith("/"):
@@ -378,30 +411,20 @@ def parse_card(card):
 
 def parse_page(html):
     soup = BeautifulSoup(html, "lxml")
-    results = []
-    cards = []
-    for sel in ["div.advert.js-item-listing",
-                "div.advert",
-                "div.advert-grid",
-                "li.announcement-container",
-                "div.announcement-block",
-                "div[class*='announcement']",
-                "li[class*='announcement']",
-                "article[class*='announcement']"]:
-        cards = soup.select(sel)
-        if cards:
-            log.info(f"  セレクタ '{sel}' → {len(cards)}件")
-            break
+    # リニューアル後のカードは data-component="BigAdCard" の div（schema.org/Productのitemscope付き）
+    cards = soup.select('div[data-component="BigAdCard"]')
+    if not cards:
+        # フォールバック（サイトが旧レイアウトに戻った場合用）
+        for sel in ["div.advert.js-item-listing", "div.advert", "div.advert-grid"]:
+            cards = soup.select(sel)
+            if cards:
+                log.info(f"  旧セレクタ '{sel}' → {len(cards)}件")
+                break
     if not cards:
         log.warning(f"  カード未検出 — タイトル: {soup.title.string if soup.title else 'なし'}")
-        # デバッグ用：主要クラス名を出力
-        from collections import Counter
-        cls_counter = Counter()
-        for el in soup.find_all(True):
-            for c in el.get("class",[]):
-                cls_counter[c] += 1
-        log.info(f"  主要クラス: {cls_counter.most_common(10)}")
-        return results
+        return []
+    log.info(f"  カード{len(cards)}件検出")
+    results = []
     for card in cards:
         try:
             item = parse_card(card)
@@ -412,25 +435,14 @@ def parse_page(html):
 
 def has_next(html, page):
     soup = BeautifulSoup(html, "lxml")
-    # UNEGUI.MN現行サイトの「次のページ」リンク（例: <a class="number-list-next js-page-filter ..." href="...?page=2">）
-    next_link = soup.select_one("a.number-list-next, a.js-page-filter[href*='page=']")
-    if next_link:
-        href = next_link.get("href", "")
-        m = re.search(r"page=(\d+)", href)
+    # リニューアル後はページ番号リンクにキー識別できるクラス名が無いため、
+    # href内の page=N を総なめして現在ページより大きい番号があるかで判定する
+    max_page = page
+    for a in soup.select('a[href*="page="]'):
+        m = re.search(r"page=(\d+)", a.get("href",""))
         if m:
-            return int(m.group(1)) > page
-        return True
-    # フォールバック（旧セレクタ／別レイアウト対策）
-    for sel in [".pagination","[class*='pagination']","nav.pager","[class*='pager']"]:
-        pager = soup.select_one(sel)
-        if pager:
-            for a in pager.find_all("a"):
-                t = a.get_text(strip=True)
-                try:
-                    if int(t) > page: return True
-                except ValueError:
-                    if any(w in t.lower() for w in ["дараа","next",">"]): return True
-    return False
+            max_page = max(max_page, int(m.group(1)))
+    return max_page > page
 
 def scrape_one(target):
     key = target["key"]
@@ -497,12 +509,7 @@ def save(db, path="scripts/price_db.json"):
         json.dump(out, f, ensure_ascii=False, indent=2)
     log.info(f"保存: {path} ({out['total_records']}件)")
 
-def main():
-    parser = argparse.ArgumentParser()
-    parser.add_argument("--test", action="store_true")
-    parser.add_argument("--output", default="scripts/price_db.json")
-    args = parser.parse_args()
-    targets = [t for t in TARGETS if t["key"]=="toyota|harrier"] if args.test else TARGETS
+def scrape_all(targets):
     db = {}
     for i,t in enumerate(targets,1):
         log.info(f"[{i}/{len(targets)}]")
@@ -605,6 +612,26 @@ def main():
         except Exception as e:
             log.error(f"エラー: {e}")
         if i < len(targets): time.sleep(REQUEST_DELAY*2)
+    return db
+
+def main():
+    global _page
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--test", action="store_true")
+    parser.add_argument("--output", default="scripts/price_db.json")
+    args = parser.parse_args()
+    targets = [t for t in TARGETS if t["key"]=="toyota|harrier"] if args.test else TARGETS
+
+    with Stealth().use_sync(sync_playwright()) as p:
+        browser = p.chromium.launch(headless=True)
+        _page = browser.new_page(
+            user_agent=USER_AGENT,
+            viewport={"width": 1280, "height": 900},
+            locale="mn-MN",
+        )
+        db = scrape_all(targets)
+        browser.close()
+
     save(db, args.output)
 
 if __name__ == "__main__":
