@@ -1,10 +1,18 @@
 {
-  "updated_at": "2026-09-12 10:47",
+  "updated_at": "2026-09-13 01:34",
   "source": "unegui.mn",
-  "total_records": 2852,
+  "total_records": 2837,
   "total_models": 74,
   "data": {
     "toyota|c-hr": [
+      {
+        "year": 2017,
+        "drive": "2WD",
+        "mileage": "121,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 43.5
+      },
       {
         "year": 2017,
         "drive": "2WD",
@@ -32,26 +40,10 @@
       {
         "year": 2017,
         "drive": "2WD",
-        "mileage": "121,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 43.5
-      },
-      {
-        "year": 2017,
-        "drive": "2WD",
         "mileage": "89,000 km",
         "color": "不明",
         "import_year": 2026,
         "price": 42.0
-      },
-      {
-        "year": 2020,
-        "drive": "不明",
-        "mileage": "128,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 48.0
       },
       {
         "year": 2017,
@@ -100,6 +92,14 @@
         "color": "不明",
         "import_year": 2026,
         "price": 38.5
+      },
+      {
+        "year": 2018,
+        "drive": "2WD",
+        "mileage": "153,411 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 36.5
       },
       {
         "year": 2017,
@@ -188,6 +188,14 @@
         "color": "不明",
         "import_year": 2026,
         "price": 35.0
+      },
+      {
+        "year": 2020,
+        "drive": "不明",
+        "mileage": "128,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 48.0
       },
       {
         "year": 2024,
@@ -364,17 +372,18 @@
         "color": "不明",
         "import_year": 2026,
         "price": 49.5
-      },
-      {
-        "year": 2019,
-        "drive": "2WD",
-        "mileage": "170,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 48.0
       }
     ],
     "toyota|harrier-80-hv": [
+      {
+        "year": 2017,
+        "drive": "4WD",
+        "mileage": "109,693 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 68.0,
+        "wheel": "RHD"
+      },
       {
         "year": 2019,
         "drive": "4WD",
@@ -556,21 +565,48 @@
         "wheel": "RHD"
       },
       {
+        "year": 2018,
+        "drive": "4WD",
+        "mileage": "113,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 69.5,
+        "wheel": "RHD"
+      },
+      {
+        "year": 2017,
+        "drive": "4WD",
+        "mileage": "125,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 45.0,
+        "wheel": "RHD"
+      },
+      {
+        "year": 2017,
+        "drive": "4WD",
+        "mileage": "164,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 59.8,
+        "wheel": "RHD"
+      },
+      {
+        "year": 2019,
+        "drive": "4WD",
+        "mileage": "140,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 55.0,
+        "wheel": "RHD"
+      },
+      {
         "year": 2017,
         "drive": "4WD",
         "mileage": "80,000 km",
         "color": "不明",
         "import_year": 2026,
         "price": 66.0,
-        "wheel": "RHD"
-      },
-      {
-        "year": 2016,
-        "drive": "4WD",
-        "mileage": "130,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 53.0,
         "wheel": "RHD"
       },
       {
@@ -679,6 +715,24 @@
         "color": "不明",
         "import_year": 2026,
         "price": 49.5,
+        "wheel": "RHD"
+      },
+      {
+        "year": 2016,
+        "drive": "4WD",
+        "mileage": "129,988 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 65.0,
+        "wheel": "RHD"
+      },
+      {
+        "year": 2020,
+        "drive": "4WD",
+        "mileage": "136 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 68.1,
         "wheel": "RHD"
       },
       {
@@ -855,15 +909,6 @@
       {
         "year": 2016,
         "drive": "4WD",
-        "mileage": "82,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 65.0,
-        "wheel": "RHD"
-      },
-      {
-        "year": 2016,
-        "drive": "4WD",
         "mileage": "125,000 km",
         "color": "不明",
         "import_year": 2026,
@@ -1004,15 +1049,6 @@
         "import_year": 2026,
         "price": 72.5,
         "wheel": "RHD"
-      },
-      {
-        "year": 2016,
-        "drive": "4WD",
-        "mileage": "128,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 48.0,
-        "wheel": "RHD"
       }
     ],
     "toyota|harrier-60-hv": [
@@ -1080,12 +1116,21 @@
         "wheel": "RHD"
       },
       {
+        "year": 2007,
+        "drive": "4WD",
+        "mileage": "200,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 35.8,
+        "wheel": "RHD"
+      },
+      {
         "year": 2006,
         "drive": "4WD",
         "mileage": "200 km",
         "color": "不明",
         "import_year": 2026,
-        "price": 35.5,
+        "price": 26.0,
         "wheel": "RHD"
       },
       {
@@ -1104,15 +1149,6 @@
         "color": "不明",
         "import_year": 2026,
         "price": 35.0,
-        "wheel": "RHD"
-      },
-      {
-        "year": 2008,
-        "drive": "4WD",
-        "mileage": "128,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 39.0,
         "wheel": "RHD"
       },
       {
@@ -1233,6 +1269,24 @@
         "wheel": "RHD"
       },
       {
+        "year": 2005,
+        "drive": "4WD",
+        "mileage": "123,456 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 18.8,
+        "wheel": "RHD"
+      },
+      {
+        "year": 2007,
+        "drive": "4WD",
+        "mileage": "110,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 30.0,
+        "wheel": "RHD"
+      },
+      {
         "year": 2007,
         "drive": "4WD",
         "mileage": "160,000 km",
@@ -1275,24 +1329,6 @@
         "color": "不明",
         "import_year": 2026,
         "price": 29.5,
-        "wheel": "RHD"
-      },
-      {
-        "year": 2006,
-        "drive": "4WD",
-        "mileage": "210,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 26.0,
-        "wheel": "RHD"
-      },
-      {
-        "year": 2008,
-        "drive": "4WD",
-        "mileage": "150,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 25.0,
         "wheel": "RHD"
       },
       {
@@ -1420,24 +1456,6 @@
         "import_year": 2026,
         "price": 41.8,
         "wheel": "RHD"
-      },
-      {
-        "year": 2007,
-        "drive": "4WD",
-        "mileage": "147,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 31.5,
-        "wheel": "RHD"
-      },
-      {
-        "year": 2005,
-        "drive": "4WD",
-        "mileage": "193,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 23.0,
-        "wheel": "RHD"
       }
     ],
     "toyota|harrier-60-gas": [
@@ -1523,15 +1541,6 @@
         "wheel": "RHD"
       },
       {
-        "year": 2005,
-        "drive": "4WD",
-        "mileage": "200,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 24.0,
-        "wheel": "RHD"
-      },
-      {
         "year": 2008,
         "drive": "2WD",
         "mileage": "170,000 km",
@@ -1541,21 +1550,21 @@
         "wheel": "RHD"
       },
       {
+        "year": 2008,
+        "drive": "2WD",
+        "mileage": "180 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 25.0,
+        "wheel": "RHD"
+      },
+      {
         "year": 2012,
         "drive": "2WD",
         "mileage": "87,000 km",
         "color": "不明",
         "import_year": 2026,
         "price": 24.0,
-        "wheel": "LHD"
-      },
-      {
-        "year": 2005,
-        "drive": "4WD",
-        "mileage": "310,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 17.0,
         "wheel": "RHD"
       },
       {
@@ -1647,15 +1656,6 @@
         "import_year": 2026,
         "price": 21.0,
         "wheel": "RHD"
-      },
-      {
-        "year": 2006,
-        "drive": "2WD",
-        "mileage": "180,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 23.8,
-        "wheel": "RHD"
       }
     ],
     "toyota|harrier-80-gas": [
@@ -1675,6 +1675,15 @@
         "color": "不明",
         "import_year": 2026,
         "price": 49.9,
+        "wheel": "RHD"
+      },
+      {
+        "year": 2015,
+        "drive": "4WD",
+        "mileage": "95,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 49.0,
         "wheel": "RHD"
       },
       {
@@ -1748,18 +1757,19 @@
         "import_year": 2026,
         "price": 77.0,
         "wheel": "LHD"
-      },
-      {
-        "year": 2023,
-        "drive": "4WD",
-        "mileage": "120,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 85.0,
-        "wheel": "RHD"
       }
     ],
     "toyota|land-cruiser-200": [
+      {
+        "year": 2014,
+        "drive": "4WD",
+        "mileage": "140,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 90.0,
+        "_fulltext": "Toyota Land Cruiser 200, 2014/2023 140,000 км · Автомат · 4.6 л · Бензин",
+        "wheel": "RHD"
+      },
       {
         "year": 2018,
         "drive": "4WD",
@@ -1848,16 +1858,6 @@
         "import_year": 2026,
         "price": 198.0,
         "_fulltext": "Toyota Land Cruiser 200, 2018/2019 108,000 км · Автомат · 4.6 л · Бензин",
-        "wheel": "LHD"
-      },
-      {
-        "year": 2020,
-        "drive": "4WD",
-        "mileage": "110 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 153.0,
-        "_fulltext": "Toyota Land Cruiser 200, 2020/2021 110 км · Автомат · 4.0 л · Бензин",
         "wheel": "LHD"
       },
       {
@@ -1971,16 +1971,6 @@
         "wheel": "LHD"
       },
       {
-        "year": 2014,
-        "drive": "4WD",
-        "mileage": "161,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 90.0,
-        "_fulltext": "Toyota Land Cruiser 200, 2014/2014 161,000 км · Автомат · 4.4 л · Дизель",
-        "wheel": "LHD"
-      },
-      {
         "year": 2013,
         "drive": "4WD",
         "mileage": "178,523 km",
@@ -2008,6 +1998,16 @@
         "import_year": 2026,
         "price": 100.0,
         "_fulltext": "Toyota Land Cruiser 200, 2014/2014 140,000 км · Механик · 4.0 л · Бензин",
+        "wheel": "LHD"
+      },
+      {
+        "year": 2015,
+        "drive": "4WD",
+        "mileage": "160 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 150.0,
+        "_fulltext": "Toyota Land Cruiser 200, 2015/2015 160 км · Автомат · 4.4 л · Бензин",
         "wheel": "LHD"
       },
       {
@@ -2521,6 +2521,16 @@
         "wheel": "LHD"
       },
       {
+        "year": 2020,
+        "drive": "4WD",
+        "mileage": "110 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 153.0,
+        "_fulltext": "Toyota Land Cruiser 200, 2020/2021 110 км · Автомат · 4.0 л · Бензин",
+        "wheel": "LHD"
+      },
+      {
         "year": 2019,
         "drive": "4WD",
         "mileage": "85,000 km",
@@ -2821,26 +2831,6 @@
         "wheel": "LHD"
       },
       {
-        "year": 2019,
-        "drive": "4WD",
-        "mileage": "75,900 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 168.0,
-        "_fulltext": "Toyota Land Cruiser 200, 2019/2020 75,900 км · Автомат · 4.0 л · Бензин",
-        "wheel": "LHD"
-      },
-      {
-        "year": 2017,
-        "drive": "4WD",
-        "mileage": "170 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 168.0,
-        "_fulltext": "Toyota Land Cruiser 200, 2017/2017 170 км · Автомат · 4.6 л · Бензин",
-        "wheel": "LHD"
-      },
-      {
         "year": 2011,
         "drive": "4WD",
         "mileage": "226,650 km",
@@ -2968,6 +2958,16 @@
         "import_year": 2026,
         "price": 95.0,
         "_fulltext": "Toyota Land Cruiser 200, 2013/2014 200,000 км · Автомат · 4.0 л · Бензин",
+        "wheel": "LHD"
+      },
+      {
+        "year": 2015,
+        "drive": "4WD",
+        "mileage": "260,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 130.0,
+        "_fulltext": "Toyota Land Cruiser 200, 2015/2015 260,000 км · Автомат · 4.7 л · Бензин",
         "wheel": "LHD"
       }
     ],
@@ -3265,6 +3265,26 @@
       {
         "year": 2023,
         "drive": "4WD",
+        "mileage": "28,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 120.0,
+        "_fulltext": "Toyota Land cruiser Prado 150, 2023/2024 28,000 км · Автомат · 2.7 л · Бензин",
+        "wheel": "RHD"
+      },
+      {
+        "year": 2014,
+        "drive": "4WD",
+        "mileage": "107,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 82.0,
+        "_fulltext": "Toyota Land cruiser Prado 150, 2014/2023 107,000 км · Автомат · 2.7 л · Бензин",
+        "wheel": "RHD"
+      },
+      {
+        "year": 2023,
+        "drive": "4WD",
         "mileage": "60,000 km",
         "color": "不明",
         "import_year": 2026,
@@ -3483,16 +3503,6 @@
         "wheel": "RHD"
       },
       {
-        "year": 2016,
-        "drive": "4WD",
-        "mileage": "72,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 86.0,
-        "_fulltext": "Toyota Land cruiser Prado 150, 2016/2024 72,000 км · Автомат · 2.7 л · Бензин",
-        "wheel": "RHD"
-      },
-      {
         "year": 2021,
         "drive": "4WD",
         "mileage": "83,715 km",
@@ -3550,6 +3560,26 @@
         "import_year": 2026,
         "price": 108.0,
         "_fulltext": "Toyota Land cruiser Prado 150, 2018/2026 93,000 км · Автомат · 2.7 л · Бензин",
+        "wheel": "RHD"
+      },
+      {
+        "year": 2017,
+        "drive": "4WD",
+        "mileage": "46,700 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 92.0,
+        "_fulltext": "Toyota Land cruiser Prado 150, 2017/2025 46,700 км · Автомат · 2.7 л · Бензин",
+        "wheel": "RHD"
+      },
+      {
+        "year": 2019,
+        "drive": "4WD",
+        "mileage": "100,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 104.0,
+        "_fulltext": "Toyota Land cruiser Prado 150, 2019/2026 100,000 км · Автомат · 2.7 л · Бензин",
         "wheel": "RHD"
       },
       {
@@ -3683,16 +3713,6 @@
         "wheel": "RHD"
       },
       {
-        "year": 2023,
-        "drive": "4WD",
-        "mileage": "44,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 130.0,
-        "_fulltext": "Toyota Land cruiser Prado 150, 2023/2025 44,000 км · Автомат · 2.7 л · Бензин",
-        "wheel": "RHD"
-      },
-      {
         "year": 2019,
         "drive": "4WD",
         "mileage": "43,000 km",
@@ -3753,16 +3773,6 @@
         "wheel": "RHD"
       },
       {
-        "year": 2023,
-        "drive": "4WD",
-        "mileage": "49,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 120.0,
-        "_fulltext": "Toyota Land cruiser Prado 150, 2023/2024 49,000 км · Автомат · 2.7 л · Бензин",
-        "wheel": "RHD"
-      },
-      {
         "year": 2022,
         "drive": "4WD",
         "mileage": "39,000 km",
@@ -3810,6 +3820,36 @@
         "import_year": 2026,
         "price": 77.0,
         "_fulltext": "Toyota Land cruiser Prado 150, 2012/2023 1,684,000 км · Автомат · 2.7 л · Бензин",
+        "wheel": "RHD"
+      },
+      {
+        "year": 2017,
+        "drive": "4WD",
+        "mileage": "250,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 85.0,
+        "_fulltext": "Toyota Land cruiser Prado 150, 2017/2023 250,000 км · Автомат · Цахилгаан · Дизель",
+        "wheel": "RHD"
+      },
+      {
+        "year": 2023,
+        "drive": "4WD",
+        "mileage": "35,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 130.0,
+        "_fulltext": "Toyota Land cruiser Prado 150, 2023/2026 35,000 км · Автомат · 2.7 л · Бензин",
+        "wheel": "RHD"
+      },
+      {
+        "year": 2012,
+        "drive": "4WD",
+        "mileage": "200,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 55.0,
+        "_fulltext": "Toyota Land cruiser Prado 150, 2012/2020 200,000 км · Автомат · 2.7 л · Бензин",
         "wheel": "RHD"
       },
       {
@@ -3953,16 +3993,6 @@
         "wheel": "RHD"
       },
       {
-        "year": 2023,
-        "drive": "4WD",
-        "mileage": "49,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 112.0,
-        "_fulltext": "Toyota Land cruiser Prado 150, 2023/2025 49,000 км · Автомат · 2.7 л · Бензин",
-        "wheel": "RHD"
-      },
-      {
         "year": 2020,
         "drive": "4WD",
         "mileage": "51,000 km",
@@ -4070,16 +4100,6 @@
         "import_year": 2026,
         "price": 115.5,
         "_fulltext": "Toyota Land cruiser Prado 150, 2023/2026 50,000 км · Автомат · 2.7 л · Бензин",
-        "wheel": "RHD"
-      },
-      {
-        "year": 2017,
-        "drive": "4WD",
-        "mileage": "62,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 92.0,
-        "_fulltext": "Toyota Land cruiser Prado 150, 2017/2025 62,000 км · Автомат · 2.7 л · Бензин",
         "wheel": "RHD"
       },
       {
@@ -4621,26 +4641,6 @@
         "price": 94.9,
         "_fulltext": "Toyota Land cruiser Prado 150, 2017/2026 63,600 км · Автомат · 2.7 л · Бензин",
         "wheel": "RHD"
-      },
-      {
-        "year": 2020,
-        "drive": "4WD",
-        "mileage": "50,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 105.0,
-        "_fulltext": "Toyota Land cruiser Prado 150, 2020/2024 50,000 км · Автомат · 2.7 л · Бензин",
-        "wheel": "RHD"
-      },
-      {
-        "year": 2021,
-        "drive": "4WD",
-        "mileage": "112,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 107.0,
-        "_fulltext": "Toyota Land cruiser Prado 150, 2021/2026 112,000 км · Автомат · 2.7 л · Бензин",
-        "wheel": "RHD"
       }
     ],
     "toyota|land-cruiser-prado-120": [
@@ -4679,15 +4679,6 @@
         "import_year": 2026,
         "price": 65.0,
         "_fulltext": "Toyota Land cruiser Prado 120, 2007/2025 128,000 км · Автомат · 0.4 л · Бензин"
-      },
-      {
-        "year": 2007,
-        "drive": "4WD",
-        "mileage": "260,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 35.0,
-        "_fulltext": "Toyota Land cruiser Prado 120, 2007/2016 260,000 км · Автомат · 2.7 л · Бензин"
       },
       {
         "year": 2007,
@@ -4940,6 +4931,15 @@
         "import_year": 2026,
         "price": 65.0,
         "_fulltext": "Toyota Land cruiser Prado 120, 2008/2017 185,000 км · Автомат · 4.0 л · Бензин"
+      },
+      {
+        "year": 2007,
+        "drive": "4WD",
+        "mileage": "26,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 35.0,
+        "_fulltext": "Toyota Land cruiser Prado 120, 2007/2016 26,000 км · Автомат · 2.7 л · Бензин"
       },
       {
         "year": 2008,
@@ -5376,6 +5376,15 @@
         "_fulltext": "Toyota Land cruiser Prado 250, 2024/2026 17,500 км · Автомат · 2.7 л · Бензин"
       },
       {
+        "year": 2025,
+        "drive": "4WD",
+        "mileage": "4,700 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 165.0,
+        "_fulltext": "Toyota Land cruiser Prado 250, 2025/2026 4,700 км · Автомат · 2.7 л · Бензин"
+      },
+      {
         "year": 2024,
         "drive": "4WD",
         "mileage": "20,000 km",
@@ -5446,15 +5455,6 @@
         "import_year": 2026,
         "price": 162.9,
         "_fulltext": "Toyota Land cruiser Prado 250, 2025/2026 14,000 км · Автомат · 2.7 л · Бензин"
-      },
-      {
-        "year": 2025,
-        "drive": "4WD",
-        "mileage": "4,700 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 165.0,
-        "_fulltext": "Toyota Land cruiser Prado 250, 2025/2026 4,700 км · Автомат · 2.7 л · Бензин"
       },
       {
         "year": 2025,
@@ -5742,14 +5742,6 @@
         "price": 88.0
       },
       {
-        "year": 2020,
-        "drive": "不明",
-        "mileage": "199,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 85.0
-      },
-      {
         "year": 2018,
         "drive": "不明",
         "mileage": "169,000 km",
@@ -5788,6 +5780,30 @@
         "color": "不明",
         "import_year": 2026,
         "price": 77.0
+      },
+      {
+        "year": 2020,
+        "drive": "不明",
+        "mileage": "199,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 85.0
+      },
+      {
+        "year": 2016,
+        "drive": "不明",
+        "mileage": "125,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 66.0
+      },
+      {
+        "year": 2017,
+        "drive": "不明",
+        "mileage": "118,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 74.0
       },
       {
         "year": 2017,
@@ -5934,14 +5950,6 @@
         "price": 53.5
       },
       {
-        "year": 2016,
-        "drive": "不明",
-        "mileage": "121,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 66.0
-      },
-      {
         "year": 2017,
         "drive": "不明",
         "mileage": "149,500 km",
@@ -5980,14 +5988,6 @@
         "color": "不明",
         "import_year": 2026,
         "price": 80.0
-      },
-      {
-        "year": 2021,
-        "drive": "不明",
-        "mileage": "120,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 68.0
       },
       {
         "year": 2016,
@@ -6214,28 +6214,28 @@
         "price": 88.5
       },
       {
-        "year": 2016,
-        "drive": "不明",
-        "mileage": "170,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 89.0
-      },
-      {
-        "year": 2017,
-        "drive": "不明",
-        "mileage": "190,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 83.0
-      },
-      {
         "year": 2019,
         "drive": "不明",
         "mileage": "95,000 km",
         "color": "不明",
         "import_year": 2026,
         "price": 90.0
+      },
+      {
+        "year": 2019,
+        "drive": "不明",
+        "mileage": "160 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 73.0
+      },
+      {
+        "year": 2017,
+        "drive": "不明",
+        "mileage": "160,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 58.0
       }
     ],
     "toyota|alphard-20": [
@@ -6304,14 +6304,6 @@
         "price": 30.0
       },
       {
-        "year": 2011,
-        "drive": "不明",
-        "mileage": "200,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 40.0
-      },
-      {
         "year": 2012,
         "drive": "不明",
         "mileage": "180,000 km",
@@ -6376,14 +6368,6 @@
         "price": 26.5
       },
       {
-        "year": 2012,
-        "drive": "不明",
-        "mileage": "200,838 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 35.0
-      },
-      {
         "year": 2007,
         "drive": "不明",
         "mileage": "200,000 km",
@@ -6421,7 +6405,7 @@
         "mileage": "300 km",
         "color": "不明",
         "import_year": 2026,
-        "price": 14.8
+        "price": 13.0
       },
       {
         "year": 2014,
@@ -6502,6 +6486,14 @@
         "color": "不明",
         "import_year": 2026,
         "price": 12.0
+      },
+      {
+        "year": 2012,
+        "drive": "不明",
+        "mileage": "80,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 35.0
       },
       {
         "year": 2013,
@@ -6598,6 +6590,14 @@
         "color": "不明",
         "import_year": 2026,
         "price": 43.0
+      },
+      {
+        "year": 2011,
+        "drive": "不明",
+        "mileage": "200,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 40.0
       },
       {
         "year": 2005,
@@ -6762,26 +6762,10 @@
       {
         "year": 2013,
         "drive": "不明",
-        "mileage": "106,774 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 56.0
-      },
-      {
-        "year": 2013,
-        "drive": "不明",
         "mileage": "1,650,000 km",
         "color": "不明",
         "import_year": 2026,
         "price": 52.5
-      },
-      {
-        "year": 2014,
-        "drive": "不明",
-        "mileage": "160,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 54.0
       },
       {
         "year": 2014,
@@ -6876,6 +6860,14 @@
     ],
     "toyota|vellfire-20": [
       {
+        "year": 2014,
+        "drive": "不明",
+        "mileage": "161,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 41.5
+      },
+      {
         "year": 2013,
         "drive": "不明",
         "mileage": "194,000 km",
@@ -6906,6 +6898,22 @@
         "color": "不明",
         "import_year": 2026,
         "price": 36.0
+      },
+      {
+        "year": 2012,
+        "drive": "不明",
+        "mileage": "180,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 28.0
+      },
+      {
+        "year": 2009,
+        "drive": "不明",
+        "mileage": "150,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 35.0
       },
       {
         "year": 2010,
@@ -6948,14 +6956,6 @@
         "price": 32.0
       },
       {
-        "year": 2013,
-        "drive": "不明",
-        "mileage": "240,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 21.0
-      },
-      {
         "year": 2012,
         "drive": "不明",
         "mileage": "202,000 km",
@@ -6982,18 +6982,18 @@
       {
         "year": 2012,
         "drive": "不明",
+        "mileage": "140,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 41.0
+      },
+      {
+        "year": 2012,
+        "drive": "不明",
         "mileage": "169,000 km",
         "color": "不明",
         "import_year": 2026,
         "price": 39.0
-      },
-      {
-        "year": 2009,
-        "drive": "不明",
-        "mileage": "130,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 35.0
       },
       {
         "year": 2013,
@@ -7334,14 +7334,6 @@
       {
         "year": 2012,
         "drive": "不明",
-        "mileage": "155,800 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 41.0
-      },
-      {
-        "year": 2012,
-        "drive": "不明",
         "mileage": "200,000 km",
         "color": "不明",
         "import_year": 2026,
@@ -7490,14 +7482,6 @@
         "color": "不明",
         "import_year": 2026,
         "price": 32.0
-      },
-      {
-        "year": 2008,
-        "drive": "不明",
-        "mileage": "280,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 16.8
       }
     ],
     "toyota|vellfire-30": [
@@ -7524,22 +7508,6 @@
         "color": "不明",
         "import_year": 2026,
         "price": 65.0
-      },
-      {
-        "year": 2015,
-        "drive": "不明",
-        "mileage": "153,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 39.0
-      },
-      {
-        "year": 2015,
-        "drive": "不明",
-        "mileage": "204 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 56.0
       },
       {
         "year": 2015,
@@ -7572,6 +7540,22 @@
         "color": "不明",
         "import_year": 2026,
         "price": 52.0
+      },
+      {
+        "year": 2017,
+        "drive": "不明",
+        "mileage": "151,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 60.0
+      },
+      {
+        "year": 2018,
+        "drive": "不明",
+        "mileage": "144,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 73.0
       },
       {
         "year": 2017,
@@ -7622,6 +7606,14 @@
         "price": 59.0
       },
       {
+        "year": 2015,
+        "drive": "不明",
+        "mileage": "229,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 56.0
+      },
+      {
         "year": 2016,
         "drive": "不明",
         "mileage": "158,000 km",
@@ -7654,6 +7646,14 @@
         "price": 53.0
       },
       {
+        "year": 2015,
+        "drive": "不明",
+        "mileage": "153,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 39.0
+      },
+      {
         "year": 2016,
         "drive": "不明",
         "mileage": "107,000 km",
@@ -7684,14 +7684,6 @@
         "color": "不明",
         "import_year": 2026,
         "price": 49.0
-      },
-      {
-        "year": 2017,
-        "drive": "不明",
-        "mileage": "151,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 60.0
       },
       {
         "year": 2015,
@@ -7830,14 +7822,6 @@
         "price": 57.0
       },
       {
-        "year": 2018,
-        "drive": "不明",
-        "mileage": "144,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 73.0
-      },
-      {
         "year": 2017,
         "drive": "不明",
         "mileage": "80 km",
@@ -7972,14 +7956,6 @@
         "color": "不明",
         "import_year": 2026,
         "price": 49.8
-      },
-      {
-        "year": 2015,
-        "drive": "不明",
-        "mileage": "176,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 61.0
       }
     ],
     "toyota|vellfire-40": [
@@ -8001,6 +7977,24 @@
       }
     ],
     "toyota|prius-30": [
+      {
+        "year": 2011,
+        "drive": "不明",
+        "mileage": "177,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 18.5,
+        "_fulltext": "Toyota Prius 30, 2011/2024 177,000 км · Автомат · 1.8 л · Бензин"
+      },
+      {
+        "year": 2011,
+        "drive": "不明",
+        "mileage": "230,127 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 13.0,
+        "_fulltext": "Toyota Prius 30, 2011/2021 230,127 км · Автомат · 2.0 л · Хайбрид"
+      },
       {
         "year": 2015,
         "drive": "不明",
@@ -8153,6 +8147,60 @@
         "import_year": 2026,
         "price": 17.5,
         "_fulltext": "Toyota Prius 30, 2014/2023 360 км · Автомат · 1.9 л · Хайбрид"
+      },
+      {
+        "year": 2010,
+        "drive": "不明",
+        "mileage": "270,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 13.5,
+        "_fulltext": "Toyota Prius 30, 2010/2020 270,000 км · Автомат · 1.8 л · Хайбрид"
+      },
+      {
+        "year": 2010,
+        "drive": "不明",
+        "mileage": "226,666 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 13.8,
+        "_fulltext": "Toyota Prius 30, 2010/2019 226,666 км · Автомат · 1.8 л · Хайбрид"
+      },
+      {
+        "year": 2014,
+        "drive": "不明",
+        "mileage": "220,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 16.5,
+        "_fulltext": "Toyota Prius 30, 2014/2022 220,000 км · Автомат · 1.8 л · Бензин"
+      },
+      {
+        "year": 2012,
+        "drive": "不明",
+        "mileage": "162,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 14.5,
+        "_fulltext": "Toyota Prius 30, 2012/2020 162,000 км · Автомат · 1.8 л · Бензин"
+      },
+      {
+        "year": 2009,
+        "drive": "不明",
+        "mileage": "250,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 8.8,
+        "_fulltext": "Toyota Prius 30, 2009/2015 250,000 км · Автомат · 1.8 л · Хайбрид"
+      },
+      {
+        "year": 2015,
+        "drive": "不明",
+        "mileage": "220,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 21.0,
+        "_fulltext": "Toyota Prius 30, 2015/2024 220,000 км · Автомат · 1.8 л · Бензин"
       },
       {
         "year": 2013,
@@ -8380,15 +8428,6 @@
         "_fulltext": "Toyota Prius 30, 2009/2019 250,000 км · Автомат · 1.8 л · Хайбрид"
       },
       {
-        "year": 2011,
-        "drive": "不明",
-        "mileage": "280,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 13.0,
-        "_fulltext": "Toyota Prius 30, 2011/2019 280,000 км · Автомат · 1.8 л · Хайбрид"
-      },
-      {
         "year": 2012,
         "drive": "不明",
         "mileage": "200,000 km",
@@ -8434,15 +8473,6 @@
         "_fulltext": "Toyota Prius 30, 2011/2025 195,000 км · Автомат · 1.8 л · Хайбрид"
       },
       {
-        "year": 2011,
-        "drive": "不明",
-        "mileage": "133,136 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 18.5,
-        "_fulltext": "Toyota Prius 30, 2011/2024 133,136 км · Автомат · 1.8 л · Хайбрид"
-      },
-      {
         "year": 2014,
         "drive": "不明",
         "mileage": "122,000 km",
@@ -8450,42 +8480,6 @@
         "import_year": 2026,
         "price": 20.8,
         "_fulltext": "Toyota Prius 30, 2014/2025 122,000 км · Автомат · 1.8 л · Хайбрид"
-      },
-      {
-        "year": 2015,
-        "drive": "不明",
-        "mileage": "115,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 19.5,
-        "_fulltext": "Toyota Prius 30, 2015/2024 115,000 км · Автомат · 1.8 л · Хайбрид"
-      },
-      {
-        "year": 2010,
-        "drive": "不明",
-        "mileage": "62,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 10.5,
-        "_fulltext": "Toyota Prius 30, 2010/2020 62,000 км · Автомат · 1.8 л · Бензин"
-      },
-      {
-        "year": 2012,
-        "drive": "不明",
-        "mileage": "210,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 14.5,
-        "_fulltext": "Toyota Prius 30, 2012/2020 210,000 км · Автомат · 1.8 л · Хайбрид"
-      },
-      {
-        "year": 2009,
-        "drive": "不明",
-        "mileage": "200 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 13.0,
-        "_fulltext": "Toyota Prius 30, 2009/2019 200 км · Автомат · 1.8 л · Бензин"
       },
       {
         "year": 2010,
@@ -8499,11 +8493,29 @@
       {
         "year": 2014,
         "drive": "不明",
-        "mileage": "167,000 km",
+        "mileage": "122,000 km",
         "color": "不明",
         "import_year": 2026,
-        "price": 20.3,
-        "_fulltext": "Toyota Prius 30, 2014/2024 167,000 км · Автомат · 1.8 л · Хайбрид"
+        "price": 22.0,
+        "_fulltext": "Toyota Prius 30, 2014/2025 122,000 км · Автомат · 1.8 л · Хайбрид"
+      },
+      {
+        "year": 2012,
+        "drive": "不明",
+        "mileage": "250,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 13.8,
+        "_fulltext": "Toyota Prius 30, 2012/2021 250,000 км · Автомат · 1.8 л · Хайбрид"
+      },
+      {
+        "year": 2012,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 19.0,
+        "_fulltext": "Toyota Prius 30, 2012/2025 Автомат · 1.8 л · Хайбрид"
       },
       {
         "year": 2009,
@@ -8513,6 +8525,78 @@
         "import_year": 2026,
         "price": 10.8,
         "_fulltext": "Toyota Prius 30, 2009/2017 250,000 км · Автомат · 1.8 л · Хайбрид"
+      },
+      {
+        "year": 2013,
+        "drive": "不明",
+        "mileage": "160,960 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 16.5,
+        "_fulltext": "Toyota Prius 30, 2013/2021 160,960 км · Автомат · 1.8 л · Бензин"
+      },
+      {
+        "year": 2013,
+        "drive": "不明",
+        "mileage": "170,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 23.5,
+        "_fulltext": "Toyota Prius 30, 2013/2026 170,000 км · Автомат · 1.8 л · Хайбрид"
+      },
+      {
+        "year": 2010,
+        "drive": "不明",
+        "mileage": "280,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 11.0,
+        "_fulltext": "Toyota Prius 30, 2010/2020 280,000 км · Автомат · 1.8 л · Хайбрид"
+      },
+      {
+        "year": 2011,
+        "drive": "不明",
+        "mileage": "134,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 21.9,
+        "_fulltext": "Toyota Prius 30, 2011/2026 134,000 км · Автомат · 1.8 л · Хайбрид"
+      },
+      {
+        "year": 2010,
+        "drive": "不明",
+        "mileage": "210,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 18.5,
+        "_fulltext": "Toyota Prius 30, 2010/2024 210,000 км · Автомат · 1.8 л · Хайбрид"
+      },
+      {
+        "year": 2013,
+        "drive": "不明",
+        "mileage": "22,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 17.5,
+        "_fulltext": "Toyota Prius 30, 2013/2022 22,000 км · Автомат · 1.8 л · Бензин"
+      },
+      {
+        "year": 2014,
+        "drive": "不明",
+        "mileage": "200,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 15.0,
+        "_fulltext": "Toyota Prius 30, 2014/2020 200,000 км · Автомат · 1.8 л · Хайбрид"
+      },
+      {
+        "year": 2014,
+        "drive": "不明",
+        "mileage": "167,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 20.3,
+        "_fulltext": "Toyota Prius 30, 2014/2024 167,000 км · Автомат · 1.8 л · Хайбрид"
       },
       {
         "year": 2010,
@@ -8549,15 +8633,6 @@
         "import_year": 2026,
         "price": 18.5,
         "_fulltext": "Toyota Prius 30, 2014/2024 200,000 км · Автомат · 1.8 л · Хайбрид"
-      },
-      {
-        "year": 2010,
-        "drive": "不明",
-        "mileage": "210,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 11.0,
-        "_fulltext": "Toyota Prius 30, 2010/2015 210,000 км · Автомат · 1.8 л · Хайбрид"
       },
       {
         "year": 2011,
@@ -8607,15 +8682,6 @@
       {
         "year": 2013,
         "drive": "不明",
-        "mileage": "231,711 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 17.5,
-        "_fulltext": "Toyota Prius 30, 2013/2023 231,711 км · Автомат · 0.4 л · Бензин"
-      },
-      {
-        "year": 2013,
-        "drive": "不明",
         "mileage": "1,560,000 km",
         "color": "不明",
         "import_year": 2026,
@@ -8661,15 +8727,6 @@
       {
         "year": 2010,
         "drive": "不明",
-        "mileage": "240,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 13.8,
-        "_fulltext": "Toyota Prius 30, 2010/2020 240,000 км · Автомат · 1.8 л · Хайбрид"
-      },
-      {
-        "year": 2010,
-        "drive": "不明",
         "mileage": "250,000 km",
         "color": "不明",
         "import_year": 2026,
@@ -8693,15 +8750,6 @@
         "import_year": 2026,
         "price": 13.0,
         "_fulltext": "Toyota Prius 30, 2012/2018 180,000 км · Автомат · 1.8 л · Хайбрид"
-      },
-      {
-        "year": 2010,
-        "drive": "不明",
-        "mileage": "250,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 13.0,
-        "_fulltext": "Toyota Prius 30, 2010/2021 250,000 км · Автомат · 2.2 л · Хайбрид"
       },
       {
         "year": 2011,
@@ -8756,15 +8804,6 @@
         "import_year": 2026,
         "price": 19.0,
         "_fulltext": "Toyota Prius 30, 2011/2021 123,000 км · Автомат · 1.8 л · Хайбрид"
-      },
-      {
-        "year": 2010,
-        "drive": "不明",
-        "mileage": "270,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 13.5,
-        "_fulltext": "Toyota Prius 30, 2010/2020 270,000 км · Автомат · 1.8 л · Хайбрид"
       },
       {
         "year": 2012,
@@ -8922,20 +8961,20 @@
       {
         "year": 2012,
         "drive": "不明",
-        "mileage": "140,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 19.0,
-        "_fulltext": "Toyota Prius 30, 2012/2025 140,000 км · Автомат · 1.8 л · Хайбрид"
-      },
-      {
-        "year": 2012,
-        "drive": "不明",
         "mileage": "190,000 km",
         "color": "不明",
         "import_year": 2026,
         "price": 16.5,
         "_fulltext": "Toyota Prius 30, 2012/2022 190,000 км · Автомат · 1.8 л · Бензин"
+      },
+      {
+        "year": 2009,
+        "drive": "不明",
+        "mileage": "333,333 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 13.0,
+        "_fulltext": "Toyota Prius 30, 2009/2017 333,333 км · Автомат · 1.8 л · Хайбрид"
       },
       {
         "year": 2010,
@@ -9071,60 +9110,6 @@
         "import_year": 2026,
         "price": 17.0,
         "_fulltext": "Toyota Prius 30, 2012/2024 197,000 км · Автомат · 1.8 л · Хайбрид"
-      },
-      {
-        "year": 2013,
-        "drive": "不明",
-        "mileage": "120,888 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 23.5,
-        "_fulltext": "Toyota Prius 30, 2013/2025 120,888 км · Автомат · 1.7 л · Хайбрид"
-      },
-      {
-        "year": 2013,
-        "drive": "不明",
-        "mileage": "160,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 26.0,
-        "_fulltext": "Toyota Prius 30, 2013/2025 160,000 км · Автомат · 6.0 л · Бензин"
-      },
-      {
-        "year": 2014,
-        "drive": "不明",
-        "mileage": "1,370,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 22.0,
-        "_fulltext": "Toyota Prius 30, 2014/2025 1,370,000 км · Автомат · 1.8 л · Хайбрид"
-      },
-      {
-        "year": 2011,
-        "drive": "不明",
-        "mileage": "168,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 22.0,
-        "_fulltext": "Toyota Prius 30, 2011/2023 168,000 км · Автомат · 1.7 л · Хайбрид"
-      },
-      {
-        "year": 2010,
-        "drive": "不明",
-        "mileage": "180,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 14.5,
-        "_fulltext": "Toyota Prius 30, 2010/2023 180,000 км · Автомат · 1.8 л · Хайбрид"
-      },
-      {
-        "year": 2009,
-        "drive": "不明",
-        "mileage": "208,757 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 11.0,
-        "_fulltext": "Toyota Prius 30, 2009/2019 208,757 км · Автомат · 1.8 л · Бензин"
       }
     ],
     "toyota|prius-50": [
@@ -9239,6 +9224,36 @@
         "wheel": "RHD"
       },
       {
+        "year": 2016,
+        "drive": "不明",
+        "mileage": "60,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 29.5,
+        "_fulltext": "Toyota Prius 51, 2016/2026 60,000 км · Автомат · 1.5 л · Бензин",
+        "wheel": "RHD"
+      },
+      {
+        "year": 2019,
+        "drive": "不明",
+        "mileage": "110,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 36.5,
+        "_fulltext": "Toyota Prius 51, 2019/2026 110,000 км · Автомат · 1.8 л · Хайбрид",
+        "wheel": "RHD"
+      },
+      {
+        "year": 2019,
+        "drive": "不明",
+        "mileage": "115,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 37.3,
+        "_fulltext": "Toyota Prius 51 2019/2026 115,000 км · Автомат · 1.8 л · Хайбрид",
+        "wheel": "RHD"
+      },
+      {
         "year": 2021,
         "drive": "不明",
         "mileage": "100,000 km",
@@ -9256,16 +9271,6 @@
         "import_year": 2026,
         "price": 32.8,
         "_fulltext": "Toyota Prius 51, 2017/2026 132,000 км · Автомат · 1.8 л · Хайбрид",
-        "wheel": "RHD"
-      },
-      {
-        "year": 2019,
-        "drive": "不明",
-        "mileage": "110,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 36.5,
-        "_fulltext": "Toyota Prius 51, 2019/2026 110,000 км · Автомат · 1.8 л · Хайбрид",
         "wheel": "RHD"
       },
       {
@@ -9346,16 +9351,6 @@
         "import_year": 2026,
         "price": 28.5,
         "_fulltext": "Toyota Prius 51, 2016/2025 210,000 км · Автомат · 1.8 л · Бензин",
-        "wheel": "RHD"
-      },
-      {
-        "year": 2016,
-        "drive": "不明",
-        "mileage": "60,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 29.5,
-        "_fulltext": "Toyota Prius 51, 2016/2026 60,000 км · Автомат · 1.5 л · Бензин",
         "wheel": "RHD"
       },
       {
@@ -9542,6 +9537,15 @@
       {
         "year": 2023,
         "drive": "不明",
+        "mileage": "11,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 73.0,
+        "_fulltext": "Toyota Prius 60, 2023/2026 11,000 км · Автомат · 2.0 л · Хайбрид"
+      },
+      {
+        "year": 2023,
+        "drive": "不明",
         "mileage": "57,000 km",
         "color": "不明",
         "import_year": 2026,
@@ -9641,6 +9645,24 @@
     ],
     "toyota|prius-41": [
       {
+        "year": 2011,
+        "drive": "不明",
+        "mileage": "200 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 24.5,
+        "_fulltext": "Toyota Prius 40, 2011/2026 200 км · Автомат · 1.8 л · Хайбрид"
+      },
+      {
+        "year": 2014,
+        "drive": "不明",
+        "mileage": "150,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 26.5,
+        "_fulltext": "Toyota Prius 40, 2014/2024 150,000 км · Автомат · 1.8 л · Бензин"
+      },
+      {
         "year": 2015,
         "drive": "不明",
         "mileage": "190,300 km",
@@ -9695,6 +9717,33 @@
         "_fulltext": "Toyota Prius 40, 2012/2022 209 км · Автомат · 1.8 л · Хайбрид"
       },
       {
+        "year": 2012,
+        "drive": "不明",
+        "mileage": "188,446 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 27.0,
+        "_fulltext": "Toyota Prius 40, 2012/2023 188,446 км · Автомат · 1.7 л · Бензин"
+      },
+      {
+        "year": 2015,
+        "drive": "不明",
+        "mileage": "240,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 32.0,
+        "_fulltext": "Toyota Prius 40, 2015/2025 240,000 км · Автомат · 1.8 л · Хайбрид"
+      },
+      {
+        "year": 2011,
+        "drive": "不明",
+        "mileage": "200,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 21.5,
+        "_fulltext": "Toyota Prius 40, 2011/2025 200,000 км · Автомат · 1.8 л · Бензин"
+      },
+      {
         "year": 2015,
         "drive": "不明",
         "mileage": "99,000 km",
@@ -9702,15 +9751,6 @@
         "import_year": 2026,
         "price": 35.0,
         "_fulltext": "Toyota Prius 40, 2015/2025 99,000 км · Автомат · 1.8 л · Хайбрид"
-      },
-      {
-        "year": 2014,
-        "drive": "不明",
-        "mileage": "150,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 26.5,
-        "_fulltext": "Toyota Prius 40, 2014/2024 150,000 км · Автомат · 1.8 л · Бензин"
       },
       {
         "year": 2012,
@@ -9837,15 +9877,6 @@
         "import_year": 2026,
         "price": 19.0,
         "_fulltext": "Toyota Prius 40, 2012/2021 200,000 км · Автомат · 1.8 л · Бензин"
-      },
-      {
-        "year": 2012,
-        "drive": "不明",
-        "mileage": "170,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 27.0,
-        "_fulltext": "Toyota Prius 40, 2012/2025 170,000 км · Автомат · 1.8 л · Бензин"
       },
       {
         "year": 2015,
@@ -10001,15 +10032,6 @@
         "_fulltext": "Toyota Prius 40, 2014/2023 330 км · Автомат · 1.8 л · Хайбрид"
       },
       {
-        "year": 2013,
-        "drive": "不明",
-        "mileage": "169,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 28.5,
-        "_fulltext": "Toyota Prius 40, 2013/2026 169,000 км · Автомат · 1.8 л · Хайбрид"
-      },
-      {
         "year": 2012,
         "drive": "不明",
         "mileage": "270 km",
@@ -10100,15 +10122,6 @@
         "_fulltext": "Toyota Prius 40, 2013/2026 180,000 км · Автомат · 1.8 л · Хайбрид"
       },
       {
-        "year": 2011,
-        "drive": "不明",
-        "mileage": "230,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 24.5,
-        "_fulltext": "Toyota Prius 40, 2011/2024 230,000 км · Автомат · 1.8 л · Хайбрид"
-      },
-      {
         "year": 2012,
         "drive": "不明",
         "mileage": "200 km",
@@ -10170,15 +10183,6 @@
         "import_year": 2026,
         "price": 36.0,
         "_fulltext": "Toyota Prius 40, 2013/2026 150,000 км · Автомат · 1.9 л · Бензин"
-      },
-      {
-        "year": 2014,
-        "drive": "不明",
-        "mileage": "153,500 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 26.0,
-        "_fulltext": "Toyota Prius 40, 2014/2025 153,500 км · Автомат · 1.8 л · Хайбрид"
       },
       {
         "year": 2013,
@@ -10289,15 +10293,6 @@
         "_fulltext": "Toyota Prius 40, 2012/2024 247,000 км · Автомат · 1.5 л · Бензин"
       },
       {
-        "year": 2015,
-        "drive": "不明",
-        "mileage": "1,155 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 32.0,
-        "_fulltext": "Toyota Prius 40, 2015/2026 1,155 км · Автомат · 2.4 л · Хайбрид"
-      },
-      {
         "year": 2014,
         "drive": "不明",
         "mileage": "1,870,000 km",
@@ -10320,20 +10315,20 @@
       {
         "year": 2016,
         "drive": "不明",
+        "mileage": "200,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 17.8,
+        "_fulltext": "Toyota Aqua, 2016/2026 200,000 км · Автомат · 1.5 л · Хайбрид"
+      },
+      {
+        "year": 2016,
+        "drive": "不明",
         "mileage": "160,000 km",
         "color": "不明",
         "import_year": 2026,
         "price": 23.5,
         "_fulltext": "Toyota Aqua, 2016/2026 160,000 км · Автомат · 1.5 л · Хайбрид"
-      },
-      {
-        "year": 2016,
-        "drive": "不明",
-        "mileage": "170,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 17.8,
-        "_fulltext": "Toyota Aqua, 2016/2026 170,000 км · Автомат · 1.5 л · Хайбрид"
       },
       {
         "year": 2016,
@@ -10383,29 +10378,56 @@
       {
         "year": 2021,
         "drive": "不明",
-        "mileage": "150,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 21.8,
-        "_fulltext": "Toyota Aqua, 2021/2026 150,000 км · Автомат · 1.5 л · Хайбрид"
-      },
-      {
-        "year": 2020,
-        "drive": "不明",
-        "mileage": "131,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 21.5,
-        "_fulltext": "Toyota Aqua, 2020/2026 131,000 км · Автомат · 1.5 л · Хайбрид"
-      },
-      {
-        "year": 2021,
-        "drive": "不明",
         "mileage": "108,000 km",
         "color": "不明",
         "import_year": 2026,
         "price": 26.0,
         "_fulltext": "Toyota Aqua, 2021/2026 108,000 км · Автомат · 1.5 л · Хайбрид"
+      },
+      {
+        "year": 2017,
+        "drive": "不明",
+        "mileage": "204,360 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 15.5,
+        "_fulltext": "Toyota Aqua, 2017/2023 204,360 км · Автомат · 1.5 л · Хайбрид"
+      },
+      {
+        "year": 2012,
+        "drive": "不明",
+        "mileage": "186,184 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 9.0,
+        "_fulltext": "Toyota Aqua, 2012/2021 186,184 км · Автомат · 1.5 л · Бензин"
+      },
+      {
+        "year": 2013,
+        "drive": "不明",
+        "mileage": "200,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 9.0,
+        "_fulltext": "Toyota Aqua, 2013/2020 200,000 км · Автомат · 1.5 л · Хайбрид"
+      },
+      {
+        "year": 2013,
+        "drive": "不明",
+        "mileage": "150,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 12.5,
+        "_fulltext": "Toyota Aqua, 2013/2023 150,000 км · Автомат · 1.5 л · Бензин"
+      },
+      {
+        "year": 2013,
+        "drive": "不明",
+        "mileage": "210,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 9.6,
+        "_fulltext": "Toyota Aqua, 2013/2020 210,000 км · Автомат · 1.5 л · Бензин"
       },
       {
         "year": 2012,
@@ -10451,15 +10473,6 @@
         "import_year": 2026,
         "price": 18.5,
         "_fulltext": "Toyota Aqua, 2016/2026 106,000 км · Автомат · 1.5 л · Хайбрид"
-      },
-      {
-        "year": 2013,
-        "drive": "不明",
-        "mileage": "215,882 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 9.6,
-        "_fulltext": "Toyota Aqua, 2013/2021 215,882 км · Автомат · 1.5 л · Хайбрид"
       },
       {
         "year": 2015,
@@ -10514,15 +10527,6 @@
         "import_year": 2026,
         "price": 20.0,
         "_fulltext": "Toyota Aqua, 2021/2026 130,000 км · Автомат · 1.5 л · Хайбрид"
-      },
-      {
-        "year": 2013,
-        "drive": "不明",
-        "mileage": "150,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 12.5,
-        "_fulltext": "Toyota Aqua, 2013/2023 150,000 км · Автомат · 1.5 л · Хайбрид"
       },
       {
         "year": 2014,
@@ -10613,15 +10617,6 @@
         "import_year": 2026,
         "price": 26.9,
         "_fulltext": "Toyota Aqua, 2022/2026 100 км · Автомат · 1.5 л · Хайбрид"
-      },
-      {
-        "year": 2017,
-        "drive": "不明",
-        "mileage": "230,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 18.5,
-        "_fulltext": "Toyota Aqua, 2017/2026 230,000 км · Автомат · 1.5 л · Хайбрид"
       },
       {
         "year": 2019,
@@ -10840,15 +10835,6 @@
         "_fulltext": "Toyota Aqua, 2019/2026 170,000 км · Автомат · 1.5 л · Хайбрид"
       },
       {
-        "year": 2013,
-        "drive": "不明",
-        "mileage": "150,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 9.0,
-        "_fulltext": "Toyota Aqua, 2013/2020 150,000 км · Автомат · 1.5 л · Хайбрид"
-      },
-      {
         "year": 2016,
         "drive": "不明",
         "mileage": "190,000 km",
@@ -10856,15 +10842,6 @@
         "import_year": 2026,
         "price": 13.9,
         "_fulltext": "Toyota Aqua, 2016/2022 190,000 км · Автомат · 1.5 л · Хайбрид"
-      },
-      {
-        "year": 2017,
-        "drive": "不明",
-        "mileage": "166,160 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 17.0,
-        "_fulltext": "Toyota Aqua, 2017/2024 166,160 км · Автомат · 1.5 л · Бензин"
       },
       {
         "year": 2016,
@@ -10921,13 +10898,13 @@
         "_fulltext": "Toyota Aqua, 2015/2022 500 км · Автомат · 1.3 л · Бензин"
       },
       {
-        "year": 2014,
+        "year": 2020,
         "drive": "不明",
-        "mileage": "220 km",
+        "mileage": "130,000 km",
         "color": "不明",
         "import_year": 2026,
-        "price": 8.5,
-        "_fulltext": "Toyota Aqua, 2014/2021 220 км · Автомат · 1.3 л · Бензин"
+        "price": 21.5,
+        "_fulltext": "Toyota Aqua, 2020/2026 130,000 км · Автомат · 1.5 л · Хайбрид"
       },
       {
         "year": 2017,
@@ -11036,6 +11013,15 @@
         "import_year": 2026,
         "price": 14.5,
         "_fulltext": "Toyota Aqua, 2016/2025 231 км · Автомат · 1.6 л · Хайбрид"
+      },
+      {
+        "year": 2017,
+        "drive": "不明",
+        "mileage": "230,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 18.5,
+        "_fulltext": "Toyota Aqua, 2017/2026 230,000 км · Автомат · 1.5 л · Хайбрид"
       },
       {
         "year": 2021,
@@ -11299,15 +11285,6 @@
         "_fulltext": "Toyota Aqua, 2017/2023 888,888 км · Автомат · 1.5 л · Хайбрид"
       },
       {
-        "year": 2014,
-        "drive": "不明",
-        "mileage": "150,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 13.8,
-        "_fulltext": "Toyota Aqua, 2014/2023 150,000 км · Автомат · 1.5 л · Хайбрид"
-      },
-      {
         "year": 2012,
         "drive": "不明",
         "mileage": "300,000 km",
@@ -11441,15 +11418,6 @@
         "import_year": 2026,
         "price": 18.5,
         "_fulltext": "Toyota Aqua, 2019/2025 130,000 км · Автомат · 1.5 л · Хайбрид"
-      },
-      {
-        "year": 2017,
-        "drive": "不明",
-        "mileage": "204,360 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 15.5,
-        "_fulltext": "Toyota Aqua, 2017/2023 204,360 км · Автомат · 1.5 л · Хайбрид"
       },
       {
         "year": 2014,
@@ -11625,6 +11593,24 @@
         "wheel": "LHD"
       },
       {
+        "year": 2020,
+        "drive": "4WD",
+        "mileage": "128,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 69.8,
+        "wheel": "RHD"
+      },
+      {
+        "year": 2020,
+        "drive": "4WD",
+        "mileage": "45,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 78.0,
+        "wheel": "LHD"
+      },
+      {
         "year": 2019,
         "drive": "4WD",
         "mileage": "159,000 km",
@@ -11676,6 +11662,24 @@
         "color": "不明",
         "import_year": 2026,
         "price": 79.0,
+        "wheel": "RHD"
+      },
+      {
+        "year": 2021,
+        "drive": "4WD",
+        "mileage": "83,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 65.0,
+        "wheel": "RHD"
+      },
+      {
+        "year": 2020,
+        "drive": "4WD",
+        "mileage": "113,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 73.0,
         "wheel": "RHD"
       },
       {
@@ -11784,15 +11788,6 @@
         "color": "不明",
         "import_year": 2026,
         "price": 68.5,
-        "wheel": "RHD"
-      },
-      {
-        "year": 2020,
-        "drive": "4WD",
-        "mileage": "72,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 73.0,
         "wheel": "RHD"
       },
       {
@@ -11994,15 +11989,6 @@
         "wheel": "RHD"
       },
       {
-        "year": 2020,
-        "drive": "4WD",
-        "mileage": "128,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 69.8,
-        "wheel": "RHD"
-      },
-      {
         "year": 2019,
         "drive": "4WD",
         "mileage": "108,000 km",
@@ -12033,15 +12019,6 @@
         "year": 2024,
         "drive": "4WD",
         "mileage": "18 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 65.0,
-        "wheel": "RHD"
-      },
-      {
-        "year": 2021,
-        "drive": "4WD",
-        "mileage": "31,500 km",
         "color": "不明",
         "import_year": 2026,
         "price": 65.0,
@@ -12135,15 +12112,6 @@
         "color": "不明",
         "import_year": 2026,
         "price": 58.0,
-        "wheel": "LHD"
-      },
-      {
-        "year": 2020,
-        "drive": "4WD",
-        "mileage": "45,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 78.0,
         "wheel": "LHD"
       },
       {
@@ -12300,15 +12268,6 @@
         "wheel": "RHD"
       },
       {
-        "year": 2020,
-        "drive": "2WD",
-        "mileage": "92,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 50.0,
-        "wheel": "RHD"
-      },
-      {
         "year": 2021,
         "drive": "4WD",
         "mileage": "888,888 km",
@@ -12351,24 +12310,6 @@
         "color": "不明",
         "import_year": 2026,
         "price": 71.5,
-        "wheel": "RHD"
-      },
-      {
-        "year": 2019,
-        "drive": "4WD",
-        "mileage": "120 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 90.0,
-        "wheel": "LHD"
-      },
-      {
-        "year": 2024,
-        "drive": "4WD",
-        "mileage": "23,600 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 82.0,
         "wheel": "RHD"
       }
     ],
@@ -12841,20 +12782,20 @@
         "price": 40.0
       },
       {
-        "year": 2012,
-        "drive": "不明",
-        "mileage": "170 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 27.5
-      },
-      {
         "year": 2013,
         "drive": "不明",
         "mileage": "200,000 km",
         "color": "不明",
         "import_year": 2026,
         "price": 13.0
+      },
+      {
+        "year": 2011,
+        "drive": "不明",
+        "mileage": "134,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 11.5
       },
       {
         "year": 2014,
@@ -13071,6 +13012,14 @@
         "color": "不明",
         "import_year": 2026,
         "price": 29.0
+      },
+      {
+        "year": 2012,
+        "drive": "不明",
+        "mileage": "119 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 27.5
       },
       {
         "year": 2016,
@@ -13431,22 +13380,6 @@
         "color": "不明",
         "import_year": 2026,
         "price": 22.0
-      },
-      {
-        "year": 2013,
-        "drive": "不明",
-        "mileage": "129,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 27.5
-      },
-      {
-        "year": 2013,
-        "drive": "不明",
-        "mileage": "182,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 28.5
       }
     ],
     "toyota|camry-70": [
@@ -13457,6 +13390,22 @@
         "color": "不明",
         "import_year": 2026,
         "price": 43.0
+      },
+      {
+        "year": 2019,
+        "drive": "不明",
+        "mileage": "108,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 43.8
+      },
+      {
+        "year": 2017,
+        "drive": "不明",
+        "mileage": "200,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 43.8
       },
       {
         "year": 2021,
@@ -13641,14 +13590,6 @@
         "color": "不明",
         "import_year": 2026,
         "price": 46.6
-      },
-      {
-        "year": 2018,
-        "drive": "不明",
-        "mileage": "91,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 47.0
       },
       {
         "year": 2020,
@@ -13847,6 +13788,26 @@
         "wheel": "RHD"
       },
       {
+        "year": 2017,
+        "drive": "4WD",
+        "mileage": "120,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 32.0,
+        "_fulltext": "Toyota Corolla 2017/2025 120,000 км · Автомат · 1.8 л · Бензин",
+        "wheel": "LHD"
+      },
+      {
+        "year": 2019,
+        "drive": "4WD",
+        "mileage": "180,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 28.0,
+        "_fulltext": "Toyota Corolla, 2019/2025 180,000 км · Автомат · 1.8 л · Хайбрид",
+        "wheel": "RHD"
+      },
+      {
         "year": 2008,
         "drive": "2WD",
         "mileage": "176,000 km",
@@ -14003,6 +13964,15 @@
         "_fulltext": "Toyota Hiace, 2010/2020 160 км · Автомат · 2.7 л · Бензин"
       },
       {
+        "year": 2020,
+        "drive": "不明",
+        "mileage": "229,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 49.0,
+        "_fulltext": "Toyota Hiace, 2020/2026 229,000 км · Автомат · 2.0 л · Бензин"
+      },
+      {
         "year": 2017,
         "drive": "不明",
         "mileage": "170 km",
@@ -14055,15 +14025,6 @@
         "import_year": 2026,
         "price": 38.0,
         "_fulltext": "Toyota Hiace, 2007/2024 168,000 км · Автомат · 2.7 л · Бензин"
-      },
-      {
-        "year": 2015,
-        "drive": "不明",
-        "mileage": "189,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 49.0,
-        "_fulltext": "Toyota Hiace, 2015/2025 189,000 км · Автомат · 2.7 л · Бензин"
       },
       {
         "year": 2017,
@@ -14363,15 +14324,6 @@
         "_fulltext": "Toyota Hiace, 2004/2013 160,499 км · Механик · 2.4 л · Дизель"
       },
       {
-        "year": 2020,
-        "drive": "不明",
-        "mileage": "229,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 49.0,
-        "_fulltext": "Toyota Hiace, 2020/2026 229,000 км · Автомат · 2.0 л · Бензин"
-      },
-      {
         "year": 2010,
         "drive": "不明",
         "mileage": "168,491 km",
@@ -14458,7 +14410,7 @@
         "mileage": "23,000 km",
         "color": "不明",
         "import_year": 2026,
-        "price": 95.0,
+        "price": 90.0,
         "_fulltext": "Toyota Hiace, 2023/2026 23,000 км · Автомат · 2.7 л · Бензин"
       },
       {
@@ -14721,27 +14673,18 @@
         "import_year": 2026,
         "price": 35.0,
         "_fulltext": "Toyota Hiace, 2008/2017 10,000,000 км · Автомат · 2.7 л · Бензин"
-      },
-      {
-        "year": 2011,
-        "drive": "不明",
-        "mileage": "315,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 30.0,
-        "_fulltext": "Toyota Hiace, 2011/2022 315,000 км · Автомат · 3.0 л · Дизель"
-      },
-      {
-        "year": 2008,
-        "drive": "不明",
-        "mileage": "213,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 15.0,
-        "_fulltext": "Toyota Hiace, 2008/2018 213,000 км · Автомат · 2.5 л · Дизель"
       }
     ],
     "toyota|highlander": [
+      {
+        "year": 2013,
+        "drive": "不明",
+        "mileage": "180 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 45.0,
+        "_fulltext": "Toyota Highlander, 2013/2021 180 км · Автомат · 3.5 л · Бензин"
+      },
       {
         "year": 2014,
         "drive": "不明",
@@ -14768,6 +14711,15 @@
         "import_year": 2026,
         "price": 75.0,
         "_fulltext": "Toyota Highlander, 2017/2022 280,000 км · Автомат · 3.5 л · Хайбрид"
+      },
+      {
+        "year": 2018,
+        "drive": "不明",
+        "mileage": "89,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 95.0,
+        "_fulltext": "Toyota Highlander, 2018/2023 89,000 км · Автомат · 3.5 л · Бензин"
       },
       {
         "year": 2021,
@@ -14932,24 +14884,6 @@
         "_fulltext": "Toyota Highlander, 2013/2013 100,000 км · Автомат · 2.7 л · Бензин"
       },
       {
-        "year": 2018,
-        "drive": "不明",
-        "mileage": "100 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 106.0,
-        "_fulltext": "Toyota Highlander, 2018/2026 100 км · Автомат · 3.5 л · Бензин"
-      },
-      {
-        "year": 2015,
-        "drive": "不明",
-        "mileage": "169,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 60.0,
-        "_fulltext": "Toyota Highlander, 2015/2023 169,000 км · Автомат · 3.5 л · Бензин"
-      },
-      {
         "year": 2016,
         "drive": "不明",
         "mileage": "76,000 km",
@@ -15013,15 +14947,6 @@
         "_fulltext": "Toyota Highlander, 2014/2022 170 км · Автомат · 3.5 л · Хайбрид"
       },
       {
-        "year": 2013,
-        "drive": "不明",
-        "mileage": "180 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 45.0,
-        "_fulltext": "Toyota Highlander, 2013/2021 180 км · Автомат · 3.5 л · Бензин"
-      },
-      {
         "year": 2019,
         "drive": "不明",
         "mileage": "123,456 km",
@@ -15038,15 +14963,6 @@
         "import_year": 2026,
         "price": 55.0,
         "_fulltext": "Toyota Highlander, 2014/2014 160,000 км · Автомат · 3.5 л · Бензин"
-      },
-      {
-        "year": 2015,
-        "drive": "不明",
-        "mileage": "2,000,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 65.0,
-        "_fulltext": "Toyota Highlander, 2015/2022 2,000,000 км · Автомат · 3.5 л · Хайбрид"
       }
     ],
     "toyota|fortuner": [
@@ -15136,6 +15052,15 @@
         "_fulltext": "Nissan X-Trail, 2016/2026 165,000 км · Автомат · 2.0 л · Хайбрид"
       },
       {
+        "year": 2015,
+        "drive": "不明",
+        "mileage": "139,130 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 26.0,
+        "_fulltext": "Nissan X-Trail, 2015/2024 139,130 км · Автомат · 2.5 л · Хайбрид"
+      },
+      {
         "year": 2017,
         "drive": "不明",
         "mileage": "94,000 km",
@@ -15197,6 +15122,33 @@
         "import_year": 2026,
         "price": 11.0,
         "_fulltext": "Nissan X-Trail, 2008/2017 227,000 км · Автомат · 1.9 л · Бензин"
+      },
+      {
+        "year": 2008,
+        "drive": "不明",
+        "mileage": "200,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 13.0,
+        "_fulltext": "Nissan X-Trail, 2008/2017 200,000 км · Автомат · 2.0 л · Бензин"
+      },
+      {
+        "year": 2009,
+        "drive": "不明",
+        "mileage": "220,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 16.0,
+        "_fulltext": "Nissan X-Trail, 2009/2017 220,000 км · Автомат · 1.9 л · Бензин"
+      },
+      {
+        "year": 2013,
+        "drive": "不明",
+        "mileage": "180,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 20.0,
+        "_fulltext": "Nissan X-Trail, 2013/2018 180,000 км · Автомат · 2.0 л · Бензин"
       },
       {
         "year": 2016,
@@ -15586,15 +15538,6 @@
         "_fulltext": "Nissan X-Trail, 2016/2024 97,000 км · Автомат · 2.4 л · Бензин"
       },
       {
-        "year": 2015,
-        "drive": "不明",
-        "mileage": "100,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 26.0,
-        "_fulltext": "Nissan X-Trail, 2015/2020 100,000 км · Автомат · 2.0 л · Бензин"
-      },
-      {
         "year": 2007,
         "drive": "不明",
         "mileage": "200,000 km",
@@ -15638,15 +15581,6 @@
         "import_year": 2026,
         "price": 15.0,
         "_fulltext": "Nissan X-Trail, 2009/2019 170,000 км · Автомат · 1.9 л · Бензин"
-      },
-      {
-        "year": 2009,
-        "drive": "不明",
-        "mileage": "213 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 16.0,
-        "_fulltext": "Nissan X-Trail, 2009/2019 213 км · Автомат · 2.0 л · Бензин"
       },
       {
         "year": 2012,
@@ -15811,15 +15745,6 @@
         "_fulltext": "Nissan X-Trail, 2015/2025 137,000 км · Автомат · 2.0 л · Бензин"
       },
       {
-        "year": 2008,
-        "drive": "不明",
-        "mileage": "200,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 13.0,
-        "_fulltext": "Nissan X-Trail, 2008/2017 200,000 км · Автомат · 2.0 л · Бензин"
-      },
-      {
         "year": 2015,
         "drive": "不明",
         "mileage": "160,000 km",
@@ -15937,6 +15862,33 @@
         "import_year": 2026,
         "price": 260.0,
         "_fulltext": "Nissan Patrol, 2025/2025 20,000 км · Автомат · 3.5 л · Бензин"
+      },
+      {
+        "year": 2011,
+        "drive": "不明",
+        "mileage": "99,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 58.0,
+        "_fulltext": "Nissan Patrol, 2011/2014 99,000 км · Автомат · 5.6 л · Бензин"
+      },
+      {
+        "year": 1996,
+        "drive": "不明",
+        "mileage": "140 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 38.0,
+        "_fulltext": "Nissan Patrol, 1996/2010 140 км · Механик · 3.2 л · Дизель"
+      },
+      {
+        "year": 1996,
+        "drive": "不明",
+        "mileage": "108,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 43.0,
+        "_fulltext": "Nissan Patrol, 1996/2010 108,000 км · Механик · 3.2 л · Дизель"
       },
       {
         "year": 2022,
@@ -16517,15 +16469,6 @@
         "import_year": 2026,
         "price": 21.0,
         "_fulltext": "Nissan Serena, 2016/2025 128,000 км · Автомат · 2.0 л · Бензин"
-      },
-      {
-        "year": 2013,
-        "drive": "不明",
-        "mileage": "200,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 16.0,
-        "_fulltext": "Nissan Serena, 2013/2021 200,000 км · Автомат · 2.0 л · Бензин"
       }
     ],
     "mitsubishi|pajero-v80": [
@@ -16757,6 +16700,15 @@
     ],
     "mitsubishi|outlander-gf": [
       {
+        "year": 2013,
+        "drive": "不明",
+        "mileage": "270,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 17.5,
+        "_fulltext": "Mitsubishi Outlander, 2013/2024 270,000 км · Автомат · 2.0 л · Хайбрид"
+      },
+      {
         "year": 2010,
         "drive": "不明",
         "mileage": "200,000 km",
@@ -16773,15 +16725,6 @@
         "import_year": 2026,
         "price": 6.5,
         "_fulltext": "Mitsubishi Outlander, 2004/2013 155,000 км · Автомат · 2.4 л · Бензин"
-      },
-      {
-        "year": 2015,
-        "drive": "不明",
-        "mileage": "106,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 31.0,
-        "_fulltext": "Mitsubishi Outlander, 2015/2024 106,000 км · Автомат · 2.0 л · Хайбрид"
       },
       {
         "year": 2016,
@@ -16836,6 +16779,15 @@
         "import_year": 2026,
         "price": 30.0,
         "_fulltext": "Mitsubishi Outlander, 2015/2023 118,000 км · Автомат · 2.4 л · Бензин"
+      },
+      {
+        "year": 2015,
+        "drive": "不明",
+        "mileage": "110,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 31.0,
+        "_fulltext": "Mitsubishi Outlander, 2015/2026 110,000 км · Автомат · 1.8 л · Хайбрид"
       },
       {
         "year": 2014,
@@ -16982,15 +16934,6 @@
         "_fulltext": "Mitsubishi Outlander, 2015/2025 198,441 км · Автомат · 2.0 л · Хайбрид"
       },
       {
-        "year": 2013,
-        "drive": "不明",
-        "mileage": "270,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 17.5,
-        "_fulltext": "Mitsubishi Outlander, 2013/2024 270,000 км · Автомат · 2.0 л · Хайбрид"
-      },
-      {
         "year": 2022,
         "drive": "不明",
         "mileage": "38,000 km",
@@ -17050,7 +16993,7 @@
         "mileage": "117,000 km",
         "color": "不明",
         "import_year": 2026,
-        "price": 45.0,
+        "price": 39.0,
         "_fulltext": "Mitsubishi Outlander, 2016/2026 117,000 км · Автомат · 2.4 л · Бензин"
       },
       {
@@ -17385,15 +17328,6 @@
         "import_year": 2026,
         "price": 34.0,
         "_fulltext": "Mitsubishi Outlander, 2015/2025 184,000 км · Автомат · 2.0 л · Хайбрид"
-      },
-      {
-        "year": 2013,
-        "drive": "不明",
-        "mileage": "210,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 20.0,
-        "_fulltext": "Mitsubishi Outlander, 2013/2025 210,000 км · Автомат · 2.0 л · Бензин"
       }
     ],
     "honda|cr-v-5": [
@@ -17504,18 +17438,18 @@
         "import_year": 2026,
         "price": 35.0,
         "_fulltext": "Honda CR-V, 2015/2026 120,400 км · Автомат · 2.4 л · Бензин"
-      },
-      {
-        "year": 2015,
-        "drive": "不明",
-        "mileage": "130,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 28.0,
-        "_fulltext": "Honda CR-V, 2015/2020 130,000 км · Автомат · 2.4 л · Бензин"
       }
     ],
     "subaru|forester-sj": [
+      {
+        "year": 2009,
+        "drive": "不明",
+        "mileage": "200,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 10.0,
+        "_fulltext": "Subaru Forester, 2009/2018 200,000 км · Автомат · 2.0 л · Бензин"
+      },
       {
         "year": 2022,
         "drive": "不明",
@@ -17560,15 +17494,6 @@
         "import_year": 2026,
         "price": 48.0,
         "_fulltext": "Subaru Forester, 2021/2026 Автомат · 2.0 л · Бензин"
-      },
-      {
-        "year": 2019,
-        "drive": "不明",
-        "mileage": "144 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 41.0,
-        "_fulltext": "Subaru Forester, 2019/2023 144 км · Автомат · 2.5 л · Бензин"
       },
       {
         "year": 2016,
@@ -17704,6 +17629,24 @@
         "import_year": 2026,
         "price": 16.5,
         "_fulltext": "Subaru Forester, 2011/2019 225,000 км · Автомат · 2.0 л · Бензин"
+      },
+      {
+        "year": 2020,
+        "drive": "不明",
+        "mileage": "49,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 52.0,
+        "_fulltext": "Subaru Forester, 2020/2026 49,000 км · Автомат · 2.5 л · Бензин"
+      },
+      {
+        "year": 2019,
+        "drive": "不明",
+        "mileage": "150,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 46.0,
+        "_fulltext": "Subaru Forester, 2019/2026 150,000 км · Автомат · 2.0 л · Хайбрид"
       },
       {
         "year": 2018,
@@ -17859,15 +17802,6 @@
         "_fulltext": "Subaru Forester, 2013/2022 99,999 км · Автомат · 2.0 л · Бензин"
       },
       {
-        "year": 2019,
-        "drive": "不明",
-        "mileage": "150,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 46.0,
-        "_fulltext": "Subaru Forester, 2019/2026 150,000 км · Автомат · 2.0 л · Хайбрид"
-      },
-      {
         "year": 2016,
         "drive": "不明",
         "mileage": "140,000 km",
@@ -17884,15 +17818,6 @@
         "import_year": 2026,
         "price": 41.0,
         "_fulltext": "Subaru Forester, 2017/2026 125,000 км · Автомат · 2.0 л · Бензин"
-      },
-      {
-        "year": 2009,
-        "drive": "不明",
-        "mileage": "185,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 10.0,
-        "_fulltext": "Subaru Forester, 2009/2018 185,000 км · Автомат · 2.0 л · Бензин"
       },
       {
         "year": 2012,
@@ -17922,15 +17847,6 @@
         "_fulltext": "Subaru Forester, 2013/2022 102,500 км · Автомат · 2.0 л · Бензин"
       },
       {
-        "year": 2020,
-        "drive": "不明",
-        "mileage": "49,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 52.0,
-        "_fulltext": "Subaru Forester, 2020/2026 49,000 км · Автомат · 2.5 л · Бензин"
-      },
-      {
         "year": 2013,
         "drive": "不明",
         "mileage": "249,000 km",
@@ -17956,6 +17872,15 @@
         "import_year": 2026,
         "price": 27.0,
         "_fulltext": "Subaru Forester, 2018/2021 100,000 км · Автомат · 2.5 л · Бензин"
+      },
+      {
+        "year": 2019,
+        "drive": "不明",
+        "mileage": "144 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 41.0,
+        "_fulltext": "Subaru Forester, 2019/2023 144 км · Автомат · 2.5 л · Бензин"
       },
       {
         "year": 2014,
@@ -18667,33 +18592,6 @@
         "import_year": 2026,
         "price": 22.8,
         "_fulltext": "Subaru Forester, 2010/2011 1,000,000 км · Автомат · 2.5 л · Бензин"
-      },
-      {
-        "year": 2015,
-        "drive": "不明",
-        "mileage": "100,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 25.0,
-        "_fulltext": "Subaru Forester, 2015/2024 100,000 км · Автомат · 2.0 л · Бензин"
-      },
-      {
-        "year": 2009,
-        "drive": "不明",
-        "mileage": "200 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 11.5,
-        "_fulltext": "Subaru Forester, 2009/2015 200 км · Механик · 2.0 л · Бензин"
-      },
-      {
-        "year": 2010,
-        "drive": "不明",
-        "mileage": "200,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 16.0,
-        "_fulltext": "Subaru Forester, 2010/2019 200,000 км · Автомат · 2.0 л · Бензин"
       }
     ],
     "subaru|outback-bs": [
@@ -18847,7 +18745,7 @@
         "mileage": "144,350 km",
         "color": "不明",
         "import_year": 2026,
-        "price": 42.5,
+        "price": 47.0,
         "_fulltext": "Subaru Outback, 2017/2026 144,350 км · Автомат · 2.5 л · Бензин"
       },
       {
@@ -19114,6 +19012,15 @@
         "_fulltext": "Suzuki Jimny, 2025/2025 12,800 км · Автомат · 1.5 л · Бензин"
       },
       {
+        "year": 2024,
+        "drive": "不明",
+        "mileage": "9,800 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 60.0,
+        "_fulltext": "Suzuki Jimny, 2024/2024 9,800 км · Автомат · 1.5 л · Бензин"
+      },
+      {
         "year": 2023,
         "drive": "不明",
         "mileage": "28,000 km",
@@ -19328,18 +19235,18 @@
         "import_year": 2026,
         "price": 19.0,
         "_fulltext": "Suzuki Jimny, 2013/2023 179,000 км · Автомат · 0.7 л · Бензин"
-      },
-      {
-        "year": 2024,
-        "drive": "不明",
-        "mileage": "9,800 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 73.0,
-        "_fulltext": "Suzuki Jimny, 2024/2024 9,800 км · Автомат · 1.5 л · Бензин"
       }
     ],
     "lexus|lx-470": [
+      {
+        "year": 2002,
+        "drive": "不明",
+        "mileage": "2,800,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 30.0,
+        "_fulltext": "Lexus LX 470, 2002/2012 2,800,000 км · Автомат · 4.7 л · Бензин"
+      },
       {
         "year": 2005,
         "drive": "不明",
@@ -19517,7 +19424,7 @@
         "mileage": "230,000 km",
         "color": "不明",
         "import_year": 2026,
-        "price": 15.0,
+        "price": 20.0,
         "_fulltext": "Lexus LX 470, 2000/2005 230,000 км · Автомат · 4.7 л · Бензин"
       },
       {
@@ -19654,15 +19561,6 @@
         "import_year": 2026,
         "price": 28.0,
         "_fulltext": "Lexus LX 470, 2003/2008 256,258 км · Автомат · 4.7 л · Бензин"
-      },
-      {
-        "year": 2003,
-        "drive": "不明",
-        "mileage": "250,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 38.0,
-        "_fulltext": "Lexus LX 470, 2003/2009 250,000 км · Автомат · 4.7 л · Бензин"
       }
     ],
     "lexus|gx-460": [
@@ -19896,16 +19794,702 @@
         "_fulltext": "Lexus GX, 2004/2011 100,000 км · Автомат · 4.7 л · Бензин"
       }
     ],
-    "lexus|rx-450h-al20": [
+    "lexus|rx-450h-al10": [
       {
-        "year": 2016,
+        "year": 2013,
         "drive": "不明",
         "mileage": "不明",
         "color": "不明",
         "import_year": 2026,
-        "price": 81.5,
-        "_fulltext": "Lexus RX 450, 2016/2026"
+        "price": 60.0,
+        "_fulltext": "Lexus RX 450, 2013/2023"
       },
+      {
+        "year": 2010,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 54.0,
+        "_fulltext": "Lexus RX 450, 2010/2025"
+      },
+      {
+        "year": 2010,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 55.0,
+        "_fulltext": "Lexus RX 450, 2010/2024"
+      },
+      {
+        "year": 2013,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 72.0,
+        "_fulltext": "Lexus RX 450, 2013/2026"
+      },
+      {
+        "year": 2015,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 81.0,
+        "_fulltext": "Lexus RX 450, 2015/2026"
+      },
+      {
+        "year": 2011,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 47.8,
+        "_fulltext": "Lexus RX 450, 2011/2026"
+      },
+      {
+        "year": 2009,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 43.8,
+        "_fulltext": "Lexus RX 450, 2009/2026"
+      },
+      {
+        "year": 2011,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 48.8,
+        "_fulltext": "Lexus RX 450, 2011/2026"
+      },
+      {
+        "year": 2010,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 36.0,
+        "_fulltext": "Lexus RX 450, 2010/2022"
+      },
+      {
+        "year": 2009,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 37.8,
+        "_fulltext": "Lexus RX 450, 2009/2018"
+      },
+      {
+        "year": 2013,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 50.0,
+        "_fulltext": "Lexus RX 450, 2013/2023"
+      },
+      {
+        "year": 2009,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 45.0,
+        "_fulltext": "Lexus RX 450, 2009/2023"
+      },
+      {
+        "year": 2013,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 62.0,
+        "_fulltext": "Lexus RX 450, 2013/2024"
+      },
+      {
+        "year": 2012,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 50.0,
+        "_fulltext": "Lexus RX 450, 2012/2019"
+      },
+      {
+        "year": 2013,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 42.0,
+        "_fulltext": "Lexus RX 450, 2013/2020"
+      },
+      {
+        "year": 2012,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 55.0,
+        "_fulltext": "Lexus RX 450, 2012/2024"
+      },
+      {
+        "year": 2013,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 55.0,
+        "_fulltext": "Lexus RX 450, 2013/2025"
+      },
+      {
+        "year": 2009,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 39.0,
+        "_fulltext": "Lexus RX 450, 2009/2022"
+      },
+      {
+        "year": 2013,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 57.0,
+        "_fulltext": "Lexus RX 450, 2013/2026"
+      },
+      {
+        "year": 2013,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 45.0,
+        "_fulltext": "Lexus RX 450, 2013/2021"
+      },
+      {
+        "year": 2010,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 30.0,
+        "_fulltext": "Lexus RX 450, 2010/2017"
+      },
+      {
+        "year": 2010,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 50.0,
+        "_fulltext": "Lexus RX 450, 2010/2025"
+      },
+      {
+        "year": 2014,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 51.0,
+        "_fulltext": "Lexus RX 450, 2014/2021"
+      },
+      {
+        "year": 2009,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 40.0,
+        "_fulltext": "Lexus RX 450, 2009/2009"
+      },
+      {
+        "year": 2009,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 41.5,
+        "_fulltext": "Lexus RX 450, 2009/2022"
+      },
+      {
+        "year": 2012,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 61.9,
+        "_fulltext": "Lexus RX 450, 2012/2026"
+      },
+      {
+        "year": 2015,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 65.5,
+        "_fulltext": "Lexus RX 450, 2015/2026"
+      },
+      {
+        "year": 2015,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 85.0,
+        "_fulltext": "Lexus RX 450, 2015/2025"
+      },
+      {
+        "year": 2009,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 47.0,
+        "_fulltext": "Lexus RX 450, 2009/2023"
+      },
+      {
+        "year": 2014,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 65.0,
+        "_fulltext": "Lexus RX 450, 2014/2025"
+      },
+      {
+        "year": 2010,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 42.0,
+        "_fulltext": "Lexus RX 450, 2010/2023"
+      },
+      {
+        "year": 2015,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 68.0,
+        "_fulltext": "Lexus RX 450, 2015/2023"
+      },
+      {
+        "year": 2012,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 64.0,
+        "_fulltext": "Lexus RX 450, 2012/2026"
+      },
+      {
+        "year": 2015,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 79.0,
+        "_fulltext": "Lexus RX 450, 2015/2026"
+      },
+      {
+        "year": 2010,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 45.0,
+        "_fulltext": "Lexus RX 450, 2010/2021"
+      },
+      {
+        "year": 2010,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 43.0,
+        "_fulltext": "Lexus RX 450, 2010/2024"
+      },
+      {
+        "year": 2013,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 54.0,
+        "_fulltext": "Lexus RX 450, 2013/2023"
+      },
+      {
+        "year": 2010,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 44.0,
+        "_fulltext": "Lexus RX 450, 2010/2024"
+      },
+      {
+        "year": 2011,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 50.0,
+        "_fulltext": "Lexus RX 450, 2011/2024"
+      },
+      {
+        "year": 2010,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 40.0,
+        "_fulltext": "Lexus RX 450, 2010/2022"
+      },
+      {
+        "year": 2009,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 39.8,
+        "_fulltext": "Lexus RX 450, 2009/2021"
+      },
+      {
+        "year": 2010,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 51.0,
+        "_fulltext": "Lexus RX 450, 2010/2026"
+      },
+      {
+        "year": 2009,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 42.0,
+        "_fulltext": "Lexus RX 450, 2009/2022"
+      },
+      {
+        "year": 2009,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 48.0,
+        "_fulltext": "Lexus RX 450, 2009/2024"
+      },
+      {
+        "year": 2013,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 63.8,
+        "_fulltext": "Lexus RX 450, 2013/2026"
+      },
+      {
+        "year": 2013,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 58.0,
+        "_fulltext": "Lexus RX 450, 2013/2024"
+      },
+      {
+        "year": 2012,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 62.0,
+        "_fulltext": "Lexus RX 450, 2012/2026"
+      },
+      {
+        "year": 2012,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 68.0,
+        "_fulltext": "Lexus RX 450, 2012/2025"
+      },
+      {
+        "year": 2009,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 50.0,
+        "_fulltext": "Lexus RX 450, 2009/2024"
+      },
+      {
+        "year": 2013,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 65.5,
+        "_fulltext": "Lexus RX 450, 2013/2025"
+      },
+      {
+        "year": 2009,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 50.9,
+        "_fulltext": "Lexus RX 450, 2009/2026"
+      },
+      {
+        "year": 2009,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 48.5,
+        "_fulltext": "Lexus RX 450, 2009/2026"
+      },
+      {
+        "year": 2010,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 46.5,
+        "_fulltext": "Lexus RX 450, 2010/2025"
+      },
+      {
+        "year": 2011,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 47.0,
+        "_fulltext": "Lexus RX 450, 2011/2022"
+      },
+      {
+        "year": 2009,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 45.8,
+        "_fulltext": "Lexus RX 450, 2009/2026"
+      },
+      {
+        "year": 2015,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 93.0,
+        "_fulltext": "Lexus RX 450, 2015/2026"
+      },
+      {
+        "year": 2012,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 41.0,
+        "_fulltext": "Lexus RX 450, 2012/2021"
+      },
+      {
+        "year": 2009,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 55.0,
+        "_fulltext": "Lexus RX 450, 2009/2024"
+      },
+      {
+        "year": 2011,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 35.0,
+        "_fulltext": "Lexus RX 450, 2011/2017"
+      },
+      {
+        "year": 2009,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 49.0,
+        "_fulltext": "Lexus RX 450, 2009/2025"
+      },
+      {
+        "year": 2009,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 38.0,
+        "_fulltext": "Lexus RX 450, 2009/2018"
+      },
+      {
+        "year": 2011,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 42.0,
+        "_fulltext": "Lexus RX 450, 2011/2023"
+      },
+      {
+        "year": 2011,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 49.0,
+        "_fulltext": "Lexus RX 450, 2011/2025"
+      },
+      {
+        "year": 2010,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 56.0,
+        "_fulltext": "Lexus RX 450, 2010/2026"
+      },
+      {
+        "year": 2014,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 55.0,
+        "_fulltext": "Lexus RX 450, 2014/2023"
+      },
+      {
+        "year": 2010,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 57.0,
+        "_fulltext": "Lexus RX 450, 2010/2026"
+      },
+      {
+        "year": 2010,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 53.0,
+        "_fulltext": "Lexus RX 450, 2010/2026"
+      },
+      {
+        "year": 2011,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 45.0,
+        "_fulltext": "Lexus RX 450, 2011/2023"
+      },
+      {
+        "year": 2012,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 35.0,
+        "_fulltext": "Lexus RX 450, 2012/2019"
+      },
+      {
+        "year": 2012,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 43.0,
+        "_fulltext": "Lexus RX 450, 2012/2020"
+      },
+      {
+        "year": 2010,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 37.0,
+        "_fulltext": "Lexus RX 450, 2010/2019"
+      },
+      {
+        "year": 2014,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 58.0,
+        "_fulltext": "Lexus RX 450, 2014/2024"
+      },
+      {
+        "year": 2013,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 56.0,
+        "_fulltext": "Lexus RX 450, 2013/2023"
+      },
+      {
+        "year": 2014,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 62.0,
+        "_fulltext": "Lexus RX 450, 2014/2025"
+      },
+      {
+        "year": 2010,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 39.8,
+        "_fulltext": "Lexus RX 450, 2010/2022"
+      },
+      {
+        "year": 2012,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 59.8,
+        "_fulltext": "Lexus RX 450, 2012/2026"
+      },
+      {
+        "year": 2009,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 45.5,
+        "_fulltext": "Lexus RX 450, 2009/2024"
+      }
+    ],
+    "lexus|rx-450h-al20": [
       {
         "year": 2016,
         "drive": "不明",
@@ -19950,15 +20534,6 @@
         "import_year": 2026,
         "price": 75.0,
         "_fulltext": "Lexus RX 450, 2016/2023"
-      },
-      {
-        "year": 2016,
-        "drive": "不明",
-        "mileage": "不明",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 99.0,
-        "_fulltext": "Lexus RX 450, 2016/2026"
       },
       {
         "year": 2019,
@@ -20031,15 +20606,6 @@
         "import_year": 2026,
         "price": 86.0,
         "_fulltext": "Lexus RX 450, 2016/2025"
-      },
-      {
-        "year": 2018,
-        "drive": "不明",
-        "mileage": "不明",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 107.0,
-        "_fulltext": "Lexus RX 450, 2018/2026"
       },
       {
         "year": 2016,
@@ -20229,6 +20795,42 @@
         "import_year": 2026,
         "price": 82.0,
         "_fulltext": "Lexus RX 450, 2016/2025"
+      },
+      {
+        "year": 2016,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 89.0,
+        "_fulltext": "Lexus RX 450, 2016/2026"
+      },
+      {
+        "year": 2016,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 81.5,
+        "_fulltext": "Lexus RX 450, 2016/2026"
+      },
+      {
+        "year": 2018,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 92.0,
+        "_fulltext": "Lexus RX 450, 2018/2026"
+      },
+      {
+        "year": 2016,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 99.0,
+        "_fulltext": "Lexus RX 450, 2016/2026"
       },
       {
         "year": 2016,
@@ -20445,710 +21047,6 @@
         "import_year": 2026,
         "price": 113.0,
         "_fulltext": "Lexus RX 450, 2018/2026"
-      },
-      {
-        "year": 2018,
-        "drive": "不明",
-        "mileage": "不明",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 112.0,
-        "_fulltext": "Lexus RX 450, 2018/2026"
-      },
-      {
-        "year": 2019,
-        "drive": "不明",
-        "mileage": "不明",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 96.0,
-        "_fulltext": "Lexus RX 450, 2019/2025"
-      }
-    ],
-    "lexus|rx-450h-al10": [
-      {
-        "year": 2013,
-        "drive": "不明",
-        "mileage": "不明",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 72.0,
-        "_fulltext": "Lexus RX 450, 2013/2026"
-      },
-      {
-        "year": 2015,
-        "drive": "不明",
-        "mileage": "不明",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 81.0,
-        "_fulltext": "Lexus RX 450, 2015/2026"
-      },
-      {
-        "year": 2011,
-        "drive": "不明",
-        "mileage": "不明",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 47.8,
-        "_fulltext": "Lexus RX 450, 2011/2026"
-      },
-      {
-        "year": 2009,
-        "drive": "不明",
-        "mileage": "不明",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 43.8,
-        "_fulltext": "Lexus RX 450, 2009/2026"
-      },
-      {
-        "year": 2011,
-        "drive": "不明",
-        "mileage": "不明",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 48.8,
-        "_fulltext": "Lexus RX 450, 2011/2026"
-      },
-      {
-        "year": 2010,
-        "drive": "不明",
-        "mileage": "不明",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 36.0,
-        "_fulltext": "Lexus RX 450, 2010/2022"
-      },
-      {
-        "year": 2010,
-        "drive": "不明",
-        "mileage": "不明",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 43.0,
-        "_fulltext": "Lexus RX 450, 2010/2022"
-      },
-      {
-        "year": 2009,
-        "drive": "不明",
-        "mileage": "不明",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 37.8,
-        "_fulltext": "Lexus RX 450, 2009/2018"
-      },
-      {
-        "year": 2013,
-        "drive": "不明",
-        "mileage": "不明",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 50.0,
-        "_fulltext": "Lexus RX 450, 2013/2023"
-      },
-      {
-        "year": 2009,
-        "drive": "不明",
-        "mileage": "不明",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 45.0,
-        "_fulltext": "Lexus RX 450, 2009/2023"
-      },
-      {
-        "year": 2010,
-        "drive": "不明",
-        "mileage": "不明",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 54.0,
-        "_fulltext": "Lexus RX 450, 2010/2025"
-      },
-      {
-        "year": 2013,
-        "drive": "不明",
-        "mileage": "不明",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 62.0,
-        "_fulltext": "Lexus RX 450, 2013/2024"
-      },
-      {
-        "year": 2012,
-        "drive": "不明",
-        "mileage": "不明",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 50.0,
-        "_fulltext": "Lexus RX 450, 2012/2019"
-      },
-      {
-        "year": 2013,
-        "drive": "不明",
-        "mileage": "不明",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 42.0,
-        "_fulltext": "Lexus RX 450, 2013/2020"
-      },
-      {
-        "year": 2012,
-        "drive": "不明",
-        "mileage": "不明",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 55.0,
-        "_fulltext": "Lexus RX 450, 2012/2024"
-      },
-      {
-        "year": 2013,
-        "drive": "不明",
-        "mileage": "不明",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 55.0,
-        "_fulltext": "Lexus RX 450, 2013/2025"
-      },
-      {
-        "year": 2010,
-        "drive": "不明",
-        "mileage": "不明",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 50.0,
-        "_fulltext": "Lexus RX 450, 2010/2025"
-      },
-      {
-        "year": 2014,
-        "drive": "不明",
-        "mileage": "不明",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 51.0,
-        "_fulltext": "Lexus RX 450, 2014/2021"
-      },
-      {
-        "year": 2009,
-        "drive": "不明",
-        "mileage": "不明",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 40.0,
-        "_fulltext": "Lexus RX 450, 2009/2009"
-      },
-      {
-        "year": 2009,
-        "drive": "不明",
-        "mileage": "不明",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 41.5,
-        "_fulltext": "Lexus RX 450, 2009/2022"
-      },
-      {
-        "year": 2012,
-        "drive": "不明",
-        "mileage": "不明",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 61.9,
-        "_fulltext": "Lexus RX 450, 2012/2026"
-      },
-      {
-        "year": 2015,
-        "drive": "不明",
-        "mileage": "不明",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 65.5,
-        "_fulltext": "Lexus RX 450, 2015/2026"
-      },
-      {
-        "year": 2015,
-        "drive": "不明",
-        "mileage": "不明",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 85.0,
-        "_fulltext": "Lexus RX 450, 2015/2025"
-      },
-      {
-        "year": 2009,
-        "drive": "不明",
-        "mileage": "不明",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 47.0,
-        "_fulltext": "Lexus RX 450, 2009/2023"
-      },
-      {
-        "year": 2014,
-        "drive": "不明",
-        "mileage": "不明",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 65.0,
-        "_fulltext": "Lexus RX 450, 2014/2025"
-      },
-      {
-        "year": 2010,
-        "drive": "不明",
-        "mileage": "不明",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 42.0,
-        "_fulltext": "Lexus RX 450, 2010/2023"
-      },
-      {
-        "year": 2015,
-        "drive": "不明",
-        "mileage": "不明",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 68.0,
-        "_fulltext": "Lexus RX 450, 2015/2023"
-      },
-      {
-        "year": 2012,
-        "drive": "不明",
-        "mileage": "不明",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 64.0,
-        "_fulltext": "Lexus RX 450, 2012/2026"
-      },
-      {
-        "year": 2015,
-        "drive": "不明",
-        "mileage": "不明",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 79.0,
-        "_fulltext": "Lexus RX 450, 2015/2026"
-      },
-      {
-        "year": 2010,
-        "drive": "不明",
-        "mileage": "不明",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 45.0,
-        "_fulltext": "Lexus RX 450, 2010/2021"
-      },
-      {
-        "year": 2013,
-        "drive": "不明",
-        "mileage": "不明",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 57.0,
-        "_fulltext": "Lexus RX 450, 2013/2023"
-      },
-      {
-        "year": 2013,
-        "drive": "不明",
-        "mileage": "不明",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 54.0,
-        "_fulltext": "Lexus RX 450, 2013/2023"
-      },
-      {
-        "year": 2010,
-        "drive": "不明",
-        "mileage": "不明",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 44.0,
-        "_fulltext": "Lexus RX 450, 2010/2024"
-      },
-      {
-        "year": 2011,
-        "drive": "不明",
-        "mileage": "不明",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 50.0,
-        "_fulltext": "Lexus RX 450, 2011/2024"
-      },
-      {
-        "year": 2010,
-        "drive": "不明",
-        "mileage": "不明",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 40.0,
-        "_fulltext": "Lexus RX 450, 2010/2022"
-      },
-      {
-        "year": 2010,
-        "drive": "不明",
-        "mileage": "不明",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 55.0,
-        "_fulltext": "Lexus RX 450, 2010/2024"
-      },
-      {
-        "year": 2009,
-        "drive": "不明",
-        "mileage": "不明",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 39.8,
-        "_fulltext": "Lexus RX 450, 2009/2021"
-      },
-      {
-        "year": 2010,
-        "drive": "不明",
-        "mileage": "不明",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 51.0,
-        "_fulltext": "Lexus RX 450, 2010/2026"
-      },
-      {
-        "year": 2009,
-        "drive": "不明",
-        "mileage": "不明",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 42.0,
-        "_fulltext": "Lexus RX 450, 2009/2022"
-      },
-      {
-        "year": 2013,
-        "drive": "不明",
-        "mileage": "不明",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 58.0,
-        "_fulltext": "Lexus RX 450, 2013/2024"
-      },
-      {
-        "year": 2010,
-        "drive": "不明",
-        "mileage": "不明",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 28.9,
-        "_fulltext": "Lexus RX 450, 2010/2017"
-      },
-      {
-        "year": 2012,
-        "drive": "不明",
-        "mileage": "不明",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 62.0,
-        "_fulltext": "Lexus RX 450, 2012/2026"
-      },
-      {
-        "year": 2012,
-        "drive": "不明",
-        "mileage": "不明",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 68.0,
-        "_fulltext": "Lexus RX 450, 2012/2025"
-      },
-      {
-        "year": 2009,
-        "drive": "不明",
-        "mileage": "不明",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 50.0,
-        "_fulltext": "Lexus RX 450, 2009/2024"
-      },
-      {
-        "year": 2013,
-        "drive": "不明",
-        "mileage": "不明",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 65.5,
-        "_fulltext": "Lexus RX 450, 2013/2025"
-      },
-      {
-        "year": 2009,
-        "drive": "不明",
-        "mileage": "不明",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 50.9,
-        "_fulltext": "Lexus RX 450, 2009/2026"
-      },
-      {
-        "year": 2009,
-        "drive": "不明",
-        "mileage": "不明",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 48.5,
-        "_fulltext": "Lexus RX 450, 2009/2026"
-      },
-      {
-        "year": 2010,
-        "drive": "不明",
-        "mileage": "不明",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 46.5,
-        "_fulltext": "Lexus RX 450, 2010/2025"
-      },
-      {
-        "year": 2011,
-        "drive": "不明",
-        "mileage": "不明",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 47.0,
-        "_fulltext": "Lexus RX 450, 2011/2022"
-      },
-      {
-        "year": 2013,
-        "drive": "不明",
-        "mileage": "不明",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 63.8,
-        "_fulltext": "Lexus RX 450, 2013/2026"
-      },
-      {
-        "year": 2009,
-        "drive": "不明",
-        "mileage": "不明",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 45.8,
-        "_fulltext": "Lexus RX 450, 2009/2026"
-      },
-      {
-        "year": 2015,
-        "drive": "不明",
-        "mileage": "不明",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 93.0,
-        "_fulltext": "Lexus RX 450, 2015/2026"
-      },
-      {
-        "year": 2012,
-        "drive": "不明",
-        "mileage": "不明",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 41.0,
-        "_fulltext": "Lexus RX 450, 2012/2021"
-      },
-      {
-        "year": 2009,
-        "drive": "不明",
-        "mileage": "不明",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 55.0,
-        "_fulltext": "Lexus RX 450, 2009/2024"
-      },
-      {
-        "year": 2011,
-        "drive": "不明",
-        "mileage": "不明",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 35.0,
-        "_fulltext": "Lexus RX 450, 2011/2017"
-      },
-      {
-        "year": 2009,
-        "drive": "不明",
-        "mileage": "不明",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 49.0,
-        "_fulltext": "Lexus RX 450, 2009/2025"
-      },
-      {
-        "year": 2009,
-        "drive": "不明",
-        "mileage": "不明",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 38.0,
-        "_fulltext": "Lexus RX 450, 2009/2018"
-      },
-      {
-        "year": 2011,
-        "drive": "不明",
-        "mileage": "不明",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 42.0,
-        "_fulltext": "Lexus RX 450, 2011/2023"
-      },
-      {
-        "year": 2011,
-        "drive": "不明",
-        "mileage": "不明",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 49.0,
-        "_fulltext": "Lexus RX 450, 2011/2025"
-      },
-      {
-        "year": 2010,
-        "drive": "不明",
-        "mileage": "不明",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 56.0,
-        "_fulltext": "Lexus RX 450, 2010/2026"
-      },
-      {
-        "year": 2014,
-        "drive": "不明",
-        "mileage": "不明",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 55.0,
-        "_fulltext": "Lexus RX 450, 2014/2023"
-      },
-      {
-        "year": 2010,
-        "drive": "不明",
-        "mileage": "不明",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 57.0,
-        "_fulltext": "Lexus RX 450, 2010/2026"
-      },
-      {
-        "year": 2010,
-        "drive": "不明",
-        "mileage": "不明",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 53.0,
-        "_fulltext": "Lexus RX 450, 2010/2026"
-      },
-      {
-        "year": 2011,
-        "drive": "不明",
-        "mileage": "不明",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 45.0,
-        "_fulltext": "Lexus RX 450, 2011/2023"
-      },
-      {
-        "year": 2012,
-        "drive": "不明",
-        "mileage": "不明",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 35.0,
-        "_fulltext": "Lexus RX 450, 2012/2019"
-      },
-      {
-        "year": 2012,
-        "drive": "不明",
-        "mileage": "不明",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 43.0,
-        "_fulltext": "Lexus RX 450, 2012/2020"
-      },
-      {
-        "year": 2010,
-        "drive": "不明",
-        "mileage": "不明",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 37.0,
-        "_fulltext": "Lexus RX 450, 2010/2019"
-      },
-      {
-        "year": 2014,
-        "drive": "不明",
-        "mileage": "不明",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 58.0,
-        "_fulltext": "Lexus RX 450, 2014/2024"
-      },
-      {
-        "year": 2009,
-        "drive": "不明",
-        "mileage": "不明",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 48.0,
-        "_fulltext": "Lexus RX 450, 2009/2023"
-      },
-      {
-        "year": 2013,
-        "drive": "不明",
-        "mileage": "不明",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 56.0,
-        "_fulltext": "Lexus RX 450, 2013/2023"
-      },
-      {
-        "year": 2014,
-        "drive": "不明",
-        "mileage": "不明",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 62.0,
-        "_fulltext": "Lexus RX 450, 2014/2025"
-      },
-      {
-        "year": 2010,
-        "drive": "不明",
-        "mileage": "不明",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 39.8,
-        "_fulltext": "Lexus RX 450, 2010/2022"
-      },
-      {
-        "year": 2012,
-        "drive": "不明",
-        "mileage": "不明",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 59.8,
-        "_fulltext": "Lexus RX 450, 2012/2026"
-      },
-      {
-        "year": 2009,
-        "drive": "不明",
-        "mileage": "不明",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 45.5,
-        "_fulltext": "Lexus RX 450, 2009/2024"
-      },
-      {
-        "year": 2010,
-        "drive": "不明",
-        "mileage": "不明",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 37.5,
-        "_fulltext": "Lexus RX 450, 2010/2020"
-      },
-      {
-        "year": 2009,
-        "drive": "不明",
-        "mileage": "不明",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 54.0,
-        "_fulltext": "Lexus RX 450, 2009/2026"
       }
     ],
     "lexus|rx-500h": [
@@ -21160,6 +21058,72 @@
         "import_year": 2026,
         "price": 170.0,
         "_fulltext": "Lexus RX 450, 2023/2025"
+      }
+    ],
+    "lexus|nx-350-az20": [
+      {
+        "year": 2023,
+        "drive": "不明",
+        "mileage": "21,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 105.0
+      },
+      {
+        "year": 2022,
+        "drive": "不明",
+        "mileage": "30,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 130.0
+      },
+      {
+        "year": 2022,
+        "drive": "不明",
+        "mileage": "7,550 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 125.0
+      },
+      {
+        "year": 2021,
+        "drive": "不明",
+        "mileage": "70,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 120.0
+      },
+      {
+        "year": 2022,
+        "drive": "不明",
+        "mileage": "42,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 99.0
+      },
+      {
+        "year": 2023,
+        "drive": "不明",
+        "mileage": "21,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 120.0
+      },
+      {
+        "year": 2022,
+        "drive": "不明",
+        "mileage": "37,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 145.0
+      },
+      {
+        "year": 2023,
+        "drive": "不明",
+        "mileage": "23,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 103.0
       }
     ],
     "lexus|nx-300h-az10": [
@@ -21178,6 +21142,22 @@
         "color": "不明",
         "import_year": 2026,
         "price": 66.0
+      },
+      {
+        "year": 2018,
+        "drive": "不明",
+        "mileage": "117,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 69.8
+      },
+      {
+        "year": 2015,
+        "drive": "不明",
+        "mileage": "130,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 55.0
       },
       {
         "year": 2015,
@@ -21244,14 +21224,6 @@
         "price": 58.0
       },
       {
-        "year": 2015,
-        "drive": "不明",
-        "mileage": "1,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 55.0
-      },
-      {
         "year": 2016,
         "drive": "不明",
         "mileage": "98,000 km",
@@ -21314,14 +21286,6 @@
         "color": "不明",
         "import_year": 2026,
         "price": 53.0
-      },
-      {
-        "year": 2018,
-        "drive": "不明",
-        "mileage": "117,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 69.8
       },
       {
         "year": 2018,
@@ -21442,14 +21406,6 @@
         "color": "不明",
         "import_year": 2026,
         "price": 78.0
-      },
-      {
-        "year": 2017,
-        "drive": "不明",
-        "mileage": "139 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 60.0
       },
       {
         "year": 2017,
@@ -21578,14 +21534,6 @@
         "color": "不明",
         "import_year": 2026,
         "price": 69.5
-      },
-      {
-        "year": 2019,
-        "drive": "不明",
-        "mileage": "20,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 70.0
       }
     ],
     "lexus|nx-300-az10": [
@@ -21596,6 +21544,14 @@
         "color": "不明",
         "import_year": 2026,
         "price": 83.0
+      },
+      {
+        "year": 2017,
+        "drive": "不明",
+        "mileage": "100,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 60.0
       },
       {
         "year": 2015,
@@ -21814,56 +21770,6 @@
         "price": 78.0
       }
     ],
-    "lexus|nx-350-az20": [
-      {
-        "year": 2022,
-        "drive": "不明",
-        "mileage": "30,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 130.0
-      },
-      {
-        "year": 2021,
-        "drive": "不明",
-        "mileage": "70,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 120.0
-      },
-      {
-        "year": 2022,
-        "drive": "不明",
-        "mileage": "42,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 99.0
-      },
-      {
-        "year": 2023,
-        "drive": "不明",
-        "mileage": "21,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 120.0
-      },
-      {
-        "year": 2022,
-        "drive": "不明",
-        "mileage": "37,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 145.0
-      },
-      {
-        "year": 2023,
-        "drive": "不明",
-        "mileage": "23,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 103.0
-      }
-    ],
     "lexus|nx-350h-az20": [
       {
         "year": 2022,
@@ -22058,17 +21964,17 @@
         "color": "不明",
         "import_year": 2026,
         "price": 82.0
-      },
-      {
-        "year": 2019,
-        "drive": "不明",
-        "mileage": "99,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 71.0
       }
     ],
     "lexus|es-250": [
+      {
+        "year": 2019,
+        "drive": "不明",
+        "mileage": "122,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 71.0
+      },
       {
         "year": 2020,
         "drive": "不明",
@@ -22126,14 +22032,6 @@
         "color": "不明",
         "import_year": 2026,
         "price": 40.0
-      },
-      {
-        "year": 2006,
-        "drive": "不明",
-        "mileage": "330,089 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 8.0
       }
     ],
     "lexus|is-300h-xe30": [
@@ -22160,6 +22058,14 @@
         "color": "不明",
         "import_year": 2026,
         "price": 38.0
+      },
+      {
+        "year": 2014,
+        "drive": "不明",
+        "mileage": "210,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 26.0
       },
       {
         "year": 2017,
@@ -22202,6 +22108,14 @@
         "price": 34.0
       },
       {
+        "year": 2016,
+        "drive": "不明",
+        "mileage": "70,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 44.5
+      },
+      {
         "year": 2014,
         "drive": "不明",
         "mileage": "200,000 km",
@@ -22231,7 +22145,7 @@
         "mileage": "115,000 km",
         "color": "不明",
         "import_year": 2026,
-        "price": 49.5
+        "price": 52.0
       },
       {
         "year": 2014,
@@ -22240,14 +22154,6 @@
         "color": "不明",
         "import_year": 2026,
         "price": 39.0
-      },
-      {
-        "year": 2016,
-        "drive": "不明",
-        "mileage": "130,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 52.0
       },
       {
         "year": 2013,
@@ -22454,14 +22360,6 @@
         "price": 36.5
       },
       {
-        "year": 2013,
-        "drive": "不明",
-        "mileage": "213,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 37.0
-      },
-      {
         "year": 2012,
         "drive": "不明",
         "mileage": "270,000 km",
@@ -22588,6 +22486,14 @@
         "color": "不明",
         "import_year": 2026,
         "price": 58.0
+      },
+      {
+        "year": 2013,
+        "drive": "不明",
+        "mileage": "213,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 37.0
       },
       {
         "year": 2012,
@@ -22778,6 +22684,14 @@
       {
         "year": 2007,
         "drive": "不明",
+        "mileage": "220,125 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 12.5
+      },
+      {
+        "year": 2007,
+        "drive": "不明",
         "mileage": "280,000 km",
         "color": "不明",
         "import_year": 2026,
@@ -22816,14 +22730,6 @@
         "price": 9.5
       },
       {
-        "year": 2007,
-        "drive": "不明",
-        "mileage": "220,125 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 12.5
-      },
-      {
         "year": 2006,
         "drive": "不明",
         "mileage": "198,647 km",
@@ -22854,14 +22760,6 @@
         "color": "不明",
         "import_year": 2026,
         "price": 29.0
-      },
-      {
-        "year": 2008,
-        "drive": "不明",
-        "mileage": "240,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 12.0
       }
     ],
     "lexus|gs-350": [
@@ -23301,20 +23199,20 @@
       {
         "year": 2011,
         "drive": "不明",
-        "mileage": "180,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 26.5,
-        "_fulltext": "Lexus HS, 2011/2026 180,000 км · Автомат · 2.4 л · Хайбрид"
-      },
-      {
-        "year": 2011,
-        "drive": "不明",
         "mileage": "107,000 km",
         "color": "不明",
         "import_year": 2026,
         "price": 28.8,
         "_fulltext": "Lexus HS, 2011/2026 107,000 км · Автомат · 2.4 л · Хайбрид"
+      },
+      {
+        "year": 2011,
+        "drive": "不明",
+        "mileage": "180,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 26.5,
+        "_fulltext": "Lexus HS, 2011/2026 180,000 км · Автомат · 2.4 л · Хайбрид"
       },
       {
         "year": 2009,
@@ -23452,15 +23350,6 @@
         "_fulltext": "Lexus HS, 2010/2026 127,000 км · Автомат · 2.4 л · Хайбрид"
       },
       {
-        "year": 2013,
-        "drive": "不明",
-        "mileage": "135,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 32.5,
-        "_fulltext": "Lexus HS, 2013/2025 135,000 км · Автомат · 2.4 л · Хайбрид"
-      },
-      {
         "year": 2010,
         "drive": "不明",
         "mileage": "91,026 km",
@@ -23486,6 +23375,33 @@
         "import_year": 2026,
         "price": 25.2,
         "_fulltext": "Lexus HS, 2009/2026 174,000 км · Автомат · 2.4 л · Хайбрид"
+      },
+      {
+        "year": 2010,
+        "drive": "不明",
+        "mileage": "69,900 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 32.5,
+        "_fulltext": "Lexus HS, 2010/2025 69,900 км · Автомат · 2.5 л · Хайбрид"
+      },
+      {
+        "year": 2013,
+        "drive": "不明",
+        "mileage": "82,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 35.0,
+        "_fulltext": "Lexus HS, 2013/2024 82,000 км · Автомат · 2.4 л · Хайбрид"
+      },
+      {
+        "year": 2010,
+        "drive": "不明",
+        "mileage": "103,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 25.0,
+        "_fulltext": "Lexus HS, 2010/2024 103,000 км · Автомат · 2.4 л · Хайбрид"
       },
       {
         "year": 2015,
@@ -23749,15 +23665,6 @@
         "_fulltext": "Lexus HS, 2016/2025 110,800 км · Автомат · 2.5 л · Хайбрид"
       },
       {
-        "year": 2013,
-        "drive": "不明",
-        "mileage": "113,800 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 35.0,
-        "_fulltext": "Lexus HS, 2013/2024 113,800 км · Автомат · 2.4 л · Бензин"
-      },
-      {
         "year": 2009,
         "drive": "不明",
         "mileage": "180,000 km",
@@ -23774,6 +23681,15 @@
         "import_year": 2026,
         "price": 23.0,
         "_fulltext": "Lexus HS, 2012/2022 1 км · Автомат · 2.4 л · Хайбрид"
+      },
+      {
+        "year": 2013,
+        "drive": "不明",
+        "mileage": "135,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 32.5,
+        "_fulltext": "Lexus HS, 2013/2025 135,000 км · Автомат · 2.4 л · Хайбрид"
       },
       {
         "year": 2012,
@@ -23844,7 +23760,7 @@
         "mileage": "176,126 km",
         "color": "不明",
         "import_year": 2026,
-        "price": 39.0,
+        "price": 37.0,
         "_fulltext": "Lexus HS, 2013/2024 176,126 км · Автомат · 2.5 л · Бензин"
       },
       {
@@ -23864,15 +23780,6 @@
         "import_year": 2026,
         "price": 24.5,
         "_fulltext": "Lexus HS, 2011/2023 170,000 км · Автомат · 1.6 л · Хайбрид"
-      },
-      {
-        "year": 2011,
-        "drive": "不明",
-        "mileage": "200,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 23.5,
-        "_fulltext": "Lexus HS, 2011/2024 200,000 км · Автомат · 2.4 л · Хайбрид"
       },
       {
         "year": 2010,
@@ -23927,15 +23834,6 @@
         "import_year": 2026,
         "price": 29.8,
         "_fulltext": "Lexus HS, 2011/2026 172,000 км · Автомат · 2.4 л · Хайбрид"
-      },
-      {
-        "year": 2010,
-        "drive": "不明",
-        "mileage": "159,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 25.0,
-        "_fulltext": "Lexus HS, 2010/2026 159,000 км · Автомат · 2.4 л · Бензин"
       },
       {
         "year": 2012,
@@ -24386,15 +24284,6 @@
         "import_year": 2026,
         "price": 26.0,
         "_fulltext": "Lexus HS, 2013/2022 169,000 км · Автомат · 2.4 л · Хайбрид"
-      },
-      {
-        "year": 2009,
-        "drive": "不明",
-        "mileage": "150,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 21.0,
-        "_fulltext": "Lexus HS, 2009/2024 150,000 км · Автомат · 2.4 л · Хайбрид"
       }
     ],
     "hyundai|santa-fe-tm": [
@@ -24614,6 +24503,15 @@
     ],
     "mercedes-benz|g-class-w463": [
       {
+        "year": 2019,
+        "drive": "不明",
+        "mileage": "100,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 350.0,
+        "_fulltext": "Mercedes-Benz G-Class, 2019/2019 100,000 км · Автомат · 4.0 л · Бензин"
+      },
+      {
         "year": 2021,
         "drive": "不明",
         "mileage": "39,000 km",
@@ -24679,15 +24577,6 @@
       {
         "year": 2020,
         "drive": "不明",
-        "mileage": "47,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 430.0,
-        "_fulltext": "Mercedes-Benz G-Class, 2020/2025 47,000 км · Автомат · 4.0 л · Бензин"
-      },
-      {
-        "year": 2020,
-        "drive": "不明",
         "mileage": "20,000 km",
         "color": "不明",
         "import_year": 2026,
@@ -24731,6 +24620,15 @@
         "_fulltext": "Mercedes-Benz G-Class, 2020/2023 40,000 км · Автомат · 4.0 л · Бензин"
       },
       {
+        "year": 2020,
+        "drive": "不明",
+        "mileage": "47,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 430.0,
+        "_fulltext": "Mercedes-Benz G-Class, 2020/2025 47,000 км · Автомат · 4.0 л · Бензин"
+      },
+      {
         "year": 2021,
         "drive": "不明",
         "mileage": "65,000 km",
@@ -24765,15 +24663,6 @@
         "import_year": 2026,
         "price": 420.0,
         "_fulltext": "Mercedes-Benz G-Class, 2020/2023 40,000 км · Автомат · 4.0 л · Бензин"
-      },
-      {
-        "year": 2019,
-        "drive": "不明",
-        "mileage": "100,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 350.0,
-        "_fulltext": "Mercedes-Benz G-Class, 2019/2019 100,000 км · Автомат · 4.0 л · Бензин"
       },
       {
         "year": 2020,
@@ -25075,15 +24964,6 @@
         "import_year": 2026,
         "price": 90.0,
         "_fulltext": "Land Rover Range Rover, 2013/2013 90,000 км · Автомат · 0.5 л · Бензин"
-      },
-      {
-        "year": 2018,
-        "drive": "不明",
-        "mileage": "114,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 200.0,
-        "_fulltext": "Land Rover Range Rover, 2018/2018 114,000 км · Автомат · 5.0 л · Бензин"
       }
     ],
     "volkswagen|tiguan-ad1": [
@@ -25095,15 +24975,6 @@
         "import_year": 2026,
         "price": 45.0,
         "_fulltext": "Volkswagen Tiguan, 2017/2019 100,000 км · Автомат · 2.0 л · Бензин"
-      },
-      {
-        "year": 2016,
-        "drive": "不明",
-        "mileage": "101,641 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 32.0,
-        "_fulltext": "Volkswagen Tiguan, 2016/2024 101,641 км · Автомат · 1.5 л · Бензин"
       }
     ],
     "audi|q7-4m": [
@@ -25118,6 +24989,15 @@
       }
     ],
     "mazda|cx-5-kf": [
+      {
+        "year": 2023,
+        "drive": "不明",
+        "mileage": "43,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 88.0,
+        "_fulltext": "Mazda CX, 2023/2024 43,000 км · Автомат · 2.5 л · Бензин"
+      },
       {
         "year": 2021,
         "drive": "不明",
@@ -25405,15 +25285,6 @@
         "import_year": 2026,
         "price": 29.5,
         "_fulltext": "Mazda CX, 2016/2022 98,000 км · Автомат · 2.4 л · Бензин"
-      },
-      {
-        "year": 2017,
-        "drive": "不明",
-        "mileage": "70,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 45.0,
-        "_fulltext": "Mazda CX, 2017/2024 70,000 км · Автомат · 2.5 л · Бензин"
       }
     ]
   }
