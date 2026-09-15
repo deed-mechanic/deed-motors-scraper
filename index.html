@@ -4978,6 +4978,10 @@ function doReset(){
   if (plateFirst) plateFirst.classList.add("active-normal");
   const jpMsgReset = document.getElementById("jpMileageResult");
   if (jpMsgReset) jpMsgReset.textContent = "";
+  // 前の車の「結果をコピー」バナーが残ったままだと次の車でコピーできたか
+  // 分かりづらくなるため、リセット時に必ず隠す
+  const efReset = document.getElementById("exportFeedback");
+  if (efReset) { efReset.style.display = "none"; efReset.innerHTML = ""; }
   resetDiagram();
   calc();
 }
