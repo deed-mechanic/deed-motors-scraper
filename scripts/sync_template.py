@@ -21,15 +21,21 @@ BADGE_RE = re.compile(
 )
 
 
+UPDATED_AT_RE = re.compile(r'const PRICE_DB_UPDATED_AT = "[^"]*";')
+
+
 def strip_dynamic(html: str) -> str:
-    """PRICE_DBブロックと更新バッジを取り除く（テンプレート側はバッジ0個・
-    index.html側は最新1個が正しい状態なので、比較のためにどちらも除去する）"""
+    """PRICE_DBブロック・更新バッジ・PRICE_DB_UPDATED_AT定数を取り除く
+    （テンプレート側はバッジ0個・index.html側は最新1個が正しい状態、
+    PRICE_DB_UPDATED_ATはbuild_html.pyが毎日書き換えるため、比較のために
+    どちらも除去する。PRICE_DB_UPDATED_ATが無いbilingual.html等では単に無視される）"""
     start = html.find("const PRICE_DB = {")
     if start != -1:
         end = html.find("};", start)
         if end != -1:
             html = html[:start] + "__PRICE_DB__" + html[end + 2:]
     html = BADGE_RE.sub("", html)
+    html = UPDATED_AT_RE.sub("", html)
     return html
 
 
