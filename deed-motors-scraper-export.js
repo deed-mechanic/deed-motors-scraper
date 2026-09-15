@@ -3,6 +3,16 @@
 // 詳細仕様: deed_motors_scraper_export_spec.md
 
 function exportAppraisalData(){
+  try {
+    exportAppraisalDataInner();
+  } catch (e) {
+    // JSON組み立て中に何らかのエラーが起きても、何も表示されないまま終わらせない
+    console.error("exportAppraisalData failed:", e);
+    showExportFeedback(false, "（データの読み取り中にエラーが発生しました: " + (e && e.message || e) + "）");
+  }
+}
+
+function exportAppraisalDataInner(){
   const val = id => { const el = document.getElementById(id); return el ? el.value.trim() : ""; };
   const text = id => { const el = document.getElementById(id); return el ? el.textContent.trim() : ""; };
   const num = s => {
