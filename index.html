@@ -735,11 +735,12 @@ input[type=number]::placeholder {
       <!-- ナビ：DOP（ディーラー装着 約20万円）/ MOP（メーカー装着 約40万円） -->
       <div class="radio-row">
         <div class="radio-row-label">ナビ・マルチディスプレイ / Навигаци
-          <span class="sel-sub">DOP＝ディーラー装着オプション 約20万円 / MOP＝メーカー装着オプション 約40万円 / 不具合あり＝減点</span>
+          <span class="sel-sub">高級車は標準装備の場合あり＝加点なし / DOP＝ディーラー装着オプション 約20万円 / MOP＝メーカー装着オプション 約40万円 / 不具合あり＝減点</span>
         </div>
         <div class="radio-inner">
           <div class="radio-group" id="rg_eqNavi">
             <div class="rbtn active-normal" onclick="setR(&#39;eqNavi&#39;,this,0)">なし / Байхгүй (0)</div>
+            <div class="rbtn" onclick="setR(&#39;eqNavi&#39;,this,0)">✅ 標準装備（стандарт）(0)</div>
             <div class="rbtn" onclick="setR(&#39;eqNavi&#39;,this,2)">DOP装着・正常作動 (+2)</div>
             <div class="rbtn" onclick="setR(&#39;eqNavi&#39;,this,15)">MOP装着・正常作動 (+15)</div>
             <div class="rbtn" onclick="setR(&#39;eqNavi&#39;,this,-3)">不具合あり / Доголдол (-3)</div>
@@ -751,11 +752,12 @@ input[type=number]::placeholder {
       <!-- ルーフレール MOP 27,500円（公式カタログ価格） -->
       <div class="radio-row">
         <div class="radio-row-label">ルーフレール / Дээврийн рейл
-          <span class="sel-sub">メーカーOP 27,500円（公式価格）/ MOP ¥27,500</span>
+          <span class="sel-sub">高級車は標準装備の場合あり＝加点なし / メーカーOP 27,500円（公式価格）/ MOP ¥27,500</span>
         </div>
         <div class="radio-inner">
           <div class="radio-group" id="rg_eqRoof">
             <div class="rbtn active-normal" onclick="setR(&#39;eqRoof&#39;,this,0)">無 / Үгүй (0)</div>
+            <div class="rbtn" onclick="setR(&#39;eqRoof&#39;,this,0)">✅ 標準装備（стандарт）(0)</div>
             <div class="rbtn" onclick="setR(&#39;eqRoof&#39;,this,1)">有（メーカーOP）/ MOP (+1)</div>
           </div>
           <span class="pts plus" id="pts_eqRoof">+0</span>

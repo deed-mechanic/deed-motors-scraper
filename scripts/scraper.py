@@ -38,6 +38,7 @@ TARGETS = [
     # Harrier: UNEGUI.MN側は toyota/harrier の1URLに60系・80系が混在しているため、
     # ここで取得したのち年式・タイトルで60系ガソリン/60系HV/80系の3区分に自動振り分けする
     {"key": "toyota|harrier",                "url": "toyota/harrier", "harrier_split": True, "detail_fetch": True},
+    {"key": "toyota|land-cruiser-300", "url": "toyota/land-cruiser-300", "year_min": 2021, "force_4wd": True, "wheel_fetch": True},
     {"key": "toyota|land-cruiser-200", "url": "toyota/land-cruiser-200", "year_min": 2007, "year_max": 2021, "force_4wd": True, "wheel_fetch": True},
     {"key": "toyota|land-cruiser-100", "url": "toyota/land-cruiser-100", "year_min": 1998, "year_max": 2007, "force_4wd": True},
     {"key": "toyota|land-cruiser-prado-150", "url": "toyota/land-cruiser-prado-150", "year_min": 2009, "year_max": 2024, "force_4wd": True, "wheel_fetch": True},
