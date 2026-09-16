@@ -465,10 +465,11 @@ def parse_card(card):
     feat_text = feat_el.get_text(" ", strip=True) if feat_el else ""
     full = " ".join(t for t in [title_text, feat_text] if t) or card.get_text(" ")
 
-    # 年（「2018/2022」形式、タイトルに含まれる）
-    m = re.search(r"\b(19[89]\d|20[012]\d)(?:/20\d\d)?\b", title_text or full)
+    # 年（「2018/2022」形式＝生産年/モンゴル輸入年、タイトルに含まれる）
+    m = re.search(r"\b(19[89]\d|20[012]\d)(?:/(20[012]\d))?\b", title_text or full)
     year = int(m.group(1)) if m else None
     if not year: return None
+    import_year = int(m.group(2)) if m and m.group(2) else datetime.now().year
 
     drive = parse_drive(full)
 
@@ -486,7 +487,7 @@ def parse_card(card):
 
     return {"year":year,"drive":drive,"mileage":mileage,
             "color":parse_color(full),
-            "import_year":datetime.now().year,
+            "import_year":import_year,
             "price":round(price,1),
             "_title": title_text or full[:80],
             "_fulltext": full,
