@@ -33,6 +33,27 @@ USER_AGENT = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
 _page = None
 
 # 正しいURL構造: /avto-mashin/-avtomashin-zarna/メーカー/車種/
+#
+# 2026-09: ドロップダウン（MODELS_MAP）とスクレイパー対象が長年ずれており、
+# 166車種中92車種がスクレイパー未対応だった問題を一括で解消した。
+# 追加にあたり全URLをPlaywrightで実際に確認し、以下は現行サイトにカテゴリが
+# 存在しない・または車種番号を区別する情報が無いため追加できていない：
+#   - mitsubishi: eclipse-cross, montero-sport
+#   - lexus: nx-450h-az20（PHEVをHVと区別する情報がタイトルに無い）,
+#            ux-200/250h, lc-500/500h
+#   - hyundai: palisade（既存targetのURLがリニューアルで/search/にリダイレクト、
+#              代替スラッグ見つからず）
+#   - bmw: x7-g07, 7series-g11
+#   - mercedes-benz: gle-w166/w167（既存targetも同様にリダイレクト、代替
+#     スラッグ見つからず）, glc-x253/x254, glb-x247, gla-h247, vito-w447
+#   - volkswagen: multivan-t6
+#   - audi: q8-f8, q3-8u/f3
+#   - mazda: cx-5-ke, cx-9（cx-5-kfと同じURLだがタイトルが"Mazda CX"のみで
+#     車種番号を区別できないため、別途追加しても同じデータの重複になる）
+#   - dongfeng: aeolus-ax7, glory-ix5/ix7, forthing-t5, rich6
+#     （現行サイトのDongfengラインナップが forthing-t5-evo/paladin/voyah-free
+#      のみで、MODELS_MAP側の車種と実際の出品カテゴリが一致していない）
+#   - ford: f-150-raptor（f-150-13と同じURLだがタイトルでRaptorを区別できない）
 TARGETS = [
     {"key": "toyota|c-hr",                "url": "toyota/chr", "chr_drive_fix": True},
     # Harrier: UNEGUI.MN側は toyota/harrier の1URLに60系・80系が混在しているため、
@@ -44,6 +65,8 @@ TARGETS = [
     {"key": "toyota|land-cruiser-prado-150", "url": "toyota/land-cruiser-prado-150", "year_min": 2009, "year_max": 2024, "force_4wd": True, "wheel_fetch": True},
     {"key": "toyota|land-cruiser-prado-120", "url": "toyota/land-cruiser-prado-120", "year_min": 2002, "year_max": 2009, "force_4wd": True},
     {"key": "toyota|land-cruiser-prado-250", "url": "toyota/land-cruiser-prado-250", "year_min": 2024, "force_4wd": True},
+    {"key": "toyota|crown-crossover", "url": "toyota/crown", "year_min": 2022},
+    {"key": "toyota|sai", "url": "toyota/sai", "year_min": 2009, "year_max": 2017},
     {"key": "toyota|alphard-30", "url": "toyota/alphard", "alphard_split": True},
     {"key": "toyota|vellfire-30", "url": "toyota/vellfire", "vellfire_split": True},
     {"key": "toyota|prius-30", "url": "toyota/prius-30", "year_min": 2009, "year_max": 2015},
@@ -58,18 +81,29 @@ TARGETS = [
     {"key": "toyota|highlander", "url": "toyota/highlander", "year_min": 2013},
     {"key": "toyota|fortuner", "url": "toyota/fortuner", "year_min": 2015},
     {"key": "toyota|hilux", "url": "toyota/hilux", "year_min": 2015},
-    {"key": "nissan|x-trail-t32",            "url": "nissan/x-trail"},
-    {"key": "nissan|patrol-y62",             "url": "nissan/patrol"},
+    {"key": "nissan|x-trail-t31",            "url": "nissan/x-trail", "year_max": 2013},
+    {"key": "nissan|x-trail-t32",            "url": "nissan/x-trail", "year_min": 2013, "year_max": 2019},
+    {"key": "nissan|x-trail-t33",            "url": "nissan/x-trail", "year_min": 2020},
+    {"key": "nissan|patrol-y61",             "url": "nissan/patrol", "year_max": 2012},
+    {"key": "nissan|patrol-y62",             "url": "nissan/patrol", "year_min": 2012},
     {"key": "nissan|elgrand-e52",            "url": "nissan/elgrand"},
     {"key": "nissan|serena-c27",             "url": "nissan/serena"},
-    {"key": "mitsubishi|pajero-v80",         "url": "mitsubishi/pajero"},
-    {"key": "mitsubishi|outlander-gf",       "url": "mitsubishi/outlander"},
-    {"key": "mitsubishi|delica-d5",          "url": "mitsubishi/delica-d5"},
-    {"key": "honda|cr-v-5",                  "url": "honda/cr-v"},
+    {"key": "mitsubishi|pajero-v60",         "url": "mitsubishi/pajero", "year_max": 2006},
+    {"key": "mitsubishi|pajero-v80",         "url": "mitsubishi/pajero", "year_min": 2006},
+    {"key": "mitsubishi|outlander-gg",       "url": "mitsubishi/outlander", "year_max": 2012},
+    {"key": "mitsubishi|outlander-gf",       "url": "mitsubishi/outlander", "year_min": 2012},
+    # 「mitsubishi/delica-d5」はリニューアルでリダイレクトするようになったため
+    # 「mitsubishi/delica」に修正
+    {"key": "mitsubishi|delica-d5",          "url": "mitsubishi/delica"},
+    {"key": "mitsubishi|l200",               "url": "mitsubishi/l200"},
+    {"key": "mitsubishi|rvr",                "url": "mitsubishi/rvr"},
+    {"key": "honda|cr-v-4",                  "url": "honda/cr-v", "year_max": 2011},
+    {"key": "honda|cr-v-5",                  "url": "honda/cr-v", "year_min": 2011},
     {"key": "honda|odyssey",                 "url": "honda/odyssey"},
     {"key": "subaru|forester-sj",            "url": "subaru/forester"},
     {"key": "subaru|outback-bs",             "url": "subaru/outback"},
-    {"key": "suzuki|jimny-jb64",             "url": "suzuki/jimny"},
+    {"key": "suzuki|jimny-jb23",             "url": "suzuki/jimny", "year_max": 2018},
+    {"key": "suzuki|jimny-jb64",             "url": "suzuki/jimny", "year_min": 2018},
     {"key": "lexus|lx-600", "url": "lexus/lx-600", "year_min": 2021},
     {"key": "lexus|lx-570", "url": "lexus/lx-570", "year_min": 2007, "year_max": 2021},
     {"key": "lexus|lx-470", "url": "lexus/lx-470", "year_min": 1998, "year_max": 2007},
@@ -87,20 +121,68 @@ TARGETS = [
     {"key": "lexus|hs-250h",                 "url": "lexus/hs", "year_min": 2009, "year_max": 2018},
     {"key": "hyundai|santa-fe-tm",           "url": "hyundai/santa-fe"},
     {"key": "hyundai|palisade",              "url": "hyundai/palisade"},
+    {"key": "hyundai|tucson-nx4",            "url": "hyundai/tucson"},
     {"key": "kia|sorento-mq4",               "url": "kia/sorento"},
     {"key": "kia|sportage-ql",               "url": "kia/sportage"},
+    {"key": "bmw|x5-e70", "url": "bmw/x5", "year_max": 2013},
     {"key": "bmw|x5-f15", "url": "bmw/x5", "year_min": 2013, "year_max": 2018},
+    {"key": "bmw|x5-g05", "url": "bmw/x5", "year_min": 2018},
+    {"key": "bmw|x3-f25", "url": "bmw/x3", "year_min": 2010, "year_max": 2017},
+    {"key": "bmw|x3-g01", "url": "bmw/x3", "year_min": 2017},
+    {"key": "bmw|x6-f16", "url": "bmw/x6", "year_min": 2014, "year_max": 2019},
+    {"key": "bmw|x6-g06", "url": "bmw/x6", "year_min": 2019},
+    {"key": "bmw|x1-f48", "url": "bmw/x1", "year_min": 2015},
+    # 3シリーズ・5シリーズ: UNEGUI.MN側はモデル名（320/525）ごとの1URLに
+    # 全世代混在。タイトルは世代不問だが個々の出品には生産年があるため、
+    # 年式で従来どおり振り分け可能
+    {"key": "bmw|3series-f30", "url": "bmw/320", "year_min": 2011, "year_max": 2018},
+    {"key": "bmw|3series-g20", "url": "bmw/320", "year_min": 2018},
+    {"key": "bmw|5series-f10", "url": "bmw/525", "year_min": 2010, "year_max": 2017},
+    {"key": "bmw|5series-g30", "url": "bmw/525", "year_min": 2017},
     {"key": "mercedes-benz|g-class-w463",    "url": "mercedes-benz/g-class", "year_min": 2018},
     {"key": "mercedes-benz|gle-w166",        "url": "mercedes-benz/gle", "year_min": 2015, "year_max": 2018},
+    {"key": "mercedes-benz|gls-x166", "url": "mercedes-benz/gls", "year_max": 2019},
+    {"key": "mercedes-benz|gls-x167", "url": "mercedes-benz/gls", "year_min": 2019},
+    {"key": "mercedes-benz|e-class-w212", "url": "mercedes-benz/e-class", "year_max": 2016},
+    {"key": "mercedes-benz|e-class-w213", "url": "mercedes-benz/e-class", "year_min": 2016},
+    {"key": "mercedes-benz|c-class-w205", "url": "mercedes-benz/c-class", "year_max": 2021},
+    {"key": "mercedes-benz|c-class-w206", "url": "mercedes-benz/c-class", "year_min": 2021},
+    {"key": "mercedes-benz|s-class-w222", "url": "mercedes-benz/s-class", "year_max": 2020},
+    {"key": "mercedes-benz|s-class-w223", "url": "mercedes-benz/s-class", "year_min": 2020},
     {"key": "land-rover|discovery-4",        "url": "land-rover/discovery", "year_min": 2009, "year_max": 2016},
     {"key": "land-rover|range-rover-l405",   "url": "land-rover/range-rover", "year_min": 2012, "year_max": 2022},
+    {"key": "land-rover|defender-l316",      "url": "land-rover/defender"},
+    {"key": "volkswagen|tiguan-5n", "url": "volkswagen/tiguan", "year_max": 2016},
     {"key": "volkswagen|tiguan-ad1", "url": "volkswagen/tiguan", "year_min": 2016},
+    {"key": "volkswagen|touareg-7l", "url": "volkswagen/touareg", "year_max": 2010},
+    {"key": "volkswagen|touareg-7p", "url": "volkswagen/touareg", "year_min": 2010, "year_max": 2018},
+    {"key": "volkswagen|touareg-cr", "url": "volkswagen/touareg", "year_min": 2018},
+    {"key": "volkswagen|passat-b7", "url": "volkswagen/passat", "year_max": 2014},
+    {"key": "volkswagen|passat-b8", "url": "volkswagen/passat", "year_min": 2014},
+    {"key": "volkswagen|golf-7", "url": "volkswagen/golf", "year_max": 2019},
+    {"key": "volkswagen|golf-8", "url": "volkswagen/golf", "year_min": 2019},
+    {"key": "volkswagen|polo-6r", "url": "volkswagen/polo"},
+    {"key": "audi|q7-4l", "url": "audi/q7", "year_max": 2015},
     {"key": "audi|q7-4m", "url": "audi/q7", "year_min": 2015},
+    {"key": "audi|q5-8r", "url": "audi/q5", "year_max": 2017},
     {"key": "audi|q5-fy", "url": "audi/q5", "year_min": 2017},
+    {"key": "audi|a6-c7", "url": "audi/a6", "year_max": 2018},
+    {"key": "audi|a6-c8", "url": "audi/a6", "year_min": 2018},
+    {"key": "audi|a4-b8", "url": "audi/a4", "year_min": 2007, "year_max": 2015},
+    {"key": "audi|a4-b9", "url": "audi/a4", "year_min": 2015},
+    {"key": "audi|a3-8v", "url": "audi/a3", "year_min": 2012, "year_max": 2020},
     # 注意: サイトリニューアルでCX-3/CX-5/CX-8等が mazda/cx に統合され、
     # タイトル・詳細ページどちらにも車種番号の区別情報が無くなったため、
     # フィルタ不可能。CX-5専用ではなくMazda CX全般のデータになる
     {"key": "mazda|cx-5-kf",                 "url": "mazda/cx"},
+    {"key": "ford|explorer-u502", "url": "ford/explorer", "year_max": 2019},
+    {"key": "ford|explorer-u625", "url": "ford/explorer", "year_min": 2019},
+    {"key": "ford|escape-c520", "url": "ford/escape"},
+    # F-150: UNEGUI.MN側は "ford/f150"（ハイフン無し）。タイトルでRaptorを
+    # 区別できないため、Raptor専用キー(f-150-raptor)は追加していない
+    {"key": "ford|f-150-13", "url": "ford/f150", "year_min": 2015},
+    {"key": "ford|ranger-t6", "url": "ford/ranger"},
+    {"key": "ford|everest-2", "url": "ford/everest"},
 ]
 
 def build_url(path_suffix, page=1):

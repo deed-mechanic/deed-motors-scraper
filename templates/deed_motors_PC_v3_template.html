@@ -140,6 +140,8 @@ input[type=number]::placeholder {
 }
 
 @media print{
+  /* 未入力欄のプレースホルダー（入力例）が印刷に出てしまうのを防ぐ */
+  input::placeholder,textarea::placeholder{color:transparent !important;}
   header,.part-banner,.step-header{position:relative !important;}
   .btn-navy,.btn-red{display:none !important;}
   #scorebar{position:relative !important;}
@@ -5306,7 +5308,7 @@ function printExplainSheet() {
   <div class="info-grid-2col" style="margin-bottom:14px;">
     <div class="info-box">
       <div class="info-box-label">Явсан зам</div>
-      <div class="info-box-val">${mileage ? Number(mileage).toLocaleString() + " km" : "—"}</div>
+      <div class="info-box-val">${mileage ? Number(mileage.replace(/[^0-9]/g,"")).toLocaleString() + " km" : "—"}</div>
     </div>
     <div class="info-box">
       <div class="info-box-label">Оруулсан он сар</div>
