@@ -1,8 +1,8 @@
 {
   "updated_at": "2026-09-16 02:11",
   "source": "unegui.mn",
-  "total_records": 3009,
-  "total_models": 74,
+  "total_records": 3029,
+  "total_models": 79,
   "data": {
     "toyota|c-hr": [
       {
@@ -26916,6 +26916,208 @@
         "import_year": 2026,
         "price": 56.0,
         "_fulltext": "Mazda CX, 2020/2025 63,000 км · Автомат · 2.5 л · Бензин"
+      }
+    ],
+    "porsche|cayenne": [
+      {
+        "year": 2014,
+        "drive": "不明",
+        "mileage": "140,000 km",
+        "color": "不明",
+        "import_year": 2024,
+        "price": 65.0,
+        "_fulltext": "Porsche Cayenne, 2014/2024 140,000 км · Автомат · 3.6 л · Бензин",
+        "wheel": "RHD"
+      },
+      {
+        "year": 2013,
+        "drive": "不明",
+        "mileage": "90,000 km",
+        "color": "不明",
+        "import_year": 2021,
+        "price": 99.0,
+        "_fulltext": "Porsche Cayenne, 2013/2021 90,000 км · Автомат · 3.0 л · Хайбрид",
+        "wheel": "RHD"
+      },
+      {
+        "year": 2014,
+        "drive": "不明",
+        "mileage": "69,000 km",
+        "color": "不明",
+        "import_year": 2015,
+        "price": 220.0,
+        "_fulltext": "Porsche Cayenne, 2014/2015 69,000 км · Автомат · 4.8 л · Бензин",
+        "wheel": "LHD"
+      },
+      {
+        "year": 2019,
+        "drive": "不明",
+        "mileage": "45,000 km",
+        "color": "不明",
+        "import_year": 2020,
+        "price": 185.0,
+        "_fulltext": "Porsche Cayenne, 2019/2020 45,000 км · Автомат · 3.0 л · Бензин",
+        "wheel": "LHD"
+      },
+      {
+        "year": 2016,
+        "drive": "不明",
+        "mileage": "75,000 km",
+        "color": "不明",
+        "import_year": 2023,
+        "price": 95.0,
+        "_fulltext": "Porsche Cayenne, 2016/2023 75,000 км · Автомат · 3.0 л · Бензин",
+        "wheel": "RHD"
+      },
+      {
+        "year": 2019,
+        "drive": "不明",
+        "mileage": "32,000 km",
+        "color": "不明",
+        "import_year": 2020,
+        "price": 175.0,
+        "_fulltext": "Porsche Cayenne, 2019/2020 32,000 км · Автомат · 3.0 л · Бензин",
+        "wheel": "LHD"
+      },
+      {
+        "year": 2014,
+        "drive": "不明",
+        "mileage": "110 km",
+        "color": "不明",
+        "import_year": 2025,
+        "price": 85.0,
+        "_fulltext": "Porsche Cayenne, 2014/2025 110 км · Автомат · 3.0 л · Хайбрид",
+        "wheel": "LHD"
+      },
+      {
+        "year": 2007,
+        "drive": "不明",
+        "mileage": "143,000 km",
+        "color": "不明",
+        "import_year": 2007,
+        "price": 25.0,
+        "_fulltext": "Porsche Cayenne, 2007/2007 143,000 км · Автомат · 3.2 л · Бензин",
+        "wheel": "LHD"
+      }
+    ],
+    "porsche|macan": [
+      {
+        "year": 2018,
+        "drive": "不明",
+        "mileage": "105,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 100.0,
+        "_fulltext": "Porsche Macan, 2018/2026 105,000 км · Автомат · 2.1 л · Бензин",
+        "wheel": "RHD"
+      },
+      {
+        "year": 2018,
+        "drive": "不明",
+        "mileage": "30,000 km",
+        "color": "不明",
+        "import_year": 2018,
+        "price": 140.0,
+        "_fulltext": "Porsche Macan, 2018/2018 30,000 км · Автомат · 2.0 л · Бензин",
+        "wheel": "LHD"
+      },
+      {
+        "year": 2021,
+        "drive": "不明",
+        "mileage": "24,000 km",
+        "color": "不明",
+        "import_year": 2022,
+        "price": 205.0,
+        "_fulltext": "Porsche Macan, 2021/2022 24,000 км · Автомат · 2.0 л · Бензин",
+        "wheel": "LHD"
+      },
+      {
+        "year": 2020,
+        "drive": "不明",
+        "mileage": "58,000 km",
+        "color": "不明",
+        "import_year": 2025,
+        "price": 110.0,
+        "_fulltext": "Porsche Macan, 2020/2025 58,000 км · Автомат · 2.0 л · Бензин",
+        "wheel": "RHD"
+      }
+    ],
+    "porsche|panamera": [
+      {
+        "year": 2014,
+        "drive": "不明",
+        "mileage": "171,000 km",
+        "color": "不明",
+        "import_year": 2019,
+        "price": 110.0,
+        "_fulltext": "Porsche Panamera, 2014/2019 171,000 км · Автомат · 3.6 л · Бензин"
+      },
+      {
+        "year": 2012,
+        "drive": "不明",
+        "mileage": "113 km",
+        "color": "不明",
+        "import_year": 2021,
+        "price": 70.0,
+        "_fulltext": "Porsche Panamera, 2012/2021 113 км · Автомат · 3.6 л · Бензин"
+      },
+      {
+        "year": 2011,
+        "drive": "不明",
+        "mileage": "58,000 km",
+        "color": "不明",
+        "import_year": 2024,
+        "price": 160.0,
+        "_fulltext": "Porsche Panamera, 2011/2024 58,000 км · Автомат · 3.6 л · Бензин"
+      },
+      {
+        "year": 2020,
+        "drive": "不明",
+        "mileage": "49,000 km",
+        "color": "不明",
+        "import_year": 2025,
+        "price": 300.0,
+        "_fulltext": "Porsche Panamera, 2020/2025 49,000 км · Автомат · 4.0 л · Бензин"
+      }
+    ],
+    "porsche|cayman": [
+      {
+        "year": 2019,
+        "drive": "不明",
+        "mileage": "12,000 km",
+        "color": "不明",
+        "import_year": 2019,
+        "price": 260.0,
+        "_fulltext": "Porsche Cayman, 2019/2019 12,000 км · Автомат · 2.5 л · Бензин"
+      },
+      {
+        "year": 2015,
+        "drive": "不明",
+        "mileage": "230,000 km",
+        "color": "不明",
+        "import_year": 2021,
+        "price": 160.0,
+        "_fulltext": "Porsche Cayman, 2015/2021 230,000 км · Автомат · 2.7 л · Бензин"
+      },
+      {
+        "year": 2013,
+        "drive": "不明",
+        "mileage": "77,000 km",
+        "color": "不明",
+        "import_year": 2023,
+        "price": 250.0,
+        "_fulltext": "Porsche Cayman, 2013/2023 77,000 км · Автомат · 3.4 л · Бензин"
+      }
+    ],
+    "porsche|boxster": [
+      {
+        "year": 2017,
+        "drive": "不明",
+        "mileage": "44,000 km",
+        "color": "不明",
+        "import_year": 2025,
+        "price": 230.0,
+        "_fulltext": "Porsche Boxster, 2017/2025 44,000 км · Автомат · 2.0 л · Бензин"
       }
     ]
   }

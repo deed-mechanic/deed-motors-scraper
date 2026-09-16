@@ -183,6 +183,13 @@ TARGETS = [
     {"key": "ford|f-150-13", "url": "ford/f150", "year_min": 2015},
     {"key": "ford|ranger-t6", "url": "ford/ranger"},
     {"key": "ford|everest-2", "url": "ford/everest"},
+    # Porsche: 911（1件のみ・平均5億超）は高額すぎるため対象外。
+    # 実用車として流通量のある主要モデルのみ追加
+    {"key": "porsche|cayenne", "url": "porsche/cayenne", "wheel_fetch": True},
+    {"key": "porsche|macan", "url": "porsche/macan", "wheel_fetch": True},
+    {"key": "porsche|panamera", "url": "porsche/panamera"},
+    {"key": "porsche|cayman", "url": "porsche/cayman"},
+    {"key": "porsche|boxster", "url": "porsche/boxster"},
 ]
 
 def build_url(path_suffix, page=1):
