@@ -5823,6 +5823,10 @@ function updatePart2And3(maker, modelSlug, carYear, driveType, wheelSide, import
   }
   const allPrices = cars.map(c=>c.price);
 
+  // ユーザーが手動でチェックを変更した行は、スコア入力など無関係な操作で
+  // テーブルが再描画されても選択状態を保持する（セッション中はキー単位で記憶）
+  window._mktExcludeOverrides = window._mktExcludeOverrides || {};
+
   cars.forEach((c,i)=>{
     const tr=document.createElement("tr");
     const ym=yr>0&&c.year===yr;
@@ -5835,10 +5839,13 @@ function updatePart2And3(maker, modelSlug, carYear, driveType, wheelSide, import
       ? "<span style='color:#C8102E;font-size:10px;font-weight:700;margin-left:4px;'>⚠️要確認</span>"
       : "";
     tr.className = (ym ? "yr-match " : "") + (anomaly || suspectLowKm ? "anomaly-row" : "");
+    const recKey = key+"::"+c.year+"_"+c.import_year+"_"+c.price+"_"+c.mileage+"_"+(c.wheel||"")+"_"+c.drive;
+    const hasOverride = Object.prototype.hasOwnProperty.call(window._mktExcludeOverrides, recKey);
+    const isExcluded = hasOverride ? window._mktExcludeOverrides[recKey] : (anomaly||suspectLowKm);
     tr.innerHTML=
       "<td style='text-align:center;padding:6px;'>"+
-        "<input type='checkbox' class='exclude-cb' data-idx='"+i+"' onchange='recalcPart3()' "+
-        (anomaly||suspectLowKm ? "checked" : "")+
+        "<input type='checkbox' class='exclude-cb' data-idx='"+i+"' data-key=\""+recKey+"\" onchange='recalcPart3(this)' "+
+        (isExcluded ? "checked" : "")+
         " title='チェックで除外 / Шалгавал хасна'>"+
       "</td>"+
       "<td class='"+(ym?"yr-match-cell":"")+"'>"+c.year+"年"+flagHtml+"</td>"+
@@ -5859,7 +5866,11 @@ function updatePart2And3(maker, modelSlug, carYear, driveType, wheelSide, import
   window._currentMax = max;
   window._currentF = f;
 
-  function recalcPart3(){
+  function recalcPart3(changedCb){
+    if(changedCb){
+      const k = changedCb.getAttribute("data-key");
+      if(k) window._mktExcludeOverrides[k] = changedCb.checked;
+    }
     const cbs = document.querySelectorAll(".exclude-cb");
     const activePrices = [];
     cbs.forEach((cb,i)=>{
@@ -5944,6 +5955,8 @@ function doReset(){
   // 分かりづらくなるため、リセット時に必ず隠す
   const efReset = document.getElementById("exportFeedback");
   if (efReset) { efReset.style.display = "none"; efReset.innerHTML = ""; }
+  // 市場データの除外チェック手動選択も次の車のために必ずクリアする
+  window._mktExcludeOverrides = {};
   resetDiagram();
   calc();
 }
