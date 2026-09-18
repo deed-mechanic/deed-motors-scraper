@@ -968,8 +968,8 @@ input[type=number]::placeholder {
       </div>
       <div style="overflow-x:auto;">
         <table class="mkt-table">
-          <thead><tr><th style="text-align:center;width:48px;">除外<br><span style="font-size:9px;font-weight:400;color:rgba(255,255,255,.7);">Хасах</span></th><th>生産年 / Он</th><th>駆動 / Хөдөлгүүр</th><th>走行距離 / Явсан зам</th><th>色 / Өнгө</th><th>入荷年 / Оруулсан он</th><th>価格 / Үнэ</th></tr></thead>
-          <tbody id="mktTableBody"><tr><td class="">2011年</td><td>4WD</td><td>165,000 km</td><td>白</td><td>2025年</td><td class="price-td">98.0 сая ₮</td></tr><tr><td class="">2012年</td><td>4WD</td><td>155,000 km</td><td>銀</td><td>2025年</td><td class="price-td">75.0 сая ₮</td></tr><tr><td class="yr-match">2013年</td><td>4WD</td><td>142,000 km</td><td>黒</td><td>2025年</td><td class="price-td">52.0 сая ₮</td></tr><tr><td class="">2014年</td><td>4WD</td><td>130,000 km</td><td>白</td><td>2024年</td><td class="price-td">47.9 сая ₮</td></tr><tr><td class="">2015年</td><td>4WD</td><td>120,000 km</td><td>白</td><td>2024年</td><td class="price-td">51.0 сая ₮</td></tr></tbody>
+          <thead><tr><th style="text-align:center;width:48px;">除外<br><span style="font-size:9px;font-weight:400;color:rgba(255,255,255,.7);">Хасах</span></th><th>生産年 / Он</th><th>駆動 / Хөдөлгүүр</th><th>走行距離 / Явсан зам</th><th>入荷年 / Оруулсан он</th><th>価格 / Үнэ</th></tr></thead>
+          <tbody id="mktTableBody"><tr><td class="">2011年</td><td>4WD</td><td>165,000 km</td><td>2025年</td><td class="price-td">98.0 сая ₮</td></tr><tr><td class="">2012年</td><td>4WD</td><td>155,000 km</td><td>2025年</td><td class="price-td">75.0 сая ₮</td></tr><tr><td class="yr-match">2013年</td><td>4WD</td><td>142,000 km</td><td>2025年</td><td class="price-td">52.0 сая ₮</td></tr><tr><td class="">2014年</td><td>4WD</td><td>130,000 km</td><td>2024年</td><td class="price-td">47.9 сая ₮</td></tr><tr><td class="">2015年</td><td>4WD</td><td>120,000 km</td><td>2024年</td><td class="price-td">51.0 сая ₮</td></tr></tbody>
         </table>
       </div>
       <div style="padding:6px 12px;font-size:11px;color:#909090;" id="mktTableNote">※ 2013年式±2年で絞り込み。赤字は査定車と同年式</div>
@@ -5052,7 +5052,7 @@ function updatePart2And3(maker, modelSlug, carYear, driveType, wheelSide, import
         " title='チェックで除外 / Шалгавал хасна'>"+
       "</td>"+
       "<td class='"+(ym?"yr-match-cell":"")+"'>"+c.year+"年"+flagHtml+"</td>"+
-      "<td>"+c.drive+(c.wheel?(c.wheel==="LHD"?" (左H)":" (右H)"):"")+"</td><td>"+c.mileage+"</td><td>"+c.color+"</td>"+
+      "<td>"+c.drive+(c.wheel?(c.wheel==="LHD"?" (左H)":" (右H)"):"")+"</td><td>"+c.mileage+"</td>"+
       "<td class='"+(imMatch?"yr-match-cell":"")+"'>"+c.import_year+"年</td>"+
       "<td class='price-td'>"+c.price.toFixed(1)+" сая ₮</td>";
     tb.appendChild(tr);
@@ -5107,30 +5107,10 @@ function updatePart2And3(maker, modelSlug, carYear, driveType, wheelSide, import
   window._grade = grade;
 
   // ── 第三部：査定価格算出（スコア連動方式）──
-  // giの有無に関わらずscoreとavgで計算
+  // 除外チェック済み行（異常値は初期状態でチェック済み）を反映するため、
+  // 生のavgではなくrecalcPart3経由で算出する
   if(avg > 0){
-    const baseScore   = 80;                        // 基準点（стандарт的な中古車）
-    const deviation   = score - baseScore;         // スコア偏差（例: 81点 → +1）
-    const adjustRate  = deviation * 0.005;         // 調整率（例: +1 → +0.5%）
-    const ti          = avg * (1 + adjustRate) + jaaiRateGlobal;    // 査定参考価格
-    const tiMin       = min * (1 + adjustRate - 0.05) + jaaiRateGlobal; // 下限（-5%バッファ）
-    const tiMax       = max * (1 + adjustRate + 0.05) + jaaiRateGlobal; // 上限（+5%バッファ）
-    const adjPct      = (adjustRate * 100).toFixed(1);
-    const adjSign     = adjustRate >= 0 ? "+" : "";
-
-    // スコアバー右端
-    tiBox.style.display="block";
-    document.getElementById("tiPrice").textContent=ti.toFixed(1)+" сая ₮";
-    document.getElementById("tiRange").textContent=tiMin.toFixed(1)+"〜"+tiMax.toFixed(1)+" сая ₮";
-
-    // 第三部カード
-    rcWrap.style.display="block"; noResMsg.style.display="none";
-    document.getElementById("rcPrice").textContent=ti.toFixed(1)+" сая ₮";
-    document.getElementById("rcRange").textContent="レンジ / Хүрээ: "+tiMin.toFixed(1)+" 〜 "+tiMax.toFixed(1)+" сая ₮";
-    document.getElementById("rcMktAvg").textContent=f(avg);
-    document.getElementById("rcGrade").textContent=grade+" ("+score+"点)";
-    document.getElementById("rcCoeff").textContent=adjSign+adjPct+"% 調整（基準80点）";
-    document.getElementById("rcFormula").textContent=avg.toFixed(1)+" × (1"+adjSign+adjPct+"%) = "+ti.toFixed(1)+" сая ₮";
+    recalcPart3();
   }
 }
 
