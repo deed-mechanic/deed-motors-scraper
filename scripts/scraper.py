@@ -183,6 +183,9 @@ TARGETS = [
     {"key": "ford|f-150-13", "url": "ford/f150", "year_min": 2015},
     {"key": "ford|ranger-t6", "url": "ford/ranger"},
     {"key": "ford|everest-2", "url": "ford/everest"},
+    # RAM: UNEGUI.MN側は「Dodge」カテゴリ内に「Dodge Ram」として掲載（Ramブランド独立カテゴリは無い）。
+    # Challenger等が混在するためタイトルで絞る。ほぼ全車が4WDのピックアップ
+    {"key": "ram|1500", "url": "dodge", "title_contains": "Ram", "force_4wd": True, "wheel_fetch": True},
     # Porsche: 911（1件のみ・平均5億超）は高額すぎるため対象外。
     # 実用車として流通量のある主要モデルのみ追加
     {"key": "porsche|cayenne", "url": "porsche/cayenne", "wheel_fetch": True},
@@ -552,6 +555,13 @@ def scrape_one(target):
         if not has_next(html, page): break
         time.sleep(REQUEST_DELAY)
     # 年式範囲フィルタ（表示ラベルの世代範囲と実データの食い違いを防ぐ）
+    # メーカーカテゴリに複数車種が混在する場合（Dodge内のRam/Challenger等）タイトルで絞る
+    tc = target.get("title_contains")
+    if tc:
+        before = len(results)
+        results = [r for r in results if tc.lower() in (r.get("_title") or r.get("_fulltext") or "").lower()]
+        log.info(f"  [{key}] タイトル「{tc}」以外を除外: {before - len(results)}件")
+
     ymin = target.get("year_min")
     ymax = target.get("year_max")
     if ymin is not None or ymax is not None:
