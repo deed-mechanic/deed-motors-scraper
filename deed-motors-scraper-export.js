@@ -168,3 +168,17 @@ function showExportFeedback(success, jsonText) {
     el.appendChild(ta);
   }
 }
+
+
+// DEED MOTORS 認定書ページへ車両基本情報を渡して開く（新規車両として入力を始める）
+function openDeedCertificate(){
+  const v = id => { const el = document.getElementById(id); return el ? el.value.trim() : ""; };
+  const info = {
+    name: [v("carName"), v("carGrade")].filter(Boolean).join(" "),
+    color: v("bodyColor"), year: v("mfgDate"),
+    km: v("mileageVal").replace(/[^0-9]/g, ""),
+    model: v("fullModel"), vin: v("vinNum"), reg: v("regNum"),
+    date: v("assessDate"), inspector: v("inspector")
+  };
+  window.open("deed_certificate.html#" + encodeURIComponent(JSON.stringify(info)), "_blank");
+}
