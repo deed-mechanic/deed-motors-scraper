@@ -477,8 +477,18 @@ function freshState(){
 let S=freshState(), sel=null;
 const KEY="deedCertDraft_mn_v1";
 function save(){try{localStorage.setItem(KEY,JSON.stringify(S));}catch(e){}}
+// 名称変更で保存済みデータの値が古いままだと描画が止まってしまうため、読み込み時に新名称へ移行する
+const LEGACY_TYPE_MAP={"Долгион":"Гажилт","Хонхор":"Хонохортой"};
+function migrateLegacy(state){
+  if(!state||!state.panels) return state;
+  Object.keys(state.panels).forEach(k=>{
+    const p=state.panels[k];
+    if(p&&Array.isArray(p.types)) p.types=p.types.map(t=>LEGACY_TYPE_MAP[t]||t);
+  });
+  return state;
+}
 function load(){
-  try{const d=JSON.parse(localStorage.getItem(KEY)||"null");if(d&&d.info)S=Object.assign(freshState(),d);}catch(e){}
+  try{const d=JSON.parse(localStorage.getItem(KEY)||"null");if(d&&d.info)S=migrateLegacy(Object.assign(freshState(),d));}catch(e){}
   try{
     if(location.hash.length>1){
       const p=JSON.parse(decodeURIComponent(location.hash.slice(1)));
@@ -499,7 +509,7 @@ function resetAll(){if(!confirm("Оруулсан бүх мэдээллийг а
 
 /* ================= Үнэлгээний логик（оноо дотоод, харагдахгүй） ================= */
 function panelPts(p){ if(!p||!p.size||!p.types.length)return 0;
-  const w=Math.max(...p.types.map(t=>TYPE_W[t]));return SIZE_W[p.size]*(w+0.3*(p.types.length-1)); }
+  const w=Math.max(...p.types.map(t=>TYPE_W[t]||0));return SIZE_W[p.size]*(w+0.3*(p.types.length-1)); }
 function tireLvl(v){ if(v===""||v==null)return 0;const n=+v;return n>=50?0:n>=30?.5:n>=10?1.2:2; }
 // 「目立つ傷（へこみ・波うち・錆など、中・大サイズ）」＝1件3点以上は majorCount として重く数え、
 // 「軽微な傷（スリ傷等、小サイズ）」は minor として1件あたりの影響を小さく抑える。
@@ -604,7 +614,7 @@ function renderSvg(){
   let h="";
   const lvl=k=>{const p=S.panels[k];if(!p||!p.size||!p.types.length)return "";return " l"+{s:1,m:2,l:3}[p.size];};
   for(const k in PANELS){const p=PANELS[k];
-    const pp=S.panels[k],mark=pp&&pp.size&&pp.types.length?pp.types.map(t=>TYPES.find(x=>x[0]===t)[1]).join(" ")+" · "+SIZE_SHORT[pp.size]:"";
+    const pp=S.panels[k],mark=pp&&pp.size&&pp.types.length?pp.types.map(t=>(TYPES.find(x=>x[0]===t)||["",t.slice(0,2)])[1]).join(" ")+" · "+SIZE_SHORT[pp.size]:"";
     const ls=lines(p.n),cy=p.y+p.h/2-(ls.length-1)*5-(mark?5:0);
     h+=`<rect class="z${lvl(k)}${sel===k?" sel":""}" data-z="${k}" x="${p.x}" y="${p.y}" width="${p.w}" height="${p.h}" rx="${p.r||6}"/>`
       +ls.map((t,i)=>`<text x="${p.x+p.w/2}" y="${cy+i*11}">${t}</text>`).join("")
