@@ -70,12 +70,13 @@ svg .mark{font-size:9px;font-weight:700;fill:#a00;}
 .p2title{display:flex;justify-content:space-between;align-items:center;gap:10px;font-weight:700;font-size:13px;border-bottom:2px solid #003087;padding-bottom:6px;margin-bottom:10px;}
 .p2title img{height:36px;}
 .p2grid{display:grid;grid-template-columns:1fr 215px;gap:10px;}
-.box{border:1px solid #888;padding:6px;font-size:10.5px;line-height:1.55;margin-bottom:6px;}
-.box h4{margin:0 0 3px;font-size:11px;background:#e9eef8;padding:2px 4px;}
-.box ul{margin:0;padding-left:14px;}
+.box{border:1.5px solid #888;padding:5px 8px;font-size:12px;line-height:1.4;margin-bottom:5px;color:#111;}
+.box h4{margin:0 0 3px;font-size:13px;background:#e9eef8;padding:3px 6px;}
+.box ul{margin:0;padding-left:15px;}
+.box li{margin-bottom:1px;}
 .legend{font-size:9.5px;margin-top:4px;line-height:1.5;}
-.mini table{width:100%;border-collapse:collapse;font-size:10px;}
-.mini td,.mini th{border:1px solid #999;padding:2px 3px;text-align:left;}
+.mini table{width:100%;border-collapse:collapse;font-size:11.5px;}
+.mini td,.mini th{border:1px solid #999;padding:3px 5px;text-align:left;}
 .mini th{background:#eef;}
 @media print{
   body{background:#fff;} header,.editorcol{display:none!important;}
@@ -123,7 +124,7 @@ svg .mark{font-size:9px;font-weight:700;fill:#a00;}
   <div class="card">
     <h2>【Гадна үзэмж】<span class="stars" id="st_ext"></span></h2>
     <div class="note">Зураг дээрх хэсгийг дарж → хэмжээ, гэмтлийн төрлийг сонгоно (гэмтэлгүй бол дарахгүй)</div>
-    <svg id="carSvg" viewBox="0 0 360 470" width="100%" style="max-width:440px;display:block;margin:6px auto;"></svg>
+    <svg id="carSvg" viewBox="-16 0 392 470" width="100%" style="max-width:460px;display:block;margin:6px auto;"></svg>
     <div class="legend" style="text-align:center;font-size:11px;"><span class="sw" style="background:#fff3b0"></span>Жижиг<span class="sw" style="background:#ffc266"></span>Дунд<span class="sw" style="background:#ff8a80"></span>Том</div>
     <div id="zoneEditor"></div>
   </div>
@@ -392,14 +393,15 @@ const PANELS = {
 const WHEELS = {wlf:{n:"Зүүн урд",cx:20,cy:92},wrf:{n:"Баруун урд",cx:340,cy:92},wlr:{n:"Зүүн хойд",cx:20,cy:368},wrr:{n:"Баруун хойд",cx:340,cy:368}};
 const SIZES = [["s","Жижиг","Картны хэмжээнээс бага"],["m","Дунд","A4-өөс бага"],["l","Том","A4 ба түүнээс дээш"]];
 const SIZE_SHORT={s:"Ж",m:"Д",l:"Т"};
-const TYPES = [["Зураас","Зр"],["Хонхор","Хн"],["Долгион","Дг"],["Зэв","Зв"],["Засвар хийсэн мөр","Зс"]];
-const TYPE_W = {"Зураас":1,"Хонхор":1.5,"Долгион":2,"Зэв":2.5,"Засвар хийсэн мөр":1.2};
+const TYPES = [["Зураас","Зр"],["Хонхор","Хн"],["Гажилт","Гж"],["Зэв","Зв"],["Засвар хийсэн мөр","Зс"]];
+const TYPE_W = {"Зураас":1,"Хонхор":1.5,"Гажилт":2,"Зэв":2.5,"Засвар хийсэн мөр":1.2};
 const SIZE_W = {s:1,m:2,l:3};
 const GLASS = [["none","Гэмтэлгүй",0],["chip","Чулуу хатгасан мөртэй",1],["crack","Хагарсан",4]];
 const WHEEL_ST = [["none","Гэмтэлгүй",0],["part","Хэсэгчилсэн зураастай",.6],["wide","Өргөн хүрээнд зураастай",1.6]];
+const WHEEL_ST_SHORT = {none:"Гэмтэлгүй",part:"Хэсэгчилсэн",wide:"Өргөн хүрээтэй"};
 const TIRE_QUICK = [90,70,50,30,10];
 const INT_AREAS = [["door","Хаалганы дотор тал"],["trunk","Ачааны тасалгааны дотор"],["front","Суудал (урд)"],["rear","Суудал (хойд)"]];
-const INT_ST = [["clean","Цэвэрхэн байдалтай",0,""],["light","Бага зэргийн зураас, толботой",1,"warn"],["heavy","Өргөн хүрээнд зураас, толботой",3,"bad"]];
+const INT_ST = [["clean","Цэвэрхэн",0,""],["light","Бага зэргийн зураас, толботой",1,"warn"],["heavy","Өргөн хүрээнд зураас, толботой",3,"bad"]];
 const ENG_ST = [["ok","Гол механизмд асуудалгүй",""],["part","Тос алдагдах, бүрхүүл урагдах зэрэг зарим асуудалтай","warn"],["repair","Засвар шаардлагатай","bad"]];
 const FRM_ST = [["none","Засварын түүхгүй",""],["part","Хэсэгчилсэн засвартай","warn"],["yes","Засварын түүхтэй","bad"]];
 const OTH = [["flood","Усанд орсон түүхтэй"],["nodrive","Өөрөө явах боломжгүй"],["safety","Аюулгүй байдлын төхөөрөмж ажиллахгүй"]];
@@ -610,8 +612,8 @@ function renderSvg(){
   const gl=S.glass==="none"?"":S.glass==="chip"?" l1":" l3";
   h+=`<path class="z${gl}${sel==="glass"?" sel":""}" data-z="glass" d="M128 150 L232 150 L222 192 L138 192 Z"/><text x="180" y="169">Урд шил</text><text class="mark" x="180" y="182">${S.glass==="chip"?"чулууны мөр":S.glass==="crack"?"хагарсан":""}</text>`;
   for(const k in WHEELS){const w=WHEELS[k],st=S.wheels[k].st;
-    h+=`<circle class="z${sel===k?" sel":""}" data-z="${k}" cx="${w.cx}" cy="${w.cy}" r="19" style="fill:${st==="none"?"#3a3a3a":st==="part"?"#c9a800":"#c62828"}"/>`
-      +`<text x="${w.cx}" y="${w.cy+3}" style="fill:#fff;font-size:9px">${S.wheels[k].tire!==""?S.wheels[k].tire+"%":"Дугуй"}</text>`;}
+    h+=`<circle class="z${sel===k?" sel":""}" data-z="${k}" cx="${w.cx}" cy="${w.cy}" r="27" style="fill:${st==="none"?"#3a3a3a":st==="part"?"#c9a800":"#c62828"}"/>`
+      +`<text x="${w.cx}" y="${w.cy+5}" style="fill:#fff;font-size:15px;font-weight:700">${S.wheels[k].tire!==""?S.wheels[k].tire+"%":"—"}</text>`;}
   const svg=document.getElementById("carSvg");svg.innerHTML=h;
   svg.querySelectorAll("[data-z]").forEach(e=>e.onclick=()=>{sel=e.dataset.z;renderSvg();renderEditor();});
 }
@@ -690,32 +692,31 @@ function renderCert(){
     <div><small>Үзлэгийн огноо</small>${esc(dt)}&nbsp;</div>
     <div><small>Үнэлгээч</small>${esc((I.inspectorFree||"").trim()||I.inspector)}&nbsp;</div>
    </div>
-   <div class="spacer"></div>
-   <ul class="disc"><li>Энэхүү тайлан нь үзлэг хийсэн үеийн байдлыг харуулах бөгөөд түүнээс хойших чанарыг баталгаажуулахгүй.</li>
-    <li>Тээврийн хэрэгслийн байдал цаг хугацаанд өөрчлөгдөж болох тул үзлэгийн огноог шалгаж, одоогийн байдлын талаар ДЭЭД МОТОРС-оос лавлана уу.</li>
-    <li>Марк, үйлдвэрлэсэн он, явсан зам зэрэг мэдээллийг ДЭЭД МОТОРС-ийн бүртгэлийн дагуу бичсэн.</li>
-    <li>Үнэлгээ нь бусад шинжилгээний байгууллагын дүгнэлтээс өөр байж болно.</li></ul>`;
+   <div class="spacer"></div>`;
   const svgCopy=document.getElementById("carSvg").cloneNode(true);
   svgCopy.querySelectorAll(".sel").forEach(e=>e.classList.remove("sel"));
   svgCopy.removeAttribute("id");svgCopy.setAttribute("style","width:100%;display:block");
   const pl=Object.keys(PANELS).filter(k=>S.panels[k]&&S.panels[k].size&&S.panels[k].types.length)
      .map(k=>`<li>${PANELS[k].n}: ${S.panels[k].types.join(", ")} (${SIZES.find(s=>s[0]===S.panels[k].size)[1]})</li>`);
-  const wl=Object.keys(WHEELS).map(k=>`<tr><td>${WHEELS[k].n}</td><td>${WHEEL_ST.find(w=>w[0]===S.wheels[k].st)[1]}</td><td>${S.wheels[k].tire!==""?esc(S.wheels[k].tire)+"%":"—"}</td></tr>`).join("");
+  const wl=Object.keys(WHEELS).map(k=>`<tr><td>${WHEELS[k].n}</td><td>${WHEEL_ST_SHORT[S.wheels[k].st]}</td><td>${S.wheels[k].tire!==""?esc(S.wheels[k].tire)+"%":"—"}</td></tr>`).join("");
   document.getElementById("page2").innerHTML=`
    <div class="frame" style="border:1px solid #888"></div>
    <div class="p2title"><span>Байдлын үзлэгийн хуудас</span><span style="white-space:nowrap">${esc(dt)}</span></div>
    <div class="p2grid"><div>${svgCopy.outerHTML}
-     <div class="legend">Ж = Жижиг (картны хэмжээнээс бага) · Д = Дунд (A4-өөс бага) · Т = Том (A4 ба түүнээс дээш)<br>Зр = Зураас · Хн = Хонхор · Дг = Долгион · Зв = Зэв · Зс = Засвар хийсэн мөр</div></div>
-    <div>
+     <div class="legend" style="color:#111;font-size:11px;line-height:1.45;">
+       <b>Хэмжээ:</b> Ж = Жижиг (картны хэмжээнээс бага) · Д = Дунд (A4-өөс бага) · Т = Том (A4 ба түүнээс дээш)<br>
+       <b>Гэмтлийн төрөл:</b> Зр = Зураас · Хн = Хонхор · Гж = Гажилт (гадаргуу мурийсан) · Зв = Зэв · Зс = Засвар хийсэн мөр
+     </div>
      <div class="box"><h4>Гадна хавтангийн байдал</h4>${pl.length?"<ul>"+pl.join("")+"</ul>":"Тэмдэглэх зүйлгүй"}</div>
      <div class="box"><h4>Шил</h4>Урд шил: ${GLASS.find(g=>g[0]===S.glass)[1]}</div>
-     <div class="box mini"><h4>Диск, дугуй</h4><table><tr><th>Байрлал</th><th>Диск</th><th>Дугуй</th></tr>${wl}</table></div>
+    </div>
+    <div>
+     <div class="box mini"><h4>Обуд, дугуй</h4><table><tr><th>Байрлал</th><th>Обуд</th><th>Дугуйны хээний үлдэгдэл</th></tr>${wl}</table></div>
      <div class="box"><h4>Салон</h4><ul>${INT_AREAS.map(([k,l])=>`<li>${l}: ${INT_ST.find(x=>x[0]===S.int[k])[1]}</li>`).join("")}</ul></div>
      <div class="box"><h4>Механизм, рамын гэмтэл, бусад</h4><ul><li>Механизм: ${ENG_ST.find(x=>x[0]===S.eng)[1]}</li><li>Рам: ${FRM_ST.find(x=>x[0]===S.frm)[1]}</li>
        <li>Бусад: ${OTH.filter(([k])=>S.oth[k]).map(o=>o[1]).join(", ")||"Хамаарахгүй"}</li></ul></div>
     </div></div>
-   <div class="spacer logo" style="padding:18px 0;display:flex;align-items:center;justify-content:center;"><img src="${LOGO}" alt="ДЭЭД МОТОРС" style="height:52px"></div>
-   <div class="disc" style="padding-left:0">Тээврийн хэрэгслийн байдлыг зогсоол дээр, хийж болох хэмжээнд шалгасан.</div>`;
+   <div class="spacer logo" style="padding-bottom:6px;display:flex;align-items:flex-end;justify-content:center;"><img src="${LOGO}" alt="ДЭЭД МОТОРС" style="height:52px"></div>`;
 }
 
 function renderAll(){renderInfo();renderSvg();renderEditor();renderInt();
