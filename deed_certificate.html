@@ -140,7 +140,7 @@ svg .mark{font-size:9px;font-weight:700;fill:#a00;}
   </div>
 
   <div class="card">
-    <h2>【Араг яс】<span class="stars" id="st_frm"></span></h2>
+    <h2>【Рамын гэмтэлтэй эсэх】<span class="stars" id="st_frm"></span></h2>
     <div class="btns" id="frmBtns"></div>
   </div>
 
@@ -548,7 +548,7 @@ function engComment(){
   if(m.known)s+=m.tier===0?"Явсан зам үйлдвэрлэсэн оныхоо хувьд хэвийн буюу цөөн.":m.tier===1?"Явсан зам үйлдвэрлэсэн оныхоо хувьд арай их.":"Явсан зам үйлдвэрлэсэн оныхоо хувьд их.";
   return s.trim();
 }
-function frmComment(){return S.frm==="none"?"Араг ясны хэсэгт засварын түүх байхгүй.":S.frm==="part"?"Араг ясны зарим хэсэгт засвар хийгдсэн.":"Засварын түүхтэй.";}
+function frmComment(){return S.frm==="none"?"Рамд засварын түүх байхгүй.":S.frm==="part"?"Рамын зарим хэсэгт засвар хийгдсэн.":"Засварын түүхтэй.";}
 function othComment(){const a=OTH.filter(([k])=>S.oth[k]).map(o=>o[1]);return a.length?"Тусгай хасалт: «"+a.join("», «")+"».":"Тусгай хасалтад хамаарах зүйл байхгүй.";}
 
 /* ================= Машины нэр (сонгох арга) ================= */
@@ -668,7 +668,7 @@ function renderStars(){
 /* ================= Зурах: баталгаа ================= */
 function renderCert(){
   const I=S.info;
-  const cats=[["Гадна үзэмж",starExt(),extComment()],["Салон",starInt(),intComment()],["Механизм",starEng(),engComment()],["Араг яс",starFrm(),frmComment()],["Бусад",starOth(),othComment()]];
+  const cats=[["Гадна үзэмж",starExt(),extComment()],["Салон",starInt(),intComment()],["Механизм",starEng(),engComment()],["Рамын гэмтэлтэй эсэх",starFrm(),frmComment()],["Бусад",starOth(),othComment()]];
   const dt=I.date?I.date.replace(/^(\d+)-(\d+)-(\d+)$/,(m,y,mo,d)=>`${y} оны ${+mo}-р сарын ${+d}`):"";
   const kn=String(I.km).replace(/[^0-9]/g,""),km=kn?Number(kn).toLocaleString()+" км":"";
   document.getElementById("page1").innerHTML=`
@@ -676,7 +676,7 @@ function renderCert(){
    <div class="logo"><img src="${LOGO}" alt="ДЭЭД МОТОРС"></div>
    <div class="title">Баталгаажсан тээврийн хэрэгслийн тайлан</div>
    <div class="subtitle">ДЭЭД МОТОРС — ҮЗЛЭГИЙН БАТАЛГАА</div>
-   <p class="lead">Энэхүү тайланд заасан тээврийн хэрэгслийг ДЭЭД МОТОРС компанийн баталгаажсан үзлэгчид гадна үзэмж, салон, механизм, араг яс болон бусад зүйлийг тогтоосон стандартын дагуу шударгаар үзэж, дүгнэснийг гэрчилнэ. Зүйл бүрийг 5 одоор үнэлсэн.</p>
+   <p class="lead">Энэхүү тайланд заасан тээврийн хэрэгслийг ДЭЭД МОТОРС компанийн баталгаажсан үзлэгчид гадна үзэмж, салон, механизм, рамын гэмтэл болон бусад зүйлийг тогтоосон стандартын дагуу шударгаар үзэж, дүгнэснийг гэрчилнэ. Зүйл бүрийг 5 одоор үнэлсэн.</p>
    <div class="sh">Тээврийн хэрэгслийн мэдээлэл</div>
    <div class="spec">
     <div class="r"><div class="c"><b>Марк, загвар</b><span>${esc(carName())}</span></div></div>
@@ -711,7 +711,7 @@ function renderCert(){
      <div class="box"><h4>Шил</h4>Урд шил: ${GLASS.find(g=>g[0]===S.glass)[1]}</div>
      <div class="box mini"><h4>Диск, дугуй</h4><table><tr><th>Байрлал</th><th>Диск</th><th>Дугуй</th></tr>${wl}</table></div>
      <div class="box"><h4>Салон</h4><ul>${INT_AREAS.map(([k,l])=>`<li>${l}: ${INT_ST.find(x=>x[0]===S.int[k])[1]}</li>`).join("")}</ul></div>
-     <div class="box"><h4>Механизм, араг яс, бусад</h4><ul><li>Механизм: ${ENG_ST.find(x=>x[0]===S.eng)[1]}</li><li>Араг яс: ${FRM_ST.find(x=>x[0]===S.frm)[1]}</li>
+     <div class="box"><h4>Механизм, рамын гэмтэл, бусад</h4><ul><li>Механизм: ${ENG_ST.find(x=>x[0]===S.eng)[1]}</li><li>Рамын гэмтэлтэй эсэх: ${FRM_ST.find(x=>x[0]===S.frm)[1]}</li>
        <li>Бусад: ${OTH.filter(([k])=>S.oth[k]).map(o=>o[1]).join(", ")||"Хамаарахгүй"}</li></ul></div>
     </div></div>
    <div class="spacer logo" style="padding:18px 0;display:flex;align-items:center;justify-content:center;"><img src="${LOGO}" alt="ДЭЭД МОТОРС" style="height:52px"></div>
