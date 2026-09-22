@@ -33,6 +33,7 @@ header button{border:0;border-radius:6px;padding:8px 14px;font-weight:700;cursor
 .editor h3{margin:0 0 6px;font-size:13px;color:#003087;}
 .kbd{display:none;background:#f3f6fc;border:1.5px solid #003087;border-radius:8px;padding:8px;margin-top:6px;}
 .kbd.show{display:block;}
+.kbd-row{white-space:nowrap;}
 .kbd .k{display:inline-block;min-width:32px;text-align:center;padding:8px 6px;margin:2px;border:1.5px solid #99a;border-radius:6px;background:#fff;cursor:pointer;font-weight:700;user-select:none;}
 .kbd .k:active{background:#dde6ff;}
 .kbtn{margin-top:4px;padding:5px 10px;font-size:12px;border:1.5px solid #003087;color:#003087;background:#fff;border-radius:6px;cursor:pointer;font-weight:700;}
@@ -406,7 +407,9 @@ const COLORS=[["Цагаан","ホワイト"],["Цагаан сувдан","ホ�
 function mapColor(v){if(!v)return "";if(COLORS.some(c=>c[0]===v))return v;
   const hit=[...COLORS].sort((a,b)=>b[1].length-a[1].length).find(c=>v.includes(c[1]));return hit?hit[0]:"";}
 const INSPECTORS=["前田　浩之（MAEDA HIROYUKI）"];
-const CYR="АБВГДЕЁЖЗИЙКЛМНОӨПРСТУҮФХЦЧШЩЪЫЬЭЮЯ";
+// Windows-ийн дэлгэцийн гар (ЙЦУКЕН зохион байгуулалт)-тай яг ижил эгнээ, ижил кирилл үсгээр
+// (SmartCar зэрэг систем Windows-ийн дэлгэцийн гараар бичихэд танигддаг тул үүнтэй тааруулав).
+const KBD_ROWS=["0123456789","ЙЦУКЕНГШЩЗХЪ","ФЫВАПРОЛДЖЭ","ЯЧСМИТЬБЮ"];
 
 /* JAAI（日本自動車査定協会）走行距離加減表（既存ツールと同一データ・千円単位）。金額は認定書には表示しない */
 const JAAI_MILEAGE_ROWS=[5,10,15,20,25,30,35,40,45,50,55,60,65,70,75,80,90,100,110,120,130,140,160,170,180,190];
@@ -577,8 +580,10 @@ function renderInfo(){
   set("f_custom",I.custom);set("f_customModel",I.customModel);set("f_grade",I.grade);document.getElementById("f_color").innerHTML='<option value="">Сонгоно уу</option>'+COLORS.map(c=>`<option value="${c[0]}">${c[0]}</option>`).join("");set("f_color",I.color);set("f_year",I.year);set("f_km",I.km);set("f_model2",I.model);
   set("f_vin",I.vin);set("f_reg",I.reg);set("f_date",I.date);document.getElementById("f_inspector").innerHTML='<option value="">Сонгоно уу</option>'+INSPECTORS.map(n=>`<option value="${n}">${n}</option>`).join("");set("f_inspector",I.inspector);set("f_inspector2",I.inspectorFree);
   renderCar();
-  document.getElementById("kbd").innerHTML=[..."0123456789"].concat([...CYR]).map(c=>`<span class="k" data-c="${c}">${c}</span>`).join("")
-    +'<span class="k" data-c="⌫" style="background:#ffe0e0">⌫</span>';
+  document.getElementById("kbd").innerHTML=KBD_ROWS.map((row,i)=>'<div class="kbd-row">'
+      +[...row].map(c=>`<span class="k" data-c="${c}">${c}</span>`).join("")
+      +(i===KBD_ROWS.length-1?'<span class="k" data-c="⌫" style="background:#ffe0e0">⌫</span>':"")
+      +'</div>').join("");
   document.querySelectorAll("#kbd .k").forEach(b=>b.onclick=()=>{
     const el=document.getElementById("f_reg");el.value=b.dataset.c==="⌫"?el.value.slice(0,-1):el.value+b.dataset.c;setInfo("reg",el.value);});
 }
