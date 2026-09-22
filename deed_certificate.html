@@ -116,7 +116,7 @@ svg .mark{font-size:9px;font-weight:700;fill:#a00;}
         <button class="kbtn" onclick="document.getElementById('kbd').classList.toggle('show')">⌨ Монгол гар</button>
         <div class="kbd" id="kbd"></div></div>
       <div><label>Үзлэгийн огноо</label><input id="f_date" type="date" oninput="setInfo('date',this.value)"></div>
-      <div><label>Үнэлгээч</label><select id="f_inspector" onchange="setInfo('inspector',this.value)"></select>
+      <div><label>Үнэлгээ хийсэн</label><select id="f_inspector" onchange="setInfo('inspector',this.value)"></select>
         <input id="f_inspector2" placeholder="Чөлөөтэй бичих (бөглөвөл сонголтоос илүү)" oninput="setInfo('inspectorFree',this.value)" style="margin-top:6px"></div>
     </div>
   </div>
@@ -690,9 +690,13 @@ function renderCert(){
    <div class="qg">${cats.map(c=>`<div class="item"><b>${c[0]}</b><span class="stars">${starsHtml(c[1])}</span><span>${esc(c[2])}</span></div>`).join("")}</div>
    <div class="foot">
     <div><small>Үзлэгийн огноо</small>${esc(dt)}&nbsp;</div>
-    <div><small>Үнэлгээч</small>${esc((I.inspectorFree||"").trim()||I.inspector)}&nbsp;</div>
+    <div><small>Үнэлгээ хийсэн</small>${esc((I.inspectorFree||"").trim()||I.inspector)}&nbsp;
+      <div style="margin-top:22px;border-bottom:1px solid #444;height:1px;"></div>
+      <small style="display:block;margin-top:3px;color:#666;">Гарын үсэг</small>
+    </div>
    </div>
-   <div class="spacer"></div>`;
+   <div class="spacer"></div>
+   <div class="disc"><b>Тайлбар, үзлэгийн хуудас</b><br>Энэхүү үзлэгийн хуудас нь үзлэг хийж байх үеийн оншилгооны агуулгад хамаарах бөгөөд</div>`;
   const svgCopy=document.getElementById("carSvg").cloneNode(true);
   svgCopy.querySelectorAll(".sel").forEach(e=>e.classList.remove("sel"));
   svgCopy.removeAttribute("id");svgCopy.setAttribute("style","width:100%;display:block");
