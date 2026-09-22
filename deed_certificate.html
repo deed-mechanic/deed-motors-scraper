@@ -499,11 +499,21 @@ function resetAll(){if(!confirm("Оруулсан бүх мэдээллийг а
 function panelPts(p){ if(!p||!p.size||!p.types.length)return 0;
   const w=Math.max(...p.types.map(t=>TYPE_W[t]));return SIZE_W[p.size]*(w+0.3*(p.types.length-1)); }
 function tireLvl(v){ if(v===""||v==null)return 0;const n=+v;return n>=50?0:n>=30?.5:n>=10?1.2:2; }
+// 「目立つ傷（へこみ・波うち・錆など、中・大サイズ）」＝1件3点以上は majorCount として重く数え、
+// 「軽微な傷（スリ傷等、小サイズ）」は minor として1件あたりの影響を小さく抑える。
+// → 軽微な傷が何箇所にあっても★4程度に収まり、目立つへこみが3箇所以上あれば★2程度まで下がる。
+const EXT_MAJOR_THRESHOLD=3;
+function extBreakdown(){
+  let majorCount=0, minorSum=0;
+  const add=v=>{ if(v>=EXT_MAJOR_THRESHOLD) majorCount++; else minorSum+=v; };
+  for(const k in PANELS) add(panelPts(S.panels[k]));
+  add(GLASS.find(g=>g[0]===S.glass)[2]);
+  for(const k in WHEELS) add(WHEEL_ST.find(w=>w[0]===S.wheels[k].st)[2]+tireLvl(S.wheels[k].tire)*0.5);
+  return {majorCount,minorSum};
+}
 function extPts(){
-  let t=0;for(const k in PANELS)t+=panelPts(S.panels[k]);
-  t+=GLASS.find(g=>g[0]===S.glass)[2];
-  for(const k in WHEELS){t+=WHEEL_ST.find(w=>w[0]===S.wheels[k].st)[2]+tireLvl(S.wheels[k].tire)*0.5;}
-  return t;
+  const {majorCount,minorSum}=extBreakdown();
+  return majorCount*4 + minorSum*0.3;
 }
 const toStar=(t,lim)=>{for(let i=0;i<lim.length;i++)if(t<=lim[i])return 5-i;return 1;};
 function starExt(){return toStar(extPts(),[1,4,8,14]);}
