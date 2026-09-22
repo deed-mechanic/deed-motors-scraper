@@ -730,13 +730,15 @@ function renderCert(){
        <div>Зс = Засвар хийсэн мөр</div>
      </div>
      <div class="box"><h4>Гадна хавтангийн байдал</h4>${pl.length?"<ul>"+pl.join("")+"</ul>":"Тэмдэглэх зүйлгүй"}</div>
-     <div class="box"><h4>Шил</h4>Урд шил: ${GLASS.find(g=>g[0]===S.glass)[1]}</div>
     </div>
     <div>
      <div class="box mini"><h4>Обуд, дугуй</h4><table><tr><th>Байрлал</th><th>Обуд</th><th>Дугуйны хээний хэв</th></tr>${wl}</table></div>
+     <div class="box"><h4>Шил</h4>Урд шил: ${GLASS.find(g=>g[0]===S.glass)[1]}</div>
      <div class="box"><h4>Салон</h4><ul>${INT_AREAS.map(([k,l])=>`<li>${l}: ${INT_ST.find(x=>x[0]===S.int[k])[1]}</li>`).join("")}</ul></div>
      <div class="box"><h4>Механизм, рамын гэмтэл, бусад</h4><ul><li>Механизм: ${ENG_ST.find(x=>x[0]===S.eng)[1]}</li><li>Их бие(Рам): ${FRM_ST.find(x=>x[0]===S.frm)[1]}</li>
-       <li>Бусад, ноцтой асуудал: ${OTH.filter(([k])=>S.oth[k]).map(o=>o[1]).join(", ")||"Хамаарахгүй"}</li></ul></div>
+       <li>Бусад, ноцтой асуудал: ${OTH.filter(([k])=>S.oth[k]).map(o=>o[1]).join(", ")||"Хамаарахгүй"}</li></ul>
+       <div style="color:#111;font-size:10.5px;line-height:1.4;margin-top:4px;">※ Бусад гэдэгт усанд автсан (Үерт өртсөн), өөрөө явах боломжгүй, аюулгүй байдлын системд доголдолтой зэрэг хамаарна.</div>
+     </div>
     </div></div>
    <div class="spacer logo" style="padding-bottom:6px;display:flex;align-items:flex-end;justify-content:center;"><img src="${LOGO}" alt="ДЭЭД МОТОРС" style="height:52px"></div>`;
 }
