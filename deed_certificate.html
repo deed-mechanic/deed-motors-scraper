@@ -79,10 +79,15 @@ svg .mark{font-size:9px;font-weight:700;fill:#a00;}
 .mini td,.mini th{border:1px solid #999;padding:3px 5px;text-align:left;}
 .mini th{background:#eef;}
 @media print{
-  body{background:#fff;} header,.editorcol{display:none!important;}
-  .layout{display:block;padding:0;}
-  .sheet{box-shadow:none;margin:0;width:210mm;max-width:none;height:297mm;min-height:0;page-break-after:always;padding:14mm 15mm;overflow:hidden;}
-  @page{size:A4;margin:0;}
+  /* プリンタ/PDFドライバはmargin:0を完全には守らず、独自の最小余白を残すことが多い。
+     その場合、A4いっぱいのページが縮小されて左上に寄って見える。
+     ここでは@pageに実際に近い余白を明示し、.sheetをその印字可能領域ぴったりに合わせることで、
+     どのプリンタ/ドライバでも中央（左右上下均等）に収まるようにする。 */
+  body{background:#fff;display:flex;flex-direction:column;align-items:center;}
+  header,.editorcol{display:none!important;}
+  .layout{display:block;padding:0;width:100%;}
+  .sheet{box-shadow:none;margin:0 auto;width:200mm;max-width:none;height:287mm;min-height:0;page-break-after:always;padding:12mm 13mm;overflow:hidden;}
+  @page{size:A4;margin:5mm;}
   *{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
 }
 </style>
