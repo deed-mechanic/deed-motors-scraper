@@ -63,7 +63,7 @@ svg .mark{font-size:9px;font-weight:700;fill:#a00;}
 .qg .stars{color:#e0a800;font-size:19px;letter-spacing:1px;white-space:nowrap;}
 .qg .stars i{color:#d5d5d5;font-style:normal;}
 .foot{display:grid;grid-template-columns:1fr 1fr;gap:8px 20px;margin-top:14px;font-size:13px;}
-.foot div{white-space:normal;border-bottom:1px solid #ccc;padding-bottom:3px;min-width:0;word-break:break-word;}
+.foot div{white-space:normal;min-width:0;word-break:break-word;}
 .foot small{display:block;color:#666;font-size:10.5px;}
 .disc{margin:auto 0 0;padding:16px 0 0 16px;font-size:10.5px;color:#444;line-height:1.6;}
 .spacer{flex:1;min-height:12px;}
@@ -642,7 +642,7 @@ function renderSvg(){
   h+=`<path class="z${gl}${sel==="glass"?" sel":""}" data-z="glass" d="M128 150 L232 150 L222 192 L138 192 Z"/><text x="180" y="169">Урд шил</text><text class="mark" x="180" y="182">${S.glass==="chip"?"чулууны мөр":S.glass==="crack"?"хагарсан":""}</text>`;
   for(const k in WHEELS){const w=WHEELS[k],st=S.wheels[k].st;
     h+=`<circle class="z${sel===k?" sel":""}" data-z="${k}" cx="${w.cx}" cy="${w.cy}" r="27" style="fill:${st==="none"?"#3a3a3a":st==="part"?"#c9a800":"#c62828"}"/>`
-      +`<text x="${w.cx}" y="${w.cy+5}" style="fill:#fff;font-size:15px;font-weight:700">${S.wheels[k].tire!==""?S.wheels[k].tire+"%":"—"}</text>`;}
+      +`<text x="${w.cx}" y="${w.cy+6}" style="fill:#fff;font-size:18px;font-weight:700">${S.wheels[k].tire!==""?S.wheels[k].tire+"%":"—"}</text>`;}
   const svg=document.getElementById("carSvg");svg.innerHTML=h;
   svg.querySelectorAll("[data-z]").forEach(e=>e.onclick=()=>{sel=e.dataset.z;renderSvg();renderEditor();});
 }
