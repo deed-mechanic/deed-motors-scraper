@@ -393,8 +393,9 @@ const PANELS = {
 const WHEELS = {wlf:{n:"Зүүн урд",cx:20,cy:92},wrf:{n:"Баруун урд",cx:340,cy:92},wlr:{n:"Зүүн хойд",cx:20,cy:368},wrr:{n:"Баруун хойд",cx:340,cy:368}};
 const SIZES = [["s","Жижиг","Картны хэмжээнээс бага"],["m","Дунд","A4-өөс бага"],["l","Том","A4 ба түүнээс дээш"]];
 const SIZE_SHORT={s:"Ж",m:"Д",l:"Т"};
-const TYPES = [["Зураас","Зр"],["Хонохортой","Хн"],["Гажилт","Гж"],["Зэв","Зв"],["Засвар хийсэн мөр","Зс"]];
-const TYPE_W = {"Зураас":1,"Хонохортой":1.5,"Гажилт":2,"Зэв":2.5,"Засвар хийсэн мөр":1.2};
+// A=スリ傷 U=凹み S=錆 X=取替跡 BM=修理跡 PM=再塗装跡（連続する凹み／波うちは省略）
+const TYPES = [["Зураас","A"],["Хонохортой","U"],["Зэв","S"],["Солигдсон эд анги","X"],["Засварласан","BM"],["Дахин будсан","PM"]];
+const TYPE_W = {"Зураас":1,"Хонохортой":1.5,"Зэв":2.5,"Солигдсон эд анги":1.3,"Засварласан":1.2,"Дахин будсан":1.3};
 const SIZE_W = {s:1,m:2,l:3};
 const GLASS = [["none","Гэмтэлгүй",0],["chip","Чулуу үсэрсэн мөртэй",1],["crack","Хагарсан",4]];
 const WHEEL_ST = [["none","Гэмтэлгүй",0],["part","Хэсэгчилсэн зураастай",.6],["wide","Өргөн хүрээнд зураастай",1.6]];
@@ -408,7 +409,7 @@ const OTH = [["flood","Үерт өртсөн"],["nodrive","Өөрөө явах �
 const COLORS=[["Цагаан","ホワイト"],["Сувдан цагаан","ホワイトパール"],["Мөнгөлөг","シルバー"],["Хар","ブラック"],["Улаан","レッド"],["Шар","イエロー"],["Цэнхэр","ブルー"],["Ногоон","グリーン"],["Хүрэн","ブラウン"],["Хар цэнхэр","ダークブルー"],["Нил ягаан","パープル"],["Алтлаг","ゴールド"]];
 function mapColor(v){if(!v)return "";if(COLORS.some(c=>c[0]===v))return v;
   const hit=[...COLORS].sort((a,b)=>b[1].length-a[1].length).find(c=>v.includes(c[1]));return hit?hit[0]:"";}
-const INSPECTORS=["前田　浩之（MAEDA HIROYUKI）"];
+const INSPECTORS=["MAEDA HIROYUKI"];
 // Windows-ийн дэлгэцийн гар (ЙЦУКЕН зохион байгуулалт)-тай яг ижил эгнээ, ижил кирилл үсгээр
 // (SmartCar зэрэг систем Windows-ийн дэлгэцийн гараар бичихэд танигддаг тул үүнтэй тааруулав).
 const KBD_ROWS=["0123456789","ЙЦУКЕНГШЩЗХЪ","ФЫВАПРОЛДЖЭ","ЯЧСМИТЬБЮ"];
@@ -488,7 +489,7 @@ function migrateLegacy(state){
   return state;
 }
 function load(){
-  try{const d=JSON.parse(localStorage.getItem(KEY)||"null");if(d&&d.info)S=migrateLegacy(Object.assign(freshState(),d));}catch(e){}
+  // 新規に開いたときは常に未記入状態から始める（以前保存された下書きは自動復元しない）
   try{
     if(location.hash.length>1){
       const p=JSON.parse(decodeURIComponent(location.hash.slice(1)));
@@ -647,9 +648,9 @@ function renderEditor(){
   el.innerHTML=`<div class="editor"><h3>${PANELS[sel].n}</h3>
     <div class="btns" id="sz"></div>
     <div class="btns" id="tp" style="margin-top:6px"></div>
-    <div class="btns" style="margin-top:6px"><div class="opt" id="clr">✕ Гэмтэлгүй болгох</div></div></div>`;
+    <div class="btns" style="margin-top:6px"><div class="opt" id="clr">✕ CLEAR</div></div></div>`;
   document.getElementById("sz").innerHTML=SIZES.map(s=>`<div class="opt ${p.size===s[0]?"on":""}" data-s="${s[0]}"><b>${s[1]}</b><div style="font-size:10px">${s[2]}</div></div>`).join("");
-  document.getElementById("tp").innerHTML=TYPES.map(t=>`<div class="opt ${p.types.includes(t[0])?"on warn":""}" data-t="${t[0]}">${t[0]}</div>`).join("");
+  document.getElementById("tp").innerHTML=TYPES.map(t=>`<div class="opt ${p.types.includes(t[0])?"on warn":""}" data-t="${t[0]}"><b>${t[1]}</b> — ${t[0]}</div>`).join("");
   document.querySelectorAll("#sz .opt").forEach(b=>b.onclick=()=>{p.size=p.size===b.dataset.s?"":b.dataset.s;afterEdit();});
   document.querySelectorAll("#tp .opt").forEach(b=>b.onclick=()=>{const t=b.dataset.t;p.types=p.types.includes(t)?p.types.filter(x=>x!==t):[...p.types,t];if(!p.size)p.size="s";afterEdit();});
   document.getElementById("clr").onclick=()=>{delete S.panels[sel];afterEdit();};
@@ -723,11 +724,12 @@ function renderCert(){
        <div>Д = Дунд (A4-өөс бага)</div>
        <div>Т = Том (A4 ба түүнээс дээш)</div>
        <div style="margin-top:3px"><b style="font-size:11.5px">Гэмтлийн төрөл:</b></div>
-       <div>Зр = Зураас</div>
-       <div>Хн = Хонохортой</div>
-       <div>Гж = Гажилт (гадаргуу мурийсан)</div>
-       <div>Зв = Зэв</div>
-       <div>Зс = Засвар хийсэн мөр</div>
+       <div>A = Зураас</div>
+       <div>U = Хонохортой</div>
+       <div>S = Зэв</div>
+       <div>X = Солигдсон эд анги</div>
+       <div>BM = Засварласан</div>
+       <div>PM = Дахин будсан</div>
      </div>
      <div class="box"><h4>Гадна хавтангийн байдал</h4>${pl.length?"<ul>"+pl.join("")+"</ul>":"Тэмдэглэх зүйлгүй"}</div>
     </div>
