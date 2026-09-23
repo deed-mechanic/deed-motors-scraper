@@ -135,6 +135,11 @@ svg .mark{font-size:9px;font-weight:700;fill:#a00;}
   </div>
 
   <div class="card">
+    <h2>【Цахилгаан систем】<span class="stars" id="st_elec"></span></h2>
+    <div id="elecRows"></div>
+  </div>
+
+  <div class="card">
     <h2>【Механизм】<span class="stars" id="st_eng"></span></h2>
     <div class="btns" id="engBtns"></div>
     <div class="note" id="mileNote"></div>
@@ -401,8 +406,11 @@ const GLASS = [["none","Гэмтэлгүй",0],["chip","Чулуу үсэрсэ�
 const WHEEL_ST = [["none","Гэмтэлгүй",0],["part","Хэсэгчилсэн зураастай",.6],["wide","Өргөн хүрээнд зураастай",1.6]];
 const WHEEL_ST_SHORT = {none:"Гэмтэлгүй",part:"Хэсэгчилсэн",wide:"Өргөн хүрээтэй"};
 const TIRE_QUICK = [90,70,50,30,10];
-const INT_AREAS = [["door","Хаалганы дотор тал"],["trunk","Хойд(багаж) хаалганы дотор"],["front","Суудал (урд)"],["rear","Суудал (хойд)"]];
+const INT_AREAS = [["front","Суудал (урд)"],["rear","Суудал (хойд)"],["trunk","Ачааны тасалгаа"]];
 const INT_ST = [["clean","Цэвэрхэн",0,""],["light","Бага зэргийн зураас, толботой",1,"warn"],["heavy","Өргөн хүрээнд зураас, толботой",3,"bad"]];
+// 電装システム: ①パワーウインドウ・サンルーフ ②電動シート・電動格納ドアミラー ③メーター表示の警告灯
+const ELEC_ITEMS = [["pw","Цахилгаан цонх, Люк"],["seat","Цахилгаан суудал, эвхэгддэг толь"],["meter","Хянахын гэрэл"]];
+const ELEC_ST = [["ok","Хэвийн",""],["bad","Гэмтэлтэй","bad"]];
 const ENG_ST = [["ok","Гол механизмд асуудалгүй",""],["part","Тос алдагдах, бүрхүүл урагдах зэрэг зарим асуудалтай","warn"],["repair","Засвар шаардлагатай","bad"]];
 const FRM_ST = [["none","Засварын түүхгүй",""],["part","Хэсэгчилсэн засвартай","warn"],["yes","Засварын түүхтэй","bad"]];
 const OTH = [["flood","Үерт өртсөн"],["nodrive","Өөрөө явах боломжгүй"],["safety","Аюулгүй байдлын системд доголдолтой"]];
@@ -473,7 +481,7 @@ function mileageTier(){
 function freshState(){
   return {info:{maker:"",modelSlug:"",custom:"",customModel:"",grade:"",name:"",color:"",year:"",km:"",model:"",vin:"",reg:"",date:new Date().toISOString().slice(0,10),inspector:"",inspectorFree:""},
     panels:{},glass:"none",wheels:{wlf:{st:"none",tire:""},wrf:{st:"none",tire:""},wlr:{st:"none",tire:""},wrr:{st:"none",tire:""}},
-    int:{door:"clean",trunk:"clean",front:"clean",rear:"clean"},eng:"ok",frm:"none",oth:{flood:false,nodrive:false,safety:false}};
+    int:{trunk:"clean",front:"clean",rear:"clean"},elec:{pw:"ok",seat:"ok",meter:"ok"},eng:"ok",frm:"none",oth:{flood:false,nodrive:false,safety:false}};
 }
 let S=freshState(), sel=null;
 const KEY="deedCertDraft_mn_v1";
@@ -531,6 +539,7 @@ function extPts(){
 const toStar=(t,lim)=>{for(let i=0;i<lim.length;i++)if(t<=lim[i])return 5-i;return 1;};
 function starExt(){return toStar(extPts(),[1,4,8,14]);}
 function starInt(){let t=0;for(const[k]of INT_AREAS)t+=INT_ST.find(x=>x[0]===S.int[k])[2];return toStar(t,[0,1,3,6]);}
+function starElec(){const bad=ELEC_ITEMS.filter(([k])=>S.elec[k]==="bad").length;return 5-bad;}
 function starEng(){ if(S.eng==="repair")return 1;
   const base=S.eng==="ok"?5:3; return Math.max(1,base-mileageTier().tier); }
 function starFrm(){return S.frm==="none"?5:S.frm==="part"?3:1;}
@@ -555,6 +564,10 @@ function intComment(){
   if(!bad.length&&!lt.length)return "Салон ерөнхийдөө цэвэрхэн байдалтай.";
   return (bad.length?bad.join(", ")+" хэсэгт өргөн хүрээтэй зураас, толбо бий. ":"")+(lt.length?lt.join(", ")+" хэсэгт бага зэргийн зураас, толбо бий.":"");
 }
+function elecComment(){
+  const bad=ELEC_ITEMS.filter(([k])=>S.elec[k]==="bad").map(x=>x[1]);
+  return bad.length?bad.join(", ")+" асуудалтай.":"Цахилгаан системд асуудалгүй.";
+}
 function engComment(){
   const m=mileageTier();
   let s=S.eng==="ok"?"Гол механизмд асуудалгүй. ":S.eng==="part"?"Тос алдагдах, бүрхүүл урагдах зэрэг зарим асуудал бий. ":"Засвар хийх шаардлагатай хэсэг бий. ";
@@ -562,7 +575,7 @@ function engComment(){
   return s.trim();
 }
 function frmComment(){return S.frm==="none"?"Рамд засварын түүх байхгүй.":S.frm==="part"?"Рамын зарим хэсэгт засвар хийгдсэн.":"Засварын түүхтэй.";}
-function othComment(){const a=OTH.filter(([k])=>S.oth[k]).map(o=>o[1]);return a.length?"Тусгай хасалт: «"+a.join("», «")+"».":"Тусгай хасалтад хамаарах зүйл байхгүй.";}
+function othComment(){const a=OTH.filter(([k])=>S.oth[k]).map(o=>o[1]);return a.length?"Тусгай хасалт: «"+a.join("», «")+"».":"Усанд автсан ул мөр, их биеийн засварын ул мөр зэрэг ноцтой асуудал байхгүй.";}
 
 /* ================= Машины нэр (сонгох арга) ================= */
 function mnModel(l){
@@ -661,6 +674,11 @@ function renderInt(){
   el.innerHTML=INT_AREAS.map(([k,l])=>`<div class="row"><span class="lbl">${l}</span><span class="btns" id="ib_${k}"></span></div>`).join("");
   INT_AREAS.forEach(([k])=>pickBtns(document.getElementById("ib_"+k),INT_ST.map(x=>[x[0],x[1],x[3]]),S.int[k],v=>{S.int[k]=v;save();renderInt();renderCert();renderStars();}));
 }
+function renderElec(){
+  const el=document.getElementById("elecRows");
+  el.innerHTML=ELEC_ITEMS.map(([k,l])=>`<div class="row"><span class="lbl" style="width:auto;max-width:220px;">${l}</span><span class="btns" id="eb_${k}"></span></div>`).join("");
+  ELEC_ITEMS.forEach(([k])=>pickBtns(document.getElementById("eb_"+k),ELEC_ST,S.elec[k],v=>{S.elec[k]=v;save();renderElec();renderCert();renderStars();}));
+}
 function renderEngNote(){
   const m=mileageTier();
   document.getElementById("mileNote").textContent=m.known
@@ -674,14 +692,14 @@ function renderOth(){
   el.querySelectorAll(".opt").forEach(b=>b.onclick=()=>{S.oth[b.dataset.k]=!S.oth[b.dataset.k];save();renderOth();renderCert();renderStars();});
 }
 function renderStars(){
-  const m={ext:starExt(),int:starInt(),eng:starEng(),frm:starFrm(),oth:starOth()};
+  const m={ext:starExt(),int:starInt(),elec:starElec(),eng:starEng(),frm:starFrm(),oth:starOth()};
   for(const k in m)document.getElementById("st_"+k).textContent=starsTxt(m[k]);
 }
 
 /* ================= Зурах: баталгаа ================= */
 function renderCert(){
   const I=S.info;
-  const cats=[["Гадна үзэмж",starExt(),extComment()],["Салон",starInt(),intComment()],["Механизм",starEng(),engComment()],["Их бие(Рам)",starFrm(),frmComment()],["Бусад, ноцтой асуудал",starOth(),othComment()]];
+  const cats=[["Гадна үзэмж",starExt(),extComment()],["Салон",starInt(),intComment()],["Цахилгаан систем",starElec(),elecComment()],["Механизм",starEng(),engComment()],["Их бие(Рам)",starFrm(),frmComment()],["Бусад, ноцтой асуудал",starOth(),othComment()]];
   const dt=I.date?I.date.replace(/^(\d+)-(\d+)-(\d+)$/,(m,y,mo,d)=>`${y} оны ${+mo}-р сарын ${+d}`):"";
   const kn=String(I.km).replace(/[^0-9]/g,""),km=kn?Number(kn).toLocaleString()+" км":"";
   document.getElementById("page1").innerHTML=`
@@ -737,6 +755,7 @@ function renderCert(){
      <div class="box mini"><h4>Обуд, дугуй</h4><table><tr><th>Байрлал</th><th>Обуд</th><th>Дугуйны хээний хэв</th></tr>${wl}</table></div>
      <div class="box"><h4>Шил</h4>Урд шил: ${GLASS.find(g=>g[0]===S.glass)[1]}</div>
      <div class="box"><h4>Салон</h4><ul>${INT_AREAS.map(([k,l])=>`<li>${l}: ${INT_ST.find(x=>x[0]===S.int[k])[1]}</li>`).join("")}</ul></div>
+     <div class="box"><h4>Цахилгаан систем</h4><ul>${ELEC_ITEMS.map(([k,l])=>`<li>${l}: ${ELEC_ST.find(x=>x[0]===S.elec[k])[1]}</li>`).join("")}</ul></div>
      <div class="box"><h4>Механизм, рамын гэмтэл, бусад</h4><ul><li>Механизм: ${ENG_ST.find(x=>x[0]===S.eng)[1]}</li><li>Их бие(Рам): ${FRM_ST.find(x=>x[0]===S.frm)[1]}</li>
        <li>Бусад, ноцтой асуудал: ${OTH.filter(([k])=>S.oth[k]).map(o=>o[1]).join(", ")||"Хамаарахгүй"}</li></ul>
        <div style="color:#111;font-size:10.5px;line-height:1.4;margin-top:4px;">※ Бусад гэдэгт усанд автсан (Үерт өртсөн), өөрөө явах боломжгүй, аюулгүй байдлын системд доголдолтой зэрэг хамаарна.</div>
@@ -745,7 +764,7 @@ function renderCert(){
    <div class="spacer logo" style="padding-bottom:6px;display:flex;align-items:flex-end;justify-content:center;"><img src="${LOGO}" alt="ДЭЭД МОТОРС" style="height:52px"></div>`;
 }
 
-function renderAll(){renderInfo();renderSvg();renderEditor();renderInt();
+function renderAll(){renderInfo();renderSvg();renderEditor();renderInt();renderElec();
   pickBtns(document.getElementById("engBtns"),ENG_ST,S.eng,v=>{S.eng=v;save();renderAll();});
   pickBtns(document.getElementById("frmBtns"),FRM_ST,S.frm,v=>{S.frm=v;save();renderAll();});
   renderOth();renderEngNote();renderCert();renderStars();save();}
