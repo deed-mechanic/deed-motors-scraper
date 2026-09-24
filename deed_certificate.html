@@ -410,7 +410,9 @@ const SIZE_W = {s:1,m:2,l:3};
 const GLASS = [["none","Гэмтэлгүй",0],["chip","Чулуу үсэрсэн мөртэй",1],["crack","Хагарсан",4]];
 const WHEEL_ST = [["none","Зураагүй",0],["part","Зураастай",.6],["wide","Өргөн хүрээнд зураастай",1.6]];
 const WHEEL_ST_SHORT = {none:"Зураагүй",part:"Зураастай",wide:"Өргөн хүрээнд зураастай"};
-const TIRE_QUICK = [90,70,50,30,10];
+const TIRE_QUICK = [100,90,80,70,60,50,40,30,20,10];
+// タイヤ残量の表示：100%は「新品」（Шинэ）と表記、それ以外は%表記、未入力は「—」
+const tireText=v=>v===""||v==null?"—":(+v===100?"Шинэ":v+"%");
 const INT_AREAS = [["front","Суудал (урд)"],["rear","Суудал (хойд)"],["trunk","Ачааны тасалгаа"]];
 const INT_ST = [["clean","Цэвэрхэн",0,""],["light","Бага зэргийн зураас, толботой",1,"warn"],["heavy","Өргөн хүрээнд зураас, толботой",3,"bad"]];
 // 電装システム: ①パワーウインドウ・サンルーフ ②電動シート・電動格納ドアミラー ③メーター表示の警告灯
@@ -642,7 +644,7 @@ function renderSvg(){
   h+=`<path class="z${gl}${sel==="glass"?" sel":""}" data-z="glass" d="M128 150 L232 150 L222 192 L138 192 Z"/><text x="180" y="169">Урд шил</text><text class="mark" x="180" y="182">${S.glass==="chip"?"чулууны мөр":S.glass==="crack"?"хагарсан":""}</text>`;
   for(const k in WHEELS){const w=WHEELS[k],st=S.wheels[k].st;
     h+=`<circle class="z${sel===k?" sel":""}" data-z="${k}" cx="${w.cx}" cy="${w.cy}" r="27" style="fill:${st==="none"?"#3a3a3a":st==="part"?"#c9a800":"#c62828"}"/>`
-      +`<text x="${w.cx}" y="${w.cy+6}" style="fill:#fff;font-size:18px;font-weight:700">${S.wheels[k].tire!==""?S.wheels[k].tire+"%":"—"}</text>`;}
+      +`<text x="${w.cx}" y="${w.cy+6}" style="fill:#fff;font-size:${tireText(S.wheels[k].tire)==="Шинэ"?15:18}px;font-weight:700">${tireText(S.wheels[k].tire)}</text>`;}
   const svg=document.getElementById("carSvg");svg.innerHTML=h;
   svg.querySelectorAll("[data-z]").forEach(e=>e.onclick=()=>{sel=e.dataset.z;renderSvg();renderEditor();});
 }
@@ -658,7 +660,7 @@ function renderEditor(){
       <div class="row"><span class="lbl" style="width:auto">Дугуйны үлдэгдэл</span><input id="tireIn" type="number" min="0" max="100" value="${esc(w.tire)}" style="width:70px;padding:6px;border:1.5px solid #ccc;border-radius:6px;"> %
       <span class="btns" id="tq"></span></div></div>`;
     pickBtns(document.getElementById("ed"),WHEEL_ST.map(x=>[x[0],x[1],x[0]==="none"?"":x[0]==="part"?"warn":"bad"]),w.st,v=>{w.st=v;afterEdit();});
-    document.getElementById("tq").innerHTML=TIRE_QUICK.map(n=>`<div class="opt" data-n="${n}">${n}%</div>`).join("");
+    document.getElementById("tq").innerHTML=TIRE_QUICK.map(n=>`<div class="opt" data-n="${n}">${n===100?"Шинэ (100%)":n+"%"}</div>`).join("");
     document.querySelectorAll("#tq .opt").forEach(b=>b.onclick=()=>{w.tire=b.dataset.n;afterEdit();});
     document.getElementById("tireIn").oninput=e=>{w.tire=e.target.value;save();renderCert();renderSvg();renderStars();};
     return;}
@@ -736,7 +738,7 @@ function renderCert(){
   svgCopy.removeAttribute("id");svgCopy.setAttribute("style","width:100%;display:block");
   const pl=Object.keys(PANELS).filter(k=>S.panels[k]&&S.panels[k].size&&S.panels[k].types.length)
      .map(k=>`<li>${PANELS[k].n}: ${S.panels[k].types.join(", ")} (${SIZES.find(s=>s[0]===S.panels[k].size)[1]})</li>`);
-  const wl=Object.keys(WHEELS).map(k=>`<tr><td>${WHEELS[k].n}</td><td>${WHEEL_ST_SHORT[S.wheels[k].st]}</td><td>${S.wheels[k].tire!==""?esc(S.wheels[k].tire)+"%":"—"}</td></tr>`).join("");
+  const wl=Object.keys(WHEELS).map(k=>`<tr><td>${WHEELS[k].n}</td><td>${WHEEL_ST_SHORT[S.wheels[k].st]}</td><td>${esc(tireText(S.wheels[k].tire))}</td></tr>`).join("");
   document.getElementById("page2").innerHTML=`
    <div class="frame" style="border:1px solid #888"></div>
    <div class="p2title"><span>Автомашины гадна талын оношлогооны тайлбар</span><span style="white-space:nowrap">${esc(I.date?I.date.replace(/-/g,"/"):"")}</span></div>
