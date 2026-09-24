@@ -539,7 +539,7 @@ function extBreakdown(){
 }
 function extPts(){
   const {majorCount,minorSum}=extBreakdown();
-  return majorCount*4 + minorSum*0.3;
+  return majorCount*3.5 + minorSum*0.25;
 }
 const toStar=(t,lim)=>{for(let i=0;i<lim.length;i++)if(t<=lim[i])return 5-i;return 1;};
 function starExt(){return toStar(extPts(),[1,4,8,14]);}
