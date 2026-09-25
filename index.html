@@ -586,13 +586,24 @@ input[type=number]::placeholder {
 
     <!-- ナンバー登録・日本仕様走行距離判定 -->
     <div class="card">
-      <div class="sec-title">🚚 ナンバー登録 / Улсын дугаар<span style="font-size:10px;color:#888;font-weight:400;margin-left:8px;">未登録車は日本での走行距離（年間1万km基準）で判定</span></div>
+      <div class="sec-title">🚚 ナンバー登録 / Улсын дугаар<span style="font-size:10px;color:#888;font-weight:400;margin-left:8px;">走行距離の評価方法を状況に応じて選択できます</span></div>
       <div class="radio-row">
         <div class="radio-row-label">ナンバー登録状況 / Улсын дугаарын байдал</div>
         <div class="radio-inner">
           <div class="radio-group" id="rg_plateStatus">
             <div class="rbtn active-normal" onclick="setPlateStatus('has',this)">有 / Бий</div>
             <div class="rbtn" onclick="setPlateStatus('none',this)">無 / Байхгүй</div>
+          </div>
+        </div>
+      </div>
+      <div class="radio-row">
+        <div class="radio-row-label">走行距離の評価方法 / Явсан замын үнэлгээ<span class="sel-sub">自動：未登録=併用／登録済=モンゴル基準</span></div>
+        <div class="radio-inner">
+          <div class="radio-group" id="rg_mileageMode">
+            <div class="rbtn active-normal" onclick="setMileageMode('auto',this)">自動</div>
+            <div class="rbtn" onclick="setMileageMode('jp',this)">日本基準（表2）</div>
+            <div class="rbtn" onclick="setMileageMode('mn',this)">モンゴル基準（点数）</div>
+            <div class="rbtn" onclick="setMileageMode('both',this)">併用</div>
           </div>
         </div>
       </div>
@@ -607,7 +618,7 @@ input[type=number]::placeholder {
 
     <!-- 走行距離 -->
     <div class="card">
-      <div class="sec-title">🛣️ 走行距離 / Явсан зам（モンゴル特例 / Монголын дүрэм）</div>
+      <div class="sec-title">🛣️ 走行距離 / Явсан зам</div>
       <div class="mileage-box" id="mileageBox"><span style="color:#909090">走行距離を入力すると自動評価されます</span></div>
     </div>
 
@@ -5306,6 +5317,16 @@ function lookupJaaiRate(mileageKm, months){
   return JAAI_TABLE[rowIdx][colIdx];
 }
 
+let mileageMode = "auto";
+function getMileageMode(){
+  return mileageMode==="auto" ? (plateStatus==="none" ? "both" : "mn") : mileageMode;
+}
+function setMileageMode(val, el){
+  mileageMode = val;
+  document.querySelectorAll("#rg_mileageMode .rbtn").forEach(b=>b.classList.remove("active-normal"));
+  if (el) el.classList.add("active-normal");
+  calc();
+}
 function setPlateStatus(val, el){
   plateStatus = val;
   document.querySelectorAll("#rg_plateStatus .rbtn").forEach(b=>b.classList.remove("active-normal"));
@@ -5517,8 +5538,12 @@ function calcCustom() {
 // ── メイン計算（第一部） ──
 function calc() {
   const km = parseInt(document.getElementById("mileageVal").value)||0;
+  // 走行距離の評価方法（自動＝ナンバー未登録は併用／登録済はモンゴル基準）
+  const mMode = getMileageMode();
+  const useMn = mMode==="mn" || mMode==="both";
+  const useJp = mMode==="jp" || mMode==="both";
   const mecOk = getS("mecEngine")===0 && getS("mecUnder")===0 && RV.mecExhaust===0 && RV.mecOilLeak===0;
-  let mp = km<=0?0:km<=50000?0:km<=100000?-5:km<=150000?-10:mecOk?0:-15;
+  const mp = !useMn ? 0 : km<=0?0:km<=50000?0:km<=100000?-5:km<=150000?-10:mecOk?0:-15;
 
   // モンゴル使用期間
   let mnP=0, mnM=0;
@@ -5538,12 +5563,14 @@ function calc() {
   // 走行距離表示
   const mb = document.getElementById("mileageBox");
   if(km>0){
-    if(km>150000) mb.innerHTML=mecOk
-      ?"<span style='color:#2e7d32'>✅ "+km.toLocaleString()+"km — 15万km超・機関良好 → 減点免除（DEED特例）</span>"
-      :"<span style='color:#d32f2f'>🔴 "+km.toLocaleString()+"km — 15万km超・機関不良 → -15点</span>";
-    else if(km>100000) mb.innerHTML="<span style='color:#e65100'>🟡 "+km.toLocaleString()+"km → -10点</span>";
-    else if(km>50000)  mb.innerHTML="<span style='color:#1565c0'>🔵 "+km.toLocaleString()+"km → -5点</span>";
-    else mb.innerHTML="<span style='color:#2e7d32'>✅ "+km.toLocaleString()+"km — 良好（減点なし）</span>";
+    const jpNote = useJp ? "／初度登録からの年数との関係で日本査定士協会 表2により価格を減算" : "";
+    if(!useMn) mb.innerHTML="<span style='color:#1565c0'>ℹ️ "+km.toLocaleString()+"km — 点数減点なし"+jpNote+"</span>";
+    else if(km>150000) mb.innerHTML=(mecOk
+      ?"<span style='color:#2e7d32'>✅ "+km.toLocaleString()+"km — 15万km超・機関良好 → 減点免除（DEED特例）"
+      :"<span style='color:#d32f2f'>🔴 "+km.toLocaleString()+"km — 15万km超・機関不良 → -15点")+jpNote+"</span>";
+    else if(km>100000) mb.innerHTML="<span style='color:#e65100'>🟡 "+km.toLocaleString()+"km → -10点"+jpNote+"</span>";
+    else if(km>50000)  mb.innerHTML="<span style='color:#1565c0'>🔵 "+km.toLocaleString()+"km → -5点"+jpNote+"</span>";
+    else mb.innerHTML="<span style='color:#2e7d32'>✅ "+km.toLocaleString()+"km — 良好（減点なし）"+jpNote+"</span>";
   } else {
     mb.innerHTML="<span style='color:#909090'>走行距離を入力すると自動評価されます</span>";
   }
@@ -5586,10 +5613,10 @@ function calc() {
   // 査定価格への追加調整額として表示する（自動で本体価格には合算していません）。
   jaaiRateGlobal = 0;
   let jpMileageMsg = "";
-  if (typeof plateStatus !== "undefined" && plateStatus === "none") {
+  if (useJp) {
     const mileageRaw = (document.getElementById("mileageVal").value || "").replace(/[^0-9]/g, "");
     const mileage = parseInt(mileageRaw) || 0;
-    const mfgYearRaw = parseInt(document.getElementById("mfgDate").value) || null;
+    const mfgYearRaw = parseInt(document.getElementById("mfgDate").value) || parseInt(document.getElementById("carYear").value) || null;
     const rateEl = document.getElementById("jpyMntRate");
     const rate = (rateEl && parseFloat(rateEl.value)) || 22.1;
     if (mileage > 0 && mfgYearRaw) {
@@ -5601,7 +5628,9 @@ function calc() {
       const mntMillion = mntAmount / 1000000;
       jaaiRateGlobal = mntMillion;
       const sign = jaaiThousandYen >= 0 ? "+" : "";
-      jpMileageMsg = "使用経過約" + months + "ヶ月・走行" + mileage.toLocaleString() + "km \u2192 表2: " + sign + jaaiThousandYen + "千円（" + sign + yenAmount.toLocaleString() + "円）\u00d7" + rate + " = " + (mntMillion>=0?"+":"") + mntMillion.toFixed(2) + " сая \u20AE";
+      jpMileageMsg = "初度登録から使用経過約" + months + "ヶ月・走行" + mileage.toLocaleString() + "km \u2192 表2: " + sign + jaaiThousandYen + "千円（" + sign + yenAmount.toLocaleString() + "円）\u00d7" + rate + " = " + (mntMillion>=0?"+":"") + mntMillion.toFixed(2) + " сая \u20AE";
+    } else if (mileage > 0) {
+      jpMileageMsg = "生産年（初度登録年）を入力すると、走行距離の減算（表2）が価格に反映されます";
     }
   }
   const jpMsgEl = document.getElementById("jpMileageResult");
@@ -5929,6 +5958,7 @@ function doReset(){
     const f=g.querySelector(".rbtn"); if(f) f.classList.add("active-normal");
   });
   plateStatus = "has";
+  mileageMode = "auto";
   document.querySelectorAll("#rg_plateStatus .rbtn").forEach(b=>b.classList.remove("active-normal"));
   const plateFirst = document.querySelector("#rg_plateStatus .rbtn");
   if (plateFirst) plateFirst.classList.add("active-normal");
