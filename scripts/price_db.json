@@ -1,8 +1,8 @@
 {
   "updated_at": "2026-09-25 02:43",
   "source": "unegui.mn",
-  "total_records": 3567,
-  "total_models": 132,
+  "total_records": 3574,
+  "total_models": 134,
   "data": {
     "toyota|c-hr": [
       {
@@ -32121,6 +32121,80 @@
         "import_year": 2025,
         "price": 230.0,
         "_fulltext": "Porsche Boxster, 2017/2025 44,000 км · Автомат · 2.0 л · Бензин"
+      }
+    ],
+    "tesla|model-y": [
+      {
+        "year": 2021,
+        "drive": "4WD",
+        "mileage": "89,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 105.0,
+        "_fulltext": "Tesla Model Y, 2021/2026 89,000 км · Автомат · Цахилгаан · Цахилгаан",
+        "wheel": "LHD"
+      },
+      {
+        "year": 2025,
+        "drive": "4WD",
+        "mileage": "9,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 195.0,
+        "_fulltext": "Tesla Model Y, 2025/2026 9,000 км · Автомат · Цахилгаан · Цахилгаан",
+        "wheel": "LHD"
+      },
+      {
+        "year": 2022,
+        "drive": "4WD",
+        "mileage": "35,000 km",
+        "color": "不明",
+        "import_year": 2024,
+        "price": 100.0,
+        "_fulltext": "Tesla Model Y, 2022/2024 35,000 км · Автомат · Цахилгаан · Цахилгаан",
+        "wheel": "RHD"
+      },
+      {
+        "year": 2023,
+        "drive": "4WD",
+        "mileage": "70,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 130.0,
+        "_fulltext": "Tesla Model Y, 2023/2026 70,000 км · Автомат · Цахилгаан · Цахилгаан",
+        "wheel": "LHD"
+      },
+      {
+        "year": 2022,
+        "drive": "4WD",
+        "mileage": "41,000 km",
+        "color": "不明",
+        "import_year": 2025,
+        "price": 95.0,
+        "_fulltext": "Tesla Model Y, 2022/2025 41,000 км · Автомат · Цахилгаан · Цахилгаан",
+        "wheel": "RHD"
+      }
+    ],
+    "tesla|model-s": [
+      {
+        "year": 2016,
+        "drive": "4WD",
+        "mileage": "122,000 km",
+        "color": "不明",
+        "import_year": 2024,
+        "price": 54.0,
+        "_fulltext": "Tesla Model S, 2016/2024 122,000 км · Автомат · Цахилгаан · Цахилгаан",
+        "wheel": "RHD"
+      },
+      {
+        "year": 2018,
+        "drive": "4WD",
+        "mileage": "74,000 km",
+        "color": "不明",
+        "import_year": 2023,
+        "price": 85.0,
+        "_fulltext": "Tesla Model S, 2018/2023 74,000 км · Автомат · 6.0 л · Цахилгаан",
+        "wheel": "LHD"
       }
     ]
   }

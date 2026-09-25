@@ -185,6 +185,11 @@ TARGETS = [
     {"key": "ford|everest-2", "url": "ford/everest"},
     # RAM: UNEGUI.MN側は「Dodge」カテゴリ内に「Dodge Ram」として掲載（Ramブランド独立カテゴリは無い）。
     # Challenger等が混在するためタイトルで絞る。ほぼ全車が4WDのピックアップ
+    # Tesla: UNEGUI.MN側のURLは大文字小文字を区別する（Tesla/ModelY, Tesla/ModelS）。
+    # Model 3 / Model X の独立カテゴリは無い（出品なし）。電気自動車のため駆動方式はデュアルモーター(4WD)/RWDの区別が
+    # 一覧に無く「不明」のまま。詳細ページから取得する
+    {"key": "tesla|model-y", "url": "Tesla/ModelY", "detail_fetch": True},
+    {"key": "tesla|model-s", "url": "Tesla/ModelS", "detail_fetch": True},
     {"key": "ram|1500", "url": "dodge", "title_contains": "Ram", "force_4wd": True, "wheel_fetch": True},
     # Porsche: 911（1件のみ・平均5億超）は高額すぎるため対象外。
     # 実用車として流通量のある主要モデルのみ追加
