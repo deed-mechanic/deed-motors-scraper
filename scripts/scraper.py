@@ -607,6 +607,17 @@ def scrape_one(target):
     return results
 
 def save(db, path="scripts/price_db.json"):
+    # 取得が失敗して極端に少ない場合（サイト遮断など）は、正常な既存データを上書きしない。
+    # 異常終了(exit 1)にして、日次ワークフローの失敗として検知できるようにする
+    new_total = sum(len(v) for v in db.values())
+    try:
+        with open(path, encoding="utf-8") as f:
+            old_total = json.load(f).get("total_records", 0)
+    except (OSError, ValueError):
+        old_total = 0
+    if old_total > 0 and new_total < old_total * 0.3:
+        log.error(f"取得件数が異常に少ないため保存を中止: 新{new_total}件 / 既存{old_total}件（既存データを保持）")
+        sys.exit(1)
     out = {"updated_at": datetime.now().strftime("%Y-%m-%d %H:%M"),
            "source": "unegui.mn",
            "total_records": sum(len(v) for v in db.values()),
