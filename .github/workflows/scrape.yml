@@ -1,7 +1,7 @@
 name: DEED MOTORS 価格自動更新
+# 日次の自動実行は停止中: GitHubのサーバーIPはUNEGUI.MNのCloudflareに遮断される(403)ため、
+# 取得は scripts/run_daily_local.ps1（ローカルPCのタスクスケジューラ・毎日0:00）で行う
 on:
-  schedule:
-    - cron: '0 23 * * *'
   workflow_dispatch:
 jobs:
   scrape-and-build:
