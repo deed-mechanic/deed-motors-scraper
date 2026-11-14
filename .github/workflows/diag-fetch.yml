@@ -36,8 +36,9 @@ jobs:
                       resp = pg.goto(s.build_url(path), wait_until='load', timeout=45000)
                       pg.wait_for_timeout(2500)
                       h = pg.content()
+                      n_cards = h.count('data-component=' + chr(34) + 'BigAdCard' + chr(34))
                       t = re.search(r'<title>(.*?)</title>', h, re.S)
-                      msgs.append(f"playwright {path}: http={resp.status if resp else None} url={pg.url} len={len(h)} title={(t.group(1).strip()[:60] if t else None)} cf={'Just a moment' in h[:5000] or 'challenges.cloudflare.com' in h[:20000]} cards={h.count('data-component=\"BigAdCard\"')}")
+                      msgs.append(f"playwright {path}: http={resp.status if resp else None} url={pg.url} len={len(h)} title={(t.group(1).strip()[:60] if t else None)} cf={'Just a moment' in h[:5000] or 'challenges.cloudflare.com' in h[:20000]} cards={n_cards}")
                   except Exception as e:
                       msgs.append(f"playwright {path} error: {str(e)[:200]}")
               b.close()
