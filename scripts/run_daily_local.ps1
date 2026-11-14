@@ -11,12 +11,15 @@ New-Item -ItemType Directory -Force $logDir | Out-Null
 $log = Join-Path $logDir ("run_" + (Get-Date -Format "yyyyMMdd_HHmm") + ".log")
 $env:PYTHONIOENCODING = "utf-8"
 $env:PYTHONUTF8 = "1"
+$env:PYTHONUNBUFFERED = "1"
+[Console]::OutputEncoding = [System.Text.Encoding]::UTF8
+$OutputEncoding = [System.Text.Encoding]::UTF8
 $py = "C:\Users\user\AppData\Local\Programs\Python\Python313\python.exe"
 
 function Log($m) { $line = "[{0}] {1}" -f (Get-Date -Format "HH:mm:ss"), $m; Add-Content -Path $log -Value $line -Encoding UTF8; Write-Host $line }
+# 出力を1行ずつリアルタイムでログに追記する（長時間のスクレイピングの進捗を確認できる）
 function Run($exe, $argList) {
-    $out = & $exe @argList 2>&1 | Out-String
-    Add-Content -Path $log -Value $out -Encoding UTF8
+    & $exe @argList 2>&1 | ForEach-Object { Add-Content -Path $log -Value ("" + $_) -Encoding UTF8 }
     return $LASTEXITCODE
 }
 
