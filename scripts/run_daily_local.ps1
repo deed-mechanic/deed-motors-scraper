@@ -23,32 +23,44 @@ function Run($exe, $argList) {
     return $LASTEXITCODE
 }
 
+# 実行結果を1か所に残す（毎朝これを見れば、成功/失敗とその理由が分かる）
+$statusFile = Join-Path $logDir "LAST_STATUS.txt"
+function Finish($ok, $msg) {
+    $state = if ($ok) { "成功" } else { "失敗" }
+    Set-Content -Path $statusFile -Value ("{0}  {1}  {2}`r`nログ: {3}" -f (Get-Date -Format "yyyy-MM-dd HH:mm"), $state, $msg, $log) -Encoding UTF8
+    Log ("結果: {0} {1}" -f $state, $msg)
+    if ($ok) { exit 0 } else { exit 1 }
+}
+
 Set-Location $repo
 Log "開始 DryRun=$DryRun"
 
+# Playwrightのライブラリだけ更新されるとブラウザ本体が合わず起動できなくなる（過去に発生）。
+# 実行前に必ず確認し、不足していれば公式の手順で導入する（導入済みなら何もしない）
+if ((Run $py @("-m", "playwright", "install", "chromium")) -ne 0) { Finish $false "Chromiumの確認/導入に失敗（ネット接続を確認）" }
+
 if (-not $DryRun) {
-    if ((Run "git" @("pull", "--ff-only", "origin", "main")) -ne 0) { Log "git pull 失敗。中止"; exit 1 }
+    if ((Run "git" @("pull", "--ff-only", "origin", "main")) -ne 0) { Finish $false "git pull失敗（ローカルに未コミットの変更がないか確認）" }
 }
 
 $dbPath = if ($DryRun) { Join-Path $logDir "dryrun_price_db.json" } else { "scripts/price_db.json" }
 $scrapeArgs = @("scripts/scraper.py", "--output", $dbPath)
 if ($DryRun) { $scrapeArgs += "--test" }
 $rc = Run $py $scrapeArgs
-if ($rc -ne 0) { Log "スクレイピング異常終了(code=$rc)。既存データを保持して中止"; exit 1 }
+if ($rc -ne 0) { Finish $false "スクレイピング異常終了(code=$rc)。既存データは保持。ログ参照" }
 
 $d = Get-Content $dbPath -Raw -Encoding UTF8 | ConvertFrom-Json
 Log ("取得結果: {0}車種 {1}件 ({2})" -f $d.total_models, $d.total_records, $d.updated_at)
 if ($DryRun) { Log "DryRun完了（HTML生成・コミット・プッシュは実施しない）"; exit 0 }
 
-if ((Run $py @("scripts/build_html.py", "--template", "templates/deed_motors_PC_v3_template.html", "--db", "scripts/price_db.json", "--out", "index.html")) -ne 0) { Log "HTML生成(日本語)失敗。中止"; exit 1 }
-if ((Run $py @("scripts/build_html.py", "--template", "templates/deed_motors_PC_v3_BILINGUAL_template.html", "--db", "scripts/price_db.json", "--out", "bilingual.html")) -ne 0) { Log "HTML生成(バイリンガル)失敗。中止"; exit 1 }
+if ((Run $py @("scripts/build_html.py", "--template", "templates/deed_motors_PC_v3_template.html", "--db", "scripts/price_db.json", "--out", "index.html")) -ne 0) { Finish $false "HTML生成(日本語)失敗" }
+if ((Run $py @("scripts/build_html.py", "--template", "templates/deed_motors_PC_v3_BILINGUAL_template.html", "--db", "scripts/price_db.json", "--out", "bilingual.html")) -ne 0) { Finish $false "HTML生成(バイリンガル)失敗" }
 
 Run "git" @("add", "scripts/price_db.json", "index.html", "bilingual.html") | Out-Null
 & git diff --staged --quiet
-if ($LASTEXITCODE -eq 0) { Log "変更なし。終了"; exit 0 }
+if ($LASTEXITCODE -eq 0) { Finish $true "取得成功（前回から変更なし）" }
 $msg = "価格データ更新 " + (Get-Date).ToUniversalTime().ToString("yyyy-MM-dd HH:mm") + " UTC（ローカルPC取得）"
-if ((Run "git" @("commit", "-m", $msg)) -ne 0) { Log "commit失敗"; exit 1 }
-if ((Run "git" @("pull", "--rebase", "origin", "main")) -ne 0) { Log "rebase失敗。中止"; exit 1 }
-if ((Run "git" @("push", "origin", "main")) -ne 0) { Log "push失敗"; exit 1 }
-Log "公開完了"
-exit 0
+if ((Run "git" @("commit", "-m", $msg)) -ne 0) { Finish $false "commit失敗" }
+if ((Run "git" @("pull", "--rebase", "origin", "main")) -ne 0) { Finish $false "rebase失敗（データはコミット済み。次回再試行）" }
+if ((Run "git" @("push", "origin", "main")) -ne 0) { Finish $false "push失敗（データはコミット済み）" }
+Finish $true ("公開完了 {0}車種 {1}件" -f $d.total_models, $d.total_records)
