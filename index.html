@@ -179,6 +179,9 @@ input[type=number]::placeholder {
 <!-- 結果コピー時のフィードバック（alert/promptがブロックされる環境でも必ず見えるようDOM表示にする） -->
 <div id="exportFeedback" style="display:none;margin:10px 20px 0;padding:10px 14px;border-radius:8px;font-size:13px;"></div>
 
+<!-- 市場データが古い場合の警告（日次自動更新が止まっても査定担当者が気づけるように） -->
+<div id="staleDataBanner" style="display:none;margin:10px 20px 0;padding:10px 14px;border-radius:8px;font-size:13px;font-weight:700;"></div>
+
 <!-- スコアバー -->
 <div id="scorebar">
   <div>
@@ -5779,6 +5782,26 @@ function doReset(){
         badge.textContent = "静的データ（手動更新版）";
       }
     }
+  } catch(e){}
+})();
+
+// 市場データの鮮度チェック（2日以上古いと警告、4日以上で強い警告）
+(function(){
+  try {
+    if(typeof PRICE_DB_UPDATED_AT === "undefined") return;
+    var m = PRICE_DB_UPDATED_AT.match(/(\d{4})-(\d{2})-(\d{2})/);
+    if(!m) return;
+    var upd = new Date(+m[1], +m[2]-1, +m[3]);
+    var days = Math.floor((Date.now() - upd.getTime()) / 86400000);
+    if(days < 2) return;
+    var el = document.getElementById("staleDataBanner");
+    if(!el) return;
+    var severe = days >= 4;
+    el.style.display = "block";
+    el.style.background = severe ? "#fde8e8" : "#fff8e1";
+    el.style.border = "1.5px solid " + (severe ? "#c62828" : "#f9a825");
+    el.style.color = severe ? "#b71c1c" : "#8a5a00";
+    el.textContent = "⚠️ 市場データが" + days + "日前（" + m[0] + "）のものです。最新の相場と異なる可能性があります。 / Зах зээлийн өгөгдөл " + days + " хоногийн өмнөх байна.";
   } catch(e){}
 })();
 

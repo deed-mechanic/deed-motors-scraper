@@ -1,0 +1,39 @@
+name: 市場データ鮮度チェック（見張り役）
+# 取得はローカルPC（scripts/run_daily_local.ps1）が毎日0:00(UTC+8)に行う。
+# ここでは取得せず、価格データが古い/空でないかだけを確認し、異常なら失敗にする。
+# 失敗するとGitHubからメール通知が届く（Actionsの失敗通知）。
+on:
+  schedule:
+    - cron: '0 2 * * *'   # 10:00 (UTC+8) = ローカル取得が終わっている時刻
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/watchdog.yml'
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: データ鮮度・件数の確認
+        run: |
+          python3 - <<'PY'
+          import json, subprocess, time, sys
+          MAX_AGE_H = 26      # 通常は取得後 約9時間。1日分でも飛べば検知する
+          MIN_RECORDS = 1500  # 通常は約3,500件
+          with open('scripts/price_db.json', encoding='utf-8') as f:
+              d = json.load(f)
+          ts = int(subprocess.check_output(['git', 'log', '-1', '--format=%ct', '--', 'scripts/price_db.json']).decode().strip())
+          age_h = (time.time() - ts) / 3600
+          msg = f"最終更新コミットから {age_h:.1f} 時間 / {d['total_models']}車種 {d['total_records']}件 (updated_at={d['updated_at']})"
+          print(msg)
+          problems = []
+          if age_h > MAX_AGE_H:
+              problems.append(f"市場データが {age_h:.0f} 時間更新されていません（上限 {MAX_AGE_H} 時間）。ローカルPCの日次取得が止まっている可能性があります")
+          if d['total_records'] < MIN_RECORDS:
+              problems.append(f"件数が {d['total_records']} 件と異常に少ないです（下限 {MIN_RECORDS} 件）")
+          for p in problems:
+              print(f"::error title=市場データ異常::{p}")
+          sys.exit(1 if problems else 0)
+          PY

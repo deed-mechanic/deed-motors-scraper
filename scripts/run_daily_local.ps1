@@ -37,6 +37,8 @@ Log "開始 DryRun=$DryRun"
 
 # Playwrightのライブラリだけ更新されるとブラウザ本体が合わず起動できなくなる（過去に発生）。
 # 実行前に必ず確認し、不足していれば公式の手順で導入する（導入済みなら何もしない）
+# ライブラリのバージョンは requirements.txt で固定（勝手な更新で止まらないように）
+if ((Run $py @("-m", "pip", "install", "-q", "-r", "requirements.txt")) -ne 0) { Finish $false "ライブラリの導入に失敗（ネット接続を確認）" }
 if ((Run $py @("-m", "playwright", "install", "chromium")) -ne 0) { Finish $false "Chromiumの確認/導入に失敗（ネット接続を確認）" }
 
 if (-not $DryRun) {
@@ -47,7 +49,16 @@ $dbPath = if ($DryRun) { Join-Path $logDir "dryrun_price_db.json" } else { "scri
 $scrapeArgs = @("scripts/scraper.py", "--output", $dbPath)
 if ($DryRun) { $scrapeArgs += "--test" }
 $rc = Run $py $scrapeArgs
-if ($rc -ne 0) { Finish $false "スクレイピング異常終了(code=$rc)。既存データは保持。ログ参照" }
+# 失敗時は10分空けて最大2回、取得済みの車種を飛ばして再開する（--resume）
+$attempt = 0
+while ($rc -ne 0 -and -not $DryRun -and $attempt -lt 2) {
+    $attempt++
+    Log "取得が完了しませんでした(code=$rc)。10分後に再開します（再試行 $attempt/2）"
+    Start-Sleep -Seconds 600
+    $rc = Run $py ($scrapeArgs + "--resume")
+}
+$partial = ($rc -eq 2)
+if ($rc -ne 0 -and -not $partial) { Finish $false "スクレイピング失敗(code=$rc)。既存データは保持。ログ参照" }
 
 $d = Get-Content $dbPath -Raw -Encoding UTF8 | ConvertFrom-Json
 Log ("取得結果: {0}車種 {1}件 ({2})" -f $d.total_models, $d.total_records, $d.updated_at)
@@ -63,4 +74,5 @@ $msg = "価格データ更新 " + (Get-Date).ToUniversalTime().ToString("yyyy-MM
 if ((Run "git" @("commit", "-m", $msg)) -ne 0) { Finish $false "commit失敗" }
 if ((Run "git" @("pull", "--rebase", "origin", "main")) -ne 0) { Finish $false "rebase失敗（データはコミット済み。次回再試行）" }
 if ((Run "git" @("push", "origin", "main")) -ne 0) { Finish $false "push失敗（データはコミット済み）" }
+if ($partial) { Finish $false ("一部の車種が取得できず、その車種は前回データのまま公開 {0}車種 {1}件" -f $d.total_models, $d.total_records) }
 Finish $true ("公開完了 {0}車種 {1}件" -f $d.total_models, $d.total_records)

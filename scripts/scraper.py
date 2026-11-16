@@ -31,6 +31,7 @@ USER_AGENT = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
 
 # main()内でPlaywrightのページを生成しここに保持する（fetch()から使う）
 _page = None
+_FETCH_FAILED = []  # 取得に失敗した車種キー（前回データの引き継ぎ・再試行の判断に使う）
 
 # 正しいURL構造: /avto-mashin/-avtomashin-zarna/メーカー/車種/
 #
@@ -551,7 +552,10 @@ def scrape_one(target):
     for page in range(1, MAX_PAGES+1):
         url = build_url(path, page)
         html = fetch(url)
-        if not html: break
+        if not html:
+            if page == 1:
+                _FETCH_FAILED.append(key)  # 1ページ目すら取得できない＝「出品0件」ではなく取得失敗
+            break
         items = parse_page(html)
         log.info(f"  p{page}: {len(items)}件パース")
         for item in items:
@@ -626,10 +630,15 @@ def save(db, path="scripts/price_db.json"):
         json.dump(out, f, ensure_ascii=False, indent=2)
     log.info(f"保存: {path} ({out['total_records']}件)")
 
-def scrape_all(targets):
-    db = {}
+def scrape_all(targets, db=None, done=None, on_target_done=None):
+    db = {} if db is None else db
+    done = set() if done is None else done
     for i,t in enumerate(targets,1):
         log.info(f"[{i}/{len(targets)}]")
+        if t["key"] in done:
+            log.info(f"  [{t['key']}] 再開: 取得済みのためスキップ")
+            continue
+        n_failed_before = len(_FETCH_FAILED)
         try:
             r = scrape_one(t)
             if not r:
@@ -728,6 +737,10 @@ def scrape_all(targets):
                 db[t["key"]] = r
         except Exception as e:
             log.error(f"エラー: {e}")
+            _FETCH_FAILED.append(t["key"])
+        if len(_FETCH_FAILED) == n_failed_before:
+            done.add(t["key"])
+            if on_target_done: on_target_done(db, done)
         if i < len(targets): time.sleep(REQUEST_DELAY*2)
     return db
 
@@ -736,7 +749,9 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--test", action="store_true")
     parser.add_argument("--output", default="scripts/price_db.json")
+    parser.add_argument("--resume", action="store_true", help="12時間以内のチェックポイントがあれば、取得済みの車種をスキップして再開")
     args = parser.parse_args()
+    ckpt_path = "scripts/.scrape_checkpoint.json"
     targets = [t for t in TARGETS if t["key"]=="toyota|harrier"] if args.test else TARGETS
 
     with Stealth().use_sync(sync_playwright()) as p:
@@ -746,10 +761,43 @@ def main():
             viewport={"width": 1280, "height": 900},
             locale="mn-MN",
         )
-        db = scrape_all(targets)
+        db, done = {}, set()
+        if args.resume:
+            try:
+                with open(ckpt_path, encoding="utf-8") as f:
+                    ck = json.load(f)
+                if time.time() - ck.get("saved_at", 0) < 12*3600:
+                    db, done = ck["db"], set(ck["done"])
+                    log.info(f"チェックポイントから再開: 取得済み{len(done)}車種")
+            except (OSError, ValueError, KeyError):
+                pass
+
+        def save_checkpoint(cur_db, cur_done):
+            with open(ckpt_path, "w", encoding="utf-8") as f:
+                json.dump({"saved_at": time.time(), "done": sorted(cur_done), "db": cur_db}, f, ensure_ascii=False)
+
+        db = scrape_all(targets, db=db, done=done, on_target_done=save_checkpoint)
         browser.close()
 
+    if _FETCH_FAILED:
+        # 取得に失敗した車種は前回のデータを残す（全体を捨てず、その車種だけ古いまま維持）
+        try:
+            with open(args.output, encoding="utf-8") as f:
+                old = json.load(f).get("data", {})
+        except (OSError, ValueError):
+            old = {}
+        carried = [k for k in old if k not in db]
+        for k in carried:
+            db[k] = old[k]
+        log.warning(f"取得失敗 {len(_FETCH_FAILED)}車種: {_FETCH_FAILED} / 前回データを引き継ぎ: {len(carried)}キー")
+
     save(db, args.output)
+    if _FETCH_FAILED:
+        sys.exit(2)  # 一部失敗（データは保存済み）。呼び出し側は --resume で再試行できる
+    try:
+        import os; os.remove(ckpt_path)
+    except OSError:
+        pass
 
 if __name__ == "__main__":
     main()
