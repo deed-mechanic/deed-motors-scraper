@@ -1,8 +1,8 @@
 {
   "updated_at": "2026-11-18 01:25",
   "source": "unegui.mn",
-  "total_records": 3461,
-  "total_models": 137,
+  "total_records": 3464,
+  "total_models": 139,
   "data": {
     "toyota|c-hr": [
       {
@@ -31196,6 +31196,37 @@
         "import_year": 2026,
         "price": 202.0,
         "_fulltext": "Porsche Cayman, 2019/2026 103,428 км · Автомат · 2.5 л · Бензин"
+      }
+    ],
+    "dongfeng|forthing-t5-evo": [
+      {
+        "year": 2025,
+        "drive": "2WD",
+        "mileage": "2,600 km",
+        "color": "不明",
+        "import_year": 2025,
+        "price": 50.0,
+        "wheel": "LHD"
+      },
+      {
+        "year": 2019,
+        "drive": "2WD",
+        "mileage": "29,000 km",
+        "color": "不明",
+        "import_year": 2024,
+        "price": 55.0,
+        "wheel": "LHD"
+      }
+    ],
+    "dongfeng|voyah-free": [
+      {
+        "year": 2022,
+        "drive": "4WD",
+        "mileage": "19,500 km",
+        "color": "不明",
+        "import_year": 2022,
+        "price": 130.0,
+        "wheel": "LHD"
       }
     ]
   }

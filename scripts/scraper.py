@@ -192,6 +192,11 @@ TARGETS = [
     {"key": "tesla|model-y", "url": "Tesla/ModelY", "detail_fetch": True},
     {"key": "tesla|model-s", "url": "Tesla/ModelS", "detail_fetch": True},
     {"key": "ram|1500", "url": "dodge", "title_contains": "Ram", "force_4wd": True, "wheel_fetch": True},
+    # Dongfeng: UNEGUI.MN側の乗用車は Forthing T5 Evo / Voyah Free のみ（2026-11-18時点で計3件）。
+    # 協業ディーラーの販売車（約200台）はUNEGUI.MNに掲載されていないため、ここでは取得できない。
+    # カテゴリ直下の他の掲載はトラック・部品。新しい車種カテゴリが増えたら上のslugを追加すること
+    {"key": "dongfeng|forthing-t5-evo", "url": "dongfeng/forthing-t5-evo", "detail_fetch": True},
+    {"key": "dongfeng|voyah-free", "url": "dongfeng/voyah-free", "detail_fetch": True},
     # Porsche: 911（1件のみ・平均5億超）は高額すぎるため対象外。
     # 実用車として流通量のある主要モデルのみ追加
     {"key": "porsche|cayenne", "url": "porsche/cayenne", "wheel_fetch": True},
