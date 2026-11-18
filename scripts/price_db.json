@@ -1,8 +1,8 @@
 {
   "updated_at": "2026-11-18 01:25",
   "source": "unegui.mn",
-  "total_records": 3464,
-  "total_models": 139,
+  "total_records": 3586,
+  "total_models": 141,
   "data": {
     "toyota|c-hr": [
       {
@@ -31227,6 +31227,986 @@
         "import_year": 2022,
         "price": 130.0,
         "wheel": "LHD"
+      }
+    ],
+    "lexus|lx-570": [
+      {
+        "year": 2011,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2012,
+        "price": 69.0
+      },
+      {
+        "year": 2014,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2014,
+        "price": 138.0
+      },
+      {
+        "year": 2016,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2019,
+        "price": 165.0
+      },
+      {
+        "year": 2019,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2019,
+        "price": 240.0
+      },
+      {
+        "year": 2021,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2023,
+        "price": 240.0
+      },
+      {
+        "year": 2018,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 199.0
+      },
+      {
+        "year": 2016,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2016,
+        "price": 180.0
+      },
+      {
+        "year": 2014,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2014,
+        "price": 118.0
+      },
+      {
+        "year": 2018,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2021,
+        "price": 200.0
+      },
+      {
+        "year": 2016,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2019,
+        "price": 190.0
+      },
+      {
+        "year": 2013,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2013,
+        "price": 120.0
+      },
+      {
+        "year": 2014,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2025,
+        "price": 145.0
+      },
+      {
+        "year": 2010,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2011,
+        "price": 88.0
+      },
+      {
+        "year": 2018,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2024,
+        "price": 198.0
+      },
+      {
+        "year": 2010,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2011,
+        "price": 75.0
+      },
+      {
+        "year": 2013,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2013,
+        "price": 109.0
+      },
+      {
+        "year": 2013,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2014,
+        "price": 125.0
+      },
+      {
+        "year": 2014,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2021,
+        "price": 135.0
+      },
+      {
+        "year": 2020,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2021,
+        "price": 245.0
+      },
+      {
+        "year": 2020,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2021,
+        "price": 230.0
+      },
+      {
+        "year": 2019,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2022,
+        "price": 250.0
+      },
+      {
+        "year": 2021,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2021,
+        "price": 258.0
+      },
+      {
+        "year": 2018,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2018,
+        "price": 195.0
+      },
+      {
+        "year": 2018,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2021,
+        "price": 265.0
+      },
+      {
+        "year": 2012,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2013,
+        "price": 98.0
+      },
+      {
+        "year": 2017,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2020,
+        "price": 165.0
+      },
+      {
+        "year": 2012,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2013,
+        "price": 99.0
+      },
+      {
+        "year": 2018,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2022,
+        "price": 185.0
+      },
+      {
+        "year": 2019,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2022,
+        "price": 215.0
+      },
+      {
+        "year": 2008,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2012,
+        "price": 95.0
+      },
+      {
+        "year": 2021,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2021,
+        "price": 250.0
+      },
+      {
+        "year": 2008,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2011,
+        "price": 76.0
+      },
+      {
+        "year": 2013,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2015,
+        "price": 99.0
+      },
+      {
+        "year": 2019,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2022,
+        "price": 265.0
+      },
+      {
+        "year": 2019,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2020,
+        "price": 228.0
+      },
+      {
+        "year": 2019,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2025,
+        "price": 270.0
+      },
+      {
+        "year": 2020,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2025,
+        "price": 170.0
+      },
+      {
+        "year": 2020,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2020,
+        "price": 260.0
+      },
+      {
+        "year": 2011,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2012,
+        "price": 82.0
+      },
+      {
+        "year": 2013,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2013,
+        "price": 110.0
+      },
+      {
+        "year": 2018,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2025,
+        "price": 225.0
+      },
+      {
+        "year": 2016,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2016,
+        "price": 170.0
+      },
+      {
+        "year": 2008,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2013,
+        "price": 75.0
+      },
+      {
+        "year": 2018,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2022,
+        "price": 160.0
+      },
+      {
+        "year": 2016,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2018,
+        "price": 175.0
+      },
+      {
+        "year": 2020,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2022,
+        "price": 280.0
+      },
+      {
+        "year": 2020,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2022,
+        "price": 240.0
+      },
+      {
+        "year": 2010,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2011,
+        "price": 78.0
+      },
+      {
+        "year": 2016,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2023,
+        "price": 199.0
+      },
+      {
+        "year": 2019,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2020,
+        "price": 235.0
+      },
+      {
+        "year": 2017,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2017,
+        "price": 195.0
+      },
+      {
+        "year": 2020,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2023,
+        "price": 355.0
+      },
+      {
+        "year": 2015,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2020,
+        "price": 160.0
+      },
+      {
+        "year": 2010,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2012,
+        "price": 65.0
+      },
+      {
+        "year": 2016,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2024,
+        "price": 188.0
+      },
+      {
+        "year": 2016,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2016,
+        "price": 150.0
+      },
+      {
+        "year": 2017,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2020,
+        "price": 199.0
+      },
+      {
+        "year": 2008,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2009,
+        "price": 65.0
+      },
+      {
+        "year": 2018,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2019,
+        "price": 230.0
+      },
+      {
+        "year": 2009,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2009,
+        "price": 75.0
+      },
+      {
+        "year": 2015,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2019,
+        "price": 168.0
+      },
+      {
+        "year": 2016,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2021,
+        "price": 189.0
+      },
+      {
+        "year": 2011,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2012,
+        "price": 80.0
+      },
+      {
+        "year": 2010,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2011,
+        "price": 70.0
+      },
+      {
+        "year": 2017,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2020,
+        "price": 170.0
+      },
+      {
+        "year": 2019,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2019,
+        "price": 210.0
+      },
+      {
+        "year": 2021,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2022,
+        "price": 248.0
+      },
+      {
+        "year": 2011,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2014,
+        "price": 65.0
+      },
+      {
+        "year": 2010,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2011,
+        "price": 60.0
+      },
+      {
+        "year": 2011,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2011,
+        "price": 95.0
+      },
+      {
+        "year": 2009,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2009,
+        "price": 78.0
+      },
+      {
+        "year": 2013,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2013,
+        "price": 115.0
+      },
+      {
+        "year": 2019,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2022,
+        "price": 260.0
+      },
+      {
+        "year": 2011,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2012,
+        "price": 90.0
+      },
+      {
+        "year": 2008,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2013,
+        "price": 70.0
+      },
+      {
+        "year": 2019,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2025,
+        "price": 278.0
+      },
+      {
+        "year": 2014,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2014,
+        "price": 150.0
+      },
+      {
+        "year": 2011,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2012,
+        "price": 88.0
+      },
+      {
+        "year": 2015,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2015,
+        "price": 125.0
+      },
+      {
+        "year": 2019,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2024,
+        "price": 295.0
+      },
+      {
+        "year": 2010,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2010,
+        "price": 80.0
+      },
+      {
+        "year": 2014,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2014,
+        "price": 125.0
+      },
+      {
+        "year": 2018,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 210.0
+      },
+      {
+        "year": 2013,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2013,
+        "price": 130.0
+      },
+      {
+        "year": 2013,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2013,
+        "price": 140.0
+      },
+      {
+        "year": 2017,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2020,
+        "price": 230.0
+      },
+      {
+        "year": 2011,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2011,
+        "price": 87.0
+      },
+      {
+        "year": 2008,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2014,
+        "price": 68.0
+      },
+      {
+        "year": 2017,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2018,
+        "price": 200.0
+      },
+      {
+        "year": 2021,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2021,
+        "price": 270.0
+      },
+      {
+        "year": 2009,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2010,
+        "price": 68.0
+      }
+    ],
+    "lexus|lx-600": [
+      {
+        "year": 2024,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2024,
+        "price": 395.0
+      },
+      {
+        "year": 2026,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 457.0
+      },
+      {
+        "year": 2023,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2025,
+        "price": 315.0
+      },
+      {
+        "year": 2023,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2023,
+        "price": 340.0
+      },
+      {
+        "year": 2024,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2025,
+        "price": 410.0
+      },
+      {
+        "year": 2023,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2025,
+        "price": 320.0
+      },
+      {
+        "year": 2024,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2025,
+        "price": 400.0
+      },
+      {
+        "year": 2026,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 490.0
+      },
+      {
+        "year": 2024,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2025,
+        "price": 390.0
+      },
+      {
+        "year": 2026,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 465.0
+      },
+      {
+        "year": 2026,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 468.0
+      },
+      {
+        "year": 2026,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 469.0
+      },
+      {
+        "year": 2022,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2023,
+        "price": 350.0
+      },
+      {
+        "year": 2025,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2025,
+        "price": 420.0
+      },
+      {
+        "year": 2025,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 475.0
+      },
+      {
+        "year": 2024,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2024,
+        "price": 385.0
+      },
+      {
+        "year": 2023,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2025,
+        "price": 319.0
+      },
+      {
+        "year": 2023,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2024,
+        "price": 360.0
+      },
+      {
+        "year": 2025,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2025,
+        "price": 425.0
+      },
+      {
+        "year": 2022,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2024,
+        "price": 375.0
+      },
+      {
+        "year": 2025,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2025,
+        "price": 410.0
+      },
+      {
+        "year": 2022,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2024,
+        "price": 380.0
+      },
+      {
+        "year": 2022,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2023,
+        "price": 365.0
+      },
+      {
+        "year": 2023,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2025,
+        "price": 395.0
+      },
+      {
+        "year": 2023,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2024,
+        "price": 329.0
+      },
+      {
+        "year": 2023,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2025,
+        "price": 370.0
+      },
+      {
+        "year": 2026,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 470.0
+      },
+      {
+        "year": 2024,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2025,
+        "price": 420.0
+      },
+      {
+        "year": 2024,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2025,
+        "price": 450.0
+      },
+      {
+        "year": 2022,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2023,
+        "price": 370.0
+      },
+      {
+        "year": 2024,
+        "drive": "不明",
+        "mileage": "不明",
+        "color": "不明",
+        "import_year": 2024,
+        "price": 335.0
       }
     ]
   }

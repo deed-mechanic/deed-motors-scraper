@@ -35,6 +35,22 @@ function Finish($ok, $msg) {
 Set-Location $repo
 Log "開始 DryRun=$DryRun"
 
+# 二重起動の防止（手動実行と定時実行が重なると、同じファイルを同時に書き込んで壊れる）
+$script:mutex = New-Object System.Threading.Mutex($false, "Global\DeedMotorsDailyScrape")
+if (-not $script:mutex.WaitOne(0)) { Log "別の実行が進行中のため、今回は実行しません"; exit 0 }
+
+# 実行中であることを記録する。強制終了（タスクの実行時間上限・電源断など）された場合、
+# 「成功」のまま残らず、朝に LAST_STATUS.txt が「実行中」のままなら異常終了と分かる
+$startTime = Get-Date
+if (-not $DryRun) {
+    Set-Content -Path $statusFile -Value ("{0}  実行中  開始しました（終了していない場合は異常終了の疑い）`r`nログ: {1}" -f $startTime.ToString("yyyy-MM-dd HH:mm"), $log) -Encoding UTF8
+}
+# 古いログの整理（30日より前のものを削除）
+Get-ChildItem $logDir -Filter "run_*.log" -ErrorAction SilentlyContinue | Where-Object { $_.LastWriteTime -lt (Get-Date).AddDays(-30) } | Remove-Item -Force -ErrorAction SilentlyContinue
+# 全体の時間枠（タスクの実行時間上限8時間のうち7時間で打ち切り、公開処理の時間を残す）
+$deadline = $startTime.AddHours(7)
+function BudgetMin() { [math]::Min(300, [math]::Floor(($deadline - (Get-Date)).TotalMinutes - 20)) }
+
 # Playwrightのライブラリだけ更新されるとブラウザ本体が合わず起動できなくなる（過去に発生）。
 # 実行前に必ず確認し、不足していれば公式の手順で導入する（導入済みなら何もしない）
 # ライブラリのバージョンは requirements.txt で固定（勝手な更新で止まらないように）
@@ -48,14 +64,19 @@ if (-not $DryRun) {
 $dbPath = if ($DryRun) { Join-Path $logDir "dryrun_price_db.json" } else { "scripts/price_db.json" }
 $scrapeArgs = @("scripts/scraper.py", "--output", $dbPath)
 if ($DryRun) { $scrapeArgs += "--test" }
-$rc = Run $py $scrapeArgs
+# 前回データの控え（取得後に「消えた車種」を確認するため）
+$prevDb = Join-Path $logDir "prev_price_db.json"
+if (-not $DryRun -and (Test-Path $dbPath)) { Copy-Item $dbPath $prevDb -Force }
+$rc = Run $py ($scrapeArgs + @("--time-budget-min", (BudgetMin)))
 # 失敗時は10分空けて最大2回、取得済みの車種を飛ばして再開する（--resume）
+# 時間枠（開始から7時間）が残りわずかなら再試行せず、取得済み分＋前回データで公開する
 $attempt = 0
 while ($rc -ne 0 -and -not $DryRun -and $attempt -lt 2) {
+    if ((BudgetMin) -le 40) { Log "時間枠が残りわずかのため再試行せず、取得済み分で公開します"; break }
     $attempt++
     Log "取得が完了しませんでした(code=$rc)。10分後に再開します（再試行 $attempt/2）"
     Start-Sleep -Seconds 600
-    $rc = Run $py ($scrapeArgs + "--resume")
+    $rc = Run $py ($scrapeArgs + @("--resume", "--time-budget-min", (BudgetMin)))
 }
 $partial = ($rc -eq 2)
 if ($rc -ne 0 -and -not $partial) { Finish $false "スクレイピング失敗(code=$rc)。既存データは保持。ログ参照" }
@@ -63,6 +84,9 @@ if ($rc -ne 0 -and -not $partial) { Finish $false "スクレイピング失敗(c
 $d = Get-Content $dbPath -Raw -Encoding UTF8 | ConvertFrom-Json
 Log ("取得結果: {0}車種 {1}件 ({2})" -f $d.total_models, $d.total_records, $d.updated_at)
 if ($DryRun) { Log "DryRun完了（HTML生成・コミット・プッシュは実施しない）"; exit 0 }
+
+# 整合チェック（確認用。失敗しても公開は止めない）: メニューにあるのにデータが無い車種、前回から消えた車種を記録
+if (Test-Path $prevDb) { Run $py @("scripts/check_consistency.py", "--old", $prevDb) | Out-Null } else { Run $py @("scripts/check_consistency.py") | Out-Null }
 
 if ((Run $py @("scripts/build_html.py", "--template", "templates/deed_motors_PC_v3_template.html", "--db", "scripts/price_db.json", "--out", "index.html")) -ne 0) { Finish $false "HTML生成(日本語)失敗" }
 if ((Run $py @("scripts/build_html.py", "--template", "templates/deed_motors_PC_v3_BILINGUAL_template.html", "--db", "scripts/price_db.json", "--out", "bilingual.html")) -ne 0) { Finish $false "HTML生成(バイリンガル)失敗" }

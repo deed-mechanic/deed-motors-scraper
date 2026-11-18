@@ -392,6 +392,25 @@ def classify_rav4_key(year, title=""):
     """
     return "toyota|rav4-40" if year < 2018 else "toyota|rav4-50"
 
+def new_page(browser):
+    """スクレイピング用ページを作る。画像・動画・フォントは取得に不要なので読み込まない
+    （転送量と読み込み時間の削減、外部リソースの遅延に引きずられないため）"""
+    page = browser.new_page(
+        user_agent=USER_AGENT,
+        viewport={"width": 1280, "height": 900},
+        locale="mn-MN",
+    )
+    def _handler(route):
+        try:
+            if route.request.resource_type in ("image", "media", "font"):
+                route.abort()
+            else:
+                route.continue_()
+        except Exception:
+            pass  # 画面遷移・終了と重なった場合などの無害な例外
+    page.route("**/*", _handler)
+    return page
+
 def fetch_detail_extra(url, retries=2):
     """detail_fetch / wheel_fetch フラグの車種向けに、詳細ページから
     駆動方式（Хөтлөгч）とハンドル位置（Хүрд）をまとめて取得する。
@@ -439,7 +458,10 @@ def fetch(url, retries=3):
     """
     for i in range(retries):
         try:
-            _page.goto(url, wait_until="load", timeout=45000)
+            # "load"（全リソース読み込み完了）ではなく "domcontentloaded" で待つ。
+            # 2026-11-17は外部リソースの遅延で load が毎回約25秒止まり、1ページ29秒×約900ページで
+            # 日次更新が4時間の上限を超えて強制終了された。カード情報はHTML本体(SSR)に含まれるため不要
+            _page.goto(url, wait_until="domcontentloaded", timeout=45000)
             _page.wait_for_timeout(2500)
             html = _page.content()
             head = html[:3000]
@@ -501,6 +523,8 @@ def parse_card(card):
     # 詳細ページURL（駆動方式・ハンドル位置の正確な取得が必要な車種のみ使用、最終保存前に除去される）
     href = None
     link_el = card.select_one('a[itemprop="url"]') or card.select_one("a[href*='/adv/']")
+    if link_el is None and card.name == "a" and card.get("href"):
+        link_el = card  # グリッド表示ではカード自体が <a>
     if link_el:
         href = link_el.get("href")
         if href and href.startswith("/"):
@@ -518,6 +542,12 @@ def parse_page(html):
     soup = BeautifulSoup(html, "lxml")
     # リニューアル後のカードは data-component="BigAdCard" の div（schema.org/Productのitemscope付き）
     cards = soup.select('div[data-component="BigAdCard"]')
+    if not cards:
+        # グリッド表示のページ（LX 570 / LX 600 など。2026-11-18に判明: このレイアウトだと
+        # BigAdCardが存在せず全件「カード未検出」になり、掲載が100件以上あっても0件扱いだった）。
+        # カード自体が <a itemscope itemtype=schema.org/Product> で、中身は同じmeta(itemprop)構造。
+        # ページ下部の「関連広告」(GalleryAdCard: 別車種のトラック等)は含めない
+        cards = soup.select('[data-component="CardGridDesktop"]')
     if not cards:
         # フォールバック（サイトが旧レイアウトに戻った場合用）
         for sel in ["div.advert.js-item-listing", "div.advert", "div.advert-grid"]:
@@ -635,13 +665,19 @@ def save(db, path="scripts/price_db.json"):
         json.dump(out, f, ensure_ascii=False, indent=2)
     log.info(f"保存: {path} ({out['total_records']}件)")
 
-def scrape_all(targets, db=None, done=None, on_target_done=None):
+def scrape_all(targets, db=None, done=None, on_target_done=None, deadline=None):
+    """deadline: time.time()基準の打ち切り時刻。超えたら残りの車種は取得失敗扱い（前回データを引き継いで
+    公開できる）にする。外部からの強制終了（タスクの実行時間上限）で何も公開できなくなるのを防ぐ"""
     db = {} if db is None else db
     done = set() if done is None else done
     for i,t in enumerate(targets,1):
         log.info(f"[{i}/{len(targets)}]")
         if t["key"] in done:
             log.info(f"  [{t['key']}] 再開: 取得済みのためスキップ")
+            continue
+        if deadline is not None and time.time() > deadline:
+            _FETCH_FAILED.append(t["key"])
+            log.warning(f"  [{t['key']}] 時間上限のため取得を打ち切り（前回データを引き継ぎ）")
             continue
         n_failed_before = len(_FETCH_FAILED)
         try:
@@ -755,17 +791,16 @@ def main():
     parser.add_argument("--test", action="store_true")
     parser.add_argument("--output", default="scripts/price_db.json")
     parser.add_argument("--resume", action="store_true", help="12時間以内のチェックポイントがあれば、取得済みの車種をスキップして再開")
+    parser.add_argument("--time-budget-min", type=float, default=300,
+                        help="取得に使う最大分数。超えたら残りは前回データを引き継いで保存（既定300分）")
     args = parser.parse_args()
+    deadline = time.time() + args.time_budget_min * 60
     ckpt_path = "scripts/.scrape_checkpoint.json"
     targets = [t for t in TARGETS if t["key"]=="toyota|harrier"] if args.test else TARGETS
 
     with Stealth().use_sync(sync_playwright()) as p:
         browser = p.chromium.launch(headless=True)
-        _page = browser.new_page(
-            user_agent=USER_AGENT,
-            viewport={"width": 1280, "height": 900},
-            locale="mn-MN",
-        )
+        _page = new_page(browser)
         db, done = {}, set()
         if args.resume:
             try:
@@ -781,7 +816,7 @@ def main():
             with open(ckpt_path, "w", encoding="utf-8") as f:
                 json.dump({"saved_at": time.time(), "done": sorted(cur_done), "db": cur_db}, f, ensure_ascii=False)
 
-        db = scrape_all(targets, db=db, done=done, on_target_done=save_checkpoint)
+        db = scrape_all(targets, db=db, done=done, on_target_done=save_checkpoint, deadline=deadline)
         browser.close()
 
     if _FETCH_FAILED:
@@ -795,6 +830,16 @@ def main():
         for k in carried:
             db[k] = old[k]
         log.warning(f"取得失敗 {len(_FETCH_FAILED)}車種: {_FETCH_FAILED} / 前回データを引き継ぎ: {len(carried)}キー")
+
+    # 前回あった車種（5件以上）が今回まるごと消えた場合は警告（URL変更・レイアウト変更・解析漏れの疑い）
+    try:
+        with open(args.output, encoding="utf-8") as f:
+            prev = json.load(f).get("data", {})
+        vanished = [f"{k}({len(v)}件)" for k, v in prev.items() if k not in db and len(v) >= 5]
+        if vanished:
+            log.warning(f"⚠️ 前回あった車種が今回0件: {vanished}")
+    except (OSError, ValueError):
+        pass
 
     save(db, args.output)
     if _FETCH_FAILED:

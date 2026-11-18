@@ -19,16 +19,21 @@ jobs:
       - name: データ鮮度・件数の確認
         run: |
           python3 - <<'PY'
-          import json, subprocess, time, sys
-          MAX_AGE_H = 26      # 通常は取得後 約9時間。1日分でも飛べば検知する
+          import json, time, sys, calendar
+          MAX_AGE_H = 14      # 通常は取得完了から約6〜9時間。前夜の取得が飛べば、その日の朝に検知する
           MIN_RECORDS = 1500  # 通常は約3,500件
-          with open('scripts/price_db.json', encoding='utf-8') as f:
+          MIN_MODELS = 100    # 通常は約140車種
+          with open('scripts/price_db.json', encoding='utf-8-sig') as f:
               d = json.load(f)
-          ts = int(subprocess.check_output(['git', 'log', '-1', '--format=%ct', '--', 'scripts/price_db.json']).decode().strip())
+          # 取得完了時刻(updated_at)はローカルPCの時刻＝UTC+8。手動でのコード修正コミットなどに
+          # 惑わされないよう、コミット時刻ではなくこの値で鮮度を見る
+          ts = calendar.timegm(time.strptime(d['updated_at'], '%Y-%m-%d %H:%M')) - 8 * 3600
           age_h = (time.time() - ts) / 3600
-          msg = f"最終更新コミットから {age_h:.1f} 時間 / {d['total_models']}車種 {d['total_records']}件 (updated_at={d['updated_at']})"
+          msg = f"データ取得完了から {age_h:.1f} 時間 / {d['total_models']}車種 {d['total_records']}件 (updated_at={d['updated_at']} UTC+8)"
           print(msg)
           problems = []
+          if d['total_models'] < MIN_MODELS:
+              problems.append(f"車種数が {d['total_models']} と異常に少ないです（下限 {MIN_MODELS}）")
           if age_h > MAX_AGE_H:
               problems.append(f"市場データが {age_h:.0f} 時間更新されていません（上限 {MAX_AGE_H} 時間）。ローカルPCの日次取得が止まっている可能性があります")
           if d['total_records'] < MIN_RECORDS:
