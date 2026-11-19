@@ -92,8 +92,13 @@ TARGETS = [
     {"key": "nissan|serena-c27",             "url": "nissan/serena"},
     {"key": "mitsubishi|pajero-v60",         "url": "mitsubishi/pajero", "year_max": 2006},
     {"key": "mitsubishi|pajero-v80",         "url": "mitsubishi/pajero", "year_min": 2006},
-    {"key": "mitsubishi|outlander-gg",       "url": "mitsubishi/outlander", "year_max": 2012},
-    {"key": "mitsubishi|outlander-gf",       "url": "mitsubishi/outlander", "year_min": 2012},
+    # Outlander: UNEGUI.MN側にPHEV専用カテゴリは無く、通常のOutlanderカテゴリに混在している。
+    # 一覧カードの燃料表記（Цахилгаан=電気 / Хайбрид=ハイブリッド）でPHEVを見分け、ガソリン車の相場に混ざらないよう分ける
+    {"key": "mitsubishi|outlander-gg",       "url": "mitsubishi/outlander", "year_max": 2012, "fuel_filter": "not_phev"},
+    {"key": "mitsubishi|outlander-gf",       "url": "mitsubishi/outlander", "year_min": 2012, "fuel_filter": "not_phev"},
+    {"key": "mitsubishi|outlander-phev",     "url": "mitsubishi/outlander", "fuel_filter": "phev"},
+    # Nissan Leaf（EV）: 前輪駆動のみ。バッテリー劣化は査定ツール側の入力項目
+    {"key": "nissan|leaf",                   "url": "nissan/leaf", "force_2wd": True, "wheel_fetch": True},
     # 「mitsubishi/delica-d5」はリニューアルでリダイレクトするようになったため
     # 「mitsubishi/delica」に修正
     {"key": "mitsubishi|delica-d5",          "url": "mitsubishi/delica"},
@@ -216,6 +221,7 @@ TARGETS = [
 _ALWAYS_4WD_KEYS = {
     "lexus|lx-600", "lexus|lx-570", "lexus|lx-470", "lexus|gx-460",
     "mercedes-benz|g-class-w463",
+    "mitsubishi|outlander-phev",  # 前後モーターの4WDのみ
     "land-rover|discovery-4", "land-rover|range-rover-l405", "land-rover|defender-l316",
 }
 _DRIVE_DETAIL_KEYS = {
@@ -783,6 +789,14 @@ def scrape_one(target):
         results = [r for r in results if tc.lower() in (r.get("_title") or r.get("_fulltext") or "").lower()]
         log.info(f"  [{key}] タイトル「{tc}」以外を除外: {before - len(results)}件")
 
+    # 燃料表記でPHEV（プラグインハイブリッド）を分ける（カードの要約に「Цахилгаан」「Хайбрид」等が入る）
+    ff = target.get("fuel_filter")
+    if ff:
+        before = len(results)
+        is_phev = lambda r: re.search(r"Цахилгаан|Хайбрид|Хибрид|Гибрид|Хосолсон|PHEV|Plug", r.get("_fulltext") or "", re.I) is not None
+        results = [r for r in results if is_phev(r) == (ff == "phev")]
+        log.info(f"  [{key}] 燃料表記で絞り込み({ff}): {before}件 → {len(results)}件")
+
     ymin = target.get("year_min")
     ymax = target.get("year_max")
     if ymin is not None or ymax is not None:
@@ -797,6 +811,12 @@ def scrape_one(target):
         for item in results:
             item["drive"] = "4WD"
         log.info(f"  [{key}] 全件4WD固定")
+
+    # 前輪駆動のみの車種（Nissan Leaf等）は2WD固定
+    if target.get("force_2wd"):
+        for item in results:
+            item["drive"] = "2WD"
+        log.info(f"  [{key}] 全件2WD固定")
 
     # 詳細ページから正確な駆動方式・ハンドル位置を取得（一覧ページに記載が無いため）
     need_detail = target.get("detail_fetch") or target.get("wheel_fetch")

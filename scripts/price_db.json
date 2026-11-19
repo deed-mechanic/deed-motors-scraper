@@ -1,8 +1,8 @@
 {
   "updated_at": "2026-11-19 01:19",
   "source": "unegui.mn",
-  "total_records": 3677,
-  "total_models": 145,
+  "total_records": 3678,
+  "total_models": 147,
   "data": {
     "toyota|c-hr": [
       {
@@ -18467,536 +18467,194 @@
     "mitsubishi|outlander-gg": [
       {
         "year": 2009,
-        "drive": "不明",
+        "drive": "2WD",
+        "mileage": "26,000 km",
+        "color": "不明",
+        "import_year": 2018,
+        "price": 10.5,
+        "wheel": "RHD"
+      },
+      {
+        "year": 2009,
+        "drive": "2WD",
         "mileage": "140,000 km",
         "color": "不明",
         "import_year": 2019,
         "price": 14.0,
-        "_fulltext": "Mitsubishi Outlander, 2009/2019 140,000 км · Автомат · 2.4 л · Бензин"
-      },
-      {
-        "year": 2009,
-        "drive": "不明",
-        "mileage": "26,000 km",
-        "color": "不明",
-        "import_year": 2019,
-        "price": 10.5,
-        "_fulltext": "Mitsubishi Outlander, 2009/2019 26,000 км · Механик · 0.8 л · Бензин"
+        "wheel": "RHD"
       },
       {
         "year": 2010,
-        "drive": "不明",
+        "drive": "4WD",
         "mileage": "260,000 km",
         "color": "不明",
         "import_year": 2019,
         "price": 27.0,
-        "_fulltext": "Mitsubishi Outlander, 2010/2019 260,000 км · Автомат · 2.4 л · Бензин"
+        "wheel": "RHD"
       },
       {
         "year": 2007,
-        "drive": "不明",
+        "drive": "4WD",
         "mileage": "207,000 km",
         "color": "不明",
         "import_year": 2013,
         "price": 13.5,
-        "_fulltext": "Mitsubishi Outlander, 2007/2013 207,000 км · Автомат · 2.4 л · Бензин"
+        "wheel": "RHD"
       },
       {
         "year": 2012,
-        "drive": "不明",
+        "drive": "4WD",
         "mileage": "177,000 km",
         "color": "不明",
         "import_year": 2022,
         "price": 20.0,
-        "_fulltext": "Mitsubishi Outlander, 2012/2022 177,000 км · Автомат · 2.3 л · Бензин"
+        "wheel": "RHD"
       },
       {
         "year": 2010,
-        "drive": "不明",
+        "drive": "2WD",
         "mileage": "130,000 km",
         "color": "不明",
         "import_year": 2019,
         "price": 11.0,
-        "_fulltext": "Mitsubishi Outlander, 2010/2019 130,000 км · Автомат · 2.0 л · Бензин"
+        "wheel": "RHD"
       },
       {
         "year": 2009,
-        "drive": "不明",
+        "drive": "4WD",
         "mileage": "145,000 km",
         "color": "不明",
         "import_year": 2010,
         "price": 15.0,
-        "_fulltext": "Mitsubishi Outlander, 2009/2010 145,000 км · Автомат · 3.0 л · Бензин"
-      },
-      {
-        "year": 2011,
-        "drive": "不明",
-        "mileage": "200,000 km",
-        "color": "不明",
-        "import_year": 2020,
-        "price": 10.0,
-        "_fulltext": "Mitsubishi Outlander, 2011/2020 200,000 км · Автомат · 2.5 л · Бензин"
+        "wheel": "LHD"
       }
     ],
     "mitsubishi|outlander-gf": [
       {
-        "year": 2018,
-        "drive": "不明",
-        "mileage": "74,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 44.8,
-        "_fulltext": "Mitsubishi Outlander, 2018/2026 74,000 км · Автомат · 2.4 л · Цахилгаан"
-      },
-      {
         "year": 2013,
-        "drive": "不明",
-        "mileage": "244,000 km",
-        "color": "不明",
-        "import_year": 2021,
-        "price": 16.5,
-        "_fulltext": "Mitsubishi Outlander, 2013/2021 244,000 км · Автомат · 2.0 л · Хайбрид"
-      },
-      {
-        "year": 2013,
-        "drive": "不明",
+        "drive": "4WD",
         "mileage": "110,000 km",
         "color": "不明",
         "import_year": 2024,
         "price": 35.0,
-        "_fulltext": "Mitsubishi Outlander, 2013/2024 110,000 км · Автомат · 2.4 л · Бензин"
-      },
-      {
-        "year": 2017,
-        "drive": "不明",
-        "mileage": "110,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 43.8,
-        "_fulltext": "Mitsubishi Outlander, 2017/2026 110,000 км · Автомат · 2.0 л · Хайбрид"
-      },
-      {
-        "year": 2017,
-        "drive": "不明",
-        "mileage": "144,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 45.0,
-        "_fulltext": "Mitsubishi Outlander, 2017/2026 144,000 км · Автомат · 2.0 л · Цахилгаан"
-      },
-      {
-        "year": 2013,
-        "drive": "不明",
-        "mileage": "195,000 km",
-        "color": "不明",
-        "import_year": 2023,
-        "price": 25.8,
-        "_fulltext": "Mitsubishi Outlander, 2013/2023 195,000 км · Автомат · 2.0 л · Хайбрид"
-      },
-      {
-        "year": 2018,
-        "drive": "不明",
-        "mileage": "135,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 46.5,
-        "_fulltext": "Mitsubishi Outlander, 2018/2026 135,000 км · Автомат · 2.4 л · Цахилгаан"
-      },
-      {
-        "year": 2013,
-        "drive": "不明",
-        "mileage": "233,000 km",
-        "color": "不明",
-        "import_year": 2023,
-        "price": 24.0,
-        "_fulltext": "Mitsubishi Outlander, 2013/2023 233,000 км · Автомат · 2.0 л · Хайбрид"
+        "wheel": "RHD"
       },
       {
         "year": 2015,
-        "drive": "不明",
+        "drive": "2WD",
         "mileage": "176 km",
         "color": "不明",
         "import_year": 2026,
         "price": 31.0,
-        "_fulltext": "Mitsubishi Outlander, 2015/2026 176 км · Автомат · 2.0 л · Бензин"
-      },
-      {
-        "year": 2017,
-        "drive": "不明",
-        "mileage": "95,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 42.8,
-        "_fulltext": "Mitsubishi Outlander, 2017/2026 95,000 км · Автомат · 2.0 л · Хайбрид"
-      },
-      {
-        "year": 2017,
-        "drive": "不明",
-        "mileage": "110,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 44.0,
-        "_fulltext": "Mitsubishi Outlander, 2017/2026 110,000 км · Автомат · 2.0 л · Хайбрид"
-      },
-      {
-        "year": 2015,
-        "drive": "不明",
-        "mileage": "150,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 27.5,
-        "_fulltext": "Mitsubishi Outlander, 2015/2026 150,000 км · Автомат · 2.0 л · Хайбрид"
-      },
-      {
-        "year": 2015,
-        "drive": "不明",
-        "mileage": "200,000 km",
-        "color": "不明",
-        "import_year": 2024,
-        "price": 29.0,
-        "_fulltext": "Mitsubishi Outlander, 2015/2024 200,000 км · Автомат · 2.0 л · Хайбрид"
-      },
-      {
-        "year": 2015,
-        "drive": "不明",
-        "mileage": "200,000 km",
-        "color": "不明",
-        "import_year": 2024,
-        "price": 29.5,
-        "_fulltext": "Mitsubishi Outlander, 2015/2024 200,000 км · Автомат · 2.0 л · Цахилгаан"
+        "wheel": "RHD"
       },
       {
         "year": 2016,
-        "drive": "不明",
+        "drive": "4WD",
         "mileage": "104,564 km",
         "color": "不明",
         "import_year": 2025,
         "price": 33.0,
-        "_fulltext": "Mitsubishi Outlander, 2016/2025 104,564 км · Автомат · 2.4 л · Бензин"
-      },
-      {
-        "year": 2020,
-        "drive": "不明",
-        "mileage": "131,147 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 45.0,
-        "_fulltext": "Mitsubishi Outlander, 2020/2026 131,147 км · Автомат · 2.4 л · Хайбрид"
-      },
-      {
-        "year": 2015,
-        "drive": "不明",
-        "mileage": "153 km",
-        "color": "不明",
-        "import_year": 2025,
-        "price": 36.0,
-        "_fulltext": "Mitsubishi Outlander, 2015/2025 153 км · Автомат · 2.0 л · Хайбрид"
-      },
-      {
-        "year": 2015,
-        "drive": "不明",
-        "mileage": "96,000 km",
-        "color": "不明",
-        "import_year": 2025,
-        "price": 32.5,
-        "_fulltext": "Mitsubishi Outlander, 2015/2025 96,000 км · Автомат · 2.0 л · Хайбрид"
+        "wheel": "RHD"
       },
       {
         "year": 2017,
-        "drive": "不明",
+        "drive": "4WD",
         "mileage": "176,000 km",
         "color": "不明",
         "import_year": 2026,
         "price": 35.0,
-        "_fulltext": "Mitsubishi Outlander, 2017/2026 176,000 км · Автомат · 2.4 л · Бензин"
+        "wheel": "RHD"
       },
       {
         "year": 2013,
-        "drive": "不明",
+        "drive": "4WD",
         "mileage": "210 km",
         "color": "不明",
         "import_year": 2022,
         "price": 18.9,
-        "_fulltext": "Mitsubishi Outlander, 2013/2022 210 км · Автомат · 2.4 л · Бензин"
-      },
-      {
-        "year": 2023,
-        "drive": "不明",
-        "mileage": "110,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 63.0,
-        "_fulltext": "Mitsubishi Outlander, 2023/2026 110,000 км · Автомат · 2.4 л · Хайбрид"
+        "wheel": "RHD"
       },
       {
         "year": 2016,
-        "drive": "不明",
+        "drive": "2WD",
         "mileage": "150,000 km",
         "color": "不明",
         "import_year": 2025,
         "price": 35.0,
-        "_fulltext": "Mitsubishi Outlander, 2016/2025 150,000 км · Автомат · 2.0 л · Бензин"
-      },
-      {
-        "year": 2015,
-        "drive": "不明",
-        "mileage": "159,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 28.5,
-        "_fulltext": "Mitsubishi Outlander, 2015/2026 159,000 км · Автомат · 2.0 л · Хайбрид"
-      },
-      {
-        "year": 2017,
-        "drive": "不明",
-        "mileage": "142,000 km",
-        "color": "不明",
-        "import_year": 2025,
-        "price": 40.0,
-        "_fulltext": "Mitsubishi Outlander, 2017/2025 142,000 км · Автомат · 2.0 л · Хайбрид"
+        "wheel": "RHD"
       },
       {
         "year": 2025,
-        "drive": "不明",
+        "drive": "4WD",
         "mileage": "32,000 km",
         "color": "不明",
         "import_year": 2026,
         "price": 78.0,
-        "_fulltext": "Mitsubishi Outlander, 2025/2026 32,000 км · Автомат · 2.5 л · Бензин"
+        "wheel": "RHD"
       },
       {
         "year": 2015,
-        "drive": "不明",
+        "drive": "4WD",
         "mileage": "160,000 km",
         "color": "不明",
         "import_year": 2025,
         "price": 34.0,
-        "_fulltext": "Mitsubishi Outlander, 2015/2025 160,000 км · Автомат · 2.0 л · Бензин"
+        "wheel": "RHD"
       },
       {
         "year": 2019,
-        "drive": "不明",
+        "drive": "4WD",
         "mileage": "127 km",
         "color": "不明",
         "import_year": 2024,
         "price": 35.0,
-        "_fulltext": "Mitsubishi Outlander, 2019/2024 127 км · Автомат · 2.4 л · Бензин"
-      },
-      {
-        "year": 2015,
-        "drive": "不明",
-        "mileage": "168,000 km",
-        "color": "不明",
-        "import_year": 2025,
-        "price": 30.0,
-        "_fulltext": "Mitsubishi Outlander, 2015/2025 168,000 км · Автомат · 2.0 л · Хайбрид"
-      },
-      {
-        "year": 2016,
-        "drive": "不明",
-        "mileage": "175,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 42.0,
-        "_fulltext": "Mitsubishi Outlander, 2016/2026 175,000 км · Автомат · 2.4 л · Хайбрид"
-      },
-      {
-        "year": 2016,
-        "drive": "不明",
-        "mileage": "120,000 km",
-        "color": "不明",
-        "import_year": 2024,
-        "price": 40.0,
-        "_fulltext": "Mitsubishi Outlander, 2016/2024 120,000 км · Автомат · 2.4 л · Бензин"
-      },
-      {
-        "year": 2014,
-        "drive": "不明",
-        "mileage": "178,000 km",
-        "color": "不明",
-        "import_year": 2025,
-        "price": 27.0,
-        "_fulltext": "Mitsubishi Outlander, 2014/2025 178,000 км · Автомат · 2.0 л · Хайбрид"
-      },
-      {
-        "year": 2015,
-        "drive": "不明",
-        "mileage": "130,000 km",
-        "color": "不明",
-        "import_year": 2025,
-        "price": 28.0,
-        "_fulltext": "Mitsubishi Outlander, 2015/2025 130,000 км · Автомат · 2.0 л · Хайбрид"
+        "wheel": "RHD"
       },
       {
         "year": 2013,
-        "drive": "不明",
-        "mileage": "150,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 28.0,
-        "_fulltext": "Mitsubishi Outlander, 2013/2026 150,000 км · Автомат · 2.0 л · Хайбрид"
-      },
-      {
-        "year": 2013,
-        "drive": "不明",
-        "mileage": "171,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 27.0,
-        "_fulltext": "Mitsubishi Outlander, 2013/2026 171,000 км · Механик · 2.0 л · Хайбрид"
-      },
-      {
-        "year": 2013,
-        "drive": "不明",
-        "mileage": "168,000 km",
-        "color": "不明",
-        "import_year": 2025,
-        "price": 25.0,
-        "_fulltext": "Mitsubishi Outlander, 2013/2025 168,000 км · Автомат · 2.0 л · Хайбрид"
-      },
-      {
-        "year": 2013,
-        "drive": "不明",
-        "mileage": "200,000 km",
-        "color": "不明",
-        "import_year": 2025,
-        "price": 23.0,
-        "_fulltext": "Mitsubishi Outlander, 2013/2025 200,000 км · Автомат · 1.9 л · Хайбрид"
-      },
-      {
-        "year": 2015,
-        "drive": "不明",
-        "mileage": "89,000 km",
-        "color": "不明",
-        "import_year": 2024,
-        "price": 27.0,
-        "_fulltext": "Mitsubishi Outlander, 2015/2024 89,000 км · Автомат · 2.0 л · Хайбрид"
-      },
-      {
-        "year": 2013,
-        "drive": "不明",
+        "drive": "4WD",
         "mileage": "145,000 km",
         "color": "不明",
         "import_year": 2024,
         "price": 19.0,
-        "_fulltext": "Mitsubishi Outlander, 2013/2024 145,000 км · Автомат · 2.0 л · Бензин"
+        "wheel": "RHD"
       },
       {
         "year": 2016,
-        "drive": "不明",
+        "drive": "4WD",
         "mileage": "172,000 km",
         "color": "不明",
         "import_year": 2026,
         "price": 34.5,
-        "_fulltext": "Mitsubishi Outlander, 2016/2026 172,000 км · Автомат · 2.4 л · Бензин"
-      },
-      {
-        "year": 2024,
-        "drive": "不明",
-        "mileage": "7,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 75.0,
-        "_fulltext": "Mitsubishi Outlander, 2024/2026 7,000 км · Автомат · 2.5 л · Цахилгаан"
+        "wheel": "RHD"
       },
       {
         "year": 2012,
-        "drive": "不明",
+        "drive": "4WD",
         "mileage": "177,000 km",
         "color": "不明",
         "import_year": 2022,
         "price": 20.0,
-        "_fulltext": "Mitsubishi Outlander, 2012/2022 177,000 км · Автомат · 2.3 л · Бензин"
-      },
-      {
-        "year": 2013,
-        "drive": "不明",
-        "mileage": "200,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 36.5,
-        "_fulltext": "Mitsubishi Outlander, 2013/2026 200,000 км · Автомат · 2.0 л · Цахилгаан"
-      },
-      {
-        "year": 2015,
-        "drive": "不明",
-        "mileage": "160 km",
-        "color": "不明",
-        "import_year": 2025,
-        "price": 32.0,
-        "_fulltext": "Mitsubishi Outlander, 2015/2025 160 км · Автомат · Цахилгаан · Бензин"
+        "wheel": "RHD"
       },
       {
         "year": 2014,
-        "drive": "不明",
+        "drive": "2WD",
         "mileage": "175,000 km",
         "color": "不明",
         "import_year": 2026,
         "price": 33.0,
-        "_fulltext": "Mitsubishi Outlander, 2014/2026 175,000 км · Автомат · 2.0 л · Бензин"
-      },
-      {
-        "year": 2015,
-        "drive": "不明",
-        "mileage": "1,150,000 km",
-        "color": "不明",
-        "import_year": 2024,
-        "price": 35.0,
-        "_fulltext": "Mitsubishi Outlander, 2015/2024 1,150,000 км · Автомат · 2.0 л · Хайбрид"
+        "wheel": "RHD"
       },
       {
         "year": 2013,
-        "drive": "不明",
-        "mileage": "19,000,000 km",
-        "color": "不明",
-        "import_year": 2022,
-        "price": 22.0,
-        "_fulltext": "Mitsubishi Outlander, 2013/2022 19,000,000 км · Автомат · 2.0 л · Хайбрид"
-      },
-      {
-        "year": 2021,
-        "drive": "不明",
-        "mileage": "121,361 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 51.0,
-        "_fulltext": "Mitsubishi Outlander, 2021/2026 121,361 км · Автомат · 2.4 л · Хайбрид"
-      },
-      {
-        "year": 2015,
-        "drive": "不明",
-        "mileage": "170,000 km",
-        "color": "不明",
-        "import_year": 2025,
-        "price": 38.0,
-        "_fulltext": "Mitsubishi Outlander, 2015/2025 170,000 км · Автомат · 2.0 л · Хайбрид"
-      },
-      {
-        "year": 2013,
-        "drive": "不明",
+        "drive": "2WD",
         "mileage": "114,000 km",
         "color": "不明",
         "import_year": 2025,
         "price": 25.5,
-        "_fulltext": "Mitsubishi Outlander, 2013/2025 114,000 км · Автомат · 2.0 л · Бензин"
-      },
-      {
-        "year": 2014,
-        "drive": "不明",
-        "mileage": "189,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 38.0,
-        "_fulltext": "Mitsubishi Outlander, 2014/2026 189,000 км · Автомат · 2.0 л · Хайбрид"
-      },
-      {
-        "year": 2018,
-        "drive": "不明",
-        "mileage": "130,000 km",
-        "color": "不明",
-        "import_year": 2026,
-        "price": 45.0,
-        "_fulltext": "Mitsubishi Outlander, 2018/2026 130,000 км · Автомат · 2.0 л · Хайбрид"
+        "wheel": "RHD"
       }
     ],
     "mitsubishi|delica-d5": [
@@ -33145,6 +32803,361 @@
         "import_year": 2026,
         "price": 202.0,
         "_fulltext": "Porsche Cayman, 2019/2026 103,428 км · Автомат · 2.5 л · Бензин"
+      }
+    ],
+    "mitsubishi|outlander-phev": [
+      {
+        "year": 2018,
+        "drive": "4WD",
+        "mileage": "74,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 44.8,
+        "wheel": "RHD"
+      },
+      {
+        "year": 2013,
+        "drive": "4WD",
+        "mileage": "244,000 km",
+        "color": "不明",
+        "import_year": 2022,
+        "price": 16.5,
+        "wheel": "RHD"
+      },
+      {
+        "year": 2019,
+        "drive": "4WD",
+        "mileage": "168,187 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 44.5,
+        "wheel": "RHD"
+      },
+      {
+        "year": 2016,
+        "drive": "4WD",
+        "mileage": "164,382 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 40.0,
+        "wheel": "RHD"
+      },
+      {
+        "year": 2013,
+        "drive": "4WD",
+        "mileage": "195,000 km",
+        "color": "不明",
+        "import_year": 2023,
+        "price": 25.8,
+        "wheel": "RHD"
+      },
+      {
+        "year": 2018,
+        "drive": "4WD",
+        "mileage": "135,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 46.5,
+        "wheel": "RHD"
+      },
+      {
+        "year": 2013,
+        "drive": "4WD",
+        "mileage": "233,000 km",
+        "color": "不明",
+        "import_year": 2023,
+        "price": 24.0,
+        "wheel": "RHD"
+      },
+      {
+        "year": 2017,
+        "drive": "4WD",
+        "mileage": "110,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 43.8,
+        "wheel": "RHD"
+      },
+      {
+        "year": 2017,
+        "drive": "4WD",
+        "mileage": "110,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 44.0,
+        "wheel": "RHD"
+      },
+      {
+        "year": 2015,
+        "drive": "4WD",
+        "mileage": "150,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 27.5,
+        "wheel": "RHD"
+      },
+      {
+        "year": 2015,
+        "drive": "4WD",
+        "mileage": "200,000 km",
+        "color": "不明",
+        "import_year": 2024,
+        "price": 29.0,
+        "wheel": "RHD"
+      },
+      {
+        "year": 2015,
+        "drive": "4WD",
+        "mileage": "200,000 km",
+        "color": "不明",
+        "import_year": 2024,
+        "price": 29.5,
+        "wheel": "RHD"
+      },
+      {
+        "year": 2020,
+        "drive": "4WD",
+        "mileage": "131,147 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 45.0,
+        "wheel": "RHD"
+      },
+      {
+        "year": 2015,
+        "drive": "4WD",
+        "mileage": "153 km",
+        "color": "不明",
+        "import_year": 2025,
+        "price": 36.0,
+        "wheel": "RHD"
+      },
+      {
+        "year": 2015,
+        "drive": "4WD",
+        "mileage": "96,000 km",
+        "color": "不明",
+        "import_year": 2025,
+        "price": 32.5,
+        "wheel": "RHD"
+      },
+      {
+        "year": 2023,
+        "drive": "4WD",
+        "mileage": "110,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 63.0,
+        "wheel": "RHD"
+      },
+      {
+        "year": 2015,
+        "drive": "4WD",
+        "mileage": "159,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 28.5,
+        "wheel": "RHD"
+      },
+      {
+        "year": 2017,
+        "drive": "4WD",
+        "mileage": "142,000 km",
+        "color": "不明",
+        "import_year": 2025,
+        "price": 40.0,
+        "wheel": "RHD"
+      },
+      {
+        "year": 2015,
+        "drive": "4WD",
+        "mileage": "168,000 km",
+        "color": "不明",
+        "import_year": 2025,
+        "price": 30.0,
+        "wheel": "RHD"
+      },
+      {
+        "year": 2016,
+        "drive": "4WD",
+        "mileage": "175,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 42.0,
+        "wheel": "RHD"
+      },
+      {
+        "year": 2014,
+        "drive": "4WD",
+        "mileage": "178,000 km",
+        "color": "不明",
+        "import_year": 2025,
+        "price": 27.0,
+        "wheel": "RHD"
+      },
+      {
+        "year": 2015,
+        "drive": "4WD",
+        "mileage": "130,000 km",
+        "color": "不明",
+        "import_year": 2025,
+        "price": 28.0,
+        "wheel": "RHD"
+      },
+      {
+        "year": 2013,
+        "drive": "4WD",
+        "mileage": "150,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 28.0,
+        "wheel": "RHD"
+      },
+      {
+        "year": 2013,
+        "drive": "4WD",
+        "mileage": "171,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 27.0,
+        "wheel": "RHD"
+      },
+      {
+        "year": 2013,
+        "drive": "4WD",
+        "mileage": "168,000 km",
+        "color": "不明",
+        "import_year": 2025,
+        "price": 25.0,
+        "wheel": "RHD"
+      },
+      {
+        "year": 2013,
+        "drive": "4WD",
+        "mileage": "200,000 km",
+        "color": "不明",
+        "import_year": 2025,
+        "price": 23.0,
+        "wheel": "RHD"
+      },
+      {
+        "year": 2024,
+        "drive": "4WD",
+        "mileage": "7,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 75.0,
+        "wheel": "RHD"
+      },
+      {
+        "year": 2013,
+        "drive": "4WD",
+        "mileage": "200,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 36.5,
+        "wheel": "RHD"
+      },
+      {
+        "year": 2015,
+        "drive": "4WD",
+        "mileage": "160 km",
+        "color": "不明",
+        "import_year": 2025,
+        "price": 32.0,
+        "wheel": "RHD"
+      },
+      {
+        "year": 2015,
+        "drive": "4WD",
+        "mileage": "1,150,000 km",
+        "color": "不明",
+        "import_year": 2024,
+        "price": 35.0,
+        "wheel": "RHD"
+      },
+      {
+        "year": 2013,
+        "drive": "4WD",
+        "mileage": "19,000,000 km",
+        "color": "不明",
+        "import_year": 2022,
+        "price": 22.0,
+        "wheel": "RHD"
+      },
+      {
+        "year": 2021,
+        "drive": "4WD",
+        "mileage": "121,361 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 51.0,
+        "wheel": "RHD"
+      },
+      {
+        "year": 2015,
+        "drive": "4WD",
+        "mileage": "170,000 km",
+        "color": "不明",
+        "import_year": 2025,
+        "price": 38.0,
+        "wheel": "RHD"
+      },
+      {
+        "year": 2014,
+        "drive": "4WD",
+        "mileage": "189,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 38.0,
+        "wheel": "RHD"
+      },
+      {
+        "year": 2018,
+        "drive": "4WD",
+        "mileage": "130,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 45.0,
+        "wheel": "RHD"
+      }
+    ],
+    "nissan|leaf": [
+      {
+        "year": 2018,
+        "drive": "2WD",
+        "mileage": "126,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 29.0,
+        "wheel": "RHD"
+      },
+      {
+        "year": 2019,
+        "drive": "2WD",
+        "mileage": "106 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 38.0,
+        "wheel": "RHD"
+      },
+      {
+        "year": 2017,
+        "drive": "2WD",
+        "mileage": "150,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 22.0,
+        "wheel": "RHD"
+      },
+      {
+        "year": 2018,
+        "drive": "2WD",
+        "mileage": "50,000 km",
+        "color": "不明",
+        "import_year": 2026,
+        "price": 34.0,
+        "wheel": "RHD"
       }
     ]
   }
