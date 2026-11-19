@@ -1259,9 +1259,9 @@ function updatePart2And3(maker, modelSlug, carYear, driveType, grade, gi) {
     if(df && c.drive!==df) return false;
     if(yr>0 && Math.abs(c.year-yr)>2) return false;
     return true;
-  }).sort((a,b)=>a.year-b.year);
+  }).sort((a,b)=>(b.year-a.year)||(b.price-a.price));
   if(cars.length===0){
-    cars=(PRICE_DB[key]||[]).filter(c=>!(df && c.drive!==df)).sort((a,b)=>a.year-b.year);
+    cars=(PRICE_DB[key]||[]).filter(c=>!(df && c.drive!==df)).sort((a,b)=>(b.year-a.year)||(b.price-a.price));
   }
 
   const prices=cars.map(c=>c.price).filter(Boolean);

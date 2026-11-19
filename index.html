@@ -5802,7 +5802,7 @@ function updatePart2And3(maker, modelSlug, carYear, driveType, wheelSide, import
     if(yr>0 && Math.abs(c.year-yr)>2) return false;
     if(iy>0 && c.import_year && Math.abs(c.import_year-iy)>1) return false;
     return true;
-  }).sort((a,b)=>a.year-b.year);
+  }).sort((a,b)=>(b.year-a.year)||(b.price-a.price));
   if(cars.length===0){
     // 輸入年の条件だけ緩めて再試行
     cars=(PRICE_DB[key]||[]).filter(c=>{
@@ -5810,10 +5810,10 @@ function updatePart2And3(maker, modelSlug, carYear, driveType, wheelSide, import
       if(wf && c.wheel && c.wheel!==wf) return false;
       if(yr>0 && Math.abs(c.year-yr)>2) return false;
       return true;
-    }).sort((a,b)=>a.year-b.year);
+    }).sort((a,b)=>(b.year-a.year)||(b.price-a.price));
   }
   if(cars.length===0){
-    cars=(PRICE_DB[key]||[]).filter(c=>!(df && c.drive!==df) && !(wf && c.wheel && c.wheel!==wf)).sort((a,b)=>a.year-b.year);
+    cars=(PRICE_DB[key]||[]).filter(c=>!(df && c.drive!==df) && !(wf && c.wheel && c.wheel!==wf)).sort((a,b)=>(b.year-a.year)||(b.price-a.price));
   }
 
   const prices=cars.map(c=>c.price).filter(Boolean);
