@@ -67,6 +67,16 @@ def main():
     print(f"\n[B] データがあるがメニューに無い（ツールから選べない）: {len(not_in_menu)}")
     for k in not_in_menu:
         print("   -", k, f"{len(db[k])}件")
+    # 駆動方式の判定状況（詳細ページ取得は1晩あたり時間枠があり、数晩かけて埋まる。進み具合の確認用）
+    tot = {"4WD": 0, "2WD": 0, "不明": 0}
+    for v in db.values():
+        for r in v:
+            tot[r.get("drive", "不明")] = tot.get(r.get("drive", "不明"), 0) + 1
+    n = sum(tot.values()) or 1
+    print(f"\n[D] 駆動方式: 4WD {tot['4WD']} / 2WD {tot['2WD']} / 不明 {tot['不明']}（不明率 {tot['不明'] / n:.0%}）")
+    unk = sorted(((k, len(v), sum(1 for r in v if r.get("drive", "不明") == "不明")) for k, v in db.items() if len(v) >= 10),
+                 key=lambda x: -x[2] / x[1])
+    print("    不明率の高い車種（10件以上、上位8）:", [f"{k} {u}/{n_}" for k, n_, u in unk[:8]])
     if a.old and Path(a.old).exists():
         old = load_json(a.old)["data"]
         gone = [k for k in old if k not in db]

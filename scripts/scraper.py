@@ -9,6 +9,7 @@
 # 検知の回避パッチ）でページを実際にレンダリングしてから解析する方式に変更した。
 import json, time, re, sys, argparse, logging
 from datetime import datetime
+from urllib.parse import urlparse
 
 try:
     from playwright.sync_api import sync_playwright
@@ -206,6 +207,55 @@ TARGETS = [
     {"key": "porsche|boxster", "url": "porsche/boxster"},
 ]
 
+# ── 駆動方式の取得方針 ─────────────────────────────────────────────
+# 一覧ページには駆動方式がほぼ書かれていない（記載があるのは約1割。2026-11-19時点で全体の76%が「不明」だった）。
+# 4WD設定のある車種は、詳細ページ（仕様欄）から駆動方式を取得する。
+# 取得結果は広告IDごとに scripts/.detail_cache.json に保存し、2回目以降は新規広告だけ詳細ページを開く。
+# 1晩あたりの新規取得には時間枠（--detail-budget-min）があり、超えた分は翌晩以降に回る。
+# 常時4WDの車種（LX/GX/Gクラス/ランドローバー系）は4WD固定とし、ハンドル位置のみ詳細ページから取得する。
+_ALWAYS_4WD_KEYS = {
+    "lexus|lx-600", "lexus|lx-570", "lexus|lx-470", "lexus|gx-460",
+    "mercedes-benz|g-class-w463",
+    "land-rover|discovery-4", "land-rover|range-rover-l405", "land-rover|defender-l316",
+}
+_DRIVE_DETAIL_KEYS = {
+    "toyota|c-hr", "toyota|crown-crossover", "toyota|alphard-30", "toyota|vellfire-30",
+    "toyota|prius-50", "toyota|prius-60", "toyota|hiace-200", "toyota|highlander",
+    "toyota|fortuner", "toyota|hilux",
+    "nissan|x-trail-t31", "nissan|x-trail-t32", "nissan|x-trail-t33",
+    "nissan|patrol-y61", "nissan|patrol-y62", "nissan|elgrand-e52", "nissan|serena-c27",
+    "mitsubishi|pajero-v60", "mitsubishi|pajero-v80", "mitsubishi|outlander-gg",
+    "mitsubishi|outlander-gf", "mitsubishi|delica-d5", "mitsubishi|l200", "mitsubishi|rvr",
+    "honda|cr-v-4", "honda|cr-v-5",
+    "subaru|forester-sj", "subaru|outback-bs",
+    "suzuki|jimny-jb23", "suzuki|jimny-jb64",
+    "lexus|rx-gas", "lexus|rx-hybrid", "lexus|nx-az10", "lexus|es-axzh10",
+    "lexus|is-300-xe30", "lexus|gs-350", "lexus|ls-500",
+    "hyundai|santa-fe-tm", "hyundai|palisade", "hyundai|tucson-nx4",
+    "kia|sorento-mq4", "kia|sportage-ql",
+    "bmw|x5-e70", "bmw|x5-f15", "bmw|x5-g05", "bmw|x3-f25", "bmw|x3-g01",
+    "bmw|x6-f16", "bmw|x6-g06", "bmw|x1-f48",
+    "bmw|3series-f30", "bmw|3series-g20", "bmw|5series-f10", "bmw|5series-g30",
+    "mercedes-benz|gle-w166", "mercedes-benz|gls-x166", "mercedes-benz|gls-x167",
+    "mercedes-benz|e-class-w212", "mercedes-benz|e-class-w213",
+    "mercedes-benz|c-class-w205", "mercedes-benz|c-class-w206",
+    "mercedes-benz|s-class-w222", "mercedes-benz|s-class-w223",
+    "volkswagen|tiguan-5n", "volkswagen|tiguan-ad1", "volkswagen|touareg-7l",
+    "volkswagen|touareg-7p", "volkswagen|touareg-cr",
+    "audi|q7-4l", "audi|q7-4m", "audi|q5-8r", "audi|q5-fy",
+    "audi|a6-c7", "audi|a6-c8", "audi|a4-b8", "audi|a4-b9",
+    "mazda|cx-5-kf",
+    "ford|explorer-u502", "ford|explorer-u625", "ford|escape-c520",
+    "ford|f-150-13", "ford|ranger-t6", "ford|everest-2",
+    "porsche|cayenne", "porsche|macan", "porsche|panamera",
+}
+for _t in TARGETS:
+    if _t["key"] in _ALWAYS_4WD_KEYS:
+        _t["force_4wd"] = True
+        _t["wheel_fetch"] = True
+    elif _t["key"] in _DRIVE_DETAIL_KEYS:
+        _t["detail_fetch"] = True
+
 def build_url(path_suffix, page=1):
     base = f"{BASE_URL}/avto-mashin/-avtomashin-zarna/{path_suffix}/"
     return base if page == 1 else f"{base}?page={page}"
@@ -392,6 +442,15 @@ def classify_rav4_key(year, title=""):
     """
     return "toyota|rav4-40" if year < 2018 else "toyota|rav4-50"
 
+# 取得に不要な外部の解析・広告・計測スクリプト。これらが応答しない時間帯があり（2026-11-17と11-19夜に確認）、
+# 1ページの読み込みが約25秒かかる原因になっていた（本体のHTMLには関係ない）。Cloudflare本体の通信は止めない
+_BLOCKED_HOSTS = (
+    "doubleclick.net", "googlesyndication.com", "google-analytics.com", "googletagmanager.com",
+    "googleadservices.com", "clarity.ms", "cloudflareinsights.com", "sentry.sshd.im",
+    "facebook.net", "facebook.com", "maestra-static.io", "maestra.io", "ph.unegui.mn",
+    "yandex.ru", "yandex.com", "mc.yandex.ru", "hotjar.com", "tiktok.com", "bing.com",
+)
+
 def new_page(browser):
     """スクレイピング用ページを作る。画像・動画・フォントは取得に不要なので読み込まない
     （転送量と読み込み時間の削減、外部リソースの遅延に引きずられないため）"""
@@ -402,7 +461,10 @@ def new_page(browser):
     )
     def _handler(route):
         try:
-            if route.request.resource_type in ("image", "media", "font"):
+            req = route.request
+            host = (urlparse(req.url).hostname or "").lower()
+            if req.resource_type in ("image", "media", "font") or any(
+                    host == d or host.endswith("." + d) for d in _BLOCKED_HOSTS):
                 route.abort()
             else:
                 route.continue_()
@@ -411,7 +473,32 @@ def new_page(browser):
     page.route("**/*", _handler)
     return page
 
-def fetch_detail_extra(url, retries=2):
+# 詳細ページの取得結果の保存（広告ID → 駆動方式・ハンドル位置）。リポジトリには含めずローカルに置く
+DETAIL_CACHE_PATH = "scripts/.detail_cache.json"
+_detail_cache = {}
+_detail_stats = {"cache": 0, "fetched": 0, "deferred": 0, "code_override": 0}
+_detail_soft_deadline = None
+
+def load_detail_cache():
+    global _detail_cache
+    try:
+        with open(DETAIL_CACHE_PATH, encoding="utf-8") as f:
+            _detail_cache = json.load(f)
+        log.info(f"詳細ページの保存データ: {len(_detail_cache)}件を読み込み")
+    except (OSError, ValueError):
+        _detail_cache = {}
+
+def save_detail_cache():
+    # 45日以上見かけていない広告（掲載終了）は破棄して肥大化を防ぐ
+    limit = time.time() - 45 * 86400
+    keep = {k: v for k, v in _detail_cache.items() if v.get("seen", v.get("t", 0)) >= limit}
+    try:
+        with open(DETAIL_CACHE_PATH, "w", encoding="utf-8") as f:
+            json.dump(keep, f, ensure_ascii=False)
+    except OSError as e:
+        log.warning(f"詳細ページの保存データを書き込めません: {e}")
+
+def fetch_detail_extra(url, retries=2, brand=None):
     """detail_fetch / wheel_fetch フラグの車種向けに、詳細ページから
     駆動方式（Хөтлөгч）とハンドル位置（Хүрд）をまとめて取得する。
     一覧ページのカードにはどちらの記載もほぼ無いため、1件ずつ詳細ページを
@@ -425,9 +512,27 @@ def fetch_detail_extra(url, retries=2):
     ハンドル位置はモンゴル語で「Зөв」＝正しい（モンゴルは右側通行のため左ハンドルが正）、
     「Буруу」＝誤り（右ハンドル＝主に日本からの中古直輸入車）という表現になっている。
     """
-    html = fetch(url, retries=retries)
+    # 広告IDごとの保存（広告は何日も掲載されるため、2回目以降は新規広告だけ詳細ページを開けば済む）
+    ad_id = None
+    mid = re.search(r"/adv/(\d+)", url)
+    if mid:
+        ad_id = mid.group(1)
+        ent = _detail_cache.get(ad_id)
+        now = time.time()
+        if ent and (ent.get("drive") or now - ent.get("t", 0) < 7 * 86400):
+            # 駆動方式が分かっている広告はそのまま使う。不明だった広告は7日ごとに再確認する
+            ent["seen"] = now
+            _detail_stats["cache"] += 1
+            return ent.get("drive"), ent.get("wheel")
+    # 1晩あたりの新規取得に時間枠を設ける（超えた分は翌晩以降に取得。取得済みは保存されるため少しずつ埋まる）
+    if _detail_soft_deadline is not None and time.time() > _detail_soft_deadline:
+        _detail_stats["deferred"] += 1
+        return None, None
+
+    html = fetch(url, retries=retries, settle_ms=800)
     if not html:
         return None, None
+    _detail_stats["fetched"] += 1
 
     km = re.search(r'name="keywords"\s+content="([^"]+)"', html)
     keywords = km.group(1) if km else ""
@@ -435,11 +540,30 @@ def fetch_detail_extra(url, retries=2):
     drive = None
     m = re.search(r'Хөтлөгч\s+([^,"]+)', keywords)
     if m:
+        # 表記は「Бүх дугуй 4WD」「Урдаа FWD」「Хойноо RWD」の3種類。
+        # 4WDにはAWD、2WDにはFWD(前輪駆動)・RWD/FR(後輪駆動)の表現が含まれる
         val = m.group(1).upper()
-        if "4WD" in val or "БҮХ ДУГУЙТ" in val or "AWD" in val:
+        if any(w in val for w in ("4WD", "AWD", "4X4", "БҮХ ДУГУЙ")):
             drive = "4WD"
-        elif "FWD" in val or "УРДАА" in val or "2WD" in val:
+        elif any(w in val for w in ("FWD", "RWD", "2WD", "УРДАА", "ХОЙНОО")):
             drive = "2WD"
+
+    # 型式（「Серийн ангилал: GYL25」のように詳細ページの仕様欄にある）から駆動方式を推定。
+    # トヨタ/レクサスは型式の数字部の末尾が5だと4WDの可能性が高い（例: AE110=FF / AE115=4WD、
+    # GYL15・GYL25・AVU65 など）。出品者が入力する駆動方式欄は誤りが多い（プリウスがRWD等）ため、
+    # 型式が5で終わる場合はこちらを優先する
+    if brand in ("toyota", "lexus"):
+        try:
+            txt = BeautifulSoup(html, "lxml").get_text(" ", strip=True)
+        except Exception:
+            txt = ""
+        mc = re.search(r"Серийн ангилал:?\s*([A-Za-z]{2,5}\d{2,3})", txt)
+        if mc:
+            code_digits = re.search(r"(\d{2,3})$", mc.group(1)).group(1)
+            if code_digits.endswith("5"):
+                if drive == "2WD":
+                    _detail_stats["code_override"] += 1
+                drive = "4WD"
 
     wheel = None
     m2 = re.search(r'Хүрд\s+([^,"]+)', keywords)
@@ -450,9 +574,12 @@ def fetch_detail_extra(url, retries=2):
         elif val2 == "Буруу":
             wheel = "RHD"
 
+    if ad_id:
+        now = time.time()
+        _detail_cache[ad_id] = {"drive": drive, "wheel": wheel, "t": now, "seen": now}
     return drive, wheel
 
-def fetch(url, retries=3):
+def fetch(url, retries=3, settle_ms=2500):
     """Playwright（ステルスパッチ済み）でページを実際に開いて描画後のHTMLを返す。
     Cloudflareのチャレンジ画面が出た場合は間隔を空けてリトライする。
     """
@@ -462,7 +589,7 @@ def fetch(url, retries=3):
             # 2026-11-17は外部リソースの遅延で load が毎回約25秒止まり、1ページ29秒×約900ページで
             # 日次更新が4時間の上限を超えて強制終了された。カード情報はHTML本体(SSR)に含まれるため不要
             _page.goto(url, wait_until="domcontentloaded", timeout=45000)
-            _page.wait_for_timeout(2500)
+            _page.wait_for_timeout(settle_ms)
             html = _page.content()
             head = html[:3000]
             if "Just a moment" in head or "challenges.cloudflare.com" in head:
@@ -538,10 +665,52 @@ def parse_card(card):
             "_fulltext": full,
             "_href": href}
 
+def generic_cards(soup):
+    """data-marker（広告ID）を持つ要素から、1広告=1カードの要素を返す（関連広告は除外）"""
+    cards, seen = [], set()
+    for el in soup.select('[data-marker^="listing-advert_card-advert:"]'):
+        mk = el.get("data-marker")
+        if mk in seen:
+            continue
+        if el.find_parent(attrs={"data-component": re.compile(r"^Gallery")}):
+            continue  # 関連広告
+        seen.add(mk)
+        # 価格などのmetaを含む最小の祖先（自分自身を含む）をカードとする。他の広告まで含む大きさにはしない
+        cur, card = el, el
+        for _ in range(4):
+            if cur is None:
+                break
+            if cur.select_one('meta[itemprop="price"]'):
+                card = cur
+                break
+            cur = cur.parent
+        if len(card.select('[data-marker^="listing-advert_card-advert:"]')) > 1:
+            card = el
+        cards.append(card)
+    return cards
+
+def listing_count(html):
+    """ページ見出しの掲載件数（例: 「Lexus LX 570 зарна 116」→116）。取れなければNone"""
+    try:
+        soup = BeautifulSoup(html, "lxml")
+        h1 = soup.find("h1")
+        if not h1:
+            return None
+        m = re.search(r"зарна\s+([\d,]+)", h1.get_text(" ", strip=True))
+        return int(m.group(1).replace(",", "")) if m else None
+    except Exception:
+        return None
+
 def parse_page(html):
     soup = BeautifulSoup(html, "lxml")
     # リニューアル後のカードは data-component="BigAdCard" の div（schema.org/Productのitemscope付き）
     cards = soup.select('div[data-component="BigAdCard"]')
+    if not cards:
+        # 汎用: コンポーネント名（BigAdCard / CardGridDesktop / CardGridLink など）はサイト更新のたびに変わる
+        # （2026-11-19にCardGridDesktop→CardGridLinkへ変更されて解析が止まった）。名前に依存しない目印として、
+        # 広告ごとに付く data-marker="listing-advert_card-advert:広告ID" を使う。
+        # 一覧の下の「関連広告」(Gallery系。別車種のトラック等)は除外する
+        cards = generic_cards(soup)
     if not cards:
         # グリッド表示のページ（LX 570 / LX 600 など。2026-11-18に判明: このレイアウトだと
         # BigAdCardが存在せず全件「カード未検出」になり、掲載が100件以上あっても0件扱いだった）。
@@ -593,6 +762,14 @@ def scrape_one(target):
             break
         items = parse_page(html)
         log.info(f"  p{page}: {len(items)}件パース")
+        if page == 1 and not items:
+            n_expected = listing_count(html)
+            if n_expected and n_expected >= 3:
+                # 見出しには掲載件数があるのに1件も読めない＝サイトの構造変更で解析できていない。
+                # 「0件」として前回データを消さないよう、取得失敗として扱う（前回データを引き継ぎ、実行結果は失敗）
+                log.error(f"  ❌ [{key}] 見出しは{n_expected}件なのに0件しか解析できません（サイトの構造変更の疑い）")
+                _FETCH_FAILED.append(key)
+                break
         for item in items:
             sig = (item["year"],item["drive"],item["price"])
             if sig not in seen: seen.add(sig); results.append(item)
@@ -625,19 +802,25 @@ def scrape_one(target):
     need_detail = target.get("detail_fetch") or target.get("wheel_fetch")
     if need_detail:
         fixed_drive, fixed_wheel = 0, 0
+        s0 = dict(_detail_stats)
+        brand = key.split("|")[0]
         for item in results:
             href = item.pop("_href", None)
             if not href:
                 continue
-            real_drive, wheel = fetch_detail_extra(href)
+            fetched_before = _detail_stats["fetched"]
+            real_drive, wheel = fetch_detail_extra(href, brand=brand)
             if target.get("detail_fetch") and real_drive:
                 item["drive"] = real_drive
                 fixed_drive += 1
             if wheel:
                 item["wheel"] = wheel
                 fixed_wheel += 1
-            time.sleep(1.5)
-        log.info(f"  [{key}] 詳細ページ取得: 駆動方式{fixed_drive}件 / ハンドル位置{fixed_wheel}件（全{len(results)}件）")
+            if _detail_stats["fetched"] > fetched_before:
+                time.sleep(1.0)  # 実際にページを開いた時だけ間隔を空ける（保存済みは待たない）
+        d = {k: _detail_stats[k] - s0[k] for k in s0}
+        log.info(f"  [{key}] 詳細ページ: 駆動方式{fixed_drive}件 / ハンドル位置{fixed_wheel}件（全{len(results)}件）"
+                 f" ［新規取得{d['fetched']} / 保存済み{d['cache']} / 時間枠超過で次回へ{d['deferred']} / 型式で4WDに修正{d['code_override']}］")
     else:
         for item in results:
             item.pop("_href", None)
@@ -786,15 +969,20 @@ def scrape_all(targets, db=None, done=None, on_target_done=None, deadline=None):
     return db
 
 def main():
-    global _page
+    global _page, _detail_soft_deadline
     parser = argparse.ArgumentParser()
     parser.add_argument("--test", action="store_true")
     parser.add_argument("--output", default="scripts/price_db.json")
     parser.add_argument("--resume", action="store_true", help="12時間以内のチェックポイントがあれば、取得済みの車種をスキップして再開")
     parser.add_argument("--time-budget-min", type=float, default=300,
                         help="取得に使う最大分数。超えたら残りは前回データを引き継いで保存（既定300分）")
+    parser.add_argument("--detail-budget-min", type=float, default=100,
+                        help="詳細ページ（駆動方式など）の新規取得に使う最大分数。超えた分は翌晩以降に回す（既定100分。"
+                             "一覧の取得に約80分かかるため、深夜0〜3時の枠に収まる）")
     args = parser.parse_args()
     deadline = time.time() + args.time_budget_min * 60
+    _detail_soft_deadline = time.time() + min(args.detail_budget_min, args.time_budget_min - 20) * 60
+    load_detail_cache()
     ckpt_path = "scripts/.scrape_checkpoint.json"
     targets = [t for t in TARGETS if t["key"]=="toyota|harrier"] if args.test else TARGETS
 
@@ -815,9 +1003,13 @@ def main():
         def save_checkpoint(cur_db, cur_done):
             with open(ckpt_path, "w", encoding="utf-8") as f:
                 json.dump({"saved_at": time.time(), "done": sorted(cur_done), "db": cur_db}, f, ensure_ascii=False)
+            save_detail_cache()
 
         db = scrape_all(targets, db=db, done=done, on_target_done=save_checkpoint, deadline=deadline)
         browser.close()
+    save_detail_cache()
+    log.info(f"詳細ページ: 新規取得{_detail_stats['fetched']} / 保存済み利用{_detail_stats['cache']} / "
+             f"次回へ繰り越し{_detail_stats['deferred']} / 型式で4WDに修正{_detail_stats['code_override']}")
 
     if _FETCH_FAILED:
         # 取得に失敗した車種は前回のデータを残す（全体を捨てず、その車種だけ古いまま維持）
