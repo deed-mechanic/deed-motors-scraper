@@ -4,7 +4,9 @@ name: 市場データ鮮度チェック（見張り役）
 # 失敗するとGitHubからメール通知が届く（Actionsの失敗通知）。
 on:
   schedule:
-    - cron: '0 2 * * *'   # 10:00 (UTC+8) = ローカル取得が終わっている時刻
+    # GitHubの定時実行は混雑で数時間遅れる（実測: 02:00 UTC指定でも 09〜10時 UTC に起動）。
+    # 正時を避けて指定し、遅れても判定が狂わないよう下の MAX_AGE_H を余裕のある値にしている
+    - cron: '37 1 * * *'
   workflow_dispatch:
   push:
     paths:
@@ -20,7 +22,10 @@ jobs:
         run: |
           python3 - <<'PY'
           import json, time, sys, calendar
-          MAX_AGE_H = 14      # 通常は取得完了から約6〜9時間。前夜の取得が飛べば、その日の朝に検知する
+          # 取得は毎日0:00(UTC+8)開始で、完了は0:30〜3:00頃。見張りの起動は遅れることがあり（最大で
+          # 取得完了の約18時間後）、正常でも 9〜18 時間経過で判定される。
+          # 1日分の取得が丸ごと飛ぶと 33 時間以上になるので、その中間の 30 時間を上限にする
+          MAX_AGE_H = 30
           MIN_RECORDS = 1500  # 通常は約3,500件
           MIN_MODELS = 100    # 通常は約140車種
           with open('scripts/price_db.json', encoding='utf-8-sig') as f:
