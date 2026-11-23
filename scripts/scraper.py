@@ -607,7 +607,12 @@ def fetch(url, retries=3, settle_ms=2500):
             # その場合は「0件」ではなく明示的に警告を出す（TARGETSのURL要修正のサイン）
             final_url = _page.url
             if "/search" in final_url or final_url.rstrip("/") == BASE_URL:
-                log.warning(f"  ⚠️ URLがリダイレクトされました（スラッグ変更の可能性）: {url} -> {final_url}")
+                # 2026-11-23: Cloudflareの確認画面を経由して /search/ に飛ばされ、Palisade(55件)・GLE(16件)が
+                # 「0件」として保存・前回データが消えた。リダイレクト先のHTMLは車種の一覧ではないので、
+                # 成功扱いにせず間隔を空けて再試行し、最後まで駄目なら取得失敗(None)にして前回データを引き継ぐ
+                log.warning(f"  ⚠️ URLがリダイレクトされました（スラッグ変更/一時的な遮断）: {url} -> {final_url} 再試行します({i+1}/{retries})")
+                time.sleep(REQUEST_DELAY*(i+4))
+                continue
             log.info(f"  取得成功 ({len(html)} chars): {url}")
             return html
         except Exception as e:
