@@ -51,6 +51,19 @@ Get-ChildItem $logDir -Filter "run_*.log" -ErrorAction SilentlyContinue | Where-
 $deadline = $startTime.AddHours(7)
 function BudgetMin() { [math]::Min(300, [math]::Floor(($deadline - (Get-Date)).TotalMinutes - 20)) }
 
+# VPN経由の通信かどうかを調べる。VPNの出口IPは多数の人が共有するためCloudflareに疑われやすく、
+# 2026-11-24にNordVPN接続中で全ページが遮断された（切断後に回復）。インターネット向けの標準経路がVPNを通っていれば名前を返す
+function VpnInUse() {
+    try {
+        $r = Get-NetRoute -DestinationPrefix "0.0.0.0/0" -ErrorAction Stop | Sort-Object { $_.RouteMetric + (Get-NetIPInterface -InterfaceIndex $_.ifIndex -AddressFamily IPv4).InterfaceMetric } | Select-Object -First 1
+        $a = Get-NetAdapter -InterfaceIndex $r.ifIndex -ErrorAction Stop
+        if (("{0} {1}" -f $a.Name, $a.InterfaceDescription) -match "VPN|Nord|Lynx|WireGuard|Wintun|TAP-|OpenVPN|Proton|WARP|AnyConnect|Mullvad|Express|Surfshark|Tailscale|ZeroTier") { return $a.Name }
+    } catch { }
+    return $null
+}
+$vpnName = VpnInUse
+if ($vpnName) { Log ("⚠️ VPN({0})経由で通信しています。Cloudflareに遮断されやすいため、遮断された場合はVPNを切断するか、python.exeをVPNの対象外にしてください" -f $vpnName) }
+
 # Playwrightのライブラリだけ更新されるとブラウザ本体が合わず起動できなくなる（過去に発生）。
 # 実行前に必ず確認し、不足していれば公式の手順で導入する（導入済みなら何もしない）
 # ライブラリのバージョンは requirements.txt で固定（勝手な更新で止まらないように）
@@ -79,7 +92,7 @@ while ($rc -ne 0 -and -not $DryRun) {
     if ((BudgetMin) -le 40) { Log "時間枠が残りわずかのため再試行しません"; break }
     if ($rc -eq 3) {
         $blockedTries++
-        Log "サイトに遮断されています(code=3)。30分後に再開します（遮断での再試行 $blockedTries回目）"
+        Log "サイトに遮断されています(code=3)。30分後に再開します（遮断での再試行 $blockedTries回目）。VPN接続: $(if (VpnInUse) { '有り→切断してください' } else { '無し' })"
         Start-Sleep -Seconds 1800
     } elseif ($attempt -lt 2) {
         $attempt++
@@ -89,7 +102,11 @@ while ($rc -ne 0 -and -not $DryRun) {
     $rc = Run $py ($scrapeArgs + @("--resume", "--time-budget-min", (BudgetMin)))
 }
 $partial = ($rc -eq 2)
-if ($rc -eq 3) { Finish $false ("サイトに遮断され続け、今回は更新できませんでした（{0}回再試行）。データは前回のまま変更していません" -f $blockedTries) }
+if ($rc -eq 3) {
+    $vpnNow = VpnInUse
+    $hint = if ($vpnNow) { "VPN($vpnNow)に接続中です。VPNを切断するか、python.exeをVPNの対象外にしてください。" } else { "VPNは使っていません。回線自体が疑われている可能性があるため、別の回線（テザリング等）で試してください。" }
+    Finish $false ("サイトに遮断され続け、今回は更新できませんでした（{0}回再試行）。データは前回のまま変更していません。{1}" -f $blockedTries, $hint)
+}
 if ($rc -ne 0 -and -not $partial) { Finish $false "スクレイピング失敗(code=$rc)。既存データは保持。ログ参照" }
 
 $d = Get-Content $dbPath -Raw -Encoding UTF8 | ConvertFrom-Json
