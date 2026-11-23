@@ -32,6 +32,9 @@ USER_AGENT = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
 
 # main()内でPlaywrightのページを生成しここに保持する（fetch()から使う）
 _page = None
+_BLOCK_STREAK_LIMIT = 4   # 一覧1ページ目の取得失敗がこの数だけ連続したら「サイトに遮断されている」と判断して中止
+_last_target_blocked = False
+_blocked = False
 _FETCH_FAILED = []  # 取得に失敗した車種キー（前回データの引き継ぎ・再試行の判断に使う）
 
 # 正しいURL構造: /avto-mashin/-avtomashin-zarna/メーカー/車種/
@@ -760,6 +763,8 @@ def has_next(html, page):
     return max_page > page
 
 def scrape_one(target):
+    global _last_target_blocked
+    _last_target_blocked = False
     key = target["key"]
     path = target["url"]
     log.info(f"\n▶ [{key}]")
@@ -770,6 +775,7 @@ def scrape_one(target):
         if not html:
             if page == 1:
                 _FETCH_FAILED.append(key)  # 1ページ目すら取得できない＝「出品0件」ではなく取得失敗
+                _last_target_blocked = True
             break
         items = parse_page(html)
         log.info(f"  p{page}: {len(items)}件パース")
@@ -876,8 +882,10 @@ def save(db, path="scripts/price_db.json"):
 def scrape_all(targets, db=None, done=None, on_target_done=None, deadline=None):
     """deadline: time.time()基準の打ち切り時刻。超えたら残りの車種は取得失敗扱い（前回データを引き継いで
     公開できる）にする。外部からの強制終了（タスクの実行時間上限）で何も公開できなくなるのを防ぐ"""
+    global _blocked
     db = {} if db is None else db
     done = set() if done is None else done
+    streak = 0
     for i,t in enumerate(targets,1):
         log.info(f"[{i}/{len(targets)}]")
         if t["key"] in done:
@@ -891,6 +899,15 @@ def scrape_all(targets, db=None, done=None, on_target_done=None, deadline=None):
         try:
             r = scrape_one(t)
             if not r:
+                if _last_target_blocked:
+                    streak += 1
+                    if streak >= _BLOCK_STREAK_LIMIT:
+                        _blocked = True
+                        log.error(f"❌ 一覧の取得が{streak}車種連続で失敗しました。サイトに遮断されている可能性が高いため中止します")
+                        break
+                else:
+                    streak = 0
+                if i < len(targets): time.sleep(REQUEST_DELAY*2)
                 continue
             if "rx_type" in t:
                 # RX: 年式・タイトルキーワードで世代×グレード別キーに自動振り分け（対象外年式はNoneで除外）
@@ -990,6 +1007,18 @@ def scrape_all(targets, db=None, done=None, on_target_done=None, deadline=None):
         if len(_FETCH_FAILED) == n_failed_before:
             done.add(t["key"])
             if on_target_done: on_target_done(db, done)
+            streak = 0
+        elif _last_target_blocked:
+            streak += 1
+            if streak >= _BLOCK_STREAK_LIMIT:
+                # 2026-11-24: Cloudflareが全ページを遮断し、126車種×3回の再試行で約1時間を空費した上、
+                # 何も取れていないのに更新日時だけが新しくなった。連続で取れない時点で打ち切り、
+                # 保存せずに終了する（呼び出し側が時間を空けて再開する）
+                _blocked = True
+                log.error(f"❌ 一覧の取得が{streak}車種連続で失敗しました。サイトに遮断されている可能性が高いため中止します")
+                break
+        else:
+            streak = 0
         if i < len(targets): time.sleep(REQUEST_DELAY*2)
     return db
 
@@ -1035,6 +1064,12 @@ def main():
     save_detail_cache()
     log.info(f"詳細ページ: 新規取得{_detail_stats['fetched']} / 保存済み利用{_detail_stats['cache']} / "
              f"次回へ繰り越し{_detail_stats['deferred']} / 型式で4WDに修正{_detail_stats['code_override']}")
+
+    if _blocked:
+        # データも更新日時も書き換えない（取得できていないのに「更新済み」に見せない）。
+        # 取得済み分はチェックポイントに残してあるので、時間を置いて --resume で続きから取れる
+        log.error("遮断のため保存せずに終了します（既存データ・更新日時は変更なし）。終了コード3")
+        sys.exit(3)
 
     if _FETCH_FAILED:
         # 取得に失敗した車種は前回のデータを残す（全体を捨てず、その車種だけ古いまま維持）

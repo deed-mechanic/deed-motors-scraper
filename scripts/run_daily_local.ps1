@@ -68,17 +68,28 @@ if ($DryRun) { $scrapeArgs += "--test" }
 $prevDb = Join-Path $logDir "prev_price_db.json"
 if (-not $DryRun -and (Test-Path $dbPath)) { Copy-Item $dbPath $prevDb -Force }
 $rc = Run $py ($scrapeArgs + @("--time-budget-min", (BudgetMin)))
-# 失敗時は10分空けて最大2回、取得済みの車種を飛ばして再開する（--resume）
-# 時間枠（開始から7時間）が残りわずかなら再試行せず、取得済み分＋前回データで公開する
+# 失敗時は取得済みの車種を飛ばして再開する（--resume）
+#  code=2（一部の車種だけ失敗）: 10分空けて最大2回
+#  code=3（サイトに遮断されている＝Cloudflare）: 30分空けて、時間枠（開始から7時間）の残りがある限り繰り返す。
+#   遮断は数時間で解けることがあるため。遮断中は保存しない（既存データ・更新日時は変更されない）
+# 時間枠が残りわずかなら再試行せず、その時点の結果で終える
 $attempt = 0
-while ($rc -ne 0 -and -not $DryRun -and $attempt -lt 2) {
-    if ((BudgetMin) -le 40) { Log "時間枠が残りわずかのため再試行せず、取得済み分で公開します"; break }
-    $attempt++
-    Log "取得が完了しませんでした(code=$rc)。10分後に再開します（再試行 $attempt/2）"
-    Start-Sleep -Seconds 600
+$blockedTries = 0
+while ($rc -ne 0 -and -not $DryRun) {
+    if ((BudgetMin) -le 40) { Log "時間枠が残りわずかのため再試行しません"; break }
+    if ($rc -eq 3) {
+        $blockedTries++
+        Log "サイトに遮断されています(code=3)。30分後に再開します（遮断での再試行 $blockedTries回目）"
+        Start-Sleep -Seconds 1800
+    } elseif ($attempt -lt 2) {
+        $attempt++
+        Log "取得が完了しませんでした(code=$rc)。10分後に再開します（再試行 $attempt/2）"
+        Start-Sleep -Seconds 600
+    } else { break }
     $rc = Run $py ($scrapeArgs + @("--resume", "--time-budget-min", (BudgetMin)))
 }
 $partial = ($rc -eq 2)
+if ($rc -eq 3) { Finish $false ("サイトに遮断され続け、今回は更新できませんでした（{0}回再試行）。データは前回のまま変更していません" -f $blockedTries) }
 if ($rc -ne 0 -and -not $partial) { Finish $false "スクレイピング失敗(code=$rc)。既存データは保持。ログ参照" }
 
 $d = Get-Content $dbPath -Raw -Encoding UTF8 | ConvertFrom-Json
