@@ -113,6 +113,21 @@ $d = Get-Content $dbPath -Raw -Encoding UTF8 | ConvertFrom-Json
 Log ("取得結果: {0}車種 {1}件 ({2})" -f $d.total_models, $d.total_records, $d.updated_at)
 if ($DryRun) { Log "DryRun完了（HTML生成・コミット・プッシュは実施しない）"; exit 0 }
 
+# データ検証（公開前の最終チェック）。顧客への提示額の根拠になるため、別車種の混入・件数の激減などの疑いがある
+# 車種は「前回の正常データ」に戻して公開する（誤った値は公開しない）。詳細は scripts/validate_data.py
+$validateMsg = $null
+$valReport = Join-Path $logDir "validation_report.txt"
+$vrc = Run $py @("scripts/validate_data.py", "--db", $dbPath, "--prev", $prevDb, "--report", $valReport)
+if ($vrc -eq 4) {
+    $validateMsg = "データ検証で疑わしい車種を前回データに戻しました（詳細: $valReport）"
+    Log ("⚠️ " + $validateMsg)
+} elseif ($vrc -ne 0) {
+    Finish $false "データ検証が異常終了したため公開しません（既存の公開データは変更なし）。ログ参照"
+}
+if (Test-Path $valReport) { Get-Content $valReport -Encoding UTF8 | Select-Object -First 25 | ForEach-Object { Log ("   " + $_) } }
+# 検証で車種を戻した場合があるので、公開する件数を読み直す
+$d = Get-Content $dbPath -Raw -Encoding UTF8 | ConvertFrom-Json
+
 # 整合チェック（確認用。失敗しても公開は止めない）: メニューにあるのにデータが無い車種、前回から消えた車種を記録
 if (Test-Path $prevDb) { Run $py @("scripts/check_consistency.py", "--old", $prevDb) | Out-Null } else { Run $py @("scripts/check_consistency.py") | Out-Null }
 
@@ -127,4 +142,5 @@ if ((Run "git" @("commit", "-m", $msg)) -ne 0) { Finish $false "commit失敗" }
 if ((Run "git" @("pull", "--rebase", "origin", "main")) -ne 0) { Finish $false "rebase失敗（データはコミット済み。次回再試行）" }
 if ((Run "git" @("push", "origin", "main")) -ne 0) { Finish $false "push失敗（データはコミット済み）" }
 if ($partial) { Finish $false ("一部の車種が取得できず、その車種は前回データのまま公開 {0}車種 {1}件" -f $d.total_models, $d.total_records) }
+if ($validateMsg) { Finish $false ("公開しましたが、" + $validateMsg + " {0}車種 {1}件" -f $d.total_models, $d.total_records) }
 Finish $true ("公開完了 {0}車種 {1}件" -f $d.total_models, $d.total_records)

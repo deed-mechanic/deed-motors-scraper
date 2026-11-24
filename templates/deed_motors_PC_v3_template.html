@@ -5681,7 +5681,10 @@ function updatePart2And3(maker, modelSlug, carYear, driveType, wheelSide, import
     if(iy>0 && c.import_year && Math.abs(c.import_year-iy)>1) return false;
     return true;
   }).sort((a,b)=>(b.year-a.year)||(b.price-a.price));
+  // 条件を緩めて算出した場合は、画面に必ず明示する（顧客への提示額の根拠になるため、黙って広げない）
+  let relaxNote = "";
   if(cars.length===0){
+    relaxNote = "輸入年の条件に合う車両が無いため、輸入年を問わず算出しています / Импортын жилээр шүүлгүй тооцсон";
     // 輸入年の条件だけ緩めて再試行
     cars=(PRICE_DB[key]||[]).filter(c=>{
       if(df && c.drive!==df) return false;
@@ -5691,8 +5694,10 @@ function updatePart2And3(maker, modelSlug, carYear, driveType, wheelSide, import
     }).sort((a,b)=>(b.year-a.year)||(b.price-a.price));
   }
   if(cars.length===0){
+    relaxNote = "⛔ 査定車の生産年（"+yr+"年±2年）に該当する市場データが無く、全年式の平均で算出しています。この金額は提示に使わないでください / Үйлдвэрлэсэн оны ±2 жилд тохирох өгөгдөл байхгүй, бүх оны дундажаар тооцсон. Үнэ болгон ашиглахгүй";
     cars=(PRICE_DB[key]||[]).filter(c=>!(df && c.drive!==df) && !(wf && c.wheel && c.wheel!==wf)).sort((a,b)=>(b.year-a.year)||(b.price-a.price));
   }
+  window._mktRelaxNote = relaxNote;
 
   const prices=cars.map(c=>c.price).filter(Boolean);
   if(prices.length===0){
@@ -5818,6 +5823,27 @@ function updatePart2And3(maker, modelSlug, carYear, driveType, wheelSide, import
     document.getElementById("rcGrade").textContent=(window._grade||"—")+" ("+sc+"点)";
     document.getElementById("rcCoeff").textContent=adjSign+adjPct+"% 調整（基準80点）";
     document.getElementById("rcFormula").textContent=useAvg.toFixed(1)+" × (1"+adjSign+adjPct+"%) = "+ti.toFixed(1)+" сая ₮";
+    // ── 提示前の注意表示（根拠が弱い算出を、画面で見落とさないようにする）──
+    const warns = [];
+    if(window._mktRelaxNote) warns.push(window._mktRelaxNote);
+    const nUsed = activePrices.length > 0 ? activePrices.length : window._currentCars.length;
+    if(nUsed <= 2) warns.push("⚠️ 算出の根拠が"+nUsed+"件のみです。1台の売り出し価格に左右されるため、参考値として扱ってください / Тооцооны үндэс "+nUsed+" зарлал л байна, лавлах утга болгон үз");
+    else if(nUsed < 5) warns.push("ℹ️ 算出の根拠は"+nUsed+"件です（少数）。表の価格を確認してください / Тооцооны үндэс "+nUsed+" зарлал (цөөн)");
+    if(activePrices.length === 0 && window._currentCars.length > 0) warns.push("⚠️ 全件が除外されています。除外を見直してください / Бүх зарлал хасагдсан");
+    let wEl = document.getElementById("rcWarn");
+    if(!wEl){
+      wEl = document.createElement("div");
+      wEl.id = "rcWarn";
+      wEl.style.cssText = "margin-top:8px;padding:8px 10px;background:#fff3cd;border:1.5px solid #e0a800;color:#7a3d00;font-size:12px;font-weight:700;border-radius:6px;line-height:1.5;";
+      const anchor = document.getElementById("rcFormula");
+      const host = anchor && anchor.closest(".stat-item") ? anchor.closest(".stat-item").parentNode : rcWrap;
+      host.appendChild(wEl);
+    }
+    if(warns.length){ wEl.style.display = "block"; wEl.innerHTML = warns.join("<br>"); }
+    else { wEl.style.display = "none"; wEl.innerHTML = ""; }
+    // 金額表示にも注意を付ける（スクリーンショットや転記で警告だけ欠けるのを防ぐ）
+    const needMark = !!window._mktRelaxNote || nUsed <= 2;
+    document.getElementById("rcRange").textContent += needMark ? "  ⚠要確認" : "";
   }
   window.recalcPart3 = recalcPart3;
   window._grade = grade;
