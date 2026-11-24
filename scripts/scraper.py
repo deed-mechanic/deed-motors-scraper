@@ -46,11 +46,11 @@ _FETCH_FAILED = []  # 取得に失敗した車種キー（前回データの引�
 #   - mitsubishi: eclipse-cross, montero-sport
 #   - lexus: nx-450h-az20（PHEVをHVと区別する情報がタイトルに無い）,
 #            ux-200/250h, lc-500/500h
-#   - hyundai: palisade（既存targetのURLがリニューアルで/search/にリダイレクト、
-#              代替スラッグ見つからず）
+#   - hyundai: palisade → 専用カテゴリは廃止。「Бусад(その他)」から title_contains で抽出（2026-11-24）
+#     ※2026-11-24まで、/search/ に飛ばされた全車種の検索結果(Land Cruiser/Patrol等)をPalisade・GLE W166
+#       として保存していた（Palisade55件・GLE16件は全て別車種）。リダイレクト先は取得失敗として扱うよう修正
 #   - bmw: x7-g07, 7series-g11
-#   - mercedes-benz: gle-w166/w167（既存targetも同様にリダイレクト、代替
-#     スラッグ見つからず）, glc-x253/x254, glb-x247, gla-h247, vito-w447
+#   - mercedes-benz: gle-w166 は「Бусад」から抽出するが現在0件, gle-w167（代替スラッグ見つからず）, glc-x253/x254, glb-x247, gla-h247, vito-w447
 #   - volkswagen: multivan-t6
 #   - audi: q8-f8, q3-8u/f3
 #   - mazda: cx-5-ke, cx-9（cx-5-kfと同じURLだがタイトルが"Mazda CX"のみで
@@ -130,7 +130,7 @@ TARGETS = [
     {"key": "lexus|ct-200h",                 "url": "lexus/ct", "year_min": 2011, "year_max": 2017},
     {"key": "lexus|hs-250h",                 "url": "lexus/hs", "year_min": 2009, "year_max": 2018},
     {"key": "hyundai|santa-fe-tm",           "url": "hyundai/santa-fe"},
-    {"key": "hyundai|palisade",              "url": "hyundai/palisade"},
+    {"key": "hyundai|palisade",              "url": "hyundai/busad", "title_contains": "Palisade"},
     {"key": "hyundai|tucson-nx4",            "url": "hyundai/tucson"},
     {"key": "kia|sorento-mq4",               "url": "kia/sorento"},
     {"key": "kia|sportage-ql",               "url": "kia/sportage"},
@@ -150,7 +150,7 @@ TARGETS = [
     {"key": "bmw|5series-f10", "url": "bmw/525", "year_min": 2010, "year_max": 2017},
     {"key": "bmw|5series-g30", "url": "bmw/525", "year_min": 2017},
     {"key": "mercedes-benz|g-class-w463",    "url": "mercedes-benz/g-class", "year_min": 2018},
-    {"key": "mercedes-benz|gle-w166",        "url": "mercedes-benz/gle", "year_min": 2015, "year_max": 2018},
+    {"key": "mercedes-benz|gle-w166",        "url": "mercedes-benz/busad", "title_contains": "GLE", "year_min": 2015, "year_max": 2018},
     {"key": "mercedes-benz|gls-x166", "url": "mercedes-benz/gls", "year_max": 2019},
     {"key": "mercedes-benz|gls-x167", "url": "mercedes-benz/gls", "year_min": 2019},
     {"key": "mercedes-benz|e-class-w212", "url": "mercedes-benz/e-class", "year_max": 2016},
