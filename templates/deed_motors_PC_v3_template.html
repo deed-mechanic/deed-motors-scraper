@@ -169,8 +169,8 @@ input[type=number]::placeholder {
   <div class="hdr-title">🚗 中古車査定ツール / Хуучин машины үнэлгээний хэрэгсэл</div>
   <div class="hdr-btns">
     <button class="btn-navy" onclick="openDeedCertificate()" style="background:#b8912f;">🏅 DEED認定書 / Баталгаа</button>
-    <button class="btn-navy" onclick="printExplainSheet()" style="background:#1b5e20;">📄 説明シート印刷 / Тайлбар хэвлэх</button>
-    <button class="btn-navy" onclick="window.print()">🖨️ 印刷・Хэвлэх / PDF</button>
+    <button class="btn-navy" onclick="guardedPrint(printExplainSheet)" style="background:#1b5e20;">📄 説明シート印刷 / Тайлбар хэвлэх</button>
+    <button class="btn-navy" onclick="guardedPrint(function(){window.print();})">🖨️ 印刷・Хэвлэх / PDF</button>
     <button class="btn-navy" onclick="exportAppraisalData()" style="background:#00695c;">📋 結果をコピー / DMS-д хуулах</button>
     <button class="btn-red" onclick="doReset()">🔄 リセット / Дахин эхлүүлэх</button>
   </div>
@@ -5422,6 +5422,7 @@ function calcCustom() {
   mktWrap.style.display = "none";
 
   // Part3カード
+  hideMktWarn();
   rcWrap.style.display = "block";
   noResMsg.style.display = "none";
   document.getElementById("rcPrice").textContent = f(ti);
@@ -5609,8 +5610,44 @@ function onManualPrice() {
   calc();
 }
 
+// 市場データ用の注意表示を消す（手入力・手書きの金額に、前の車種の注意が残らないように）
+function hideMktWarn() {
+  window._priceCaution = null;
+  const w = document.getElementById("rcWarn");
+  if (w) { w.style.display = "none"; w.innerHTML = ""; }
+}
+
+// ── 印刷前の担当者確認 ──
+// 「⚠要確認」の金額を、気づかないまま印刷してお客様に渡すのを防ぐ。紙の内容は変えない。
+// ブラウザ標準のconfirm()は使わない（返答に時間がかかると、説明シートの別ウィンドウがブロックされるため）
+function guardedPrint(doPrint) {
+  const card = document.getElementById("resultCardWrap");
+  const list = window._priceCaution;
+  if (!list || !list.length || !card || card.style.display !== "block") { doPrint(); return; }
+  if (document.getElementById("printGuard")) return;
+  const el = (tag, css, text) => { const e = document.createElement(tag); e.style.cssText = css; if (text) e.textContent = text; return e; };
+  const back = el("div", "position:fixed;inset:0;z-index:99999;background:rgba(0,0,0,.6);display:flex;align-items:center;justify-content:center;padding:16px;");
+  back.id = "printGuard";
+  const box = el("div", "background:#fff;color:#1a1a1a;border-radius:10px;border:3px solid #e0a800;max-width:560px;width:100%;max-height:90vh;overflow:auto;padding:18px 20px;text-align:left;");
+  box.setAttribute("role", "alertdialog");
+  box.appendChild(el("div", "font-size:17px;font-weight:900;color:#C8102E;margin-bottom:8px;", "⚠️ 担当者確認：要確認の金額です / Шалгах шаардлагатай үнэ"));
+  box.appendChild(el("div", "font-size:22px;font-weight:900;margin-bottom:10px;", document.getElementById("rcPrice").textContent));
+  list.forEach(t => box.appendChild(el("div", "font-size:12px;line-height:1.6;background:#fff3cd;border-radius:6px;padding:8px 10px;margin-bottom:6px;", t)));
+  box.appendChild(el("div", "font-size:13px;font-weight:700;margin:10px 0 14px;", "他の相場を確認してから印刷してください。/ Бусад зах зээлийн үнийг шалгасны дараа хэвлэнэ үү."));
+  const row = el("div", "display:flex;gap:10px;justify-content:flex-end;flex-wrap:wrap;");
+  const cancel = el("button", "padding:10px 20px;border:none;border-radius:7px;background:#003087;color:#fff;font-size:14px;font-weight:700;cursor:pointer;", "戻る / Буцах");
+  const ok = el("button", "padding:10px 20px;border:1px solid #999;border-radius:7px;background:#f5f5f5;color:#333;font-size:14px;cursor:pointer;", "確認した・印刷する / Шалгасан, хэвлэх");
+  cancel.type = ok.type = "button";
+  cancel.onclick = () => back.remove();
+  ok.onclick = () => { back.remove(); doPrint(); };
+  row.appendChild(cancel); row.appendChild(ok); box.appendChild(row); back.appendChild(box);
+  document.body.appendChild(back);
+  cancel.focus();
+}
+
 // ── 手入力価格で第三部（査定価格）を直接計算 ──
 function applyManualPrice(manualAvg) {
+  hideMktWarn();
   const score = parseInt(document.getElementById("scoreNum").textContent)||80;
   const deviation = score - 80;
   const adjustRate = deviation * 0.005;
@@ -5830,6 +5867,14 @@ function updatePart2And3(maker, modelSlug, carYear, driveType, wheelSide, import
     if(nUsed <= 2) warns.push("⚠️ 算出の根拠が"+nUsed+"件のみです。1台の売り出し価格に左右されるため、参考値として扱ってください / Тооцооны үндэс "+nUsed+" зарлал л байна, лавлах утга болгон үз");
     else if(nUsed < 5) warns.push("ℹ️ 算出の根拠は"+nUsed+"件です（少数）。表の価格を確認してください / Тооцооны үндэс "+nUsed+" зарлал (цөөн)");
     if(activePrices.length === 0 && window._currentCars.length > 0) warns.push("⚠️ 全件が除外されています。除外を見直してください / Бүх зарлал хасагдсан");
+    // 件数が少ないうえに最高値と最安値が2倍以上離れていると、平均も自動除外の基準（中央値）も当てにならない。
+    // 候補が少ない場合は、除外した行も含めた全候補で判定する（どれが正しい価格か判断できないため）
+    const spreadOf = a => (a.length >= 2 && a.length < 5 && Math.max(...a) >= Math.min(...a) * 2) ? a : null;
+    const wide = spreadOf(window._currentCars.map(c=>c.price)) || spreadOf(activePrices);
+    if(wide){
+      const lo = Math.min(...wide), hi = Math.max(...wide);
+      warns.push("⚠️ 件数が少なく価格のばらつきが大きいです（"+wide.length+"件、"+lo.toFixed(1)+"〜"+hi.toFixed(1)+" сая ₮）。この金額は他の相場を確認してから提示してください / Зарлал цөөн, үнийн зөрүү их ("+wide.length+" зарлал, "+lo.toFixed(1)+"–"+hi.toFixed(1)+" сая ₮). Үнэ санал болгохын өмнө шалгана уу");
+    }
     let wEl = document.getElementById("rcWarn");
     if(!wEl){
       wEl = document.createElement("div");
@@ -5842,7 +5887,8 @@ function updatePart2And3(maker, modelSlug, carYear, driveType, wheelSide, import
     if(warns.length){ wEl.style.display = "block"; wEl.innerHTML = warns.join("<br>"); }
     else { wEl.style.display = "none"; wEl.innerHTML = ""; }
     // 金額表示にも注意を付ける（スクリーンショットや転記で警告だけ欠けるのを防ぐ）
-    const needMark = !!window._mktRelaxNote || nUsed <= 2;
+    const needMark = !!window._mktRelaxNote || nUsed <= 2 || !!wide;
+    window._priceCaution = needMark ? warns.slice() : null;  // 印刷前の担当者確認に使う
     document.getElementById("rcRange").textContent += needMark ? "  ⚠要確認" : "";
   }
   window.recalcPart3 = recalcPart3;

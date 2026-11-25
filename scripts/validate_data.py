@@ -19,6 +19,8 @@
   [W] 警告（公開はするが、ログと結果に残す）
     W1 中央値が前回から35%以上動いた車種   W2 同一車種・同年式で価格が大きく外れる広告
     W3 件数が前回の3倍以上                 W4 輸入年が生産年より前
+    W5 件数が少ない車種(2〜5件)で、最高値が最安値の3倍以上
+  W1は件数が少ない車種も対象（2026-11-26: 4件に減ったPajero V60が中央値20→50でも警告されなかったため）
 """
 import argparse
 import json
@@ -46,6 +48,7 @@ BRAND_ALIASES = {
 VALID_DRIVE = {"4WD", "2WD", "不明"}
 PRICE_MIN, PRICE_MAX = 1.0, 500.0
 YEAR_MIN, YEAR_MAX = 1990, 2027
+SMALL_N, SPREAD_RATIO = 5, 3.0  # W5: この件数以下で、最高値が最安値の何倍以上なら警告するか
 
 
 def norm(s):
@@ -149,13 +152,22 @@ def main():
             continue  # 前回データ自体が誤り（別車種の混入）だった場合は、件数の比較をしない
         if m >= 10 and n < m * 0.4:
             revert.setdefault(k, f"件数が前回{m}件→{n}件に激減")
-        elif m >= 5 and n >= 5:
+        elif n >= 1:
             med_n = statistics.median(x["price"] for x in v)
             med_p = statistics.median(x["price"] for x in pv)
             if med_p > 0 and abs(med_n - med_p) / med_p >= 0.35:
-                warns.append((k, f"中央値が前回{med_p:.1f}→{med_n:.1f}（{(med_n - med_p) / med_p * 100:+.0f}%）"))
+                few = f"／件数{m}→{n}" if min(m, n) < 5 else ""
+                warns.append((k, f"中央値が前回{med_p:.1f}→{med_n:.1f}（{(med_n - med_p) / med_p * 100:+.0f}%{few}）"))
         if m >= 5 and n >= m * 3:
             warns.append((k, f"件数が前回{m}件→{n}件に急増"))
+
+    # ── W5: 件数が少ない車種のばらつき ──
+    for k, v in data.items():
+        if 2 <= len(v) <= SMALL_N:
+            lo, hi = min(x["price"] for x in v), max(x["price"] for x in v)
+            if hi >= lo * SPREAD_RATIO:
+                prices = ", ".join(f"{x['year']}年式 {x['price']}" for x in sorted(v, key=lambda x: x["price"]))
+                warns.append((k, f"件数が少なく価格のばらつきが大きい（{len(v)}件: {prices}）"))
 
     # ── W2/W4 ──
     for k, v in data.items():
