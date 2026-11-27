@@ -26,6 +26,10 @@ log = logging.getLogger(__name__)
 
 BASE_URL = "https://www.unegui.mn"
 REQUEST_DELAY = 1.5
+# 一覧ページが0件と読まれた場合の扱い。過去ログ約2,360ページでは、読み込みが不完全なページは約20万文字(4回)、
+# 正常なページは掲載ありで32万文字以上・掲載なしで44万文字以上だった
+LIST_PAGE_MIN_CHARS = 300_000
+EMPTY_PAGE_RETRY_WAITS = (10, 20)  # 読み直しまでの待ち時間（秒）
 MAX_PAGES = 3
 USER_AGENT = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
               "(KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36")
@@ -762,6 +766,29 @@ def has_next(html, page):
             max_page = max(max_page, int(m.group(1)))
     return max_page > page
 
+def fetch_list_page(url):
+    """一覧ページを取得して解析する。戻り値は (html, items, status)。
+    status: "ok" / "failed"（ページを取得できない） / "incomplete"（読み込みが不完全）
+    0件と読まれた場合は時間を空けて読み直し、それでも0件でページが極端に小さければ incomplete にする。
+    2026-11-27: 同じURLを7秒おきに読んで2回目だけ不完全なページ(208,160文字)が返り、
+    「掲載0件」として成功扱いになってBMW 5シリーズG30の6件が消えた。
+    通常の大きさで掲載が無いページは、本当に0件として扱う（"ok"）"""
+    html = fetch(url)
+    if not html:
+        return None, [], "failed"
+    items = parse_page(html)
+    for n, wait in enumerate(EMPTY_PAGE_RETRY_WAITS, 1):
+        if items:
+            break
+        log.info(f"  0件と読まれたため{wait}秒後に読み直します({n}/{len(EMPTY_PAGE_RETRY_WAITS)}) 今回のページ: {len(html)}文字")
+        time.sleep(wait)
+        again = fetch(url)
+        if again:
+            html, items = again, parse_page(again)
+    if not items and len(html) < LIST_PAGE_MIN_CHARS:
+        return html, [], "incomplete"
+    return html, items, "ok"
+
 def scrape_one(target):
     global _last_target_blocked
     _last_target_blocked = False
@@ -771,13 +798,16 @@ def scrape_one(target):
     results, seen = [], set()
     for page in range(1, MAX_PAGES+1):
         url = build_url(path, page)
-        html = fetch(url)
-        if not html:
+        html, items, status = fetch_list_page(url)
+        if status != "ok":
+            # 「出品0件」ではなく取得失敗。2ページ目以降でも、取れた分だけで前回データを上書きしないよう
+            # この車種は何も返さない（呼び出し側が前回データを引き継ぎ、実行結果は失敗になる）
+            why = "取得できません" if status == "failed" else f"ページの読み込みが不完全です（{len(html)}文字）"
+            log.error(f"  ❌ [{key}] p{page}: {why}。この車種は取得失敗とします")
+            _FETCH_FAILED.append(key)
             if page == 1:
-                _FETCH_FAILED.append(key)  # 1ページ目すら取得できない＝「出品0件」ではなく取得失敗
-                _last_target_blocked = True
-            break
-        items = parse_page(html)
+                _last_target_blocked = True  # 連続した場合は遮断などの異常とみなして全体を中止する
+            return []
         log.info(f"  p{page}: {len(items)}件パース")
         if page == 1 and not items:
             n_expected = listing_count(html)
