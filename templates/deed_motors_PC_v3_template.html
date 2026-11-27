@@ -5779,6 +5779,7 @@ function updatePart2And3(maker, modelSlug, carYear, driveType, wheelSide, import
     return c.price < med * 0.5 || c.price > med * 2.0;
   }
   const allPrices = cars.map(c=>c.price);
+  const autoOut = [], autoKept = [];  // 自動判定で除外した価格／残した価格（手動のチェック変更は含めない）
 
   // ユーザーが手動でチェックを変更した行は、スコア入力など無関係な操作で
   // テーブルが再描画されても選択状態を保持する（セッション中はキー単位で記憶）
@@ -5796,6 +5797,7 @@ function updatePart2And3(maker, modelSlug, carYear, driveType, wheelSide, import
       ? "<span style='color:#C8102E;font-size:10px;font-weight:700;margin-left:4px;'>⚠️要確認</span>"
       : "";
     tr.className = (ym ? "yr-match " : "") + (anomaly || suspectLowKm ? "anomaly-row" : "");
+    (anomaly || suspectLowKm ? autoOut : autoKept).push(c.price);
     const recKey = key+"::"+c.year+"_"+c.import_year+"_"+c.price+"_"+c.mileage+"_"+(c.wheel||"")+"_"+c.drive;
     const hasOverride = Object.prototype.hasOwnProperty.call(window._mktExcludeOverrides, recKey);
     const isExcluded = hasOverride ? window._mktExcludeOverrides[recKey] : (anomaly||suspectLowKm);
@@ -5875,6 +5877,13 @@ function updatePart2And3(maker, modelSlug, carYear, driveType, wheelSide, import
       const lo = Math.min(...wide), hi = Math.max(...wide);
       warns.push("⚠️ 件数が少なく価格のばらつきが大きいです（"+wide.length+"件、"+lo.toFixed(1)+"〜"+hi.toFixed(1)+" сая ₮）。この金額は他の相場を確認してから提示してください / Зарлал цөөн, үнийн зөрүү их ("+wide.length+" зарлал, "+lo.toFixed(1)+"–"+hi.toFixed(1)+" сая ₮). Үнэ санал болгохын өмнө шалгана уу");
     }
+    // 候補の多くが自動除外される場合は、価格帯が分かれていて「多い方」を残しただけの可能性がある
+    // （2026-11-28: BMW X5 G05は約100と約260に分かれ、生産年が1年違うだけで査定額が98→260になったのに⚠が付かなかった）
+    const split = autoOut.length >= 2 && autoOut.length * 10 >= window._currentCars.length * 3;
+    if(split){
+      const show = a => !a.length ? "なし" : a.length <= 4 ? a.slice().sort((x,y)=>x-y).map(p=>p.toFixed(1)).join("、") : Math.min(...a).toFixed(1)+"〜"+Math.max(...a).toFixed(1);
+      warns.push("⚠️ 価格が大きく分かれています（候補"+window._currentCars.length+"件のうち"+autoOut.length+"件を自動除外。除外: "+show(autoOut)+" ／ 残り: "+show(autoKept)+" сая ₮）。どちらの価格が査定車に合うか確認してから提示してください / Үнэ эрс зөрүүтэй байна ("+window._currentCars.length+" зарлалаас "+autoOut.length+"-г автоматаар хассан). Аль үнэ нь энэ машинд тохирохыг шалгасны дараа санал болгоно уу");
+    }
     let wEl = document.getElementById("rcWarn");
     if(!wEl){
       wEl = document.createElement("div");
@@ -5887,7 +5896,7 @@ function updatePart2And3(maker, modelSlug, carYear, driveType, wheelSide, import
     if(warns.length){ wEl.style.display = "block"; wEl.innerHTML = warns.join("<br>"); }
     else { wEl.style.display = "none"; wEl.innerHTML = ""; }
     // 金額表示にも注意を付ける（スクリーンショットや転記で警告だけ欠けるのを防ぐ）
-    const needMark = !!window._mktRelaxNote || nUsed <= 2 || !!wide;
+    const needMark = !!window._mktRelaxNote || nUsed <= 2 || !!wide || split;
     window._priceCaution = needMark ? warns.slice() : null;  // 印刷前の担当者確認に使う
     document.getElementById("rcRange").textContent += needMark ? "  ⚠要確認" : "";
   }
